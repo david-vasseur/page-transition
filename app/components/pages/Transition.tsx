@@ -47,7 +47,7 @@ function Transition() {
                     {[...Array(6)].map((_, i) => (
                         <div 
                             key={i} 
-                            className="panel-top bg-size-[100%_auto] bg-bottom bg-no-repeat" 
+                            className="panel-top bg-size-[100%_100%] bg-bottom bg-no-repeat" 
                             style={{
                                 backgroundImage: `url(/assets/gvs-transition-${i + 1}.jpg)`,
                             }}
@@ -58,7 +58,7 @@ function Transition() {
                     {[...Array(6)].map((_, i) => (
                         <div 
                             key={i} 
-                            className="panel-bottom bg-size-[100%_auto] bg-top bg-no-repeat"
+                            className="panel-bottom bg-size-[100%_100%] bg-top bg-no-repeat"
                             style={{
                                 backgroundImage: `url(/assets/gvs-transition-${i + 7}.jpg)`,
                             }}
