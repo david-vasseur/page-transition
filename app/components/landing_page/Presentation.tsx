@@ -201,8 +201,6 @@ useGSAP(() => {
                                 className="text-lg lg:text-xl text-gray-300 leading-relaxed"
                             >
                                 Je suis spécialisé dans le contrôle et la prévention des rongeurs. J&apos;utilise des technologies de pointe et des protocoles d&apos;intervention précis pour identifier l&apos;origine du problème et mettre en place un plan d&apos;action efficace et ciblé, du diagnostic initial à l&apos;éradication complète.
-                                <br/>
-                                Chaque intervention est une mission que je mène avec la plus grande rigueur, en m&apos;assurant que les résultats sont non seulement immédiats, mais aussi durables. Ma priorité est de protéger votre santé et vos biens en éliminant les menaces de manière définitive. Pour une tranquillité d&apos;esprit totale, je propose un service de suivi personnalisé, incluant des visites de contrôle post-intervention afin de vérifier l&apos;efficacité du traitement et de s&apos;assurer qu&apos;aucune nouvelle infestation ne se déclare.
                             </p>
                             <p 
                                 ref={text2Ref} 

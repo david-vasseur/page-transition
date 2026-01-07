@@ -12,6 +12,7 @@ export default function TransitionLink({
     href,
     children,
     className,
+    onClick,
     ...props
 }: TransitionLinkProps) {
     const router = useRouter();
@@ -53,8 +54,10 @@ export default function TransitionLink({
         router.push(href);
     };
 
-    const handleClickMobile = async (e: React.MouseEvent) => {
+    const handleClickMobile = async (e: React.MouseEvent<HTMLAnchorElement>) => {
         e.preventDefault();
+
+        onClick?.(e);
 
         if (href === pathname) return;
 
@@ -83,7 +86,7 @@ export default function TransitionLink({
             <a href={href} onClick={handleClick} {...props} className={`hidden lg:block ${className ?? ""} font-semibold`}>
                 {children}
             </a>
-            <a tabIndex={0} role="link" onClick={handleClickMobile} {...props} className={`lg:hidden ${className ?? ""} font-semibold`}>
+            <a href={href} tabIndex={0} role="link" onClick={handleClickMobile} {...props} className={`lg:hidden ${className ?? ""} font-semibold`}>
                 {children}
             </a>
         </>

@@ -134,7 +134,7 @@ const Navbar = () => {
 							className="lg:hidden text-white p-2"
 							whileTap={{ scale: 0.9 }}
 						>
-							{isMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+							{isMenuOpen ? <X className="w-8 h-8" /> : <Menu className="w-8 h-8" />}
 						</motion.button>
 					</div>
 
@@ -142,13 +142,13 @@ const Navbar = () => {
 					<AnimatePresence mode='wait'>
 					{isMenuOpen && (
 						<motion.div 
-							className="lg:hidden absolute top-full left-0 w-full bg-black/95 backdrop-blur-sm border-t border-gray-800"
-							initial={{ opacity: 0, height: 0 }}
-							animate={{ opacity: 1, height: "auto" }}
-							exit={{ opacity: 0, height: 0 }}
-							transition={{ duration: 0.3 }}
+							className="lg:hidden absolute top-full left-0 w-full h-svh bg-black border-t border-gray-800"
+							initial={{ opacity: 0, scaleY: 0, transformOrigin: "top" }}
+							animate={{ opacity: 1, scaleY: 1 }}
+							exit={{ opacity: 0, scaleY: 0 }}
+							transition={{ duration: 0.3, ease: "easeInOut" }}
 						>
-							<nav className="flex flex-col p-6 space-y-4">
+							<nav className="flex flex-col h-svh p-6 space-y-4">
 								{navItems.map((item, index) => (
 								item.label !== "Services" ?
 								<TransitionLink
@@ -194,7 +194,7 @@ const Navbar = () => {
 													<TransitionLink
 														key={i.path}
 														href={i.path}
-														className="block text-white ml-4 hover:text-orange-500 transition-colors font-medium py-2"
+														className="block text-white ml-4 hover:text-orange-500 transition-colors py-2"
 													>
 														{i.label}
 													</TransitionLink>

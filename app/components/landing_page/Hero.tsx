@@ -44,7 +44,7 @@ const Hero = () => {
         });
       }
     },
-    { scope: root, dependencies: [isMobile] }
+    
   );
 
     return (
