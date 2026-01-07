@@ -1,0 +1,9 @@
+services:
+  web:
+    build: .
+    container_name: nextjs-app
+    restart: unless-stopped
+    environment:
+      NODE_ENV: production
+    ports:
+      - "127.0.0.1:4000:4000"
