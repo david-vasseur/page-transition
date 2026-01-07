@@ -20,7 +20,7 @@ function Transition() {
 
         gsap.set(".panel-mobile", {
             scaleX: 0,
-            transformOrigin: "left",
+            transformOrigin: "right",
         });
 
         gsap.fromTo(".panel-top", 
@@ -34,7 +34,7 @@ function Transition() {
         )
 
         gsap.fromTo(".panel-mobile", 
-            { scaleX: 1, transformOrigin: "right" },
+            { scaleX: 1 },
             { scaleX: 0, duration: 0.8,  stagger: { each: 0.1, from: "start", grid: [1, 6], axis: "x" }, ease: "expo.inOut" }
         )
 

@@ -3,13 +3,17 @@
 import { usePathname, useRouter } from "next/navigation";
 import gsap from "gsap";
 
+type TransitionLinkProps =
+    React.AnchorHTMLAttributes<HTMLAnchorElement> & {
+        href: string;
+    };
+
 export default function TransitionLink({
     href,
     children,
-}: {
-    href: string;
-    children: React.ReactNode;
-}) {
+    className,
+    ...props
+}: TransitionLinkProps) {
     const router = useRouter();
     const pathname = usePathname();    
 
@@ -76,10 +80,10 @@ export default function TransitionLink({
 
     return (
         <>
-            <a href={href} onClick={handleClick} className="hidden lg:block font-semibold">
+            <a href={href} onClick={handleClick} {...props} className={`hidden lg:block ${className ?? ""} font-semibold`}>
                 {children}
             </a>
-            <a href={href} onClick={handleClickMobile} className="lg:hidden font-semibold">
+            <a tabIndex={0} role="link" onClick={handleClickMobile} {...props} className={`lg:hidden ${className ?? ""} font-semibold`}>
                 {children}
             </a>
         </>
