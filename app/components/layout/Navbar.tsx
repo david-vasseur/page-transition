@@ -151,17 +151,14 @@ const Navbar = () => {
 							<nav className="flex flex-col p-6 space-y-4">
 								{navItems.map((item, index) => (
 								item.label !== "Services" ?
-								<motion.a
+								<TransitionLink
 									key={index}
 									href={item.path}
 									className="text-white hover:text-orange-500 transition-colors font-medium"
-									initial={{ opacity: 0, x: -20 }}
-									animate={{ opacity: 1, x: 0 }}
-									transition={{ delay: index * 0.1, duration: 0.3 }}
 									onClick={() => setIsMenuOpen(!isMenuOpen)}
 								>
 									{item.label}
-								</motion.a>
+								</TransitionLink>
 								: 
 								<div key={index}>
 									<motion.button
@@ -194,18 +191,13 @@ const Navbar = () => {
 													}}
 												>
 													{serviceItems.map((i, idx) => (
-													<motion.a
+													<TransitionLink
 														key={i.path}
 														href={i.path}
 														className="block text-white ml-4 hover:text-orange-500 transition-colors font-medium py-2"
-														variants={{
-														show: { opacity: 1, x: 0 },
-														hidden: { opacity: 0, x: -20 }
-														}}
-														transition={{ delay: idx * 0.1, duration: 0.3 }}
 													>
 														{i.label}
-													</motion.a>
+													</TransitionLink>
 													))}
 												</motion.div>
 											</motion.div>
