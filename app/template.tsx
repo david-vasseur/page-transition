@@ -1,12 +1,12 @@
 "use client"
 
 import React, { useEffect } from 'react'
-import Transition from './components/pages/Transition'
-import { useMobileStore } from './lib/stores/mobileStore';
+import Transition from '../components/layout/Transition'
+import { useMobileStore } from '../lib/stores/mobileStore';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { SplitText } from 'gsap/SplitText';
 import gsap from 'gsap';
-import Footer from './components/layout/Footer';
+import Footer from '../components/layout/Footer';
 
 gsap.registerPlugin(ScrollTrigger, SplitText);
 

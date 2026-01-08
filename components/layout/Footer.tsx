@@ -5,7 +5,7 @@ import { Phone, Mail, MapPin, Clock, Shield } from 'lucide-react';
 import { EstimateForm } from '../form/EstimateForm';
 import Logo from '../ui/Logo';
 import Social from '../ui/Social';
-import { navItems, serviceItems } from '@/app/data/navItems';
+import { navItems, serviceItems } from '@/data/navItems';
 
 const Footer = () => {
 

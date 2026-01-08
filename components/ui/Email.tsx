@@ -1,4 +1,4 @@
-import IEstimate from "@/app/type/estimate"
+import IEstimate from "@/type/estimate"
 
 
 

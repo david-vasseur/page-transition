@@ -4,8 +4,8 @@ import { motion } from 'framer-motion';
 import { useForm } from "@tanstack/react-form"
 import { Send } from "lucide-react";
 import { sendEmail } from "./EstimateForm.action";
-import { useModalStore } from "@/app/lib/stores/modalStore";
-import { EstimateSchema, IEstimate } from '@/app/schema/estimateSchema';
+import { useModalStore } from "@/lib/stores/modalStore";
+import { EstimateSchema, IEstimate } from '@/schema/estimateSchema';
 
 export const EstimateForm = () => {
 

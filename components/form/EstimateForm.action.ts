@@ -1,7 +1,7 @@
 "use server";
 
 import { Resend } from "resend";
-import IEstimate from "@/app/type/estimate";
+import IEstimate from "@/type/estimate";
 import MyEmail from "../ui/Email";
 
 const resend = new Resend(process.env.RESEND_API_KEY!);

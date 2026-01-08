@@ -2,7 +2,7 @@
 
 import { X } from "lucide-react";
 import ModalPortal from "./ModalPortal";
-import { useModalStore } from "@/app/lib/stores/modalStore";
+import { useModalStore } from "@/lib/stores/modalStore";
 
 
 export default function Modal() {

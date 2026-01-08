@@ -4,8 +4,8 @@ import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X, Phone } from 'lucide-react';
 import TransitionLink from '../ui/transitionLink';
-import { serviceItems } from '@/app/data/navItems';
-import { useModalStore } from '@/app/lib/stores/modalStore';
+import { serviceItems } from '@/data/navItems';
+import { useModalStore } from '@/lib/stores/modalStore';
 import Logo from '../ui/Logo';
 
 const Navbar = () => {
@@ -18,7 +18,7 @@ const Navbar = () => {
 	const navItems = [
 		{ label: 'Accueil', path: '/' },
 		{ label: 'Services', path: '/services' },
-		{ label: 'Pourquoi nous', path: '/why-us' },
+		{ label: 'Pourquoi nous', path: '/pourquoi-nous' },
 		{ label: 'FAQ', path: '/FAQ' },
 		{ label: 'Contact', path: '/#contact' },
 	];

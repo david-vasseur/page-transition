@@ -4,8 +4,8 @@ import { useRef } from "react";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { ArrowRight, Zap, CheckCircle } from "lucide-react";
-import { useModalStore } from "@/app/lib/stores/modalStore";
-import { useMobileStore } from "@/app/lib/stores/mobileStore";
+import { useModalStore } from "@/lib/stores/modalStore";
+import { useMobileStore } from "@/lib/stores/mobileStore";
 
 gsap.registerPlugin(useGSAP);
 

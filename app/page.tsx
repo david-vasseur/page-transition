@@ -1,6 +1,6 @@
-import Hero from "./components/landing_page/Hero";
-import Presentation from "./components/landing_page/Presentation";
-import IReview from "./type/review";
+import Hero from "../components/landing_page/Hero";
+import Presentation from "../components/landing_page/Presentation";
+import IReview from "../type/review";
 
 
 interface PlaceDetailsResponse {
