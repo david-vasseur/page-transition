@@ -16,7 +16,7 @@ function DropAnswer({ question, answer }: { question: string, answer: string }) 
 
     return (
         <div className="my-3 w-[90vw] lg:w-2/5 mx-auto">
-            <div className="bg-gradient-to-br from-gray-700/50 to-black backdrop-blur-3xl rounded-xl shadow-amber-900 shadow-sm p-5 hover:shadow-xl transition-shadow duration-300">
+            <div className="bg-linear-to-br from-gray-700/50 to-black backdrop-blur-3xl rounded-xl shadow-amber-900 shadow-sm p-5 hover:shadow-xl transition-shadow duration-300">
                 {/* Question */}
                 <button
                     onClick={() => setIsDrop(!isDrop)}

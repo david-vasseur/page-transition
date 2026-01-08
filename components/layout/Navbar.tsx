@@ -20,7 +20,7 @@ const Navbar = () => {
 		{ label: 'Services', path: '/services' },
 		{ label: 'Pourquoi nous', path: '/pourquoi-nous' },
 		{ label: 'FAQ', path: '/FAQ' },
-		{ label: 'Contact', path: '/#contact' },
+		{ label: 'Contact', path: '/contact' },
 	];
 
 	// Détecte le scroll pour changer l’apparence du header
