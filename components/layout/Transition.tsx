@@ -72,7 +72,7 @@ function Transition() {
                         key={i} 
                         className="panel-mobile w-full"
                         style={{
-                            height: `${100 / 6}vh`,
+                            height: `${100 / 6}svh`,
                             backgroundImage: `url(/assets/gvs-transition-mobile-${i + 1}.jpg)`,
                             backgroundSize: "100% 100%", 
                             backgroundPosition: "center",
