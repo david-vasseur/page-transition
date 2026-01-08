@@ -17,35 +17,35 @@ const Hero = () => {
     const arrowRef = useRef<HTMLDivElement>(null);
     const scrollIndicator = useRef<HTMLDivElement>(null);
 
-  useGSAP(() => {
-      const tl = gsap.timeline({ defaults: { ease: "power3.out" } });
+    useGSAP(() => {
+        const tl = gsap.timeline({ defaults: { ease: "power3.out" } });
 
-      tl.from(".hero-badge", { y: 20, opacity: 0, duration: 0.6 })
-        .from(".hero-title span", { y: 30, opacity: 0, stagger: 0.2 }, "-=0.3")
-        .from(".hero-desc", { y: 20, opacity: 0 }, "-=0.2")
-        .from(".hero-features", { opacity: 0 }, "-=0.2")
-        .from(".hero-actions", { y: 30, opacity: 0 }, "-=0.2");
+        tl.from(".hero-badge", { y: 20, opacity: 0, duration: 0.6 })
+            .from(".hero-title span", { y: 30, opacity: 0, stagger: 0.2 }, "-=0.3")
+            .from(".hero-desc", { y: 20, opacity: 0 }, "-=0.2")
+            .from(".hero-features", { opacity: 0 }, "-=0.2")
+            .from(".hero-actions", { y: 30, opacity: 0 }, "-=0.2");
 
-      if (!isMobile) {
-        gsap.to(arrowRef.current, {
-          x: 5,
-          repeat: -1,
-          yoyo: true,
-          duration: 0.8,
-          ease: "power1.inOut",
-        });
+        if (!isMobile) {
+            gsap.to(arrowRef.current, {
+            x: 5,
+            repeat: -1,
+            yoyo: true,
+            duration: 0.8,
+            ease: "power1.inOut",
+            });
 
-        gsap.to(scrollIndicator.current, {
-          y: 10,
-          repeat: -1,
-          yoyo: true,
-          duration: 1.5,
-          ease: "power1.inOut",
-        });
-      }
-    },
-    
-  );
+            gsap.to(scrollIndicator.current, {
+            y: 10,
+            repeat: -1,
+            yoyo: true,
+            duration: 1.5,
+            ease: "power1.inOut",
+            });
+        }
+        },
+        
+    );
 
     return (
         <section
