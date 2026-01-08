@@ -53,7 +53,7 @@ async function page() {
     const faqJsonLd = JSON.stringify(generateFAQJsonLd(faq))
 
     return (
-        <section className="min-h-svh flex flex-col items-center justify-center">
+        <section className="min-h-svh flex flex-col items-center justify-center mb-40">
             <h1 className="mt-40 pb-20 text-center text-5xl lg:text-6xl font-black text-orange-600 mb-8">
                 Foire aux questions
             </h1>

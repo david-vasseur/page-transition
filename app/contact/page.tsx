@@ -120,7 +120,7 @@ const Contact = () => {
                                     <div>
                                         <h4 className="font-bold mb-1">Email</h4>
                                         <a href="mailto:contact@deratisation.fr" className="text-gray-400 hover:text-orange-500 transition-colors">
-                                            contact@deratisation.fr
+                                            g.v.s.3dpro@gmail.com
                                         </a>
                                     </div>
                                 </div>
@@ -134,7 +134,7 @@ const Contact = () => {
                                     <div>
                                         <h4 className="font-bold mb-1">Zone d'intervention</h4>
                                         <p className="text-gray-400">
-                                            Narbonne et sa région<br />
+                                            Remoulins et sa région<br />
                                             Rayon de 50km
                                         </p>
                                     </div>
