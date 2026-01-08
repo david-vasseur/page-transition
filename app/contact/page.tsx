@@ -54,7 +54,7 @@ const Contact = () => {
 
             <div className="container mx-auto px-6 py-20 relative z-10">
                 {/* Header Section */}
-                <div className="text-center mb-16">
+                <div className="min-h-screen flex flex-col justify-center items-center text-center mb-16">
                     <div className="contact-badge inline-flex items-center bg-orange-600/20 border border-orange-600/30 rounded-full px-6 py-3 mb-6">
                         <Zap className="w-5 h-5 mr-2 text-orange-500" />
                         <span className="text-orange-500 font-bold">Réponse en moins de 2h</span>
