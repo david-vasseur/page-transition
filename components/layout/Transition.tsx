@@ -70,12 +70,9 @@ function Transition() {
                 {[...Array(6)].map((_, i) => (
                     <div 
                         key={i} 
-                        className="panel-mobile w-full"
+                        className="panel-mobile bg-size-[100%_100%] bg-center bg-no-repeat"
                         style={{
-                            height: `${100 / 6}svh`,
-                            backgroundImage: `url(/assets/gvs-transition-mobile-${i + 1}.jpg)`,
-                            backgroundSize: "100% 100%", 
-                            backgroundPosition: "center",
+                            backgroundImage: `url(/assets/gvs-transition-mobile-${i + 1}.jpg)`
                         }}
                     />
                 ))}
