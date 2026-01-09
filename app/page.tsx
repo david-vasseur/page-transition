@@ -2,6 +2,7 @@ import Services from "@/components/landing_page/Servcies";
 import Hero from "../components/landing_page/Hero";
 import Presentation from "../components/landing_page/Presentation";
 import IReview from "../type/review";
+import InterventionZone from "@/components/landing_page/MapSection";
 
 
 interface PlaceDetailsResponse {
@@ -86,6 +87,7 @@ export default async function Home() {
 			<Hero />
 			<Presentation />
 			<Services />
+			<InterventionZone />
 			<script
 				type="application/ld+json"
 				dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationJsonLd) }}
