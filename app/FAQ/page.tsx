@@ -61,7 +61,7 @@ async function page() {
             <div className="absolute bottom-0 left-0 w-1/2 h-1/2 bg-orange-400/5 rounded-full blur-3xl" />
 
             {/* Header Section */}
-            <div className="min-h-screen flex flex-col justify-center items-center text-center mb-16">
+            <div className="min-h-screen relative z-10 flex flex-col justify-center items-center text-center mb-16">
                 <div className="contact-badge inline-flex items-center bg-orange-600/20 border border-orange-600/30 rounded-full px-6 py-3 mb-6">
                     <Zap className="w-5 h-5 mr-2 text-orange-500" />
                     <span className="text-orange-500 font-bold">Toutes les réponses au même endroit</span>
