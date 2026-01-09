@@ -54,7 +54,7 @@ async function page() {
     const faqJsonLd = JSON.stringify(generateFAQJsonLd(faq))
 
     return (
-        <section className="min-h-svh relative flex flex-col items-center justify-center mb-40">
+        <section className="min-h-svh relative flex flex-col items-center justify-center pb-40">
             {/* Animated background gradient */}
             <div className="absolute inset-0 bg-linear-to-br from-orange-900/20 via-black to-black z-0" />
             <div className="absolute top-0 right-0 w-1/2 h-1/2 bg-orange-600/10 rounded-full blur-3xl" />
