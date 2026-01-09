@@ -79,13 +79,6 @@ async function page() {
                     Retrouvez ici les réponses aux questions les plus fréquentes concernant nos services, nos interventions et nos tarifs.
                 </p>
             </div>
-
-            {/* <h1 className="mt-40 pb-20 text-center text-5xl lg:text-6xl font-black text-orange-600 mb-8">
-                Foire aux questions
-            </h1>
-            <h2 className="text-center text-xl lg:text-2xl font-semibold text-gray-100 pb-12 mb-20 border-b border-orange-600">
-                Vous trouverez ici la mojorité des réponses aux questions les plus fréquentes
-            </h2> */}
             {faq.map((f) => (
                 <DropAnswer key={f.id} question={f.question} answer={f.answer} />
             ))}

@@ -78,7 +78,7 @@ const Navbar = () => {
 										{isServiceOpen && (
 											<motion.div 
 												key="dropdown"
-												className="absolute top-[2rem] bg-linear-to-b from-transparent to-gray-100/10 backdrop-blur-sm flex flex-col gap-4 items-start pr-2 py-2 rounded-b-md z-20"
+												className="absolute top-[2rem] bg-linear-to-b from-transparent to-gray-100/10 backdrop-blur-sm flex flex-col gap-4 items-start px-2 py-2 rounded-b-md z-20"
 												initial={{ opacity: 0, x: -20 }}
 												animate={{ opacity: 1, x: 0 }}
 												exit={{ opacity: 0, x: -20 }}
