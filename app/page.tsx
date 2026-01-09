@@ -1,3 +1,4 @@
+import Services from "@/components/landing_page/Servcies";
 import Hero from "../components/landing_page/Hero";
 import Presentation from "../components/landing_page/Presentation";
 import IReview from "../type/review";
@@ -84,6 +85,7 @@ export default async function Home() {
 		<div className="min-h-screen">
 			<Hero />
 			<Presentation />
+			<Services />
 			<script
 				type="application/ld+json"
 				dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationJsonLd) }}
