@@ -4,6 +4,7 @@ import { useRef, useState } from "react";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { MapPin, Navigation, Clock, CheckCircle, Phone, Zap, Award, Users } from "lucide-react";
+import Image from "next/image";
 
 gsap.registerPlugin(useGSAP);
 
@@ -14,15 +15,15 @@ const InterventionZone = () => {
     const [hoveredCity, setHoveredCity] = useState(null);
 
     const cities = [
-        { name: "Narbonne", x: 50, y: 50, isMain: true },
-        { name: "Béziers", x: 30, y: 45 },
-        { name: "Carcassonne", x: 20, y: 35 },
-        { name: "Perpignan", x: 45, y: 75 },
-        { name: "Montpellier", x: 70, y: 30 },
-        { name: "Nîmes", x: 85, y: 25 },
-        { name: "Sète", x: 65, y: 42 },
-        { name: "Agde", x: 55, y: 55 },
-    ];
+    { name: "Rémoulins", x: 45, y: 45, isMain: true },
+    { name: "Avignon", x: 60, y: 40 },
+    { name: "Nîmes", x: 15, y: 55 },
+    { name: "Uzès", x: 20, y: 30 },
+    { name: "Beaucaire", x: 40, y: 55 },
+    { name: "Arles", x: 40, y: 70 },
+    { name: "Alès", x: 0, y: 10 },
+    { name: "Bagnols-sur-Cèze", x: 40, y: 10 },
+];
 
     const stats = [
         { icon: MapPin, value: "50km", label: "Rayon d'action" },
@@ -98,12 +99,12 @@ const InterventionZone = () => {
                         <span className="text-orange-500 font-bold">Couverture Régionale</span>
                     </div>
                     
-                    <h1 className="zone-title text-5xl md:text-7xl font-black mb-6">
+                    <h2 className="zone-title text-5xl md:text-7xl font-black mb-6">
                         <span className="block">ZONE</span>
                         <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-600 to-red-600">
                             D'INTERVENTION
                         </span>
-                    </h1>
+                    </h2>
                     <p className="zone-subtitle text-xl text-gray-300 max-w-3xl mx-auto">
                         Service professionnel dans un rayon de 50km autour de Narbonne. 
                         Intervention rapide garantie.
@@ -115,11 +116,12 @@ const InterventionZone = () => {
                     <div className="map-container relative">
                         <div 
                             ref={mapRef}
-                            className="relative bg-gradient-to-br from-zinc-900 to-black border-2 border-zinc-800 rounded-3xl p-8 overflow-hidden aspect-square"
+                            className="relative bg-gradient-to-br from-zinc-900 to-black border-2 border-zinc-800 rounded-3xl p-8 overflow-hidden aspect-square z-2"
                             style={{
                                 clipPath: 'polygon(30px 0, 100% 0, 100% calc(100% - 30px), calc(100% - 30px) 100%, 0 100%, 0 30px)'
                             }}
                         >
+                            <Image fill src={'/map.png'} alt="zone d'intervention" className="inset-0 " />
                             {/* Map background pattern */}
                             <div className="absolute inset-0 opacity-5">
                                 <div className="absolute inset-0"
@@ -131,15 +133,15 @@ const InterventionZone = () => {
                             </div>
 
                             {/* Coverage circles */}
-                            <div className="absolute inset-0 flex items-center justify-center">
+                            {/* <div className="absolute inset-0 flex items-center justify-center z-10">
                                 <div className="coverage-circle absolute w-32 h-32 border-2 border-orange-600/30 rounded-full" />
                                 <div className="coverage-circle absolute w-48 h-48 border-2 border-orange-600/20 rounded-full" />
                                 <div className="coverage-circle absolute w-64 h-64 border-2 border-orange-600/10 rounded-full" />
                                 <div className="coverage-circle absolute w-80 h-80 border border-orange-600/5 rounded-full" />
-                            </div>
+                            </div> */}
 
                             {/* Pulsing center */}
-                            <div className="absolute inset-0 flex items-center justify-center">
+                            <div className="absolute left-[45%] top-[45%] flex items-center justify-center">
                                 <div 
                                     ref={pulseRef}
                                     className="absolute w-20 h-20 bg-orange-600/30 rounded-full"
@@ -207,7 +209,7 @@ const InterventionZone = () => {
                         </div>
 
                         {/* Floating badge */}
-                        <div className="absolute -bottom-4 -right-4 bg-gradient-to-br from-orange-600 to-red-600 text-white font-black px-6 py-4 rounded-2xl shadow-2xl">
+                        <div className="absolute z-15 -bottom-4 -right-4 bg-gradient-to-br from-orange-600 to-red-600 text-white font-black px-6 py-4 rounded-2xl shadow-2xl">
                             <div className="text-3xl">24/7</div>
                             <div className="text-xs opacity-90">Disponible</div>
                         </div>
