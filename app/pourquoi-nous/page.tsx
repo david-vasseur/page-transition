@@ -123,7 +123,7 @@ export default function PourquoiNous() {
       </section>
 
       {/* STORY 2 */}
-      <section className="story-panel relative min-h-screen flex items-center px-6">
+      <section className="story-panel relative min-h-screen bg-gray-800 flex items-center px-6">
         <div className="max-w-4xl mx-auto space-y-8">
           <div className="story-item flex items-center text-orange-500">
             <Target className="w-10 h-10 mr-4" />
@@ -154,7 +154,7 @@ export default function PourquoiNous() {
       </section>
 
       {/* STORY 3 */}
-      <section className="story-panel relative min-h-screen flex items-center px-6">
+      <section className="story-panel relative bg-gray-900 min-h-screen flex items-center px-6">
         <div className="max-w-4xl mx-auto space-y-8">
           <div className="story-item flex items-center text-orange-500">
             <Shield className="w-10 h-10 mr-4" />

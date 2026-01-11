@@ -6,7 +6,7 @@ import { useGSAP } from "@gsap/react";
 import { Phone, Mail, MapPin, Clock, Zap, Shield, CheckCircle, AlertCircle, Facebook, Youtube, AlertTriangle } from "lucide-react";
 import { useModalStore } from "@/lib/stores/modalStore";
 import { EstimateForm } from "@/components/form/EstimateForm";
-import { FaTiktok } from "react-icons/fa6";
+import { FaInstagram, FaTiktok } from "react-icons/fa6";
 
 gsap.registerPlugin(useGSAP);
 
@@ -217,10 +217,10 @@ const Contact = () => {
                                     className="social-item flex items-center bg-black/50 border-2 border-zinc-700 hover:border-orange-500 rounded-xl p-4 transition-all group"
                                 >
                                     <div className="bg-orange-600/20 p-3 rounded-xl mr-4 group-hover:bg-orange-600/30 transition-colors">
-                                        <Youtube className="w-6 h-6 text-orange-500" />
+                                        <FaInstagram className="w-6 h-6 text-orange-500" />
                                     </div>
                                     <div className="flex-1">
-                                        <h4 className="font-bold text-white group-hover:text-orange-500 transition-colors">YouTube</h4>
+                                        <h4 className="font-bold text-white group-hover:text-orange-500 transition-colors">Instagram</h4>
                                         <p className="text-sm text-gray-400">Nos interventions filmées</p>
                                     </div>
                                     <div className="text-orange-500 opacity-0 group-hover:opacity-100 transition-opacity">
