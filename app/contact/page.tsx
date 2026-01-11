@@ -3,9 +3,10 @@
 import { useRef } from "react";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
-import { Phone, Mail, MapPin, Clock, Zap, Shield, CheckCircle, AlertCircle, Facebook, Youtube } from "lucide-react";
+import { Phone, Mail, MapPin, Clock, Zap, Shield, CheckCircle, AlertCircle, Facebook, Youtube, AlertTriangle } from "lucide-react";
 import { useModalStore } from "@/lib/stores/modalStore";
 import { EstimateForm } from "@/components/form/EstimateForm";
+import { FaTiktok } from "react-icons/fa6";
 
 gsap.registerPlugin(useGSAP);
 
@@ -22,7 +23,7 @@ const Contact = () => {
             .from(".contact-subtitle", { y: 20, opacity: 0 }, "-=0.2")
             .from(".contact-cta", { scale: 0.9, opacity: 0, duration: 0.5 }, "-=0.1")
             .from(".contact-card", { y: 30, opacity: 0, stagger: 0.1 }, "-=0.3")
-            .from(".social-item", { x: -20, opacity: 0, stagger: 0.1 }, "-=0.2");
+            //* .from(".social-item", { x: -20, opacity: 0, stagger: 0.1 }, "-=0.2"); *//
 
         // Animation pulsation pour le CTA d'urgence
         gsap.to(emergencyRef.current, {
@@ -80,10 +81,11 @@ const Contact = () => {
                             ref={emergencyRef}
                             className="contact-cta bg-linear-to-br from-orange-600 to-orange-700 rounded-3xl p-8 shadow-2xl cursor-pointer"
                         >
-                            <div className="flex items-start mb-4">
-                                <AlertCircle className="w-12 h-12 text-white" />
+                            <div className="flex items-center justify-center gap-5 mb-4">
+                                <AlertTriangle className="w-12 h-12 text-white" />
+                                <h3 className="text-3xl font-black">URGENCE ?</h3>
                             </div>
-                            <h3 className="text-3xl font-black mb-3">URGENCE ?</h3>
+                            
                             <p className="text-white/90 mb-6 text-lg">
                                 Intervention immédiate disponible 24h/24 et 7j/7
                             </p>
