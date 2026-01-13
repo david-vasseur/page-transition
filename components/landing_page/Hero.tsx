@@ -81,7 +81,7 @@ const Hero = () => {
                         </div>
 
                         {/* Title */}
-                        <h1 className="hero-title text-3xl xl:text-5xl 2xl:text-7xl font-black text-white mb-6 leading-tight">
+                        <h1 className="hero-title text-4xl xl:text-5xl 2xl:text-7xl font-black text-white mb-6 leading-tight">
                             <span className="block">ÉLIMINEZ</span>
                             <span className="inline-block text-orange-600 relative">
                                 LES NUISIBLES

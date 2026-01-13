@@ -35,13 +35,13 @@ const InterventionZone = () => {
     useGSAP(() => {
         const tl = gsap.timeline({ defaults: { ease: "power3.out" } });
 
-        tl.from(".zone-badge", { y: 20, opacity: 0, duration: 0.6 })
-            .from(".zone-title span", { y: 30, opacity: 0, stagger: 0.15 }, "-=0.3")
-            .from(".zone-subtitle", { y: 20, opacity: 0 }, "-=0.2")
-            .from(".map-container", { scale: 0.9, opacity: 0, duration: 0.8 }, "-=0.3")
-            .from(".city-marker", { scale: 0, opacity: 0, stagger: 0.08 }, "-=0.4")
-            .from(".stat-card", { y: 30, opacity: 0, stagger: 0.1 }, "-=0.3")
-            .from(".info-card", { x: -30, opacity: 0, stagger: 0.1 }, "-=0.2");
+        // tl.from(".zone-badge", { y: 20, opacity: 0, duration: 0.6 })
+            // .from(".zone-title span", { y: 30, opacity: 0, stagger: 0.15 }, "-=0.3")
+            // .from(".zone-subtitle", { y: 20, opacity: 0 }, "-=0.2")
+            // .from(".map-container", { scale: 0.9, opacity: 0, duration: 0.8 }, "-=0.3")
+            // .from(".city-marker", { scale: 0, opacity: 0, stagger: 0.08 }, "-=0.4")
+            // .from(".stat-card", { y: 30, opacity: 0, stagger: 0.1 }, "-=0.3")
+            // .from(".info-card", { x: -30, opacity: 0, stagger: 0.1 }, "-=0.2");
 
         // Animation pulsation continue pour le centre
         gsap.to(pulseRef.current, {
@@ -99,9 +99,9 @@ const InterventionZone = () => {
                         <span className="text-orange-500 font-bold">Couverture Régionale</span>
                     </div>
                     
-                    <h2 className="zone-title text-5xl md:text-7xl font-black mb-6">
+                    <h2 className="zone-title text-4xl md:text-7xl font-black mb-6 text-center">
                         <span className="block">ZONE</span>
-                        <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-600 to-red-600">
+                        <span className="text-transparent bg-clip-text bg-linear-to-r from-orange-600 to-red-600">
                             D'INTERVENTION
                         </span>
                     </h2>

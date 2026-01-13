@@ -153,7 +153,7 @@ const Services = () => {
                         <span className="text-orange-500 font-bold">Expertise Professionnelle</span>
                     </div>
                     
-                    <h1 className="service-title text-5xl md:text-7xl font-black mb-6">
+                    <h1 className="service-title text-4xl md:text-7xl font-black mb-6">
                         <span className="block">NOS</span>
                         <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-600 to-red-600">
                             SERVICES

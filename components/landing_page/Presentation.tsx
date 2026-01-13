@@ -166,7 +166,7 @@ useGSAP(() => {
                     <div className="mb-4">
                         <h2 
                             ref={title1Ref} 
-                            className="text-5xl md:text-7xl font-black mb-6 text-white leading-tight"
+                            className="text-4xl md:text-7xl font-black mb-6 text-white text-center leading-tight"
                         >
                             VOTRE PARTENAIRE <span ref={title2Ref} className="text-orange-600 font-black block">CONTRE LES NUISIBLES</span>
                         </h2>
