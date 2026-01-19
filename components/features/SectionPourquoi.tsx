@@ -62,7 +62,7 @@ useGSAP(() => {
       opacity: 0,
       x: xOffset,
       y: 30,
-	  skewY: "45deg",
+	  skewY: "25deg",
       rotationY: isReversed ? 8 : -8,
       scale: 0.95,
     });
@@ -93,7 +93,7 @@ useGSAP(() => {
     scrollTrigger: {
       trigger: containerRef.current,
       start: "top top",
-      end: "+=100%",
+      end: "bottom top",
       pin: true,
       pinSpacing: false,
       scrub: 1,
@@ -106,15 +106,15 @@ useGSAP(() => {
     {
       opacity: 0,
       scale: 1.1,
-	  skewY: "40deg",
+	  rotateX: 80,
       x: -xOffset * 0.6,
       y: -20,
       rotationY: isReversed ? -5 : 5,
       filter: "blur(10px)",
-      duration: 1.2,
+      duration: .1,
       ease: "power2.in",
     },
-    "+=0.2"
+    "<"
   );
 
   /* ------------------------------------------
@@ -209,18 +209,18 @@ useGSAP(() => {
 
 
 	return (
-		<section ref={containerRef} className="story-panel relative bg-gray-950 min-h-svh flex items-center overflow-hidden px-6 py-24 will-change-transform">
+		<section ref={containerRef} className="story-panel relative bg-gray-950 h-svh flex items-center overflow-hidden px-6 py-24 will-change-transform" style={{ perspective: 1000 }}>
 		
 		{/* Décor d'arrière-plan dynamique selon isReversed */}
 		<div className={`absolute top-0 ${isReversed ? 'right-0 bg-linear-to-l' : 'left-0 bg-linear-to-r'} w-2/3 h-full from-gray-900 to-transparent opacity-40 z-0`} />
 
 		<div className="max-w-7xl mx-auto relative z-10 w-full">
-			<div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+			<div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center" style={{ perspective: 1000 }}>
 
 			{/* --- COLONNE TEXTE --- */}
 			<div 
 				ref={contentRef}
-				className={`col-span-1 lg:col-span-5 relative z-20 content-container will-change-transform 
+				className={`col-span-1 lg:col-span-5 relative z-20 content-container will-change-transform transform-3d origin-bottom
 				${isReversed ? 'lg:order-2 lg:-ml-24' : 'lg:order-1 lg:-mr-24'}`}
 			>
 				<div className="bg-gray-900/80 backdrop-blur-xl border border-white/10 p-8 lg:p-12 rounded-3xl shadow-[0_20px_50px_rgba(0,0,0,0.5)] space-y-8">
