@@ -206,7 +206,7 @@ useGSAP(() => {
 
 
   return (
-    <section ref={containerRef} className="story-panel relative bg-gray-950 min-h-screen flex items-center overflow-hidden px-6 py-24 will-change-transform">
+    <section ref={containerRef} className="story-panel relative bg-gray-950 h-svh flex items-center overflow-hidden px-6 py-24 will-change-transform">
       
       {/* Décor d'arrière-plan dynamique selon isReversed */}
       <div className={`absolute top-0 ${isReversed ? 'right-0 bg-linear-to-l' : 'left-0 bg-linear-to-r'} w-2/3 h-full from-gray-900 to-transparent opacity-40 z-0`} />
