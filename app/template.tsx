@@ -15,6 +15,11 @@ function template({ children }: {children: React.ReactNode}) {
     const { setIsMobile } = useMobileStore();
 
     useEffect(() => {
+
+        ScrollTrigger.config({
+            ignoreMobileResize: true,
+        });
+
         const update = () =>
             setIsMobile(window.innerWidth < 1024);
 
