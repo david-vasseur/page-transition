@@ -62,7 +62,6 @@ useGSAP(() => {
       opacity: 0,
       x: xOffset,
       y: 30,
-	  skewY: "25deg",
       rotationY: isReversed ? 8 : -8,
       scale: 0.95,
     });
@@ -106,7 +105,7 @@ useGSAP(() => {
     {
       opacity: 0,
       scale: 1.1,
-	  rotateX: 80,
+	    rotateX: 80,
       x: -xOffset * 0.6,
       y: -20,
       rotationY: isReversed ? -5 : 5,
@@ -147,7 +146,6 @@ useGSAP(() => {
       opacity: 1,
       x: 0,
       y: 0,
-	  skewY: "0deg",
       rotationY: 0,
       scale: 1,
       duration: 1.2,
