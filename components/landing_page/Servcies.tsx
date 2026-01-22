@@ -133,17 +133,17 @@ const Services = () => {
     return (
         <section ref={root} className="relative min-h-screen bg-black text-white overflow-hidden py-20">
             {/* Animated background */}
-            <div className="absolute inset-0 bg-gradient-to-br from-orange-900/10 via-black to-black z-0" />
+            {/* <div className="absolute inset-0 bg-gradient-to-br from-orange-900/10 via-black to-black z-0" /> */}
             <div className="absolute top-1/4 right-0 w-96 h-96 bg-orange-600/10 rounded-full blur-3xl" />
             <div className="absolute bottom-1/4 left-0 w-96 h-96 bg-red-600/10 rounded-full blur-3xl" />
             
             {/* Grid pattern overlay */}
-            <div className="absolute inset-0 opacity-[0.03]" 
+            {/* <div className="absolute inset-0 opacity-[0.03]" 
                  style={{
                      backgroundImage: `linear-gradient(#fff 1px, transparent 1px), linear-gradient(90deg, #fff 1px, transparent 1px)`,
                      backgroundSize: '50px 50px'
                  }}
-            />
+            /> */}
 
             <div className="container mx-auto px-6 relative z-10">
                 {/* Header */}
@@ -239,9 +239,9 @@ const Services = () => {
                     className="emergency-card max-w-4xl mx-auto relative overflow-hidden"
                 >
                     <div className="relative bg-gradient-to-br from-orange-600 via-red-600 to-orange-700 rounded-3xl p-10 shadow-2xl"
-                         style={{
-                             clipPath: 'polygon(30px 0, 100% 0, 100% calc(100% - 30px), calc(100% - 30px) 100%, 0 100%, 0 30px)'
-                         }}
+                        //  style={{
+                        //      clipPath: 'polygon(30px 0, 100% 0, 100% calc(100% - 30px), calc(100% - 30px) 100%, 0 100%, 0 30px)'
+                        //  }}
                     >
                         {/* Animated background pattern */}
                         <div className="absolute inset-0 opacity-10">

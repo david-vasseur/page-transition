@@ -3,6 +3,7 @@ import Hero from "../components/landing_page/Hero";
 import Presentation from "../components/landing_page/Presentation";
 import IReview from "../type/review";
 import InterventionZone from "@/components/landing_page/MapSection";
+import SocialProof from "@/components/landing_page/Proof";
 
 
 interface PlaceDetailsResponse {
@@ -85,7 +86,8 @@ export default async function Home() {
 	return (
 		<div className="min-h-screen">
 			<Hero />
-			<Presentation />
+			<SocialProof />
+			{/* <Presentation /> */}
 			<Services />
 			<InterventionZone />
 			<script
