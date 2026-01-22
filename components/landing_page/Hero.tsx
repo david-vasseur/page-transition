@@ -54,7 +54,7 @@ const Hero = () => {
             id="home"
             className="relative min-h-screen bg-black overflow-hidden"
         >
-            <Image src={"/infestation-dark.png"} fill alt="" />
+            <Image src={"/infestation-dark.png"} fill alt="" className="opacity-50" />
             <div className="absolute inset-0 bg-linear-to-t from-orange-950/70 to-black/40" />
             {/* Background video */}
             {!isMobile && (
