@@ -6,16 +6,18 @@ import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { SplitText } from 'gsap/SplitText';
 import { FaShieldAlt, FaCertificate, FaAward, FaCheckCircle } from 'react-icons/fa';
+import Image from 'next/image';
 
 gsap.registerPlugin(ScrollTrigger, SplitText);
 
 // Logos des partenaires (blasons de villes)
 const partners = [
-  { name: "Narbonne", logo: "🏛️" },
-  { name: "Béziers", logo: "⚜️" },
-  { name: "Carcassonne", logo: "🏰" },
-  { name: "Perpignan", logo: "🦁" },
-  { name: "Montpellier", logo: "👑" },
+  { name: "Aramon", logo: "🏛️", image: "" },
+  { name: "Garons", logo: "⚜️", image: "" },
+  { name: "Bellegarde", logo: "🏰", image: "" },
+  { name: "Ledenon", logo: "🦁", image: "/ledenon.webp" },
+  { name: "St Anastasie", logo: "👑", image: "/stanastasie.webp" },
+  { name: "St Bonnet du Gard", logo: "👑", image: "/stbonnet2.webp" },
 ];
 
 // Images pour la galerie (remplacer par vos vraies images)
@@ -175,7 +177,7 @@ function SocialProof() {
             ILS NOUS FONT <span className="text-orange-600">CONFIANCE</span>
           </h2>
           <p className="text-gray-400 text-lg max-w-2xl mx-auto">
-            Partenaire officiel de collectivités et reconnu pour son expertise
+            Nous travaillons en étroite collaboration avec ces communes
           </p>
         </div>
 
@@ -188,16 +190,17 @@ function SocialProof() {
             {partners.map((partner, index) => (
               <div
                 key={index}
-                className="partner-logo group relative"
+                className="partner-logo group relative w-[10rem] "
               >
-                <div className="relative bg-gradient-to-br from-white/5 to-white/10 backdrop-blur-sm border border-white/10 rounded-2xl p-6 lg:p-8 hover:border-orange-600/50 transition-all duration-500 hover:scale-110">
+                <div className="relative bg-gradient-to-br aspect-square from-white/5 to-white/10 backdrop-blur-sm border border-white/10 rounded-2xl p-6 lg:p-8 hover:border-orange-600/50 transition-all duration-500 hover:scale-110">
                   {/* Glow effect */}
                   <div className="absolute inset-0 bg-orange-600/0 group-hover:bg-orange-600/10 rounded-2xl transition-all duration-500 blur-xl" />
+                  <Image width={160} height={160} src={partner.image} alt='' className='absolute opacity-25 lg:opacity-100 rounded-2xl inset-0 hover:opacity-10 transition-all duration-500' />
                   
                   <div className="relative flex flex-col items-center gap-3">
-                    <div className="text-5xl lg:text-6xl filter grayscale group-hover:grayscale-0 transition-all duration-500">
+                    {/* <div className="text-5xl lg:text-6xl filter grayscale group-hover:grayscale-0 transition-all duration-500">
                       {partner.logo}
-                    </div>
+                    </div> */}
                     <p className="text-gray-400 group-hover:text-orange-600 font-semibold text-sm transition-colors duration-300">
                       {partner.name}
                     </p>
@@ -300,7 +303,7 @@ function SocialProof() {
           </div>
 
           {/* Points de confiance (droite sur desktop) */}
-          <div ref={pointsRef} className="lg:sticky lg:top-24 space-y-6">
+          <div ref={pointsRef} className="hidden lg:block lg:sticky lg:top-24 space-y-6">
             {trustPoints.map((point, index) => {
               const Icon = point.icon;
               const isActive = activePoint === index;
