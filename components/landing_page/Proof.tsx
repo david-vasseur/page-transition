@@ -99,7 +99,7 @@ function SocialProof() {
         opacity: 0,
         yPercent: 100,
         stagger: 0.1,
-        ease: "elastic.out(1, 0.5)",
+        ease: "elastic.out(0.8, 0.8)",
       });
     }
 
