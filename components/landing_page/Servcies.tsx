@@ -48,8 +48,8 @@ const Services = () => {
                 },
                 opacity: 0,
                 yPercent: 50,
-                stagger: 0.1,
-                ease: "back.out(1.7)",
+                stagger: 0.5,
+                ease: "power1.in",
             })
         }
 
