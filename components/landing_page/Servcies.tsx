@@ -4,14 +4,38 @@ import { useRef } from "react";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { Bug, Droplet, Rat, AlertCircle, Zap, Shield, CheckCircle, ArrowRight } from "lucide-react";
+import { SplitText } from "gsap/SplitText";
 
 gsap.registerPlugin(useGSAP);
 
 const Services = () => {
     const root = useRef(null);
     const emergencyRef = useRef(null);
+    const titleRef = useRef<HTMLHeadingElement>(null);
 
     useGSAP(() => {
+
+         if (titleRef.current) {
+            const split = new SplitText(titleRef.current, {
+                type: "chars,words",
+                charsClass: "split-char"
+            });
+
+            gsap.from(split.chars, {
+                scrollTrigger: {
+                    trigger: titleRef.current,
+                    start: "top 80%",
+                    end: "top 50%",
+                    scrub: 1,
+                },
+                opacity: 0,
+                y: 50,
+                rotationX: -90,
+                stagger: 0.02,
+                ease: "back.out(1.7)",
+            });
+        }
+
         const tl = gsap.timeline({ defaults: { ease: "power3.out" } });
 
         tl.from(".service-badge", { y: 20, opacity: 0, duration: 0.6 })
@@ -148,18 +172,18 @@ const Services = () => {
             <div className="container mx-auto px-6 relative z-10">
                 {/* Header */}
                 <div className="text-center mb-20">
-                    <div className="service-badge inline-flex items-center bg-orange-600/20 border border-orange-600/30 rounded-full px-6 py-3 mb-6">
+                    {/* <div className="service-badge inline-flex items-center bg-orange-600/20 border border-orange-600/30 rounded-full px-6 py-3 mb-6">
                         <Shield className="w-5 h-5 mr-2 text-orange-500" />
                         <span className="text-orange-500 font-bold">Expertise Professionnelle</span>
-                    </div>
+                    </div> */}
                     
-                    <h1 className="service-title text-4xl md:text-7xl font-black mb-6">
-                        <span className="block">NOS</span>
-                        <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-600 to-red-600">
-                            SERVICES
-                        </span>
-                    </h1>
-                    <p className="service-subtitle text-xl text-gray-300 max-w-3xl mx-auto">
+                    <h2 
+                        ref={titleRef}
+                        className="text-4xl lg:text-6xl font-black text-white my-4"
+                    >
+                        NOS <span className="text-orange-600">SERVICES</span>
+                    </h2>
+                    <p className="text-gray-400 text-lg max-w-2xl mx-auto">
                         Des solutions professionnelles pour chaque type d'infestation. 
                         Intervention rapide et résultats garantis.
                     </p>

@@ -6,6 +6,7 @@ import { useGSAP } from "@gsap/react";
 import { ArrowRight, Zap, CheckCircle } from "lucide-react";
 import { useModalStore } from "@/lib/stores/modalStore";
 import { useMobileStore } from "@/lib/stores/mobileStore";
+import Image from "next/image";
 
 gsap.registerPlugin(useGSAP);
 
@@ -53,6 +54,8 @@ const Hero = () => {
             id="home"
             className="relative min-h-screen bg-black overflow-hidden"
         >
+            <Image src={"/infestation-dark.png"} fill alt="" />
+            <div className="absolute inset-0 bg-linear-to-t from-orange-950/70 to-black/40" />
             {/* Background video */}
             {!isMobile && (
                 <>
