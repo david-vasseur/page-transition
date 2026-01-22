@@ -13,6 +13,7 @@ const Services = () => {
     const emergencyRef = useRef(null);
     const titleRef = useRef<HTMLHeadingElement>(null);
     const servicesRef = useRef<(HTMLDivElement | null)[]>([]);
+    const lumRef = useRef<(HTMLDivElement)>(null);
 
     useGSAP(() => {
 
@@ -49,6 +50,20 @@ const Services = () => {
                 yPercent: 50,
                 stagger: 0.1,
                 ease: "back.out(1.7)",
+            })
+        }
+
+        if (lumRef.current) {
+            gsap.from(lumRef.current, {
+                scrollTrigger: {
+                    trigger: lumRef.current,
+                    start: "top 80%",
+                    end: "top 50%",
+                    scrub: 1
+                },
+                rotateX: 90,
+                transformOrigin: "top",
+                ease: "back.out(1.7)"
             })
         }
 
@@ -174,6 +189,7 @@ const Services = () => {
         <section ref={root} className="relative min-h-screen bg-black text-white overflow-hidden py-20">
             {/* Animated background */}
             {/* <div className="absolute inset-0 bg-gradient-to-br from-orange-900/10 via-black to-black z-0" /> */}
+            <div ref={lumRef} className="absolute top-0 w-full h-20 bg-linear-to-b from-gray-600 to-transparent rounded-full blur-3xl" />
             <div className="absolute top-1/4 right-0 w-96 h-96 bg-orange-600/10 rounded-full blur-3xl" />
             <div className="absolute bottom-1/4 left-0 w-96 h-96 bg-red-600/10 rounded-full blur-3xl" />
             

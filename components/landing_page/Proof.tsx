@@ -56,6 +56,7 @@ function SocialProof() {
     const partnersRef = useRef<HTMLDivElement>(null);
     const galleryRef = useRef<HTMLDivElement>(null);
     const pointsRef = useRef<HTMLDivElement>(null);
+    const lumRef = useRef<(HTMLDivElement)>(null);
     
     const [activePoint, setActivePoint] = useState(0);
 
@@ -80,6 +81,20 @@ function SocialProof() {
             stagger: 0.02,
             ease: "back.out(1.7)",
         });
+        }
+
+        if (lumRef.current) {
+            gsap.from(lumRef.current, {
+                scrollTrigger: {
+                    trigger: lumRef.current,
+                    start: "top 80%",
+                    end: "top 50%",
+                    scrub: 1
+                },
+                rotateX: 90,
+                transformOrigin: "top",
+                ease: "back.out(1.7)"
+            })
         }
 
         // Animation des logos partenaires
@@ -162,6 +177,7 @@ function SocialProof() {
             className="relative bg-black py-16 lg:py-24 overflow-hidden"
         >
             {/* Gradient d'ambiance */}
+            <div ref={lumRef} className="absolute top-0 w-full h-20 bg-linear-to-b from-gray-600 to-transparent rounded-full blur-3xl" />
             <div className="absolute inset-0 bg-linear-to-b from-orange-600/5 via-transparent to-transparent pointer-events-none" />
             
             <div className="max-w-7xl mx-auto px-6 lg:px-8 relative z-10">
