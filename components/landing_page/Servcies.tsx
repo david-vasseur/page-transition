@@ -12,6 +12,7 @@ const Services = () => {
     const root = useRef(null);
     const emergencyRef = useRef(null);
     const titleRef = useRef<HTMLHeadingElement>(null);
+    const servicesRef = useRef<(HTMLDivElement | null)[]>([]);
 
     useGSAP(() => {
 
@@ -24,8 +25,8 @@ const Services = () => {
             gsap.from(split.chars, {
                 scrollTrigger: {
                     trigger: titleRef.current,
-                    start: "top 80%",
-                    end: "top 50%",
+                    start: "top 90%",
+                    end: "top 60%",
                     scrub: 1,
                 },
                 opacity: 0,
@@ -34,6 +35,21 @@ const Services = () => {
                 stagger: 0.02,
                 ease: "back.out(1.7)",
             });
+        }
+
+        if (servicesRef.current) {
+            gsap.from(servicesRef.current, {
+                scrollTrigger: {
+                    trigger: servicesRef.current,
+                    start: "top 80%",
+                    end: "top 50%",
+                    scrub: 1
+                },
+                opacity: 0,
+                yPercent: 50,
+                stagger: 0.1,
+                ease: "back.out(1.7)",
+            })
         }
 
         const tl = gsap.timeline({ defaults: { ease: "power3.out" } });
@@ -179,7 +195,7 @@ const Services = () => {
                     
                     <h2 
                         ref={titleRef}
-                        className="text-4xl lg:text-6xl font-black text-white my-4"
+                        className="text-5xl lg:text-7xl font-black text-white my-4"
                     >
                         NOS <span className="text-orange-600">SERVICES</span>
                     </h2>
@@ -194,23 +210,24 @@ const Services = () => {
                     {services.map((service, index) => (
                         <div
                             key={service.id}
+                            ref={el => {servicesRef.current[index] = el}}
                             className="service-card relative group cursor-pointer"
                             style={{ perspective: '1000px' }}
                         >
                             {/* Decorative corner cuts */}
-                            <div className="relative bg-gradient-to-br from-zinc-900 to-black border border-zinc-800 rounded-3xl p-8 overflow-hidden transition-all duration-300 hover:border-orange-600/50"
+                            <div className="relative bg-linear-to-br from-zinc-900 to-black border border-zinc-800 rounded-3xl p-8 overflow-hidden transition-all duration-300 hover:border-orange-600/50"
                                  style={{
                                      clipPath: 'polygon(0 0, 100% 0, 100% calc(100% - 30px), calc(100% - 30px) 100%, 0 100%)'
                                  }}
                             >
                                 {/* Shine effect */}
-                                <div className="shine-effect absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-full" />
+                                <div className="shine-effect absolute inset-0 bg-linear-to-r from-transparent via-white/10 to-transparent -translate-x-full" />
                                 
                                 {/* Background gradient */}
-                                <div className={`absolute inset-0 bg-gradient-to-br ${service.bgGradient} opacity-50`} />
+                                <div className={`absolute inset-0 bg-linear-to-br ${service.bgGradient} opacity-50`} />
                                 
                                 {/* Corner accent */}
-                                <div className={`absolute bottom-0 right-0 w-20 h-20 bg-gradient-to-tl ${service.gradient} opacity-20`}
+                                <div className={`absolute bottom-0 right-0 w-20 h-20 bg-linear-to-tl ${service.gradient} opacity-20`}
                                      style={{
                                          clipPath: 'polygon(100% 0, 100% 100%, 0 100%)'
                                      }}
@@ -219,7 +236,7 @@ const Services = () => {
                                 {/* Content */}
                                 <div className="relative z-10">
                                     {/* Icon */}
-                                    <div className={`inline-flex p-4 rounded-2xl bg-gradient-to-br ${service.gradient} mb-6 shadow-lg`}>
+                                    <div className={`inline-flex p-4 rounded-2xl bg-linear-to-br ${service.gradient} mb-6 shadow-lg`}>
                                         <service.icon className="service-icon w-8 h-8 text-white" />
                                     </div>
 
@@ -242,7 +259,7 @@ const Services = () => {
                                     </ul>
 
                                     {/* CTA */}
-                                    <button className={`w-full bg-gradient-to-r ${service.gradient} hover:shadow-lg hover:shadow-orange-600/30 text-white font-bold py-3 rounded-xl transition-all flex items-center justify-center group`}>
+                                    <button className={`w-full bg-linear-to-r ${service.gradient} hover:shadow-lg hover:shadow-orange-600/30 text-white font-bold py-3 rounded-xl transition-all flex items-center justify-center group`}>
                                         En savoir plus
                                         <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
                                     </button>
@@ -250,7 +267,7 @@ const Services = () => {
                             </div>
 
                             {/* Floating badge */}
-                            <div className={`absolute -top-3 -right-3 bg-gradient-to-br ${service.gradient} text-white text-xs font-bold px-4 py-2 rounded-full shadow-lg`}>
+                            <div className={`absolute -top-3 -right-3 bg-linear-to-br ${service.gradient} text-white text-xs font-bold px-4 py-2 rounded-full shadow-lg`}>
                                 24/7
                             </div>
                         </div>
@@ -262,7 +279,7 @@ const Services = () => {
                     ref={emergencyRef}
                     className="emergency-card max-w-4xl mx-auto relative overflow-hidden"
                 >
-                    <div className="relative bg-gradient-to-br from-orange-600 via-red-600 to-orange-700 rounded-3xl p-10 shadow-2xl"
+                    <div className="relative bg-linear-to-br from-orange-600 via-red-600 to-orange-700 rounded-3xl p-10 shadow-2xl"
                         //  style={{
                         //      clipPath: 'polygon(30px 0, 100% 0, 100% calc(100% - 30px), calc(100% - 30px) 100%, 0 100%, 0 30px)'
                         //  }}
@@ -301,7 +318,7 @@ const Services = () => {
                                 </div>
                             </div>
 
-                            <div className="flex-shrink-0">
+                            <div className="shrink-0">
                                 <a
                                     href="tel:+33658942067"
                                     className="block bg-white text-orange-600 hover:bg-gray-100 text-center font-black text-2xl md:text-3xl px-8 py-6 rounded-2xl transition-all shadow-2xl hover:scale-105"

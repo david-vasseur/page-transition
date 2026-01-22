@@ -20,10 +20,10 @@ const partners = [
 
 // Images pour la galerie (remplacer par vos vraies images)
 const galleryImages = [
-    { id: 1, src: "/infestation-dark.png", alt: "Certification professionnelle" },
-    { id: 2, src: "/infestation-dark.png", alt: "Équipement moderne" },
-    { id: 3, src: "/infestation-dark.png", alt: "Intervention terrain" },
-    { id: 4, src: "/infestation-dark.png", alt: "Garantie qualité" },
+    { id: 1, src: "/toit.webp", alt: "Certification professionnelle" },
+    { id: 2, src: "/piegeur.webp", alt: "Équipement moderne" },
+    { id: 3, src: "/thanks.webp", alt: "Intervention terrain" },
+    { id: 4, src: "/car.webp", alt: "Garantie qualité" },
 ];
 
 // Points clés de confiance
@@ -170,7 +170,7 @@ function SocialProof() {
                 <div className="text-center mb-12 lg:mb-16">
                 <h2 
                     ref={titleRef}
-                    className="text-4xl lg:text-6xl font-black text-white mb-4"
+                    className="text-5xl lg:text-7xl font-black text-white mb-4"
                 >
                     ILS NOUS FONT <span className="text-orange-600">CONFIANCE</span>
                 </h2>
