@@ -48,7 +48,7 @@ const Services = () => {
                 },
                 opacity: 0,
                 yPercent: 50,
-                stagger: 0.5,
+                stagger: 0.1,
                 ease: "power1.in",
             })
         }
