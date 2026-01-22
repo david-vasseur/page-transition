@@ -97,7 +97,7 @@ function SocialProof() {
         },
         scale: 0,
         opacity: 0,
-        rotation: 180,
+        yPercent: 100,
         stagger: 0.1,
         ease: "elastic.out(1, 0.5)",
       });
