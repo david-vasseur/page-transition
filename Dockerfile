@@ -1,5 +1,5 @@
 # Node 22 officiel
-FROM node:22-alpine
+FROM node:22-bullseye
 
 # Dossier de travail
 WORKDIR /app
