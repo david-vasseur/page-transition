@@ -4,10 +4,11 @@ import { useRef, useState } from 'react';
 import { useGSAP } from '@gsap/react';
 import gsap from 'gsap';
 import { SplitText } from 'gsap/SplitText';
-import { FaShieldAlt, FaAward, FaCheckCircle } from 'react-icons/fa';
+import { FaShieldAlt, FaAward, FaCheckCircle, FaMapMarkedAlt } from 'react-icons/fa';
 import Image from 'next/image';
-import { FaFacebook, FaInstagram, FaMapLocation, FaTiktok } from 'react-icons/fa6';
+import { FaBug, FaBuilding, FaFacebook, FaInstagram, FaMapLocation, FaStar, FaTiktok } from 'react-icons/fa6';
 import Social from "@/components/features/SocialProof";
+import Forward from '../ui/Forward';
 
 
 // Logos des partenaires (blasons de villes)
@@ -187,20 +188,220 @@ function SocialProof() {
             <div className="max-w-7xl mx-auto px-6 lg:px-8 relative z-10">
                 
                 {/* Titre principal */}
-                <div className="text-center mb-12 lg:mb-16">
-                <h2 
-                    ref={titleRef}
-                    className="text-5xl lg:text-7xl font-black text-white mb-4"
-                >
-                    ILS NOUS FONT <span className="text-orange-600">CONFIANCE</span>
-                </h2>
-                <p className="text-gray-400 text-lg max-w-2xl mx-auto">
-                    Nous travaillons en étroite collaboration avec ces communes
-                </p>
+                <div className="text-center mb-12 lg:mb-16 mx-auto">
+                    <h2 
+                        ref={titleRef}
+                        className="text-5xl mx-auto lg:text-7xl max-w-xl font-black text-white mb-4"
+                    >
+                        UN SAVOIR FAIRE <span className="text-orange-600">RECONNU</span>
+                    </h2>
+                    <div className="flex flex-col lg:flex-row items-center justify-center gap-12 max-w-5xl mx-auto my-14">
+    
+                        {/* Colonne gauche : badges (map uniquement ici) */}
+                        <div className="grid grid-cols-3 lg:grid-row-3 bg-linear-to-br from-gray-500/40 via-black/40 to-gray-400/40 gap-6 px-12 py-6 border border-gray-500 rounded-xl">
+                        {[
+                            {
+                                icon: FaStar,
+                                label: "Note",
+                                title: "5/5",
+                            },
+                            {
+                                icon: FaBuilding,
+                                label: "Expérience",
+                                title: "3+",
+                            },
+                            {
+                                icon: FaBug,
+                                label: "Interventions",
+                                title: "500+",
+                            }].map((proof, index) => (
+                                <Forward
+                                    key={index}
+                                    label={proof.label}
+                                    title={proof.title}
+                                    textColor="text-orange-500"
+                                />
+                            ))}
+                        </div>
+
+                        {/* Colonne droite : contenu (hors map) */}
+                        <div className="max-w-md text-center lg:text-left">
+                            <p className="text-gray-400 text-lg leading-relaxed mb-6">
+                                Nous intervenons pour des particuliers, des communes et des entreprises nationales, 
+                                avec un haut niveau d’exigence, de réactivité et de fiabilité.
+                            </p>
+                        </div>
+                    </div>
                 </div>
 
-                {/* Logos partenaires */}
-                <div 
+                {/* Section Communes */}
+                <div ref={partnersRef} className="mb-20 lg:my-32">
+
+                    {/* Mobile : logos centrés comme avant */}
+                    <div className="flex flex-wrap justify-center items-center gap-8 lg:hidden">
+                        <h3 className="text-3xl lg:text-5xl font-black text-white text-center mb-4">
+                            Des <span className="italic text-orange-600">communes</span> qui nous font confiance
+                        </h3>
+                        <p className="text-gray-400 text-center text-lg leading-relaxed">
+                            De nombreuses communes font appel à nous pour notre serieux et professionalisme.
+                        </p>
+                        {partners.map((partner, index) => (
+                        <div
+                            key={index}
+                            className="partner-logo group relative w-30 cursor-pointer"
+                        >
+                            <div className="relative aspect-square backdrop-blur-sm rounded-2xl p-6 hover:border-orange-600/50 transition-all duration-500 hover:scale-110">
+                                {/* Glow effect */}
+                                <div className="absolute inset-0 bg-orange-600/0 group-hover:bg-orange-600/10 rounded-2xl transition-all duration-500 blur-xl" />
+                                <Image
+                                    width={160}
+                                    height={160}
+                                    src={partner.image}
+                                    alt=""
+                                    className="absolute opacity-25 rounded-2xl inset-0 group-hover:opacity-10 transition-all duration-500 grayscale-75"
+                                />
+
+                                <div className="relative flex flex-col items-center gap-3">
+                                    <p className="text-orange-600 group-hover:text-gray-200 font-bold uppercase text-xs text-center transition-colors duration-300">
+                                        {partner.name}
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        ))}
+                    </div>
+
+                    {/* Desktop : texte à gauche, grid 3 colonnes à droite */}
+                    <div className="hidden lg:grid grid-cols-2 gap-16 items-center max-w-7xl mx-auto">
+
+                        {/* Colonne gauche : texte */}
+                        <div className="max-w-md">
+                            <h3 className="text-3xl lg:text-5xl font-black text-white mb-4">
+                                Des <span className="italic text-orange-600">communes</span> qui nous font confiance
+                            </h3>
+                            <p className="text-gray-400 text-lg leading-relaxed">
+                                Nous collaborons avec des communes et des entreprises nationales reconnues,
+                                gage de sérieux, de fiabilité et de professionnalisme sur chaque intervention.
+                            </p>
+                        </div>
+
+                        {/* Colonne droite : logos en grid 3 colonnes */}
+                        <div className="grid grid-cols-3 gap-8">
+                        {partners.map((partner, index) => (
+                            <div
+                            key={index}
+                            className="partner-logo group relative cursor-pointer"
+                            >
+                                <div className="relative aspect-square backdrop-blur-sm rounded-2xl p-6 hover:border-orange-600/50 transition-all duration-500 hover:scale-110">
+                                    {/* Glow effect */}
+                                    <div className="absolute inset-0 bg-orange-600/0 group-hover:bg-orange-600/10 rounded-2xl transition-all duration-500 blur-xl" />
+                                        <Image
+                                            width={160}
+                                            height={160}
+                                            src={partner.image}
+                                            alt=""
+                                            className="absolute opacity-25 rounded-2xl inset-0 group-hover:opacity-10 transition-all duration-500 grayscale-75"
+                                        />
+
+                                        <div className="relative flex flex-col items-center gap-3">
+                                        <p className="text-orange-600 group-hover:text-gray-200 font-bold uppercase text-xs lg:text-sm text-center transition-colors duration-300">
+                                            {partner.name}
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        ))}
+                        </div>
+                    </div>
+                </div>
+
+                {/* Section Entreprises */}
+                <div className="mb-20 lg:my-32">
+
+                {/* Mobile : texte centré + logos en colonne */}
+                <div className="flex flex-col items-center gap-8 lg:hidden text-center">
+                    <h3 className="text-3xl font-black text-white mb-4">
+                    Des <span className="italic text-orange-600">entreprises nationales</span> partenaires
+                    </h3>
+                    <p className="text-gray-400 text-lg leading-relaxed">
+                    Des entreprises reconnues à l’échelle nationale nous font confiance pour notre expertise
+                    et notre exigence de qualité.
+                    </p>
+
+                    <div className="grid grid-cols-2 gap-6">
+                    {partners.slice(0, 2).map((partner, index) => (
+                        <div
+                        key={index}
+                        className="partner-logo group relative w-30 cursor-pointer"
+                        >
+                        <div className="relative aspect-square backdrop-blur-sm rounded-2xl p-6 hover:border-orange-600/50 transition-all duration-500 hover:scale-110">
+                            {/* Glow effect */}
+                            <div className="absolute inset-0 bg-orange-600/0 group-hover:bg-orange-600/10 rounded-2xl transition-all duration-500 blur-xl" />
+                            <Image
+                            width={160}
+                            height={160}
+                            src={partner.image}
+                            alt=""
+                            className="absolute opacity-25 rounded-2xl inset-0 group-hover:opacity-10 transition-all duration-500 grayscale-75"
+                            />
+
+                            <div className="relative flex flex-col items-center gap-3">
+                            <p className="text-orange-600 group-hover:text-gray-200 font-bold uppercase text-xs text-center transition-colors duration-300">
+                                {partner.name}
+                            </p>
+                            </div>
+                        </div>
+                        </div>
+                    ))}
+                    </div>
+                </div>
+
+                {/* Desktop : logos à gauche, texte à droite */}
+                <div className="hidden lg:grid grid-cols-2 gap-16 items-center max-w-7xl mx-auto">
+
+                    {/* Colonne gauche : logos en grid 1 colonne */}
+                    <div className="grid grid-cols-1 gap-8">
+                    {partners.slice(0, 2).map((partner, index) => (
+                        <div
+                        key={index}
+                        className="partner-logo group relative cursor-pointer"
+                        >
+                        <div className="relative aspect-square backdrop-blur-sm rounded-2xl p-6 hover:border-orange-600/50 transition-all duration-500 hover:scale-110">
+                            {/* Glow effect */}
+                            <div className="absolute inset-0 bg-orange-600/0 group-hover:bg-orange-600/10 rounded-2xl transition-all duration-500 blur-xl" />
+                            <Image
+                            width={160}
+                            height={160}
+                            src={partner.image}
+                            alt=""
+                            className="absolute opacity-25 rounded-2xl inset-0 group-hover:opacity-10 transition-all duration-500 grayscale-75"
+                            />
+
+                            <div className="relative flex flex-col items-center gap-3">
+                            <p className="text-orange-600 group-hover:text-gray-200 font-bold uppercase text-xs lg:text-sm text-center transition-colors duration-300">
+                                {partner.name}
+                            </p>
+                            </div>
+                        </div>
+                        </div>
+                    ))}
+                    </div>
+
+                    {/* Colonne droite : texte */}
+                    <div className="max-w-md">
+                    <h3 className="text-3xl lg:text-5xl font-black text-white mb-4">
+                        Des <span className="italic text-orange-600">entreprises nationales</span> partenaires
+                    </h3>
+                    <p className="text-gray-400 text-lg leading-relaxed">
+                        Des entreprises reconnues à l’échelle nationale nous font confiance pour notre expertise,
+                        notre réactivité et notre niveau d’exigence.
+                    </p>
+                    </div>
+
+                </div>
+                </div>
+
+                {/* <div 
                 ref={partnersRef}
                 className="mb-20 lg:my-32"
                 >
@@ -211,14 +412,11 @@ function SocialProof() {
                         className="partner-logo group relative w-30 lg:w-40 cursor-pointer"
                     >
                         <div className="relative aspect-square backdrop-blur-sm rounded-2xl p-6 lg:p-8 hover:border-orange-600/50 transition-all duration-500 hover:scale-110">
-                        {/* Glow effect */}
+                        
                         <div className="absolute inset-0 bg-orange-600/0 group-hover:bg-orange-600/10 rounded-2xl transition-all duration-500 blur-xl" />
                         <Image width={160} height={160} src={partner.image} alt='' className='absolute opacity-25 lg:opacity-100 rounded-2xl inset-0 group-hover:opacity-10 transition-all duration-500 grayscale-75' />
                         
                         <div className="relative flex flex-col items-center gap-3">
-                            {/* <div className="text-5xl lg:text-6xl filter grayscale group-hover:grayscale-0 transition-all duration-500">
-                            {partner.logo}
-                            </div> */}
                             <p className="text-orange-600 group-hover:text-gray-200 font-bold uppercase text-xs lg:text-lg text-center transition-colors duration-300">
                             {partner.name}
                             </p>
@@ -227,9 +425,12 @@ function SocialProof() {
                     </div>
                     ))}
                 </div>
-                </div>
+                </div> */}
 
                 {/* Section Galerie + Points de confiance */}
+                <h3 className="text-3xl lg:text-5xl text-center font-black text-white my-14">
+                    L'essentiel qui fait <span className="italic text-orange-600">notre réputation</span>
+                </h3>
                 <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-start">
                 
                 {/* Galerie d'images (gauche sur desktop) */}

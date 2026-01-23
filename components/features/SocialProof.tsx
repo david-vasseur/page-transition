@@ -76,7 +76,7 @@ function Social() {
                 </p>
             </div>
 
-            <div ref={socialGridRef} className="grid grid-cols-3 gap-6 lg:gap-8">
+            <div ref={socialGridRef} className="lg:max-w-2xl grid grid-cols-3 gap-6 lg:gap-8 mx-auto">
                 {[{
                     name: "Facebook",
                     url: "https://facebook.com",
