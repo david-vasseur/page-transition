@@ -105,22 +105,21 @@ function SocialProof() {
 
         // Animation des logos partenaires
         if (partnersRef.current) {
-        const logos = gsap.utils.toArray('.partner-logo');
-        
-        gsap.from(logos, {
-            scrollTrigger: {
-            trigger: partnersRef.current,
-            start: "top 70%",
-            end: "top 40%",
-            scrub: 1,
-            },
-            scale: 0.7,
-            opacity: 0,
-            yPercent: 100,
-            stagger: 0.1,
-            // ease: "elastic.out(0.8, 0.8)",
-            ease: "power2.in"
-        });
+            const logos = gsap.utils.toArray('.partner-logo');
+            
+            gsap.from(logos, {
+                scrollTrigger: {
+                    trigger: partnersRef.current,
+                    start: "top 70%",
+                    end: "top 40%",
+                    scrub: 1,
+                },
+                scale: 0.7,
+                opacity: 0,
+                yPercent: 100,
+                stagger: 0.1,
+                ease: "power2.in"
+            });
         }
 
         // Animation des images de galerie
@@ -320,114 +319,89 @@ function SocialProof() {
                 {/* Section Entreprises */}
                 <div className="mb-20 lg:my-32">
 
-                {/* Mobile : texte centré + logos en colonne */}
-                <div className="flex flex-col items-center gap-8 lg:hidden text-center">
-                    <h3 className="text-3xl font-black text-white mb-4">
-                    Des <span className="italic text-orange-600">entreprises nationales</span> partenaires
-                    </h3>
-                    <p className="text-gray-400 text-lg leading-relaxed">
-                    Des entreprises reconnues à l’échelle nationale nous font confiance pour notre expertise
-                    et notre exigence de qualité.
-                    </p>
-
-                    <div className="grid grid-cols-2 gap-6">
-                    {partners.slice(6, 8).map((partner, index) => (
-                        <div
-                        key={index}
-                        className="partner-logo group relative w-30 cursor-pointer"
-                        >
-                        <div className="relative backdrop-blur-sm rounded-2xl p-6 hover:border-orange-600/50 transition-all duration-500 hover:scale-110">
-                            {/* Glow effect */}
-                            <div className="absolute inset-0 bg-orange-600/0 group-hover:bg-orange-600/10 rounded-2xl transition-all duration-500 blur-xl" />
-                            <Image
-                            width={160}
-                            height={160}
-                            src={partner.image}
-                            alt=""
-                            className="absolute opacity-25 rounded-2xl inset-0 group-hover:opacity-10 transition-all duration-500 grayscale-75"
-                            />
-
-                            <div className="relative flex flex-col items-center gap-3">
-                            <p className="text-orange-600 group-hover:text-gray-200 font-bold uppercase text-xs text-center transition-colors duration-300">
-                                {partner.name}
-                            </p>
-                            </div>
-                        </div>
-                        </div>
-                    ))}
-                    </div>
-                </div>
-
-                {/* Desktop : logos à gauche, texte à droite */}
-                <div className="hidden lg:grid grid-cols-2 gap-16 items-center max-w-7xl mx-auto">
-
-                    {/* Colonne gauche : logos en grid 1 colonne */}
-                    <div className="grid grid-cols-1 gap-8">
-                    {partners.slice(6, 8).map((partner, index) => (
-                        <div
-                        key={index}
-                        className="partner-logo group relative cursor-pointer"
-                        >
-                        <div className="relative backdrop-blur-sm rounded-2xl p-6 hover:border-orange-600/50 transition-all duration-500 hover:scale-110">
-                            {/* Glow effect */}
-                            <div className="absolute inset-0 bg-orange-600/0 group-hover:bg-orange-600/10 rounded-2xl transition-all duration-500 blur-xl" />
-                            <Image
-                            width={160}
-                            height={160}
-                            src={partner.image}
-                            alt=""
-                            className="absolute opacity-25 rounded-2xl inset-0 group-hover:opacity-10 transition-all duration-500 grayscale-75"
-                            />
-
-                            <div className="relative flex flex-col items-center gap-3">
-                            <p className="text-orange-600 group-hover:text-gray-200 font-bold uppercase text-xs lg:text-sm text-center transition-colors duration-300">
-                                {partner.name}
-                            </p>
-                            </div>
-                        </div>
-                        </div>
-                    ))}
-                    </div>
-
-                    {/* Colonne droite : texte */}
-                    <div className="max-w-md">
-                    <h3 className="text-3xl lg:text-5xl font-black text-white mb-4">
+                    {/* Mobile : texte centré + logos en colonne */}
+                    <div className="flex flex-col items-center gap-8 lg:hidden text-center">
+                        <h3 className="text-3xl font-black text-white mb-4">
                         Des <span className="italic text-orange-600">entreprises nationales</span> partenaires
-                    </h3>
-                    <p className="text-gray-400 text-lg leading-relaxed">
-                        Des entreprises reconnues à l’échelle nationale nous font confiance pour notre expertise,
-                        notre réactivité et notre niveau d’exigence.
-                    </p>
+                        </h3>
+                        <p className="text-gray-400 text-lg leading-relaxed">
+                        Des entreprises reconnues à l’échelle nationale nous font confiance pour notre expertise
+                        et notre exigence de qualité.
+                        </p>
+
+                        <div className="grid grid-cols-2 gap-6">
+                        {partners.slice(6, 8).map((partner, index) => (
+                            <div
+                            key={index}
+                            className="group relative w-30 cursor-pointer"
+                            >
+                            <div className="relative backdrop-blur-sm rounded-2xl p-6 hover:border-orange-600/50 transition-all duration-500 hover:scale-110">
+                                {/* Glow effect */}
+                                <div className="absolute inset-0 bg-orange-600/0 group-hover:bg-orange-600/10 rounded-2xl transition-all duration-500 blur-xl" />
+                                <Image
+                                width={160}
+                                height={160}
+                                src={partner.image}
+                                alt=""
+                                className="absolute opacity-25 rounded-2xl inset-0 group-hover:opacity-10 transition-all duration-500 grayscale-75"
+                                />
+
+                                <div className="relative flex flex-col items-center gap-3">
+                                <p className="text-orange-600 group-hover:text-gray-200 font-bold uppercase text-xs text-center transition-colors duration-300">
+                                    {partner.name}
+                                </p>
+                                </div>
+                            </div>
+                            </div>
+                        ))}
+                        </div>
                     </div>
 
-                </div>
+                    {/* Desktop : logos à gauche, texte à droite */}
+                    <div className="hidden lg:grid grid-cols-2 gap-16 items-center max-w-7xl mx-auto">
+
+                        {/* Colonne gauche : logos en grid 1 colonne */}
+                        <div className="grid grid-cols-1 gap-8">
+                        {partners.slice(6, 8).map((partner, index) => (
+                            <div
+                            key={index}
+                            className="group relative cursor-pointer"
+                            >
+                            <div className="relative backdrop-blur-sm rounded-2xl p-6 hover:border-orange-600/50 transition-all duration-500 hover:scale-110">
+                                {/* Glow effect */}
+                                <div className="absolute inset-0 bg-orange-600/0 group-hover:bg-orange-600/10 rounded-2xl transition-all duration-500 blur-xl" />
+                                <Image
+                                width={160}
+                                height={160}
+                                src={partner.image}
+                                alt=""
+                                className="absolute opacity-25 rounded-2xl inset-0 group-hover:opacity-10 transition-all duration-500 grayscale-75"
+                                />
+
+                                <div className="relative flex flex-col items-center gap-3">
+                                <p className="text-orange-600 group-hover:text-gray-200 font-bold uppercase text-xs lg:text-sm text-center transition-colors duration-300">
+                                    {partner.name}
+                                </p>
+                                </div>
+                            </div>
+                            </div>
+                        ))}
+                        </div>
+
+                        {/* Colonne droite : texte */}
+                        <div className="max-w-md">
+                        <h3 className="text-3xl lg:text-5xl font-black text-white mb-4">
+                            Des <span className="italic text-orange-600">entreprises nationales</span> partenaires
+                        </h3>
+                        <p className="text-gray-400 text-lg leading-relaxed">
+                            Des entreprises reconnues à l’échelle nationale nous font confiance pour notre expertise,
+                            notre réactivité et notre niveau d’exigence.
+                        </p>
+                        </div>
+
+                    </div>
                 </div>
 
-                {/* <div 
-                ref={partnersRef}
-                className="mb-20 lg:my-32"
-                >
-                <div className="flex flex-wrap justify-center items-center gap-8 lg:gap-12">
-                    {partners.map((partner, index) => (
-                    <div
-                        key={index}
-                        className="partner-logo group relative w-30 lg:w-40 cursor-pointer"
-                    >
-                        <div className="relative aspect-square backdrop-blur-sm rounded-2xl p-6 lg:p-8 hover:border-orange-600/50 transition-all duration-500 hover:scale-110">
-                        
-                        <div className="absolute inset-0 bg-orange-600/0 group-hover:bg-orange-600/10 rounded-2xl transition-all duration-500 blur-xl" />
-                        <Image width={160} height={160} src={partner.image} alt='' className='absolute opacity-25 lg:opacity-100 rounded-2xl inset-0 group-hover:opacity-10 transition-all duration-500 grayscale-75' />
-                        
-                        <div className="relative flex flex-col items-center gap-3">
-                            <p className="text-orange-600 group-hover:text-gray-200 font-bold uppercase text-xs lg:text-lg text-center transition-colors duration-300">
-                            {partner.name}
-                            </p>
-                        </div>
-                        </div>
-                    </div>
-                    ))}
-                </div>
-                </div> */}
 
                 {/* Section Galerie + Points de confiance */}
                 <h3 className="text-3xl lg:text-5xl text-center font-black text-white my-14">
@@ -435,93 +409,93 @@ function SocialProof() {
                 </h3>
                 <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-start">
                 
-                {/* Galerie d'images (gauche sur desktop) */}
-                <div ref={galleryRef} className="space-y-6 lg:my-32">
-                    {galleryImages.map((image, index) => (
-                    <div
-                        key={image.id}
-                        className="gallery-image relative group"
-                    >
-                        <div className="relative overflow-hidden rounded-2xl">
-                        {/* Overlay gradient */}
-                        <div className="absolute inset-0 bg-linear-to-t from-black/80 via-black/20 to-transparent z-10" />
-                        
-                        {/* Image */}
-                        <img
-                            src={image.src}
-                            alt={image.alt}
-                            className="w-full h-64 lg:h-72 object-cover transition-transform duration-700 group-hover:scale-110"
-                        />
-                            {/* TEST */}
-                        <div className="absolute top-1/2 left-1/2 w-full -translate-1/2 origin-center lg:hidden">
-                            {trustPoints[index] && (() => {
-                            const point = trustPoints[index];
-                            const Icon = point.icon;
-                            const isActive = activePoint === index;
+                    {/* Galerie d'images (gauche sur desktop) */}
+                    <div ref={galleryRef} className="space-y-6 lg:my-32">
+                        {galleryImages.map((image, index) => (
+                        <div
+                            key={image.id}
+                            className="gallery-image relative group"
+                        >
+                            <div className="relative overflow-hidden rounded-2xl">
+                            {/* Overlay gradient */}
+                            <div className="absolute inset-0 bg-linear-to-t from-black/80 via-black/20 to-transparent z-10" />
+                            
+                            {/* Image */}
+                            <img
+                                src={image.src}
+                                alt={image.alt}
+                                className="w-full h-64 lg:h-72 object-cover transition-transform duration-700 group-hover:scale-110"
+                            />
+                                {/* TEST */}
+                            <div className="absolute top-1/2 left-1/2 w-full -translate-1/2 origin-center lg:hidden">
+                                {trustPoints[index] && (() => {
+                                const point = trustPoints[index];
+                                const Icon = point.icon;
+                                const isActive = activePoint === index;
 
-                            return (
-                                <div
-                                className={`trust-point relative group transition-all duration-500 ${
-                                    isActive ? 'scale-105' : 'scale-100'
-                                }`}
-                                >
-                                <div className={`relative bg-black/50 backdrop-blur-sm border rounded-2xl p-6 lg:p-8 transition-all duration-500 ${
-                                    isActive 
-                                    ? 'border-orange-600 shadow-2xl shadow-orange-600/20' 
-                                    : 'border-white/10 hover:border-orange-600/30'
-                                }`}>
-                                    
-                                    {isActive && (
-                                    <div className="absolute inset-0 bg-orange-600/10 rounded-2xl blur-xl -z-10" />
-                                    )}
-
-                                    <div className="flex items-start gap-4">
-                                    <div className={`shrink-0 w-14 h-14 rounded-xl flex items-center justify-center transition-all duration-500 ${
+                                return (
+                                    <div
+                                    className={`trust-point relative group transition-all duration-500 ${
+                                        isActive ? 'scale-105' : 'scale-100'
+                                    }`}
+                                    >
+                                    <div className={`relative bg-black/50 backdrop-blur-sm border rounded-2xl p-6 lg:p-8 transition-all duration-500 ${
                                         isActive 
-                                        ? 'bg-orange-600 scale-110' 
-                                        : 'bg-white/5 group-hover:bg-orange-600/20'
+                                        ? 'border-orange-600 shadow-2xl shadow-orange-600/20' 
+                                        : 'border-white/10 hover:border-orange-600/30'
                                     }`}>
-                                        <Icon className={`text-2xl transition-colors duration-500 ${
-                                        isActive ? 'text-white' : 'text-orange-600'
-                                        }`} />
-                                    </div>
+                                        
+                                        {isActive && (
+                                        <div className="absolute inset-0 bg-orange-600/10 rounded-2xl blur-xl -z-10" />
+                                        )}
 
-                                    <div className="flex-1">
-                                        <h3 className={`text-xl lg:text-2xl font-bold mb-2 transition-colors duration-300 ${
-                                        isActive ? 'text-orange-600' : 'text-white'
+                                        <div className="flex items-start gap-4">
+                                        <div className={`shrink-0 w-14 h-14 rounded-xl flex items-center justify-center transition-all duration-500 ${
+                                            isActive 
+                                            ? 'bg-orange-600 scale-110' 
+                                            : 'bg-white/5 group-hover:bg-orange-600/20'
                                         }`}>
-                                        {point.title}
-                                        </h3>
-                                        <p className="text-gray-400 leading-relaxed">
-                                        {point.description}
-                                        </p>
-                                    </div>
-                                    </div>
+                                            <Icon className={`text-2xl transition-colors duration-500 ${
+                                            isActive ? 'text-white' : 'text-orange-600'
+                                            }`} />
+                                        </div>
 
-                                    <div className="absolute right-4 top-4">
-                                    <div className={`w-2 h-2 rounded-full transition-all duration-500 ${
-                                        isActive ? 'bg-orange-600 scale-150' : 'bg-white/20'
-                                    }`} />
+                                        <div className="flex-1">
+                                            <h3 className={`text-xl lg:text-2xl font-bold mb-2 transition-colors duration-300 ${
+                                            isActive ? 'text-orange-600' : 'text-white'
+                                            }`}>
+                                            {point.title}
+                                            </h3>
+                                            <p className="text-gray-400 leading-relaxed">
+                                            {point.description}
+                                            </p>
+                                        </div>
+                                        </div>
+
+                                        <div className="absolute right-4 top-4">
+                                        <div className={`w-2 h-2 rounded-full transition-all duration-500 ${
+                                            isActive ? 'bg-orange-600 scale-150' : 'bg-white/20'
+                                        }`} />
+                                        </div>
                                     </div>
+                                    </div>
+                                );
+                                })()}
+                            </div>
+                            
+                            {/* Badge numéro */}
+                            <div className="hidden lg:block absolute top-4 left-4 z-20">
+                                <div className="bg-orange-600 text-white font-black text-xl w-12 h-12 rounded-full flex items-center justify-center">
+                                {index + 1}
                                 </div>
-                                </div>
-                            );
-                            })()}
-                        </div>
-                        
-                        {/* Badge numéro */}
-                        <div className="hidden lg:block absolute top-4 left-4 z-20">
-                            <div className="bg-orange-600 text-white font-black text-xl w-12 h-12 rounded-full flex items-center justify-center">
-                            {index + 1}
+                            </div>
+
+                            {/* Glow effect on hover */}
+                            <div className="absolute inset-0 bg-orange-600/0 group-hover:bg-orange-600/20 transition-all duration-500 rounded-2xl" />
                             </div>
                         </div>
-
-                        {/* Glow effect on hover */}
-                        <div className="absolute inset-0 bg-orange-600/0 group-hover:bg-orange-600/20 transition-all duration-500 rounded-2xl" />
-                        </div>
+                        ))}
                     </div>
-                    ))}
-                </div>
 
                     {/* Points de confiance (droite sur desktop) */}
                     <div ref={pointsRef} className="hidden lg:block lg:sticky lg:mt-32 lg:top-24 space-y-6">
