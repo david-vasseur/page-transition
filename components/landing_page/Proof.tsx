@@ -9,6 +9,8 @@ import Image from 'next/image';
 import { FaBug, FaBuilding, FaFacebook, FaInstagram, FaMapLocation, FaStar, FaTiktok } from 'react-icons/fa6';
 import Social from "@/components/features/SocialProof";
 import Forward from '../ui/Forward';
+import ProofHeader from '../features/ProofHeader';
+import SectionSubtitle from '../ui/SectionSubtitle';
 
 
 // Logos des partenaires (blasons de villes)
@@ -205,9 +207,10 @@ function SocialProof() {
             <div className="absolute inset-0 bg-linear-to-b from-orange-600/5 via-transparent to-transparent pointer-events-none" />
             
             <div className="max-w-7xl mx-auto px-6 lg:px-8 relative z-10">
+                <ProofHeader />
                 
                 {/* Titre principal */}
-                <div className="text-center mb-12 lg:mb-16 mx-auto">
+                {/* <div className="text-center mb-12 lg:mb-16 mx-auto">
                     <h2 
                         ref={titleRef}
                         className="text-5xl mx-auto lg:text-7xl max-w-xl font-black text-white mb-4"
@@ -216,7 +219,7 @@ function SocialProof() {
                     </h2>
                     <div className="flex flex-col lg:flex-row items-center justify-center gap-12 max-w-5xl mx-auto my-14">
     
-                        {/* Colonne gauche : badges (map uniquement ici) */}
+                        
                         <div className="relative grid grid-cols-3 lg:grid-row-3 bg-linear-to-br from-gray-500/40 via-black/40 to-gray-400/40 gap-8 px-8 py-6 border border-gray-500 rounded-xl overflow-hidden">
                         <div ref={glowRef} className="absolute inset-0 bg-linear-to-r from-transparent via-white/50 to-transparent skew-x-12 -translate-x-100" />
                             {[
@@ -249,7 +252,7 @@ function SocialProof() {
                             }
                         </div>
 
-                        {/* Colonne droite : contenu (hors map) */}
+                        
                         <div className="max-w-md text-center lg:text-left">
                             <p className="text-gray-400 text-lg leading-relaxed mb-6">
                                 Nous intervenons pour des particuliers, des communes et des entreprises nationales, 
@@ -257,16 +260,17 @@ function SocialProof() {
                             </p>
                         </div>
                     </div>
-                </div>
+                </div> */}
 
                 {/* Section Communes */}
                 <div ref={partnersRef} className="mb-20 lg:my-32">
 
                     {/* Mobile : logos centrés comme avant */}
                     <div className="flex flex-wrap justify-center items-center gap-8 lg:hidden">
-                        <h3 className="text-3xl lg:text-5xl font-black text-white text-center mb-4">
+                        <SectionSubtitle title1='Des' title2='qui nous font confiance' span='communes' />
+                        {/* <h3 className="text-3xl lg:text-5xl font-black text-white text-center mb-4">
                             Des <span className="italic text-orange-600">communes</span> qui nous font confiance
-                        </h3>
+                        </h3> */}
                         <p className="text-gray-400 text-center text-lg leading-relaxed">
                             De nombreuses communes font appel à nous pour notre serieux et professionalisme.
                         </p>
@@ -301,9 +305,10 @@ function SocialProof() {
 
                         {/* Colonne gauche : texte */}
                         <div className="max-w-md">
-                            <h3 className="text-3xl lg:text-5xl font-black text-white mb-4">
+                            <SectionSubtitle title1='Des' title2='qui nous font confiance' span='communes' />
+                            {/* <h3 className="text-3xl lg:text-5xl font-black text-white mb-4">
                                 Des <span className="italic text-orange-600">communes</span> qui nous font confiance
-                            </h3>
+                            </h3> */}
                             <p className="text-gray-400 text-lg leading-relaxed">
                                 Nous collaborons avec des communes et des entreprises nationales reconnues,
                                 gage de sérieux, de fiabilité et de professionnalisme sur chaque intervention.
@@ -345,9 +350,10 @@ function SocialProof() {
 
                     {/* Mobile : texte centré + logos en colonne */}
                     <div className="flex flex-col items-center gap-8 lg:hidden text-center">
-                        <h3 className="text-3xl font-black text-white mb-4">
-                        Des <span className="italic text-orange-600">entreprises nationales</span> partenaires
-                        </h3>
+                        <SectionSubtitle title1='Des' title2=' partenaires' span='entreprises nationales' />
+                        {/* <h3 className="text-3xl font-black text-white mb-4">
+                            Des <span className="italic text-orange-600">entreprises nationales</span> partenaires
+                        </h3> */}
                         <p className="text-gray-400 text-lg leading-relaxed">
                         Des entreprises reconnues à l’échelle nationale nous font confiance pour notre expertise
                         et notre exigence de qualité.
@@ -414,9 +420,10 @@ function SocialProof() {
 
                         {/* Colonne droite : texte */}
                         <div className="max-w-md">
-                        <h3 className="text-3xl lg:text-5xl font-black text-white mb-4">
+                            <SectionSubtitle title1='Des' title2=' partenaires' span='entreprises nationales' />
+                        {/* <h3 className="text-3xl lg:text-5xl font-black text-white mb-4">
                             Des <span className="italic text-orange-600">entreprises nationales</span> partenaires
-                        </h3>
+                        </h3> */}
                         <p className="text-gray-400 text-lg leading-relaxed">
                             Des entreprises reconnues à l’échelle nationale nous font confiance pour notre expertise,
                             notre réactivité et notre niveau d’exigence.
@@ -428,10 +435,11 @@ function SocialProof() {
 
 
                 {/* Section Galerie + Points de confiance */}
-                <h3 className="text-3xl lg:text-5xl text-center font-black text-white my-14">
+                <SectionSubtitle title1="L'essentiel qui fait" span='notre réputation' />
+                {/* <h3 className="text-3xl lg:text-5xl text-center font-black text-white my-14">
                     L'essentiel qui fait <span className="italic text-orange-600">notre réputation</span>
-                </h3>
-                <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-start">
+                </h3> */}
+                <div className="grid lg:grid-cols-2 mt-24 gap-12 lg:gap-16 items-start">
                 
                     {/* Galerie d'images (gauche sur desktop) */}
                     <div ref={galleryRef} className="space-y-6 lg:my-32">
