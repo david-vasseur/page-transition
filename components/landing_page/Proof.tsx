@@ -19,6 +19,8 @@ const partners = [
     { name: "Ledenon", logo: "🦁", image: "/ledenon.png" },
     { name: "St Anastasie", logo: "👑", image: "/stanastasie.png" },
     { name: "St Bonnet du Gard", logo: "👑", image: "/stbonnet.svg" },
+    { name: "VINCI", logo: "👑", image: "/vinci.png" },
+    { name: "SNCF", logo: "👑", image: "/sncf.png" },
 ];
 
 // Images pour la galerie (remplacer par vos vraies images)
@@ -245,7 +247,7 @@ function SocialProof() {
                         <p className="text-gray-400 text-center text-lg leading-relaxed">
                             De nombreuses communes font appel à nous pour notre serieux et professionalisme.
                         </p>
-                        {partners.map((partner, index) => (
+                        {partners.slice(0, 6).map((partner, index) => (
                         <div
                             key={index}
                             className="partner-logo group relative w-30 cursor-pointer"
@@ -287,7 +289,7 @@ function SocialProof() {
 
                         {/* Colonne droite : logos en grid 3 colonnes */}
                         <div className="grid grid-cols-3 gap-8">
-                        {partners.map((partner, index) => (
+                        {partners.slice(0, 6).map((partner, index) => (
                             <div
                             key={index}
                             className="partner-logo group relative cursor-pointer"
@@ -329,12 +331,12 @@ function SocialProof() {
                     </p>
 
                     <div className="grid grid-cols-2 gap-6">
-                    {partners.slice(0, 2).map((partner, index) => (
+                    {partners.slice(6, 8).map((partner, index) => (
                         <div
                         key={index}
                         className="partner-logo group relative w-30 cursor-pointer"
                         >
-                        <div className="relative aspect-square backdrop-blur-sm rounded-2xl p-6 hover:border-orange-600/50 transition-all duration-500 hover:scale-110">
+                        <div className="relative backdrop-blur-sm rounded-2xl p-6 hover:border-orange-600/50 transition-all duration-500 hover:scale-110">
                             {/* Glow effect */}
                             <div className="absolute inset-0 bg-orange-600/0 group-hover:bg-orange-600/10 rounded-2xl transition-all duration-500 blur-xl" />
                             <Image
@@ -361,12 +363,12 @@ function SocialProof() {
 
                     {/* Colonne gauche : logos en grid 1 colonne */}
                     <div className="grid grid-cols-1 gap-8">
-                    {partners.slice(0, 2).map((partner, index) => (
+                    {partners.slice(6, 8).map((partner, index) => (
                         <div
                         key={index}
                         className="partner-logo group relative cursor-pointer"
                         >
-                        <div className="relative aspect-square backdrop-blur-sm rounded-2xl p-6 hover:border-orange-600/50 transition-all duration-500 hover:scale-110">
+                        <div className="relative backdrop-blur-sm rounded-2xl p-6 hover:border-orange-600/50 transition-all duration-500 hover:scale-110">
                             {/* Glow effect */}
                             <div className="absolute inset-0 bg-orange-600/0 group-hover:bg-orange-600/10 rounded-2xl transition-all duration-500 blur-xl" />
                             <Image
