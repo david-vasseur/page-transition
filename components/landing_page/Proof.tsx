@@ -62,10 +62,25 @@ function SocialProof() {
     const galleryRef = useRef<HTMLDivElement>(null);
     const pointsRef = useRef<HTMLDivElement>(null);
     const lumRef = useRef<(HTMLDivElement)>(null);
+    const glowRef = useRef<HTMLDivElement>(null);
     
     const [activePoint, setActivePoint] = useState(0);
 
     useGSAP(() => {
+
+        // Animation glow
+
+        if (glowRef.current) {
+            gsap.to(glowRef.current, {
+                scrollTrigger: {
+                    trigger: glowRef.current,
+                    start: "top 70%",
+                    end: "top 30%",
+                    scrub: 1
+                },
+                translateX: "100%"
+            })
+        }
 
         // Animation du titre
         if (titleRef.current) {
@@ -106,17 +121,20 @@ function SocialProof() {
         // Animation des logos partenaires
         if (partnersRef.current) {
             const logos = gsap.utils.toArray('.partner-logo');
+            console.log(logos[0]);
+            
             
             gsap.from(logos, {
                 scrollTrigger: {
                     trigger: partnersRef.current,
-                    start: "top 70%",
-                    end: "top 40%",
+                    start: "top 60%",
+                    end: "top 20%",
                     scrub: 1,
                 },
                 scale: 0.7,
                 opacity: 0,
                 yPercent: 100,
+                xPercent: (index) => (index % 2 === 0 ? -50 : 50),
                 stagger: 0.1,
                 ease: "power2.in"
             });
@@ -199,30 +217,36 @@ function SocialProof() {
                     <div className="flex flex-col lg:flex-row items-center justify-center gap-12 max-w-5xl mx-auto my-14">
     
                         {/* Colonne gauche : badges (map uniquement ici) */}
-                        <div className="grid grid-cols-3 lg:grid-row-3 bg-linear-to-br from-gray-500/40 via-black/40 to-gray-400/40 gap-6 px-12 py-6 border border-gray-500 rounded-xl">
-                        {[
-                            {
-                                icon: FaStar,
-                                label: "Note",
-                                title: "5/5",
-                            },
-                            {
-                                icon: FaBuilding,
-                                label: "Expérience",
-                                title: "3+",
-                            },
-                            {
-                                icon: FaBug,
-                                label: "Interventions",
-                                title: "500+",
-                            }].map((proof, index) => (
-                                <Forward
-                                    key={index}
-                                    label={proof.label}
-                                    title={proof.title}
-                                    textColor="text-orange-500"
-                                />
-                            ))}
+                        <div className="relative grid grid-cols-3 lg:grid-row-3 bg-linear-to-br from-gray-500/40 via-black/40 to-gray-400/40 gap-8 px-8 py-6 border border-gray-500 rounded-xl overflow-hidden">
+                        <div ref={glowRef} className="absolute inset-0 bg-linear-to-r from-transparent via-white/50 to-transparent skew-x-12 -translate-x-100" />
+                            {[
+                                {
+                                    icon: FaStar,
+                                    label: "Note",
+                                    label2: "Google",
+                                    title: "5/5",
+                                },
+                                {
+                                    icon: FaBuilding,
+                                    label: "Années",
+                                    label2: "D'experience",
+                                    title: "3+",
+                                },
+                                {
+                                    icon: FaBug,
+                                    label: "Nombre",
+                                    label2: "D'intervention",
+                                    title: "500+",
+                                }].map((proof, index) => (
+                                    <Forward
+                                        key={index}
+                                        label={proof.label}
+                                        label2={proof.label2}
+                                        title={proof.title}
+                                        textColor="text-orange-500"
+                                    />
+                                ))
+                            }
                         </div>
 
                         {/* Colonne droite : contenu (hors map) */}

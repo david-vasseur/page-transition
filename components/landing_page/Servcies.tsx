@@ -48,6 +48,7 @@ const Services = () => {
                 },
                 opacity: 0,
                 yPercent: 50,
+                xPercent: (index) => (index % 2 === 0 ? -50 : 50), 
                 stagger: 0.1,
                 ease: "power1.in",
             })
@@ -148,8 +149,8 @@ const Services = () => {
             description: "Élimination complète et durable de tous types de rongeurs",
             features: [
                 "Rats, souris, mulots",
+                "Taupe, rats taupier",
                 "Traitement préventif et curatif",
-                "Méthodes écologiques disponibles",
                 "Garantie anti-réinfestation"
             ],
             gradient: "from-orange-600 to-red-600",
@@ -163,7 +164,7 @@ const Services = () => {
             features: [
                 "Cafards, punaises de lit",
                 "Fourmis, guêpes, frelons",
-                "Mites, puces, araignées",
+                "Chenilles processionnaires",
                 "Solutions sans risque pour la santé"
             ],
             gradient: "from-orange-500 to-amber-600",
