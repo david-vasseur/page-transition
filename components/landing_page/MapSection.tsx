@@ -106,7 +106,7 @@ const InterventionZone = () => {
                         </span>
                     </h2>
                     <p className="zone-subtitle text-xl text-gray-300 max-w-3xl mx-auto">
-                        Service professionnel dans un rayon de 50km autour de Narbonne. 
+                        Service professionnel dans un rayon de 50km autour de d'Avignon. 
                         Intervention rapide garantie.
                     </p>
                 </div>
