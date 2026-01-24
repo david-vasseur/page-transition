@@ -54,10 +54,10 @@ const Services = () => {
 
         const tl = gsap.timeline({ defaults: { ease: "power3.out" } });
 
-        tl.from(".service-badge", { y: 20, opacity: 0, duration: 0.6 })
-            .from(".service-title span", { y: 30, opacity: 0, stagger: 0.15 }, "-=0.3")
-            .from(".service-subtitle", { y: 20, opacity: 0 }, "-=0.2")
-            .from(".service-card", { 
+        // tl.from(".service-badge", { y: 20, opacity: 0, duration: 0.6 })
+        //     .from(".service-title span", { y: 30, opacity: 0, stagger: 0.15 }, "-=0.3")
+        //     .from(".service-subtitle", { y: 20, opacity: 0 }, "-=0.2")
+            tl.from(".service-card", { 
                 y: 50, 
                 opacity: 0, 
                 rotateY: -15,

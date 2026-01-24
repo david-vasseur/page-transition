@@ -17,15 +17,20 @@ const Hero = () => {
     const root = useRef<HTMLDivElement>(null);
     const arrowRef = useRef<HTMLDivElement>(null);
     const scrollIndicator = useRef<HTMLDivElement>(null);
+    const actionRef = useRef<HTMLDivElement>(null);
 
     useGSAP(() => {
+
+        if (!actionRef.current) return;
+
         const tl = gsap.timeline({ defaults: { ease: "power3.out" } });
 
         tl.from(".hero-badge", { y: 20, opacity: 0, duration: 0.6 })
             .from(".hero-title span", { y: 30, opacity: 0, stagger: 0.2 }, "-=0.3")
             .from(".hero-desc", { y: 20, opacity: 0 }, "-=0.2")
+            .from(".hero-desc-1", { y: 20, opacity: 0 }, "-=0.2")
             .from(".hero-features", { opacity: 0 }, "-=0.2")
-            .from(".hero-actions", { y: 30, opacity: 0 }, "-=0.2");
+            .from(actionRef.current?.children, { y: 30, opacity: 0, stagger: 0.2 }, "-=0.2");
 
         if (!isMobile) {
             gsap.to(arrowRef.current, {
@@ -54,24 +59,8 @@ const Hero = () => {
             id="home"
             className="relative min-h-screen bg-black overflow-hidden"
         >
-            <Image src={"/infestation-dark.png"} fill alt="" className="opacity-50" />
+            <Image src={"/hero.webp"} fill alt="" className="opacity-50" />
             <div className="absolute inset-0 bg-linear-to-t from-orange-950/70 to-black/40" />
-            {/* Background video */}
-            {!isMobile && (
-                <>
-                    <video
-                        autoPlay
-                        muted
-                        loop
-                        playsInline
-                        className="absolute top-0 left-0 w-svw h-full object-cover z-0 hidden lg:block"
-                    >
-                        <source src="/video/video-test.mp4" type="video/mp4" />
-                    </video>
-                    <div className="absolute inset-0 bg-linear-to-l from-black/40 via-black/80 to-black/99 z-10" />
-                </>
-            )}
-
             <div className="container w-[90vw] mx-auto px-6 pt-32 pb-20 relative z-10">
                 <div className="grid lg:grid-cols-2 gap-12 items-center min-h-[80vh]">
                     <div>
@@ -96,14 +85,11 @@ const Hero = () => {
                         </h1>
 
                         {/* Description */}
-                        <p className="hero-desc text-xl text-gray-300 mb-8 max-w-xl">
-                        Services professionnels d&apos;extermination pour rats, guêpes,
-                        frelons et nuisibles.
-                        <span className="text-white font-semibold">
-                            {" "}
-                            Satisfaction garantie à 100 %
-                        </span>
+                        <p className="hero-desc text-xl text-gray-300 mb-4 max-w-xl">
+                            Services professionnels d&apos;extermination pour rats, guêpes,
+                            frelons et nuisibles.
                         </p>
+                        <p className="hero-desc-1 text-white font-semibold pb-4">Satisfaction garantie à 100 %</p>
 
                         {/* Features */}
                         <div className="hero-features flex flex-col sm:flex-row gap-6 mb-10">
@@ -119,24 +105,24 @@ const Hero = () => {
                         </div>
 
                         {/* Actions */}
-                        <div className="hero-actions flex flex-col sm:flex-row gap-4">
-                        <button
-                            aria-label="Demande de devis"
-                            // onClick={() => openModal(<EstimateForm />)}
-                            className="group bg-orange-600 hover:bg-orange-700 text-white px-8 py-4 rounded-full font-bold text-base 2xl:text-lg flex items-center justify-center"
-                        >
-                            Inspection gratuite
-                            <div ref={arrowRef} className="ml-2">
-                            <ArrowRight className="w-5 h-5" />
-                            </div>
-                        </button>
+                        <div ref={actionRef} className="hero-actions flex flex-col sm:flex-row gap-4">
+                            <button
+                                aria-label="Demande de devis"
+                                // onClick={() => openModal(<EstimateForm />)}
+                                className="group bg-orange-600 hover:bg-orange-700 text-white px-8 py-4 rounded-full font-bold text-base 2xl:text-lg flex items-center justify-center"
+                            >
+                                Inspection gratuite
+                                <div ref={arrowRef} className="ml-2">
+                                <ArrowRight className="w-5 h-5" />
+                                </div>
+                            </button>
 
-                        <a
-                            href="tel:+33658942067"
-                            className="border-2 border-white text-white hover:bg-white hover:text-black px-8 py-4 rounded-full font-bold text-base 2xl:text-lg text-center"
-                        >
-                            Appelez le 06 58 94 20 67
-                        </a>
+                            <a
+                                href="tel:+33658942067"
+                                className="border-2 border-white text-white hover:bg-white hover:text-black px-8 py-4 rounded-full font-bold text-base 2xl:text-lg text-center"
+                            >
+                                Appelez le 06 58 94 20 67
+                            </a>
                         </div>
                     </div>
                 </div>

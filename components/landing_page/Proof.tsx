@@ -59,52 +59,14 @@ const trustPoints = [
 
 function SocialProof() {
     const containerRef = useRef<HTMLDivElement>(null);
-    const titleRef = useRef<HTMLHeadingElement>(null);
     const partnersRef = useRef<HTMLDivElement>(null);
     const galleryRef = useRef<HTMLDivElement>(null);
     const pointsRef = useRef<HTMLDivElement>(null);
     const lumRef = useRef<(HTMLDivElement)>(null);
-    const glowRef = useRef<HTMLDivElement>(null);
     
     const [activePoint, setActivePoint] = useState(0);
 
     useGSAP(() => {
-
-        // Animation glow
-
-        if (glowRef.current) {
-            gsap.to(glowRef.current, {
-                scrollTrigger: {
-                    trigger: glowRef.current,
-                    start: "top 70%",
-                    end: "top 30%",
-                    scrub: 1
-                },
-                translateX: "100%"
-            })
-        }
-
-        // Animation du titre
-        if (titleRef.current) {
-        const split = new SplitText(titleRef.current, {
-            type: "chars,words",
-            charsClass: "split-char"
-        });
-
-        gsap.from(split.chars, {
-            scrollTrigger: {
-            trigger: titleRef.current,
-            start: "top 80%",
-            end: "top 50%",
-            scrub: 1,
-            },
-            opacity: 0,
-            y: 50,
-            rotationX: -90,
-            stagger: 0.02,
-            ease: "back.out(1.7)",
-        });
-        }
 
         if (lumRef.current) {
             gsap.from(lumRef.current, {
@@ -120,11 +82,12 @@ function SocialProof() {
             })
         }
 
-        // Animation des logos partenaires
+    });
+
+    useGSAP(() => {
+
         if (partnersRef.current) {
             const logos = gsap.utils.toArray('.partner-logo');
-            console.log(logos[0]);
-            
             
             gsap.from(logos, {
                 scrollTrigger: {
@@ -141,39 +104,52 @@ function SocialProof() {
                 ease: "power2.in"
             });
         }
+    
+    });
+
+    useGSAP(() => {
+
+        if (galleryRef.current) {
+            const images = gsap.utils.toArray('.gallery-image');
+            
+            images.forEach((img: any, index) => {
+                gsap.from(img, {
+                    scrollTrigger: {
+                        trigger: img,
+                        start: "top 80%",
+                        end: "top 50%",
+                        scrub: 1,
+                        onEnter: () => setActivePoint(index),
+                        onEnterBack: () => setActivePoint(index),
+                    },
+                    x: -50,
+                    opacity: 0,
+                    scale: 0.9,
+                    ease: "power3.out",
+                });
+            });
+        }
+
+    })
+
+    useGSAP(() => {
 
         // Animation des images de galerie
         if (galleryRef.current) {
-        const images = gsap.utils.toArray('.gallery-image');
-        
-        images.forEach((img: any, index) => {
-            gsap.from(img, {
-            scrollTrigger: {
-                trigger: img,
-                start: "top 80%",
-                end: "top 50%",
-                scrub: 1,
-                onEnter: () => setActivePoint(index),
-                onEnterBack: () => setActivePoint(index),
-            },
-            x: -50,
-            opacity: 0,
-            scale: 0.9,
-            ease: "power3.out",
+            const images = gsap.utils.toArray('.gallery-image');
+            
+            images.forEach((img: any, index) => {
+                gsap.to(img, {
+                    scrollTrigger: {
+                        trigger: img,
+                        start: "top bottom",
+                        end: "bottom top",
+                        scrub: 2,
+                    },
+                    y: -50,
+                    ease: "none",
+                });
             });
-
-            // Effet de parallaxe sur les images
-            gsap.to(img, {
-            scrollTrigger: {
-                trigger: img,
-                start: "top bottom",
-                end: "bottom top",
-                scrub: 2,
-            },
-            y: -50,
-            ease: "none",
-            });
-        });
         }
 
         // Animation des points de confiance
@@ -208,59 +184,6 @@ function SocialProof() {
             
             <div className="max-w-7xl mx-auto px-6 lg:px-8 relative z-10">
                 <ProofHeader />
-                
-                {/* Titre principal */}
-                {/* <div className="text-center mb-12 lg:mb-16 mx-auto">
-                    <h2 
-                        ref={titleRef}
-                        className="text-5xl mx-auto lg:text-7xl max-w-xl font-black text-white mb-4"
-                    >
-                        UN SAVOIR FAIRE <span className="text-orange-600">RECONNU</span>
-                    </h2>
-                    <div className="flex flex-col lg:flex-row items-center justify-center gap-12 max-w-5xl mx-auto my-14">
-    
-                        
-                        <div className="relative grid grid-cols-3 lg:grid-row-3 bg-linear-to-br from-gray-500/40 via-black/40 to-gray-400/40 gap-8 px-8 py-6 border border-gray-500 rounded-xl overflow-hidden">
-                        <div ref={glowRef} className="absolute inset-0 bg-linear-to-r from-transparent via-white/50 to-transparent skew-x-12 -translate-x-100" />
-                            {[
-                                {
-                                    icon: FaStar,
-                                    label: "Note",
-                                    label2: "Google",
-                                    title: "5/5",
-                                },
-                                {
-                                    icon: FaBuilding,
-                                    label: "Années",
-                                    label2: "D'experience",
-                                    title: "3+",
-                                },
-                                {
-                                    icon: FaBug,
-                                    label: "Nombre",
-                                    label2: "D'intervention",
-                                    title: "500+",
-                                }].map((proof, index) => (
-                                    <Forward
-                                        key={index}
-                                        label={proof.label}
-                                        label2={proof.label2}
-                                        title={proof.title}
-                                        textColor="text-orange-500"
-                                    />
-                                ))
-                            }
-                        </div>
-
-                        
-                        <div className="max-w-md text-center lg:text-left">
-                            <p className="text-gray-400 text-lg leading-relaxed mb-6">
-                                Nous intervenons pour des particuliers, des communes et des entreprises nationales, 
-                                avec un haut niveau d’exigence, de réactivité et de fiabilité.
-                            </p>
-                        </div>
-                    </div>
-                </div> */}
 
                 {/* Section Communes */}
                 <div ref={partnersRef} className="mb-20 lg:my-32">
