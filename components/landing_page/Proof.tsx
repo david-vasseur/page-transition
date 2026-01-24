@@ -8,7 +8,6 @@ import { FaShieldAlt, FaAward, FaCheckCircle, FaMapMarkedAlt } from 'react-icons
 import Image from 'next/image';
 import { FaBug, FaBuilding, FaFacebook, FaInstagram, FaMapLocation, FaStar, FaTiktok } from 'react-icons/fa6';
 import Social from "@/components/features/SocialProof";
-import Forward from '../ui/Forward';
 import ProofHeader from '../features/ProofHeader';
 import SectionSubtitle from '../ui/SectionSubtitle';
 import LogoProof from '../ui/LogoProof';

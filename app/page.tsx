@@ -1,9 +1,9 @@
 import Services from "@/components/landing_page/Servcies";
 import Hero from "../components/landing_page/Hero";
-import Presentation from "../components/landing_page/Presentation";
 import IReview from "../type/review";
 import InterventionZone from "@/components/landing_page/MapSection";
 import SocialProof from "@/components/landing_page/Proof";
+import Testimonials from "@/components/landing_page/Testimonial";
 
 
 interface PlaceDetailsResponse {
@@ -81,7 +81,56 @@ export default async function Home() {
 
 	const response = await fetch(`https://maps.googleapis.com/maps/api/place/details/json?place_id=${process.env.PLACE_ID}&fields=reviews&language=fr&key=${process.env.GOOGLE_API_KEY}`);
 	const data: PlaceDetailsResponse = await response.json();
-	const reviews = data.result?.reviews ?? [];
+	const testimonials: IReview[] = [
+    {
+        author_name: "Sarah Johnson",
+        author_url: "",
+        language: "fr",
+        original_language: "fr",
+        profile_photo_url: "https://images.pexels.com/photos/415829/pexels-photo-415829.jpeg?auto=compress&cs=tinysrgb&w=150&h=150&fit=crop",
+        rating: 5,
+        relative_time_description: "Il y a 2 semaines",
+        text: "GVS3D a complètement éliminé notre problème de rats ! Leur équipe était professionnelle, minutieuse, et les résultats ont été immédiats. Je n’ai pas vu un seul rongeur depuis leur intervention.",
+        time: Math.floor(Date.now() / 1000),
+        translated: false,
+    },
+    {
+        author_name: "Michael Chen",
+        author_url: "",
+        language: "fr",
+        original_language: "fr",
+        profile_photo_url: "https://images.pexels.com/photos/1222271/pexels-photo-1222271.jpeg?auto=compress&cs=tinysrgb&w=150&h=150&fit=crop",
+        rating: 5,
+        relative_time_description: "Il y a 1 mois",
+        text: "En tant que propriétaire de restaurant, la lutte contre les nuisibles est cruciale. L’approche complète de GVS3D et leur maintenance continue ont gardé notre établissement sans nuisibles depuis plus de deux ans.",
+        time: Math.floor(Date.now() / 1000),
+        translated: false,
+    },
+    {
+        author_name: "Emma Rodriguez",
+        author_url: "",
+        language: "fr",
+        original_language: "fr",
+        profile_photo_url: "https://images.pexels.com/photos/1239291/pexels-photo-1239291.jpeg?auto=compress&cs=tinysrgb&w=150&h=150&fit=crop",
+        rating: 5,
+        relative_time_description: "Il y a 3 mois",
+        text: "Gérant plusieurs propriétés, j’ai besoin d’un service fiable. GVS3D s’occupe de toutes nos propriétés avec une qualité constante et un excellent service client.",
+        time: Math.floor(Date.now() / 1000),
+        translated: false,
+    },
+    {
+        author_name: "David Thompson",
+        author_url: "",
+        language: "fr",
+        original_language: "fr",
+        profile_photo_url: "https://images.pexels.com/photos/1681010/pexels-photo-1681010.jpeg?auto=compress&cs=tinysrgb&w=150&h=150&fit=crop",
+        rating: 5,
+        relative_time_description: "Il y a 6 mois",
+        text: "Le service de retrait de nid de guêpes était exceptionnel. Ils ont géré une situation dangereuse de façon sûre et efficace. Je recommande vivement leur expertise !",
+        time: Math.floor(Date.now() / 1000),
+        translated: false,
+    }
+];
 	
 	return (
 		<div className="min-h-screen">
@@ -89,7 +138,7 @@ export default async function Home() {
 			<SocialProof />
 			{/* <Presentation /> */}
 			<Services />
-			<InterventionZone />
+			<Testimonials reviews={testimonials} />
 			<script
 				type="application/ld+json"
 				dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationJsonLd) }}
