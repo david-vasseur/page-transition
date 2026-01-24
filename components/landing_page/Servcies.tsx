@@ -5,6 +5,7 @@ import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { Bug, Droplet, Rat, AlertCircle, Zap, Shield, CheckCircle, ArrowRight } from "lucide-react";
 import { SplitText } from "gsap/SplitText";
+import SectionTitle from "../ui/SectionTitle";
 
 gsap.registerPlugin(useGSAP);
 
@@ -17,43 +18,6 @@ const Services = () => {
 
     useGSAP(() => {
 
-         if (titleRef.current) {
-            const split = new SplitText(titleRef.current, {
-                type: "chars,words",
-                charsClass: "split-char"
-            });
-
-            gsap.from(split.chars, {
-                scrollTrigger: {
-                    trigger: titleRef.current,
-                    start: "top 90%",
-                    end: "top 60%",
-                    scrub: 1,
-                },
-                opacity: 0,
-                y: 50,
-                rotationX: -90,
-                stagger: 0.02,
-                ease: "back.out(1.7)",
-            });
-        }
-
-        if (servicesRef.current) {
-            gsap.from(servicesRef.current, {
-                scrollTrigger: {
-                    trigger: servicesRef.current,
-                    start: "top 80%",
-                    end: "top 50%",
-                    scrub: 1
-                },
-                opacity: 0,
-                yPercent: 50,
-                xPercent: (index) => (index % 2 === 0 ? -50 : 50), 
-                stagger: 0.1,
-                ease: "power1.in",
-            })
-        }
-
         if (lumRef.current) {
             gsap.from(lumRef.current, {
                 scrollTrigger: {
@@ -65,6 +29,26 @@ const Services = () => {
                 rotateX: 90,
                 transformOrigin: "top",
                 ease: "back.out(1.7)"
+            })
+        }
+
+    })
+
+    useGSAP(() => {
+
+        if (servicesRef.current) {
+            gsap.from(servicesRef.current, {
+                scrollTrigger: {
+                    trigger: servicesRef.current,
+                    start: "top 80%",
+                    end: "top 50%",
+                    scrub: 1
+                },
+                opacity: 0,
+                yPercent: 30,
+                xPercent: (index) => (index % 2 === 0 ? -50 : 50), 
+                stagger: 0.1,
+                ease: "power1.in",
             })
         }
 
@@ -205,21 +189,14 @@ const Services = () => {
             <div className="container mx-auto px-6 relative z-10">
                 {/* Header */}
                 <div className="text-center mb-20">
-                    {/* <div className="service-badge inline-flex items-center bg-orange-600/20 border border-orange-600/30 rounded-full px-6 py-3 mb-6">
-                        <Shield className="w-5 h-5 mr-2 text-orange-500" />
-                        <span className="text-orange-500 font-bold">Expertise Professionnelle</span>
-                    </div> */}
-                    
-                    <h2 
-                        ref={titleRef}
-                        className="text-5xl lg:text-7xl font-black text-white my-4"
-                    >
-                        NOS <span className="text-orange-600">SERVICES</span>
-                    </h2>
+    
+                    <SectionTitle title="NOS" span="SERVICES" />
+
                     <p className="text-gray-400 text-lg max-w-2xl mx-auto">
                         Des solutions professionnelles pour chaque type d'infestation. 
                         Intervention rapide et résultats garantis.
                     </p>
+
                 </div>
 
                 {/* Services Grid */}

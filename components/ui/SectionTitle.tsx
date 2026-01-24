@@ -42,7 +42,7 @@ function SectionTitle({ title, span }: ITitle) {
     return (
         <h2 
             ref={titleRef}
-            className="text-5xl mx-auto lg:text-7xl max-w-xl font-black text-white mb-4"
+            className="text-5xl mx-auto lg:text-7xl max-w-xl font-black text-white my-4"
         >
             {title} <span className="text-orange-600">{span}</span>
         </h2>

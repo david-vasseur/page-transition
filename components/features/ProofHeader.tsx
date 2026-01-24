@@ -14,35 +14,52 @@ function ProofHeader() {
     const finalRef = useRef<HTMLDivElement>(null);
 
     useGSAP(() => {
-        const tl = gsap.timeline({
-            scrollTrigger: {
-            trigger: glowRef.current,
-            start: "top 70%",
-            end: "top 30%",
-            scrub: 1,
-            }
-        });
 
         if (glowRef.current) {
-            tl.to(glowRef.current, {
-            x: "100%",
-            }, 0);
+            gsap.to(glowRef.current, {
+                scrollTrigger: {
+                    trigger: glowRef.current,
+                    start: "top 70%",
+                    end: "top 20%",
+                    scrub: 1,
+                },
+                x: "100%",
+            });
         }
+
+    });
+
+    useGSAP(() => {
 
         if (subtitleRef.current) {
-            tl.from(subtitleRef.current, {
-            opacity: 0,
-            y: 30,
-            }, ">"); 
+            gsap.from(subtitleRef.current, {
+                scrollTrigger: {
+                    trigger: subtitleRef.current,
+                    start: "top 70%",
+                    end: "top 30%",
+                    scrub: 1,
+                },
+                opacity: 0,
+                y: 30,
+            }); 
         }
+    });
+
+    useGSAP(() => {
 
         if (finalRef.current) {
-            tl.from(finalRef.current, {
+            gsap.from(finalRef.current, {
+                scrollTrigger: {
+                    trigger: finalRef.current,
+                    start: "top 70%",
+                    end: "top 30%",
+                    scrub: 1,
+                },
                 scaleX: 0
-            }, ">")
+            })
         }
 
-    }, []);
+    });
 
 
     return (
