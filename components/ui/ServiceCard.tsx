@@ -1,3 +1,5 @@
+"use clint"
+
 import { useGSAP } from '@gsap/react';
 import gsap from 'gsap';
 import { ArrowRight, CheckCircle } from 'lucide-react';
@@ -24,22 +26,46 @@ function ServiceCard({ id, title, icon, description, features, gradient, bgGradi
     const glowRef = useRef<HTMLDivElement>(null);
 
     useGSAP(() => {
+        if (!cardRef.current) return;
 
-        if (cardRef.current) {
-            gsap.from(cardRef.current, {
-                scrollTrigger: {
-                    trigger: cardRef.current,
-                    start: "top 90%",
-                    end: "top 60%",
-                    scrub: 1
-                },
-                opacity: 0,
-                yPercent: 30,
-                xPercent: index % 2 === 0 ? -50 : 50, 
-                ease: "power1.in",
-            })
-        }
+        let mm = gsap.matchMedia();
 
+        mm.add("(max-width: 1024px)", () => {
+                gsap.from(cardRef.current, {
+                    scrollTrigger: {
+                        trigger: cardRef.current,
+                        start: "top 90%",
+                        end: "top 60%",
+                        scrub: 1
+                    },
+                    opacity: 0,
+                    yPercent: 30,
+                    xPercent: index % 2 === 0 ? -50 : 50,
+                    ease: "power1.in",
+                });
+            }),
+
+            // Desktop
+            mm.add("(min-width: 1025px)", () => {
+
+                let startValue = "top 65%";
+                if (index === 0) startValue = "top 95%";
+                else if (index === 1) startValue = "top 80%";
+
+                gsap.set(cardRef.current, { yPercent: 30, opacity: 0 });
+                gsap.to(cardRef.current, {
+                    scrollTrigger: {
+                        trigger: cardRef.current,
+                        start: startValue,
+                        end: "top 60%",
+                        scrub: 1
+                    },
+                    opacity: 1,
+                    yPercent: 0,
+                    ease: "power1.in",
+                });
+            }
+        );
     });
 
     useGSAP(() => {
@@ -66,7 +92,7 @@ function ServiceCard({ id, title, icon, description, features, gradient, bgGradi
             gsap.to(glowRef.current, {
                 scrollTrigger: {
                     trigger: glowRef.current,
-                    start: "top 75%",
+                    start: "top 85%",
                     end: "top 45%",
                     scrub: 1,
                 },

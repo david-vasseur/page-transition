@@ -11,18 +11,19 @@ import Social from "@/components/features/SocialProof";
 import Forward from '../ui/Forward';
 import ProofHeader from '../features/ProofHeader';
 import SectionSubtitle from '../ui/SectionSubtitle';
+import LogoProof from '../ui/LogoProof';
 
 
 // Logos des partenaires (blasons de villes)
 const partners = [
-    { name: "Aramon", logo: "🏛️", image: "/aramon.png" },
-    { name: "Garons", logo: "⚜️", image: "/garons.png" },
-    { name: "Bellegarde", logo: "🏰", image: "/bellegarde.png" },
-    { name: "Ledenon", logo: "🦁", image: "/ledenon.png" },
-    { name: "St Anastasie", logo: "👑", image: "/stanastasie.png" },
-    { name: "St Bonnet du Gard", logo: "👑", image: "/stbonnet.svg" },
-    { name: "VINCI", logo: "👑", image: "/vinci.png" },
-    { name: "SNCF", logo: "👑", image: "/sncf.png" },
+    { name: "Aramon", alt: "Blason de la ville de Aramon", image: "/aramon.png" },
+    { name: "Garons", alt: "Blason de la ville de Garons", image: "/garons.png" },
+    { name: "Bellegarde", alt: "Blason de la ville de Bellegarde", image: "/bellegarde.png" },
+    { name: "Ledenon", alt: "Blason de la ville de Ledenon", image: "/ledenon.png" },
+    { name: "St Anastasie", alt: "Blason de la ville de St Anastasie", image: "/stanastasie.png" },
+    { name: "St Bonnet du Gard", alt: "Blason de la ville de St Bonnet du Gard", image: "/stbonnet.svg" },
+    { name: "VINCI", alt: "Logo de l'entrprise VINCI", image: "/vinci.png" },
+    { name: "SNCF", alt: "Logo de l'entrprise SNCF", image: "/sncf.png" },
 ];
 
 // Images pour la galerie (remplacer par vos vraies images)
@@ -82,29 +83,6 @@ function SocialProof() {
             })
         }
 
-    });
-
-    useGSAP(() => {
-
-        if (partnersRef.current) {
-            const logos = gsap.utils.toArray('.partner-logo');
-            
-            gsap.from(logos, {
-                scrollTrigger: {
-                    trigger: partnersRef.current,
-                    start: "top 60%",
-                    end: "top 20%",
-                    scrub: 1,
-                },
-                scale: 0.7,
-                opacity: 0,
-                yPercent: 100,
-                xPercent: (index) => (index % 2 === 0 ? -50 : 50),
-                stagger: 0.1,
-                ease: "power2.in"
-            });
-        }
-    
     });
 
     useGSAP(() => {
@@ -191,35 +169,12 @@ function SocialProof() {
                     {/* Mobile : logos centrés comme avant */}
                     <div className="flex flex-wrap justify-center items-center gap-8 lg:hidden">
                         <SectionSubtitle title1='Des' title2='qui nous font confiance' span='communes' />
-                        {/* <h3 className="text-3xl lg:text-5xl font-black text-white text-center mb-4">
-                            Des <span className="italic text-orange-600">communes</span> qui nous font confiance
-                        </h3> */}
+                        
                         <p className="text-gray-400 text-center text-lg leading-relaxed">
                             De nombreuses communes font appel à nous pour notre serieux et professionalisme.
                         </p>
                         {partners.slice(0, 6).map((partner, index) => (
-                        <div
-                            key={index}
-                            className="partner-logo group relative w-30 cursor-pointer"
-                        >
-                            <div className="relative aspect-square backdrop-blur-sm rounded-2xl p-6 hover:border-orange-600/50 transition-all duration-500 hover:scale-110">
-                                {/* Glow effect */}
-                                <div className="absolute inset-0 bg-orange-600/0 group-hover:bg-orange-600/10 rounded-2xl transition-all duration-500 blur-xl" />
-                                <Image
-                                    width={160}
-                                    height={160}
-                                    src={partner.image}
-                                    alt=""
-                                    className="absolute opacity-25 rounded-2xl inset-0 group-hover:opacity-10 transition-all duration-500 grayscale-75"
-                                />
-
-                                <div className="relative flex flex-col items-center gap-3">
-                                    <p className="text-orange-600 group-hover:text-gray-200 font-bold uppercase text-xs text-center transition-colors duration-300">
-                                        {partner.name}
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
+                            <LogoProof key={index} name={partner.name} image={partner.image} alt={partner.alt} index={index} />
                         ))}
                     </div>
 
@@ -229,9 +184,7 @@ function SocialProof() {
                         {/* Colonne gauche : texte */}
                         <div className="max-w-md">
                             <SectionSubtitle title1='Des' title2='qui nous font confiance' span='communes' />
-                            {/* <h3 className="text-3xl lg:text-5xl font-black text-white mb-4">
-                                Des <span className="italic text-orange-600">communes</span> qui nous font confiance
-                            </h3> */}
+                            
                             <p className="text-gray-400 text-lg leading-relaxed">
                                 Nous collaborons avec des communes et des entreprises nationales reconnues,
                                 gage de sérieux, de fiabilité et de professionnalisme sur chaque intervention.
@@ -284,28 +237,7 @@ function SocialProof() {
 
                         <div className="grid grid-cols-2 gap-6">
                         {partners.slice(6, 8).map((partner, index) => (
-                            <div
-                            key={index}
-                            className="group relative w-30 cursor-pointer"
-                            >
-                            <div className="relative backdrop-blur-sm rounded-2xl p-6 hover:border-orange-600/50 transition-all duration-500 hover:scale-110">
-                                {/* Glow effect */}
-                                <div className="absolute inset-0 bg-orange-600/0 group-hover:bg-orange-600/10 rounded-2xl transition-all duration-500 blur-xl" />
-                                <Image
-                                width={160}
-                                height={160}
-                                src={partner.image}
-                                alt=""
-                                className="absolute opacity-25 rounded-2xl inset-0 group-hover:opacity-10 transition-all duration-500 grayscale-75"
-                                />
-
-                                <div className="relative flex flex-col items-center gap-3">
-                                <p className="text-orange-600 group-hover:text-gray-200 font-bold uppercase text-xs text-center transition-colors duration-300">
-                                    {partner.name}
-                                </p>
-                                </div>
-                            </div>
-                            </div>
+                            <LogoProof key={index} name={partner.name} image={partner.image} alt={partner.alt} index={index} />
                         ))}
                         </div>
                     </div>
@@ -344,9 +276,7 @@ function SocialProof() {
                         {/* Colonne droite : texte */}
                         <div className="max-w-md">
                             <SectionSubtitle title1='Des' title2=' partenaires' span='entreprises nationales' />
-                        {/* <h3 className="text-3xl lg:text-5xl font-black text-white mb-4">
-                            Des <span className="italic text-orange-600">entreprises nationales</span> partenaires
-                        </h3> */}
+                        
                         <p className="text-gray-400 text-lg leading-relaxed">
                             Des entreprises reconnues à l’échelle nationale nous font confiance pour notre expertise,
                             notre réactivité et notre niveau d’exigence.
@@ -359,9 +289,7 @@ function SocialProof() {
 
                 {/* Section Galerie + Points de confiance */}
                 <SectionSubtitle title1="L'essentiel qui fait" span='notre réputation' />
-                {/* <h3 className="text-3xl lg:text-5xl text-center font-black text-white my-14">
-                    L'essentiel qui fait <span className="italic text-orange-600">notre réputation</span>
-                </h3> */}
+                
                 <div className="grid lg:grid-cols-2 mt-24 gap-12 lg:gap-16 items-start">
                 
                     {/* Galerie d'images (gauche sur desktop) */}

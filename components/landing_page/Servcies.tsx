@@ -167,7 +167,7 @@ const Services = () => {
                 {/* Services Grid */}
                 <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto mb-12">
                     {services.map((service, index) => (
-                        <ServiceCard title={service.title} description={service.description} bgGradient={service.bgGradient} gradient={service.gradient} index={index} id={service.id} icon={service.icon} features={service.features}/>
+                        <ServiceCard key={index} title={service.title} description={service.description} bgGradient={service.bgGradient} gradient={service.gradient} index={index} id={service.id} icon={service.icon} features={service.features}/>
                     ))}
                 </div>
 
