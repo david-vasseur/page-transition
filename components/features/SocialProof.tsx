@@ -67,7 +67,7 @@ function Social() {
             <div className="relative text-center mb-12">
                 <h3 
                     ref={socialTitleRef}
-                    className="text-3xl lg:text-5xl font-black text-white mb-4"
+                    className="text-3xl lg:text-5xl font-black text-white mb-4 break-keep"
                 >
                     REJOIGNEZ-NOUS SUR LES <span className="text-orange-600">RÉSEAUX</span>
                 </h3>

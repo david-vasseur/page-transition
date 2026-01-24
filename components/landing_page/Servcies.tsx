@@ -7,10 +7,14 @@ import { Bug, Droplet, Rat, AlertCircle, Zap, Shield, CheckCircle, ArrowRight } 
 import { SplitText } from "gsap/SplitText";
 import SectionTitle from "../ui/SectionTitle";
 import ServiceCard from "../ui/ServiceCard";
+import { useMobileStore } from "@/lib/stores/mobileStore";
 
 gsap.registerPlugin(useGSAP);
 
 const Services = () => {
+
+    const { isMobile } = useMobileStore();
+
     const root = useRef(null);
     const emergencyRef = useRef(null);
     const titleRef = useRef<HTMLHeadingElement>(null);
@@ -211,12 +215,12 @@ const Services = () => {
                                 </div>
                             </div>
 
-                            <div className="shrink-0">
+                            <div className="flex flex-col gap-2">
                                 <a
                                     href="tel:+33658942067"
-                                    className="block bg-white text-orange-600 hover:bg-gray-100 text-center font-black text-2xl md:text-3xl px-8 py-6 rounded-2xl transition-all shadow-2xl hover:scale-105"
+                                    className="shrink-0 bg-white text-orange-600 hover:bg-gray-100 text-center font-black text-2xl md:text-3xl px-8 py-6 rounded-2xl transition-all shadow-2xl hover:scale-105"
                                 >
-                                    📞 06 58 94 20 67
+                                    {isMobile ? "06 58 94 20 67" : "📞 06 58 94 20 67"}
                                 </a>
                                 <p className="text-center text-white/80 text-sm mt-3 font-semibold">
                                     Appel gratuit
