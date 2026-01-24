@@ -6,6 +6,7 @@ import { useGSAP } from "@gsap/react";
 import { Bug, Droplet, Rat, AlertCircle, Zap, Shield, CheckCircle, ArrowRight } from "lucide-react";
 import { SplitText } from "gsap/SplitText";
 import SectionTitle from "../ui/SectionTitle";
+import ServiceCard from "../ui/ServiceCard";
 
 gsap.registerPlugin(useGSAP);
 
@@ -36,39 +37,13 @@ const Services = () => {
 
     useGSAP(() => {
 
-        if (servicesRef.current) {
-            gsap.from(servicesRef.current, {
-                scrollTrigger: {
-                    trigger: servicesRef.current,
-                    start: "top 80%",
-                    end: "top 50%",
-                    scrub: 1
-                },
-                opacity: 0,
-                yPercent: 30,
-                xPercent: (index) => (index % 2 === 0 ? -50 : 50), 
-                stagger: 0.1,
-                ease: "power1.in",
-            })
-        }
-
         const tl = gsap.timeline({ defaults: { ease: "power3.out" } });
 
-        // tl.from(".service-badge", { y: 20, opacity: 0, duration: 0.6 })
-        //     .from(".service-title span", { y: 30, opacity: 0, stagger: 0.15 }, "-=0.3")
-        //     .from(".service-subtitle", { y: 20, opacity: 0 }, "-=0.2")
-            tl.from(".service-card", { 
-                y: 50, 
-                opacity: 0, 
-                rotateY: -15,
-                stagger: 0.15,
-                duration: 0.8
-            }, "-=0.3")
-            .from(".emergency-card", { 
-                scale: 0.9, 
-                opacity: 0,
-                duration: 0.6
-            }, "-=0.4");
+        tl.from(".emergency-card", { 
+            scale: 0.9, 
+            opacity: 0,
+            duration: 0.6
+        }, "-=0.4");
 
         // Animation pulsation pour la carte d'urgence
         gsap.to(emergencyRef.current, {
@@ -80,48 +55,48 @@ const Services = () => {
         });
 
         // Effet de brillance sur les cartes
-        const cards = document.querySelectorAll(".service-card");
-        cards.forEach((card) => {
-            const shine = card.querySelector(".shine-effect");
+        // const cards = document.querySelectorAll(".service-card");
+        // cards.forEach((card) => {
+        //     const shine = card.querySelector(".shine-effect");
             
-            card.addEventListener("mouseenter", () => {
-                gsap.to(card, { 
-                    y: -10,
-                    duration: 0.4, 
-                    ease: "power2.out" 
-                });
-                gsap.to(shine, {
-                    x: "100%",
-                    duration: 0.6,
-                    ease: "power2.inOut"
-                });
-            });
+        //     card.addEventListener("mouseenter", () => {
+        //         gsap.to(card, { 
+        //             y: -10,
+        //             duration: 0.4, 
+        //             ease: "power2.out" 
+        //         });
+        //         gsap.to(shine, {
+        //             x: "100%",
+        //             duration: 0.6,
+        //             ease: "power2.inOut"
+        //         });
+        //     });
             
-            card.addEventListener("mouseleave", () => {
-                gsap.to(card, { 
-                    y: 0,
-                    duration: 0.4, 
-                    ease: "power2.out" 
-                });
-                gsap.to(shine, {
-                    x: "-100%",
-                    duration: 0
-                });
-            });
-        });
+        //     card.addEventListener("mouseleave", () => {
+        //         gsap.to(card, { 
+        //             y: 0,
+        //             duration: 0.4, 
+        //             ease: "power2.out" 
+        //         });
+        //         gsap.to(shine, {
+        //             x: "-100%",
+        //             duration: 0
+        //         });
+        //     });
+        // });
 
         // Animation des icônes au hover
-        const icons = document.querySelectorAll(".service-icon");
-        icons.forEach((icon) => {
-            icon.parentElement && icon.parentElement.addEventListener("mouseenter", () => {
-                gsap.to(icon, {
-                    rotate: 360,
-                    scale: 1.1,
-                    duration: 0.6,
-                    ease: "back.out(1.7)"
-                });
-            });
-        });
+        // const icons = document.querySelectorAll(".service-icon");
+        // icons.forEach((icon) => {
+        //     icon.parentElement && icon.parentElement.addEventListener("mouseenter", () => {
+        //         gsap.to(icon, {
+        //             rotate: 360,
+        //             scale: 1.1,
+        //             duration: 0.6,
+        //             ease: "back.out(1.7)"
+        //         });
+        //     });
+        // });
 
     }, { scope: root });
 
@@ -173,19 +148,9 @@ const Services = () => {
     return (
         <section ref={root} className="relative min-h-screen bg-black text-white overflow-hidden py-20">
             {/* Animated background */}
-            {/* <div className="absolute inset-0 bg-gradient-to-br from-orange-900/10 via-black to-black z-0" /> */}
             <div ref={lumRef} className="absolute top-0 w-full h-20 bg-linear-to-b from-gray-600 to-transparent rounded-full blur-3xl" />
             <div className="absolute top-1/4 right-0 w-96 h-96 bg-orange-600/10 rounded-full blur-3xl" />
             <div className="absolute bottom-1/4 left-0 w-96 h-96 bg-red-600/10 rounded-full blur-3xl" />
-            
-            {/* Grid pattern overlay */}
-            {/* <div className="absolute inset-0 opacity-[0.03]" 
-                 style={{
-                     backgroundImage: `linear-gradient(#fff 1px, transparent 1px), linear-gradient(90deg, #fff 1px, transparent 1px)`,
-                     backgroundSize: '50px 50px'
-                 }}
-            /> */}
-
             <div className="container mx-auto px-6 relative z-10">
                 {/* Header */}
                 <div className="text-center mb-20">
@@ -202,69 +167,7 @@ const Services = () => {
                 {/* Services Grid */}
                 <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto mb-12">
                     {services.map((service, index) => (
-                        <div
-                            key={service.id}
-                            ref={el => {servicesRef.current[index] = el}}
-                            className="service-card relative group cursor-pointer"
-                            style={{ perspective: '1000px' }}
-                        >
-                            {/* Decorative corner cuts */}
-                            <div className="relative bg-linear-to-br from-zinc-900 to-black border border-zinc-800 rounded-3xl p-8 overflow-hidden transition-all duration-300 hover:border-orange-600/50"
-                                 style={{
-                                     clipPath: 'polygon(0 0, 100% 0, 100% calc(100% - 30px), calc(100% - 30px) 100%, 0 100%)'
-                                 }}
-                            >
-                                {/* Shine effect */}
-                                <div className="shine-effect absolute inset-0 bg-linear-to-r from-transparent via-white/10 to-transparent -translate-x-full" />
-                                
-                                {/* Background gradient */}
-                                <div className={`absolute inset-0 bg-linear-to-br ${service.bgGradient} opacity-50`} />
-                                
-                                {/* Corner accent */}
-                                <div className={`absolute bottom-0 right-0 w-20 h-20 bg-linear-to-tl ${service.gradient} opacity-20`}
-                                     style={{
-                                         clipPath: 'polygon(100% 0, 100% 100%, 0 100%)'
-                                     }}
-                                />
-
-                                {/* Content */}
-                                <div className="relative z-10">
-                                    {/* Icon */}
-                                    <div className={`inline-flex p-4 rounded-2xl bg-linear-to-br ${service.gradient} mb-6 shadow-lg`}>
-                                        <service.icon className="service-icon w-8 h-8 text-white" />
-                                    </div>
-
-                                    {/* Title */}
-                                    <h3 className="text-2xl font-black mb-3">{service.title}</h3>
-                                    
-                                    {/* Description */}
-                                    <p className="text-gray-300 mb-6 leading-relaxed">
-                                        {service.description}
-                                    </p>
-
-                                    {/* Features */}
-                                    <ul className="space-y-3 mb-6">
-                                        {service.features.map((feature, idx) => (
-                                            <li key={idx} className="flex items-start text-sm text-gray-400">
-                                                <CheckCircle className="w-4 h-4 mr-2 text-orange-500 shrink-0 mt-0.5" />
-                                                <span>{feature}</span>
-                                            </li>
-                                        ))}
-                                    </ul>
-
-                                    {/* CTA */}
-                                    <button className={`w-full bg-linear-to-r ${service.gradient} hover:shadow-lg hover:shadow-orange-600/30 text-white font-bold py-3 rounded-xl transition-all flex items-center justify-center group`}>
-                                        En savoir plus
-                                        <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
-                                    </button>
-                                </div>
-                            </div>
-
-                            {/* Floating badge */}
-                            <div className={`absolute -top-3 -right-3 bg-linear-to-br ${service.gradient} text-white text-xs font-bold px-4 py-2 rounded-full shadow-lg`}>
-                                24/7
-                            </div>
-                        </div>
+                        <ServiceCard title={service.title} description={service.description} bgGradient={service.bgGradient} gradient={service.gradient} index={index} id={service.id} icon={service.icon} features={service.features}/>
                     ))}
                 </div>
 
@@ -273,11 +176,7 @@ const Services = () => {
                     ref={emergencyRef}
                     className="emergency-card max-w-4xl mx-auto relative overflow-hidden"
                 >
-                    <div className="relative bg-linear-to-br from-orange-600 via-red-600 to-orange-700 rounded-3xl p-10 shadow-2xl"
-                        //  style={{
-                        //      clipPath: 'polygon(30px 0, 100% 0, 100% calc(100% - 30px), calc(100% - 30px) 100%, 0 100%, 0 30px)'
-                        //  }}
-                    >
+                    <div className="relative bg-linear-to-br from-orange-600 via-red-600 to-orange-700 rounded-3xl p-10 shadow-2xl">
                         {/* Animated background pattern */}
                         <div className="absolute inset-0 opacity-10">
                             <div className="absolute inset-0"
