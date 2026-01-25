@@ -5,6 +5,9 @@ import SectionTitle from '../ui/SectionTitle'
 import { useGSAP } from '@gsap/react'
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import FaqElement from '../ui/FaqElement';
+import { FaBug, FaClock, FaEuroSign } from 'react-icons/fa6';
+import { FaCheckCircle, FaShieldAlt } from 'react-icons/fa';
 
 function Faq() {
 
@@ -17,7 +20,7 @@ useGSAP(() => {
   const cards = gsap.utils.toArray<HTMLElement>(".sticky-card");
   const cta = sectionRef.current?.querySelector(".faq-cta") as HTMLElement;
 
-  const questionY = 200;
+  const questionY = 150;
   const answerY = 300;
 
   gsap.set(cards, { y: 600, opacity: 0 });
@@ -27,7 +30,7 @@ useGSAP(() => {
     scrollTrigger: {
       trigger: sectionRef.current,
       start: "top top",
-      end: "+=200%",
+      end: "+=300%",
       scrub: 1,
       pin: true,
       pinSpacing: true,
@@ -97,34 +100,40 @@ useGSAP(() => {
     return (
         <section ref={sectionRef} className="relative bg-black text-white text-center py-20 mb-64">
             <SectionTitle title='LES DENIERES' span='QESTIONS ?' />
-            
-            <div ref={firstRef} className="absolute sticky-card z-2 bg-red-500 h-24 w-full">
-                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Vel ipsum consectetur, aut veritatis totam quae soluta, nihil quas porro, tenetur vero? Nam excepturi reiciendis beatae blanditiis nihil repellat numquam nobis.</p>
-            </div>
-            <div ref={secondRef} className="absolute sticky-card z-3 bg-orange-500 h-24 w-full">
-                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Vel ipsum consectetur, aut veritatis totam quae soluta, nihil quas porro, tenetur vero? Nam excepturi reiciendis beatae blanditiis nihil repellat numquam nobis.</p>
-            </div>
-            <div ref={thirdRef} className="absolute sticky-card z-4 bg-green-500 h-24 w-full">
-                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Vel ipsum consectetur, aut veritatis totam quae soluta, nihil quas porro, tenetur vero? Nam excepturi reiciendis beatae blanditiis nihil repellat numquam nobis.</p>
-            </div>
-            <div  className="absolute sticky-card z-5 bg-blue-500 h-24 w-full">
-                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Vel ipsum consectetur, aut veritatis totam quae soluta, nihil quas porro, tenetur vero? Nam excepturi reiciendis beatae blanditiis nihil repellat numquam nobis.</p>
-            </div>
-            <div  className="absolute sticky-card z-6 bg-gray-500 h-24 w-full">
-                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Vel ipsum consectetur, aut veritatis totam quae soluta, nihil quas porro, tenetur vero? Nam excepturi reiciendis beatae blanditiis nihil repellat numquam nobis.</p>
-            </div>
-            <div  className="absolute sticky-card z-7 bg-pink-500 h-24 w-full">
-                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Vel ipsum consectetur, aut veritatis totam quae soluta, nihil quas porro, tenetur vero? Nam excepturi reiciendis beatae blanditiis nihil repellat numquam nobis.</p>
-            </div>
-            <div  className="absolute sticky-card z-8 bg-yellow-500 h-24 w-full">
-                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Vel ipsum consectetur, aut veritatis totam quae soluta, nihil quas porro, tenetur vero? Nam excepturi reiciendis beatae blanditiis nihil repellat numquam nobis.</p>
-            </div>
-            <div  className="absolute sticky-card z-9 bg-zinc-500 h-24 w-full">
-                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Vel ipsum consectetur, aut veritatis totam quae soluta, nihil quas porro, tenetur vero? Nam excepturi reiciendis beatae blanditiis nihil repellat numquam nobis.</p>
-            </div>
+            <FaqElement 
+            icon={FaShieldAlt} 
+            label="Est-ce dangereux pour mes enfants ou mes animaux ?" 
+            />
+            <FaqElement 
+            label="Non. Nous utilisons uniquement des solutions professionnelles sécurisées, placées dans des dispositifs protégés, inaccessibles aux enfants et aux animaux. Votre sécurité est notre priorité absolue." 
+            />
+
+            <FaqElement 
+            icon={FaCheckCircle} 
+            label="Est-ce que le problème peut vraiment être éliminé définitivement ?" 
+            />
+            <FaqElement 
+            label="Oui. Nous traitons la cause du problème (points d’entrée, nids, habitudes) pour empêcher toute réinfestation durablement." 
+            />
+
+            <FaqElement 
+            icon={FaClock} 
+            label="En combien de temps pouvez-vous intervenir ?" 
+            />
+            <FaqElement 
+            label="Nous intervenons généralement sous 24 à 48 heures, avec des solutions d’urgence en cas d’infestation critique." 
+            />
+
+            <FaqElement 
+            icon={FaEuroSign} 
+            label="Combien ça coûte ? Y a-t-il des frais cachés ?" 
+            />
+            <FaqElement 
+            label="Nos tarifs sont clairs et sans surprise. Un diagnostic est réalisé avant toute intervention pour vous proposer un devis précis et adapté." 
+            />
            
             <div className="faq-cta flex flex-col gap-10 items-center justify-center mt-10">
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis tempora ab rerum nostrum repellendus eos eligendi molestias, facilis qui similique?</p>
+                <p className="max-w-2xs text-xl font-extrabold">Une infestation n’attend pas. Appelez-nous dès maintenant.</p>
                 <a  
                     href="https://www.google.com/search?uds=AOm0WdE2fekQnsyfYEw8JPYozOKzEik-2elEKZuoMX0RuNnOO2GDIgxodzVnOQyNKeXlFnJ-YKUC7TE4kLm3vqIQWIc_K9GQmAyeD4qnUuL2lsL3durM3BCd536avOHSG36vM61mkI3D&q=G.V.S.3D%20Avis&si=AMgyJEtREmoPL4P1I5IDCfuA8gybfVI2d5Uj7QMwYCZHKDZ-E1JhB0J4OEHu0ExSh8WjvsFDX7W-B4bHUGXrldG4Knsut4hAo43-Re3diVTedAjKfiP_Q40r0ulfUf0zCEy5Boez_ebk&cs=1&hl=fr&sa=X&ved=0CCgQ_4MLahcKEwj4yqq4x_2OAxUAAAAAHQAAAAAQBg&biw=2552&bih=1314&dpr=1"
                     target='_blank'
