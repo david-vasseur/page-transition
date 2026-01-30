@@ -15,14 +15,14 @@ import LogoProof from '../ui/LogoProof';
 
 // Logos des partenaires (blasons de villes)
 const partners = [
-    { name: "Aramon", alt: "Blason de la ville de Aramon", image: "/aramon.png" },
-    { name: "Garons", alt: "Blason de la ville de Garons", image: "/garons.png" },
-    { name: "Bellegarde", alt: "Blason de la ville de Bellegarde", image: "/bellegarde.png" },
-    { name: "Ledenon", alt: "Blason de la ville de Ledenon", image: "/ledenon.png" },
-    { name: "St Anastasie", alt: "Blason de la ville de St Anastasie", image: "/stanastasie.png" },
-    { name: "St Bonnet du Gard", alt: "Blason de la ville de St Bonnet du Gard", image: "/stbonnet.svg" },
-    { name: "VINCI", alt: "Logo de l'entrprise VINCI", image: "/vinci.png" },
-    { name: "SNCF", alt: "Logo de l'entrprise SNCF", image: "/sncf.png" },
+    { name: "Aramon", alt: "Blason de la ville de Aramon", image: "/aramon.png", href: "/deratisation-sur-aramon" },
+    { name: "Garons", alt: "Blason de la ville de Garons", image: "/garons.png", href: "/desinsectisation-garons" },
+    { name: "Bellegarde", alt: "Blason de la ville de Bellegarde", image: "/bellegarde.png", href: "/desinsectisation-bellegarde" },
+    { name: "Ledenon", alt: "Blason de la ville de Ledenon", image: "/ledenon.png", href: "deratisation-a-ledenon" },
+    { name: "St Anastasie", alt: "Blason de la ville de St Anastasie", image: "/stanastasie.png", href: "/desinsectisation-a-st-anastasie" },
+    { name: "St Bonnet du Gard", alt: "Blason de la ville de St Bonnet du Gard", image: "/stbonnet.svg", href: "/deratisation-st-bonnet-du-gard" },
+    { name: "VINCI", alt: "Logo de l'entrprise VINCI", image: "/vinci.png", href: "#" },
+    { name: "SNCF", alt: "Logo de l'entrprise SNCF", image: "/sncf.png", href: "#" },
 ];
 
 // Images pour la galerie (remplacer par vos vraies images)
@@ -173,7 +173,7 @@ function SocialProof() {
                             De nombreuses communes font appel à nous pour notre serieux et professionalisme.
                         </p>
                         {partners.slice(0, 6).map((partner, index) => (
-                            <LogoProof key={index} name={partner.name} image={partner.image} alt={partner.alt} index={index} />
+                            <LogoProof key={index} name={partner.name} image={partner.image} alt={partner.alt} index={index} href={partner.href} />
                         ))}
                     </div>
 
@@ -236,7 +236,7 @@ function SocialProof() {
 
                         <div className="grid grid-cols-2 gap-6">
                         {partners.slice(6, 8).map((partner, index) => (
-                            <LogoProof key={index} name={partner.name} image={partner.image} alt={partner.alt} index={index} />
+                            <LogoProof key={index} name={partner.name} image={partner.image} alt={partner.alt} index={index} href={partner.href} />
                         ))}
                         </div>
                     </div>

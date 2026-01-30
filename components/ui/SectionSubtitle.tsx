@@ -18,22 +18,26 @@ function SectionSubtitle({ title1, title2, span }: ISubtitle) {
     useGSAP(() => {
 
         if (titleRef.current) {
-            const split = new SplitText(titleRef.current, {
-                type: "lines,words",
-                linesClass: "split-line",
-                wordsClass: "split-word",
-            });
-            gsap.from(split.lines, {
-                scrollTrigger: {
-                    trigger: titleRef.current,
-                    start: "top 80%",
-                    end: "top 60%",
-                    scrub: 1
-                },
-                opacity: 0,
-                y: 50,
-                stagger: 0.1
+            document.fonts.ready.then(() => {
+                const split = new SplitText(titleRef.current, {
+                    type: "lines,words",
+                    linesClass: "split-line",
+                    wordsClass: "split-word",
+                });
+
+                gsap.from(split.lines, {
+                    scrollTrigger: {
+                        trigger: titleRef.current,
+                        start: "top 80%",
+                        end: "top 60%",
+                        scrub: 1
+                    },
+                    opacity: 0,
+                    y: 50,
+                    stagger: 0.1
+                })
             })
+            
         }
     })
 

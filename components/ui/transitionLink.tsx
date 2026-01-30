@@ -1,94 +1,78 @@
 "use client";
 
+import React, { forwardRef } from "react";
 import { usePathname, useRouter } from "next/navigation";
 import gsap from "gsap";
+import { useMobileStore } from "@/lib/stores/mobileStore";
 
 type TransitionLinkProps =
-    React.AnchorHTMLAttributes<HTMLAnchorElement> & {
-        href: string;
-    };
+  React.AnchorHTMLAttributes<HTMLAnchorElement> & {
+    href: string;
+  };
 
-export default function TransitionLink({
-    href,
-    children,
-    className,
-    onClick,
-    ...props
-}: TransitionLinkProps) {
+const TransitionLink = forwardRef<HTMLAnchorElement, TransitionLinkProps>(
+  ({ href, children, className, onClick, ...props }, ref) => {
     const router = useRouter();
-    const pathname = usePathname();    
+    const pathname = usePathname();
+    const { isMobile } = useMobileStore();
 
-    const handleClick = async (e: React.MouseEvent) => {
-        e.preventDefault();
+    const handleClick = async (e: React.MouseEvent<HTMLAnchorElement>) => {
+      e.preventDefault();
 
-        if (href === pathname) return;
+      onClick?.(e);
 
+      if (href === pathname) return;
+
+      if (isMobile) {
         await gsap
-        .timeline()
-        .to(".panel-top", {
-            scaleY: 1,
-            stagger: {
-            each: 0.1,
-            from: "start",
-            axis: "x",
-            },
+          .timeline()
+          .set(".panel-mobile", { transformOrigin: "left" })
+          .to(".panel-mobile", {
+            scaleX: 1,
+            stagger: { each: 0.1, from: "start", axis: "x" },
             duration: 0.8,
             ease: "expo.inOut",
-        })
-        .to(
+          })
+          .then();
+      } else {
+        await gsap
+          .timeline()
+          .to(".panel-top", {
+            scaleY: 1,
+            stagger: { each: 0.1, from: "start", axis: "x" },
+            duration: 0.8,
+            ease: "expo.inOut",
+          })
+          .to(
             ".panel-bottom",
             {
-            scaleY: 1,
-            stagger: {
-                each: 0.1,
-                from: "start",
-                axis: "x",
+              scaleY: 1,
+              stagger: { each: 0.1, from: "start", axis: "x" },
+              duration: 0.8,
+              ease: "expo.inOut",
             },
-            duration: 0.8,
-            ease: "expo.inOut",
-            },
-            "<" 
-        )
-        .then();
+            "<"
+          )
+          .then();
+      }
 
-        router.push(href);
-    };
-
-    const handleClickMobile = async (e: React.MouseEvent<HTMLAnchorElement>) => {
-        e.preventDefault();
-
-        onClick?.(e);
-
-        if (href === pathname) return;
-
-        await gsap
-        .timeline()
-        .set(".panel-mobile", {
-            transformOrigin: "left",
-        })
-        .to(".panel-mobile", {
-            scaleX: 1,
-            stagger: {
-                each: 0.1,
-                from: "start",
-                axis: "x",
-            },
-            duration: 0.8,
-            ease: "expo.inOut",
-        })
-        .then();
-
-        router.push(href);
+      router.push(href);
     };
 
     return (
-        <>
-            <a href={href} onClick={handleClick} {...props} className={`hidden lg:block ${className ?? ""} font-semibold`}>
-                {children}
-            </a>
-            <a href={href} tabIndex={0} role="link" onClick={handleClickMobile} {...props} className={`lg:hidden ${className ?? ""} font-semibold`}>
-                {children}
-            </a>
-        </>
+      <a
+        ref={ref}
+        href={href}
+        onClick={handleClick}
+        {...props}
+        className={`${className ?? ""} font-semibold`}
+      >
+        {children}
+      </a>
     );
-}
+  }
+);
+
+TransitionLink.displayName = "TransitionLink";
+
+export default TransitionLink;

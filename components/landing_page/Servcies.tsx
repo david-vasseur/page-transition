@@ -117,7 +117,8 @@ const Services = () => {
                 "Garantie anti-réinfestation"
             ],
             gradient: "from-orange-600 to-red-600",
-            bgGradient: "from-orange-600/20 via-red-600/10 to-transparent"
+            bgGradient: "from-orange-600/20 via-red-600/10 to-transparent",
+            href: "/deratisation"
         },
         {
             id: 2,
@@ -131,7 +132,8 @@ const Services = () => {
                 "Solutions sans risque pour la santé"
             ],
             gradient: "from-orange-500 to-amber-600",
-            bgGradient: "from-orange-500/20 via-amber-600/10 to-transparent"
+            bgGradient: "from-orange-500/20 via-amber-600/10 to-transparent",
+            href: "/deratisation"
         },
         {
             id: 3,
@@ -145,7 +147,8 @@ const Services = () => {
                 "Certificat de désinfection"
             ],
             gradient: "from-blue-600 to-cyan-600",
-            bgGradient: "from-blue-600/20 via-cyan-600/10 to-transparent"
+            bgGradient: "from-blue-600/20 via-cyan-600/10 to-transparent",
+            href: "/deratisation"
         }
     ];
 
@@ -171,7 +174,7 @@ const Services = () => {
                 {/* Services Grid */}
                 <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto mb-12">
                     {services.map((service, index) => (
-                        <ServiceCard key={index} title={service.title} description={service.description} bgGradient={service.bgGradient} gradient={service.gradient} index={index} id={service.id} icon={service.icon} features={service.features}/>
+                        <ServiceCard key={index} href={service.href} title={service.title} description={service.description} bgGradient={service.bgGradient} gradient={service.gradient} index={index} id={service.id} icon={service.icon} features={service.features}/>
                     ))}
                 </div>
 

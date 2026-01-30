@@ -3,6 +3,7 @@
 import { useGSAP } from '@gsap/react';
 import gsap from 'gsap';
 import { ArrowRight, CheckCircle } from 'lucide-react';
+import Link from 'next/link';
 import { useRef } from 'react';
 import { IconType } from 'react-icons';
 
@@ -16,9 +17,10 @@ interface ICard {
     gradient: string;
     bgGradient: string;
     index: number;
+    href: string;
 }
 
-function ServiceCard({ id, title, icon, description, features, gradient, bgGradient, index }: ICard) {
+function ServiceCard({ id, title, icon, description, features, gradient, bgGradient, index, href }: ICard) {
 
     const Icon = icon;
     const cardRef = useRef<HTMLDivElement>(null);
@@ -154,11 +156,13 @@ function ServiceCard({ id, title, icon, description, features, gradient, bgGradi
                     </ul>
 
                     {/* CTA */}
-                    <button className={`relative w-full bg-linear-to-r ${gradient} hover:shadow-lg hover:shadow-orange-600/30 text-white font-bold py-3 rounded-xl transition-all flex items-center justify-center group overflow-hidden`}>
+                    <Link 
+                        href={href}
+                        className={`relative w-full bg-linear-to-r ${gradient} hover:shadow-lg hover:shadow-orange-600/30 text-white font-bold py-3 rounded-xl transition-all flex items-center justify-center group overflow-hidden`}>
                         En savoir plus
                         <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
                         <div ref={glowRef} className="absolute inset-0 bg-linear-to-r from-transparent via-white/50 to-transparent skew-x-12 -translate-x-100 will-change-transform" />
-                    </button>
+                    </Link>
                 </div>
             </div>
 
