@@ -119,51 +119,51 @@ function page() {
     return (
         <div>
             <section className="h-dvh bg-red-400 flex items-center justify-center text-5xl font-black">HERO</section>
-                  <section ref={sectionRef} className="h-dvh relative">
-        <div className="absolute inset-0 z-3">
-          {/* Image1 */}
-          <Image
-            fill
-            src="/infestation-dark.png"
-            alt="gg"
-            className="z-3 object-cover"
-            style={{
-              maskImage: `linear-gradient(${i1_angle}deg, black 0%, black ${i1_test}%, transparent ${i1_test1}%, transparent ${i1_test2}%, black ${i1_test3}%, black 100%)`,
-              WebkitMaskImage: `linear-gradient(${i1_angle}deg, black 0%, black ${i1_test}%, transparent ${i1_test1}%, transparent ${i1_test2}%, black ${i1_test3}%, black 100%)`,
-              maskRepeat: "no-repeat",
-              maskSize: "100% 100%",
-            }}
-          />
+                  <section ref={sectionRef} className="h-lvh relative">
+                <div className="absolute inset-0 z-3">
+                {/* Image1 */}
+                <Image
+                    fill
+                    src="/infestation-dark.png"
+                    alt="gg"
+                    className="z-3 object-cover"
+                    style={{
+                    maskImage: `linear-gradient(${i1_angle}deg, black 0%, black ${i1_test}%, transparent ${i1_test1}%, transparent ${i1_test2}%, black ${i1_test3}%, black 100%)`,
+                    WebkitMaskImage: `linear-gradient(${i1_angle}deg, black 0%, black ${i1_test}%, transparent ${i1_test1}%, transparent ${i1_test2}%, black ${i1_test3}%, black 100%)`,
+                    maskRepeat: "no-repeat",
+                    maskSize: "100% 100%",
+                    }}
+                />
 
-          {/* Image2 */}
-          <Image
-            fill
-            src="/close-up-pest.png"
-            alt="gg"
-            className="z-2 object-cover"
-            style={{
-              maskImage: `linear-gradient(${i2_angle}deg, black 0%, black ${i2_test}%, transparent ${i2_test1}%, transparent ${i2_test2}%, black ${i2_test3}%, black 100%)`,
-              WebkitMaskImage: `linear-gradient(${i2_angle}deg, black 0%, black ${i2_test}%, transparent ${i2_test1}%, transparent ${i2_test2}%, black ${i2_test3}%, black 100%)`,
-              maskRepeat: "no-repeat",
-              maskSize: "100% 100%",
-            }}
-          />
+                {/* Image2 */}
+                <Image
+                    fill
+                    src="/close-up-pest.png"
+                    alt="gg"
+                    className="z-2 object-cover"
+                    style={{
+                    maskImage: `linear-gradient(${i2_angle}deg, black 0%, black ${i2_test}%, transparent ${i2_test1}%, transparent ${i2_test2}%, black ${i2_test3}%, black 100%)`,
+                    WebkitMaskImage: `linear-gradient(${i2_angle}deg, black 0%, black ${i2_test}%, transparent ${i2_test1}%, transparent ${i2_test2}%, black ${i2_test3}%, black 100%)`,
+                    maskRepeat: "no-repeat",
+                    maskSize: "100% 100%",
+                    }}
+                />
 
-          {/* Image3 */}
-          <Image
-            fill
-            src="/security-professional.png"
-            alt="gg"
-            className="z-1 object-cover"
-            style={{
-              maskImage: `linear-gradient(${i3_angle}deg, black 0%, black ${i3_test}%, transparent ${i3_test1}%, transparent ${i3_test2}%, black ${i3_test3}%, black 100%)`,
-              WebkitMaskImage: `linear-gradient(${i3_angle}deg, black 0%, black ${i3_test}%, transparent ${i3_test1}%, transparent ${i3_test2}%, black ${i3_test3}%, black 100%)`,
-              maskRepeat: "no-repeat",
-              maskSize: "100% 100%",
-            }}
-          />
-        </div>
-      </section>
+                {/* Image3 */}
+                <Image
+                    fill
+                    src="/security-professional.png"
+                    alt="gg"
+                    className="z-1 object-cover"
+                    style={{
+                    maskImage: `linear-gradient(${i3_angle}deg, black 0%, black ${i3_test}%, transparent ${i3_test1}%, transparent ${i3_test2}%, black ${i3_test3}%, black 100%)`,
+                    WebkitMaskImage: `linear-gradient(${i3_angle}deg, black 0%, black ${i3_test}%, transparent ${i3_test1}%, transparent ${i3_test2}%, black ${i3_test3}%, black 100%)`,
+                    maskRepeat: "no-repeat",
+                    maskSize: "100% 100%",
+                    }}
+                />
+                </div>
+            </section>
             <section className="h-dvh bg-red-400 flex items-center justify-center text-5xl font-black">END</section>
         </div>
     )
