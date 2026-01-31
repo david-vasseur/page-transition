@@ -133,7 +133,7 @@ const Services = () => {
             ],
             gradient: "from-orange-500 to-amber-600",
             bgGradient: "from-orange-500/20 via-amber-600/10 to-transparent",
-            href: "/deratisation"
+            href: "/desinsectisation"
         },
         {
             id: 3,
@@ -148,7 +148,7 @@ const Services = () => {
             ],
             gradient: "from-blue-600 to-cyan-600",
             bgGradient: "from-blue-600/20 via-cyan-600/10 to-transparent",
-            href: "/deratisation"
+            href: "/desinfection"
         }
     ];
 
