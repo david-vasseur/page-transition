@@ -1,5 +1,6 @@
 "use client"
 
+import SectionTitle from '@/components/ui/SectionTitle';
 import { useGSAP } from '@gsap/react';
 import gsap from 'gsap';
 import Image from 'next/image'
@@ -9,6 +10,8 @@ function page() {
 
 
     const sectionRef = useRef<HTMLDivElement>(null);
+    const ctaRef = useRef<HTMLDivElement>(null);
+    
     // const [test, setTest] = useState(50);
     // console.log(test);
     
@@ -69,6 +72,7 @@ function page() {
     if (title.length > 2) {
         gsap.set(title[1], {opacity: 0, y: 100}); 
         gsap.set(title[2], {opacity: 0, y: 100}); 
+        gsap.set(title[3], {opacity: 0, y: 100}); 
     }
        
 
@@ -120,15 +124,101 @@ function page() {
         setI3_angle(90 + p * 30);
       }
     });
+    tl.to(title[2], { opacity: 0, yPercent: -150, scale: 0.5, duration: 0.1 }, "<")
+        .to(title[3], { opacity: 1, y: 0, duration: 0.1 }, "<+=0.1")
 
   }, []);
+
+  useGSAP(() => {
+
+    gsap.fromTo(ctaRef.current,
+        { x: "-120%" },
+        { x: "120%", scrollTrigger: {
+            trigger: ctaRef.current,
+            start: "top 80%",
+            end: "top 20%",
+            scrub: 1
+        } }
+    );
+
+  })
     
 
     return (
         <div>
-            <section className="h-dvh bg-red-400 flex items-center justify-center text-5xl font-black">HERO</section>
+            {/* Hero Section */}
+            <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-black">
+            {/* Overlay gradient */}
+            <div className="absolute inset-0 bg-linear-to-br from-orange-900/20 via-black to-black" />
+
+            {/* Animated grid background */}
+            <div className="absolute inset-0 opacity-10">
+                <div
+                className="absolute inset-0"
+                style={{
+                    backgroundImage:
+                    'linear-gradient(rgba(249,115,22,0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(249,115,22,0.1) 1px, transparent 1px)',
+                    backgroundSize: '50px 50px',
+                }}
+                />
+            </div>
+
+            {/* Hero Content */}
+            <div className="relative z-10 max-w-4xl mx-auto px-6 py-20 text-center flex flex-col items-center">
+                
+                {/* Badge */}
+                <div className="floating-badge mb-6 inline-block">
+                <div className="px-4 py-2 bg-orange-500/20 border border-orange-500 rounded-full">
+                    <span className="text-orange-500 font-bold text-xs uppercase tracking-wider">
+                    ⚡ Intervention 24/7
+                    </span>
+                </div>
+                </div>
+
+                {/* Title */}
+                <h1 className="hero-title text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-black mb-6 leading-tight">
+                <span className="block text-white">ÉLIMINEZ LES</span>
+                <span className="block text-orange-500 italic -mt-2">GÉRMS & BACTÉRIES</span>
+                </h1>
+
+                {/* Subtitle */}
+                <p className="hero-subtitle text-base sm:text-lg md:text-xl text-gray-300 max-w-3xl mx-auto mb-10 font-light leading-relaxed">
+                Vos locaux sont exposés aux virus, bactéries ou champignons ?
+                <span className="block mt-2 text-orange-500 font-semibold">
+                    Nos experts certifiés interviennent rapidement pour garantir un environnement sain et sûr.
+                </span>
+                </p>
+
+                {/* CTA Buttons */}
+                <div className="hero-cta flex flex-col sm:flex-row gap-4 justify-center items-center w-full sm:w-auto">
+                <button className="group relative px-8 py-4 bg-orange-500 text-black font-black text-base sm:text-lg rounded-full hover:bg-orange-400 transition-all duration-300 transform hover:scale-105 overflow-hidden shadow-2xl shadow-orange-500/50 w-full sm:w-auto">
+                    <span className="relative z-10">DEVIS GRATUIT IMMÉDIAT</span>
+                    <div className="absolute inset-0 bg-linear-to-r from-orange-600 to-orange-400 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                </button>
+
+                <button className="px-8 py-4 border-2 border-orange-500 text-orange-500 font-bold text-base sm:text-lg rounded-full hover:bg-orange-500/10 transition-all duration-300 w-full sm:w-auto">
+                    06 XX XX XX XX
+                </button>
+                </div>
+
+                {/* Certifications */}
+                <div className="mt-12 flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-8 text-sm sm:text-base text-gray-400">
+                <div className="flex items-center gap-2">
+                    <span className="text-orange-500">✓</span> Certifié & Agréé
+                </div>
+                <div className="flex items-center gap-2">
+                    <span className="text-orange-500">✓</span> Garantie Résultats
+                </div>
+                <div className="flex items-center gap-2">
+                    <span className="text-orange-500">✓</span> Éco-responsable
+                </div>
+                </div>
+            </div>
+            </section>
+
             <section ref={sectionRef} className="h-lvh relative">
                 <div className="absolute inset-0 z-3">
+                    <div className='absolute inset-0 z-5 bg-black/60' />
                     {/* Image1 */}
                     <Image
                         fill
@@ -171,13 +261,61 @@ function page() {
                         }}
                     />
                 </div>
-                <div className="content absolute flex items-center justify-center text-4xl font-black inset-0 z-3">
-                    <h2 className="content-title absolute z-3">PROBLEME</h2>
-                    <h2 className="content-title absolute z-2">SOLUTION</h2>
-                    <h2 className="content-title absolute z-1">BENEFICE</h2>
+                <div className="content absolute flex items-center justify-center text-4xl font-black inset-0 z-3 space-y-16">
+                    {/* PROBLÈME */}
+                    <div className="content-title absolute text-center z-3">
+                        <SectionTitle 
+                        title="Contaminations" 
+                        span="et germes" 
+                        />
+                        <ul className="mt-4 mx-auto w-[80%] text-sm list-disc list-inside text-white">
+                            <li className="mt-5">Présence de bactéries, virus ou champignons sur vos surfaces</li>
+                            <li className="mt-5">Risque pour la santé des employés et clients</li>
+                            <li className="mt-5">Impact sur l’hygiène et l’image de l’entreprise</li>
+                        </ul>
+                    </div>
+
+                    {/* SOLUTION */}
+                    <div className="content-title text-center absolute z-2">
+                        <SectionTitle 
+                        title="Désinfection" 
+                        span="professionnelle" 
+                        />
+                        <ul className="mt-4 mx-auto w-[80%] text-sm list-disc list-inside text-white">
+                            <li className="mt-5">Intervention rapide par des experts certifiés en hygiène</li>
+                            <li className="mt-5">Utilisation de produits et protocoles conformes aux normes</li>
+                            <li className="mt-5">Nettoyage et désinfection complète des locaux et surfaces</li>
+                        </ul>
+                    </div>
+
+                    {/* BÉNÉFICE */}
+                    <div className="content-title text-center absolute z-1">
+                        <SectionTitle 
+                        title="Locaux propres" 
+                        span="et sécurisés" 
+                        />
+                        <ul className="mt-4 mx-auto w-[80%] text-sm list-disc list-inside text-white">
+                            <li className="mt-5">Environnement de travail sain pour vos collaborateurs</li>
+                            <li className="mt-5">Réduction des risques sanitaires et absence de contamination</li>
+                            <li className="mt-5">Confiance renforcée des clients et employés</li>
+                        </ul>
+                    </div>
+
+                    {/* CTA FINAL */}
+                    <div className="content-title flex flex-col gap-10 items-center justify-center mt-10">
+                        <p className="max-w-2xs text-xl font-extrabold">Une infestation n’attend pas. Appelez-nous dès maintenant.</p>
+                        <a  
+                            href="https://www.google.com/search?uds=AOm0WdE2fekQnsyfYEw8JPYozOKzEik-2elEKZuoMX0RuNnOO2GDIgxodzVnOQyNKeXlFnJ-YKUC7TE4kLm3vqIQWIc_K9GQmAyeD4qnUuL2lsL3durM3BCd536avOHSG36vM61mkI3D&q=G.V.S.3D%20Avis&si=AMgyJEtREmoPL4P1I5IDCfuA8gybfVI2d5Uj7QMwYCZHKDZ-E1JhB0J4OEHu0ExSh8WjvsFDX7W-B4bHUGXrldG4Knsut4hAo43-Re3diVTedAjKfiP_Q40r0ulfUf0zCEy5Boez_ebk&cs=1&hl=fr&sa=X&ved=0CCgQ_4MLahcKEwj4yqq4x_2OAxUAAAAAHQAAAAAQBg&biw=2552&bih=1314&dpr=1"
+                            target='_blank'
+                            className='relative text-2xl shrink-0 overflow-hidden bg-linear-to-br from-orange-600 to-red-600 text-white px-6 py-3 rounded-full font-semibold'
+                        >
+                            Appellez nous
+                            <div ref={ctaRef} className="absolute inset-0 bg-linear-to-r from-transparent via-white/50 to-transparent skew-x-12 -translate-x-100 will-change-transform" />
+                        </a>
+                    </div>
                 </div>
             </section>
-            <section className="h-dvh bg-red-400 flex items-center justify-center text-5xl font-black">END</section>
+            <section className="h-svh bg-red-400 flex items-center justify-center text-5xl font-black">END</section>
         </div>
     )
 }
