@@ -4,6 +4,7 @@ import { useGSAP } from '@gsap/react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { SplitText } from 'gsap/SplitText';
+import { ArrowRight } from 'lucide-react';
 import Image from 'next/image'
 import React, { useRef, useState } from 'react'
 
@@ -146,7 +147,6 @@ function page() {
                 start: "top 30%",
                 end: "top 10%",
                 scrub: 1,
-                markers: true
             }
         });
 
@@ -291,51 +291,48 @@ function page() {
 
             {/* Hero Content */}
             <div className="relative z-10 max-w-4xl mx-auto px-6 py-20 text-center flex flex-col items-center">
-                
-                {/* Badge */}
-                <div className="floating-badge mb-6 inline-block">
-                <div className="px-4 py-2 bg-orange-500/20 border border-orange-500 rounded-full">
-                    <span className="text-orange-500 font-bold text-xs uppercase tracking-wider">
-                    ⚡ Intervention 24/7
-                    </span>
-                </div>
-                </div>
 
                 {/* Title */}
                 <h1 className="hero-title text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-black mb-6 leading-tight">
                 <span className="block text-white">ÉLIMINEZ LES</span>
-                <span className="block text-orange-500 italic -mt-2">GERMES & BACTÉRIES</span>
+                <span className="block text-orange-600 italic -mt-2">GERMES & BACTÉRIES</span>
                 </h1>
 
                 {/* Subtitle */}
                 <p className="hero-subtitle text-base sm:text-lg md:text-xl text-gray-300 max-w-3xl mx-auto mb-10 font-light leading-relaxed">
                 Vos locaux sont exposés aux virus, bactéries ou champignons ?
-                <span className="block mt-2 text-orange-500 font-semibold">
-                    Nos experts certifiés interviennent rapidement pour garantir un environnement sain et sûr.
-                </span>
                 </p>
 
                 {/* CTA Buttons */}
-                <div className="hero-cta flex flex-col sm:flex-row gap-4 justify-center items-center w-full sm:w-auto">
-                <button className="group relative px-8 py-4 bg-orange-500 text-black font-black text-base sm:text-lg rounded-full hover:bg-orange-400 transition-all duration-300 transform hover:scale-105 overflow-hidden shadow-2xl shadow-orange-500/50 w-full sm:w-auto">
-                    <span className="relative z-10">DEVIS GRATUIT IMMÉDIAT</span>
-                    <div className="absolute inset-0 bg-linear-to-r from-orange-600 to-orange-400 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                </button>
+                <div className="hero-actions flex flex-col sm:flex-row gap-4">
+                            <button
+                                aria-label="Demande de devis"
+                                // onClick={() => openModal(<EstimateForm />)}
+                                className="group bg-orange-600 hover:bg-orange-700 text-white px-8 py-4 rounded-full font-bold text-base 2xl:text-lg flex items-center justify-center"
+                            >
+                                Inspection gratuite
+                                <div className="ml-2">
+                                <ArrowRight className="w-5 h-5" />
+                                </div>
+                            </button>
 
-                <button className="px-8 py-4 border-2 border-orange-500 text-orange-500 font-bold text-base sm:text-lg rounded-full hover:bg-orange-500/10 transition-all duration-300 w-full sm:w-auto">
-                    06 XX XX XX XX
-                </button>
-                </div>
+                            <a
+                                href="tel:+33658942067"
+                                className="border-2 border-white text-white hover:bg-white hover:text-black px-8 py-4 rounded-full font-bold text-base 2xl:text-lg text-center"
+                            >
+                                Appelez le 06 58 94 20 67
+                            </a>
+                        </div>
 
                 {/* Certifications */}
-                <div className="mt-12 flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-8 text-sm sm:text-base text-gray-400">
-                <div className="flex items-center gap-2">
+                <div className="mt-12 flex flex-col sm:flex-row text-left lg:items-center justify-center gap-4 sm:gap-8 text-sm sm:text-base text-gray-400">
+                <div className="flex lg:items-center gap-2">
                     <span className="text-orange-500">✓</span> Certifié & Agréé
                 </div>
-                <div className="flex items-center gap-2">
+                <div className="flex lg:items-center gap-2">
                     <span className="text-orange-500">✓</span> Garantie Résultats
                 </div>
-                <div className="flex items-center gap-2">
+                <div className="flex lg:items-center gap-2">
                     <span className="text-orange-500">✓</span> Éco-responsable
                 </div>
                 </div>
@@ -439,7 +436,7 @@ function page() {
                     </div>
                 </div>
             </section>
-            <section className="h-svh bg-red-400 flex items-center justify-center text-5xl font-black">END</section>
+            <section className="h-svh bg-black/80 flex items-center justify-center text-5xl font-black">END</section>
         </div>
     )
 }
