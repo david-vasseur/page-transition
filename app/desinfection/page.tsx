@@ -2,11 +2,10 @@
 
 import { useGSAP } from '@gsap/react';
 import gsap from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { SplitText } from 'gsap/SplitText';
 import { ArrowRight } from 'lucide-react';
 import Image from 'next/image'
-import React, { useRef, useState } from 'react'
+import { useRef, useState } from 'react'
 
 function page() {
 
@@ -35,51 +34,6 @@ function page() {
     const [i3_test2, setI3_test2] = useState(50);
     const [i3_test3, setI3_test3] = useState(50);
     const [i3_angle, setI3_angle] = useState(90);
-
-    // useGSAP(() => {
-    //     const firstBlock = document.querySelector(".content-title") as HTMLElement;
-    //     if (!firstBlock) return;
-
-    //     const h2 = firstBlock.querySelector(".content-h2") as HTMLElement;
-    //     const lis = firstBlock.querySelectorAll(".content-list li");
-
-    //     const split = new SplitText(h2, {
-    //         type: "chars,words",
-    //         charsClass: "split-char",
-    //     });
-
-    //     gsap.set(split.chars, { opacity: 0, y: 50, rotationX: -90 });
-    //     gsap.set(lis, { opacity: 0, y: 30 });
-
-    //     gsap.to(split.chars, {
-    //         scrollTrigger: {
-    //             trigger: image1Ref.current,
-    //             start: "top 60%",
-    //             end: "top 40%",
-    //             scrub: 1
-    //         },
-    //         opacity: 1,
-    //         y: 0,
-    //         rotationX: 0,
-    //         stagger: 0.02
-    //     });
-
-    //     gsap.to(lis, {
-    //         scrollTrigger: {
-    //             trigger: image1Ref.current,
-    //             start: "top 50%",
-    //             end: "top 30%",
-    //             scrub: 1
-    //         },
-    //         opacity: 1,
-    //         y: 0,
-    //         stagger: 0.1,
-    //         duration: 0.4,
-    //         ease: "power2.out",
-    //     });
-    // }, []);
-
-
 
     useGSAP(() => {
         const tl = gsap.timeline({

@@ -66,7 +66,7 @@ function Transition() {
                     ))}
                 </div>        
             </div>
-            <div className="fixed grid lg:hidden h-svh w-svw grid-rows-6 z-15 pointer-events-none">
+            <div className="fixed grid lg:hidden h-lvh w-svw grid-rows-6 z-15 pointer-events-none">
                 {[...Array(6)].map((_, i) => (
                     <div 
                         key={i} 
