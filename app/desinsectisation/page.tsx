@@ -231,7 +231,7 @@ export default function DératisationPage() {
                     </div>
                     
                     <div className="flex-1">
-                      <h3 className="text-3xl font-black text-orange-500 mb-3">{item.title}</h3>
+                      <h3 className="text-3xl font-black break-keep text-orange-500 mb-3">{item.title}</h3>
                       <p className="text-lg text-gray-300 leading-relaxed">{item.description}</p>
                     </div>
 

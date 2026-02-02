@@ -316,7 +316,7 @@ function Story({
             <div className="content absolute flex items-center justify-center text-4xl font-black inset-0 z-3 space-y-16">
                 {/* PROBLÈME */}
                 <div className="content-title absolute text-center z-3">
-                    <h2 className="content-h2 text-5xl mx-auto lg:text-7xl max-w-xl font-black text-white my-4">
+                    <h2 className="content-h2 break-keep text-5xl mx-auto lg:text-7xl max-w-xl font-black text-white my-4">
                         {header1_1} <span className="text-orange-600">{header1_2}</span>
                     </h2>
                     <ul className="content-list mt-4 mx-auto w-[80%] text-sm list-disc list-inside text-white">
@@ -328,7 +328,7 @@ function Story({
 
                 {/* SOLUTION */}
                 <div className="content-title text-center absolute z-2">
-                    <h2 className="content-h2 text-5xl mx-auto lg:text-7xl max-w-xl font-black text-white my-4">
+                    <h2 className="content-h2 break-keep text-5xl mx-auto lg:text-7xl max-w-xl font-black text-white my-4">
                         {header2_1} <span className="text-orange-600">{header2_2}</span>
                     </h2>
                     <ul className="content-list mt-4 mx-auto w-[80%] text-sm list-disc list-inside text-white">
@@ -340,7 +340,7 @@ function Story({
 
                 {/* BÉNÉFICE */}
                 <div className="content-title text-center absolute z-1">
-                    <h2 className="content-h2 text-5xl mx-auto lg:text-7xl max-w-xl font-black text-white my-4">
+                    <h2 className="content-h2 break-keep text-5xl mx-auto lg:text-7xl max-w-xl font-black text-white my-4">
                         {header3_1} <span className="text-orange-600">{header3_2}</span>
                     </h2>
                     <ul className="content-list mt-4 mx-auto w-[80%] text-sm list-disc list-inside text-white">

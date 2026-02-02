@@ -11,6 +11,7 @@ import HeroService from '@/components/pages/services/HeroService';
 import Story from '@/components/pages/services/Story';
 import ServiceDescription from '@/components/pages/services/ServiceDescription';
 import SocialProof from '@/components/pages/services/SocialProof';
+import FaqCta from '@/components/pages/services/FaqCta';
 
 
 export default function DératisationPage() {
@@ -167,6 +168,46 @@ return (
 			testimonials={socialProof.testimonials}
 			stats={socialProof.stats}
 		/>
+    <FaqCta
+                faqTitle="Questions"
+                faqHighlight="fréquentes"
+                
+                faqs={[
+                    {
+                        id: 1,
+                        question: 'Combien de temps faut-il pour éliminer complètement les rongeurs ?',
+                        answer: 'En moyenne, il faut 2 à 3 semaines pour une élimination complète. La durée dépend du niveau d\'infestation et de l\'espèce de rongeur. Nous effectuons un suivi régulier pendant 6 mois pour garantir qu\'il n\'y ait pas de réinfestation.'
+                    },
+                    {
+                        id: 2,
+                        question: 'Les produits utilisés sont-ils dangereux pour mes animaux domestiques ?',
+                        answer: 'Tous nos produits sont certifiés et appliqués selon les normes strictes de sécurité. Nous utilisons des boîtes sécurisées pour les appâts, inaccessibles aux animaux domestiques et aux enfants. Nous privilégions également des méthodes écologiques quand c\'est possible.'
+                    },
+                    {
+                        id: 3,
+                        question: 'Quel est le coût d\'une intervention de dératisation ?',
+                        answer: 'Le prix varie selon la surface à traiter, le niveau d\'infestation et le type de bien (maison, appartement, local commercial). Notre inspection gratuite nous permet d\'établir un devis précis et sans engagement. En moyenne, comptez entre 150€ et 400€ pour une intervention complète avec suivi.'
+                    },
+                    {
+                        id: 4,
+                        question: 'Comment puis-je éviter une nouvelle infestation ?',
+                        answer: 'Nous vous fournirons des conseils personnalisés lors de notre intervention : boucher les points d\'entrée, stocker la nourriture dans des contenants hermétiques, maintenir une bonne hygiène, éliminer les sources d\'eau stagnante. Notre garantie 6 mois inclut des visites de contrôle pour prévenir tout retour.'
+                    },
+                    {
+                        id: 5,
+                        question: 'Intervenez-vous aussi pour les professionnels (restaurants, hôtels) ?',
+                        answer: 'Oui, nous intervenons régulièrement pour des professionnels de la restauration, de l\'hôtellerie et du commerce. Nous proposons des contrats de maintenance préventive pour garantir votre conformité aux normes d\'hygiène HACCP et éviter les amendes.'
+                    }
+                ]}
+                
+                ctaTitle="Prêt à vous débarrasser des rongeurs ?"
+                ctaSubtitle="Contactez-nous dès maintenant pour une inspection gratuite et un devis personnalisé. Intervention rapide garantie sous 24h."
+                ctaButtonText="Inspection gratuite"
+                ctaButtonLink="https://www.google.com/search?uds=AOm0WdE2fekQnsyfYEw8JPYozOKzEik-2elEKZuoMX0RuNnOO2GDIgxodzVnOQyNKeXlFnJ-YKUC7TE4kLm3vqIQWIc_K9GQmAyeD4qnUuL2lsL3durM3BCd536avOHSG36vM61mkI3D&q=G.V.S.3D%20Avis&si=AMgyJEtREmoPL4P1I5IDCfuA8gybfVI2d5Uj7QMwYCZHKDZ-E1JhB0J4OEHu0ExSh8WjvsFDX7W-B4bHUGXrldG4Knsut4hAo43-Re3diVTedAjKfiP_Q40r0ulfUf0zCEy5Boez_ebk&cs=1&hl=fr&sa=X&ved=0CCgQ_4MLahcKEwj4yqq4x_2OAxUAAAAAHQAAAAAQBg&biw=2552&bih=1314&dpr=1"
+                phone="06 58 94 20 67"
+                email="contact@gvs3d.fr"
+                address="Estezargues, Occitanie"
+            />
 	</>
     // <div className="min-h-screen bg-black text-white overflow-hidden">
     //   {/* Hero Section */}

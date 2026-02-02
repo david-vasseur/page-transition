@@ -99,9 +99,9 @@ export default function BeneficeMobile() {
                     </div>
                 </div>
                 <div className="absolute z-3">
-                    <h2 className="text-4xl font-black text-white">
+                    <h2 className="text-4xl break-keep font-black text-white">
                     INTERVENTION<br />
-                    <span className="text-orange-500">PROFESSIONNELLE</span>
+                    <span className="text-red-500 span-test whitespace-nowrap">PROFESSIONNELLE</span>
                     </h2>
                     <div className="psb-text space-y-6">
                         <p className="text-xl text-gray-300 leading-relaxed">

@@ -152,14 +152,14 @@ function ServiceDescription({
             <div className="relative z-10 max-w-7xl mx-auto px-6">
                 {/* Title Section */}
                 <div className="text-center mb-16 lg:mb-24">
-                    <h2 ref={titleRef} className="text-4xl sm:text-5xl lg:text-6xl font-black text-white mb-6">
+                    <h2 ref={titleRef} className="text-4xl sm:text-5xl lg:text-6xl whitespace-pre-line font-black text-white mb-6">
                         {title.split('').map((char, i) => (
                             <span key={i} className="desc-title-char inline-block">
                                 {char === ' ' ? '\u00A0' : char}
                             </span>
                         ))}
                         {' '}
-                        <span className="text-orange-600">
+                        <span className="text-orange-600 whitespace-nowrap">
                             {highlight.split('').map((char, i) => (
                                 <span key={i} className="desc-title-char inline-block">
                                     {char === ' ' ? '\u00A0' : char}
@@ -182,12 +182,14 @@ function ServiceDescription({
                                 className="feature-card group relative bg-gradient-to-br from-gray-900 to-black border border-gray-800 rounded-2xl p-6 hover:border-orange-600 transition-all duration-300"
                             >
                                 <div className="absolute inset-0 bg-gradient-to-br from-orange-600/0 to-orange-600/0 group-hover:from-orange-600/5 group-hover:to-orange-600/10 rounded-2xl transition-all duration-300" />
-                                <div className="relative">
-                                    <div className="w-12 h-12 bg-orange-600/10 rounded-xl flex items-center justify-center mb-4 group-hover:bg-orange-600/20 transition-all duration-300">
+                                <div className="relative gap-5 flex-row flex lg:flex-col">
+                                    <div className="w-12 h-12 bg-orange-600/10 rounded-xl shrink-0 flex items-center justify-center mb-4 group-hover:bg-orange-600/20 transition-all duration-300">
                                         <Icon className="w-6 h-6 text-orange-600" />
                                     </div>
-                                    <h3 className="text-lg font-bold text-white mb-2">{feature.title}</h3>
-                                    <p className="text-sm text-gray-400 leading-relaxed">{feature.description}</p>
+                                    <div>
+                                        <h3 className="text-lg font-bold text-white mb-2">{feature.title}</h3>
+                                        <p className="text-sm text-gray-400 leading-relaxed">{feature.description}</p>
+                                    </div>
                                 </div>
                             </div>
                         );

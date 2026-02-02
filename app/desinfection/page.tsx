@@ -355,7 +355,7 @@ function page() {
                     {/* SOLUTION */}
                     <div className="content-title text-center absolute z-2">
                         <h2 className="content-h2 text-5xl mx-auto lg:text-7xl max-w-xl font-black text-white my-4">
-                            Désinfection <span className="text-orange-600">professionnelle</span>
+                            Désinfection <span className="text-orange-600 whitespace-nowrap">professionnelle</span>
                         </h2>
                         <ul className="content-list mt-4 mx-auto w-[80%] text-sm list-disc list-inside text-white">
                             <li className="mt-5">Intervention rapide par des experts certifiés en hygiène</li>
