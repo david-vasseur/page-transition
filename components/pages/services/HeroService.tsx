@@ -15,122 +15,67 @@ function HeroService({ header1, header2, subTitle }: IHeroService) {
 
     const heroRef = useRef<HTMLDivElement>(null);
 
-     useGSAP(() => {
+useGSAP(() => {
+  const titles = gsap.utils.toArray<HTMLElement>(".hero-title span");
+  const subtitle = heroRef.current?.querySelector<HTMLElement>(".hero-subtitle");
+  const actions = gsap.utils.toArray<HTMLElement>(".hero-actions > *");
+  const certifs = gsap.utils.toArray<HTMLElement>(".hero-certif");
 
-        const titles = gsap.utils.toArray<HTMLElement>(".hero-title span");
-        console.log(titles);
-        
-        const subtitle = heroRef.current?.querySelector(".hero-subtitle");
-        console.log(subtitle);
-        
-        const actions = gsap.utils.toArray<HTMLElement>(".hero-actions > *");
-        console.log(actions);
-        
-        const certifs = gsap.utils.toArray<HTMLElement>(".hero-certif");
+  if (!subtitle || !titles.length || !actions.length || !certifs.length) return;
+
+  // --------------------
+  // Timeline d'entrée
+  // --------------------
+  const tl = gsap.timeline({ delay: 0.3, onComplete: startScrollAnimations });
+
+  titles.forEach((el, i) => {
+    tl.fromTo(el, { y: 120, opacity: 0 }, { y: 0, opacity: 1, ease: "power4.out", duration: 1 }, i * 0.1);
+  });
+
+  tl.fromTo(subtitle, { y: 60, opacity: 0 }, { y: 0, opacity: 1, ease: "power3.out", duration: 1 }, "-=0.5");
+
+  actions.forEach((el, i) => {
+    tl.fromTo(el, { y: 40, opacity: 0, scale: 0.9 }, { y: 0, opacity: 1, scale: 1, ease: "back.out(1.7)", duration: 0.8 }, i * 0.15 + 0.6);
+  });
+
+  certifs.forEach((el, i) => {
+    tl.fromTo(el, { y: 30, opacity: 0 }, { y: 0, opacity: 1, ease: "power2.out", duration: 0.6 }, i * 0.15 + 1);
+  });
+
+  // --------------------
+  // Fonction déclenchée quand la timeline est finie
+  // --------------------
+  function startScrollAnimations() {
+    const scrollConfig = {
+      trigger: heroRef.current,
+      start: "top top",
+      end: "bottom top",
+      scrub: true,
+    };
+
+    if (!subtitle || !titles.length || !actions.length || !certifs.length) return;
+
+    titles.forEach((el, i) => {
+      gsap.fromTo(el, { y: 0, opacity: 1 }, { scrollTrigger: scrollConfig, y: -140, opacity: 0, delay: i * 0.1 });
+    });
+
+    gsap.fromTo(subtitle, { y: 0, opacity: 1 }, { scrollTrigger: scrollConfig, y: -80, opacity: 0 });
+
+    actions.forEach((el, i) => {
+      gsap.fromTo(el, { y: 0, opacity: 1, scale: 1 }, { scrollTrigger: scrollConfig, y: 80, opacity: 0, scale: 0.85, delay: i * 0.1 });
+    });
+
+    certifs.forEach((el, i) => {
+      gsap.fromTo(el, { y: 0, opacity: 1 }, { scrollTrigger: scrollConfig, y: 60, opacity: 0, delay: i * 0.2 });
+    });
+  }
+
+}, { scope: heroRef });
 
 
-        const tl = gsap.timeline({ delay: 0.3 });
 
-        if (!subtitle || !actions || !certifs || !titles) return
 
-        // TITRES
-        titles.forEach((el, i) => {
-            tl.from(el, {
-                y: 100,
-                opacity: 0,
-                ease: "power4.out",
-                duration: 1,
-            }, i * 0.1);
-        });
 
-        // SOUS-TITRE
-        if (subtitle) {
-            tl.from(subtitle, {
-                opacity: 0,
-                y: 50,
-                duration: 1,
-                ease: "power3.out",
-            }, "-=0.5");
-        }
-
-        // BOUTONS
-        actions.forEach((el, i) => {
-            tl.from(el, {
-                opacity: 0,
-                y: 30,
-                scale: 0.9,
-                ease: "back.out(1.7)",
-                duration: 0.8,
-            }, i * 0.15 + 0.6);
-        });
-
-        // CERTIFICATIONS
-        certifs.forEach((el, i) => {
-            tl.from(el, {
-                opacity: 0,
-                y: 20,
-                duration: 0.6,
-                ease: "power2.out",
-            }, i * 0.15 + 1);
-        });
-        /* --------------------
-            SORTIE (scrollTrigger)
-        -------------------- */
-
-        const scrollConfig = {
-            trigger: heroRef.current,
-            start: "top top",
-            end: "bottom top",
-            scrub: 1,
-        };
-
-        gsap.set(titles, { opacity: 1, y: 0 })
-        gsap.set(subtitle, { opacity: 1, y: 0 })
-        gsap.set(actions, { opacity: 1, scale: 1, y: 0 })
-        gsap.set(certifs, { opacity: 1, y: 0 })
-
-        titles.forEach((el, i) => {
-            gsap.to(el, {
-                scrollTrigger: {
-                    trigger: heroRef.current,
-                    start: "top top",
-                    end: "bottom top",
-                    scrub: 1,
-                },
-                y: -120,
-                opacity: 0,
-                stagger: i * 0.1,
-            });
-            });
-
-            if (subtitle) {
-                gsap.to(subtitle, {
-                    scrollTrigger: scrollConfig,
-                    y: -60,
-                    opacity: 0,
-                });
-            }
-
-            actions.forEach((el, i) => {
-                gsap.to(el, {
-                    scrollTrigger: scrollConfig,
-                    y: 60,
-                    opacity: 0,
-                    scale: 0.85,
-                    delay: i * 0.1,
-                });
-            });
-
-            certifs.forEach((el, i) => {
-                gsap.to(el, {
-                    scrollTrigger: scrollConfig,
-                    y: 40,
-                    opacity: 0,
-                    stagger: i * 0.2,
-                });
-            });
-
-    }, []);
 
 
     return (
