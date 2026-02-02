@@ -6,9 +6,11 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import SectionTitle from '@/components/ui/SectionTitle';
 import Forward from '@/components/ui/Forward';
 import { FaBug, FaBuilding, FaStar } from 'react-icons/fa';
-import { services } from "@/data/newService"
+import { services, serviceDescriptions, socialProofData } from "@/data/newService"
 import HeroService from '@/components/pages/services/HeroService';
 import Story from '@/components/pages/services/Story';
+import ServiceDescription from '@/components/pages/services/ServiceDescription';
+import SocialProof from '@/components/pages/services/SocialProof';
 
 
 export default function DératisationPage() {
@@ -121,35 +123,51 @@ export default function DératisationPage() {
   //   return () => ctx.revert();
   // }, []);
 const service = services.find(i => i.hero.header1 === "Dératisation");
+const description = serviceDescriptions.find(i => i.title === "Dératisation professionnelle");
+const socialProof = socialProofData[0];
 
-if (!service) return null;
+if (!service || !description || !socialProof) return null;
 
 return (
-  <>
-    <HeroService 
-      header1={service.hero.header1} 
-      header2={service.hero.header2} 
-      subTitle={service.hero.subTitle} 
-    />
-    <Story 
-      image1={service.story.image1} 
-      image2={service.story.image2} 
-      image3={service.story.image3} 
-      altImage1={service.story.altImage1} 
-      altImage2={service.story.altImage2} 
-      altImage3={service.story.altImage3} 
-      header1_1={service.story.header1_1} 
-      header1_2={service.story.header1_2} 
-      header2_1={service.story.header2_1} 
-      header2_2={service.story.header2_2} 
-      header3_1={service.story.header3_1} 
-      header3_2={service.story.header3_2} 
-      list1={service.story.list1} 
-      list2={service.story.list2} 
-      list3={service.story.list3} 
-      cta={service.story.cta} 
-    />
-  </>
+	<>
+		<HeroService 
+			header1={service.hero.header1} 
+			header2={service.hero.header2} 
+			subTitle={service.hero.subTitle} 
+		/>
+		<Story 
+			image1={service.story.image1} 
+			image2={service.story.image2} 
+			image3={service.story.image3} 
+			altImage1={service.story.altImage1} 
+			altImage2={service.story.altImage2} 
+			altImage3={service.story.altImage3} 
+			header1_1={service.story.header1_1} 
+			header1_2={service.story.header1_2} 
+			header2_1={service.story.header2_1} 
+			header2_2={service.story.header2_2} 
+			header3_1={service.story.header3_1} 
+			header3_2={service.story.header3_2} 
+			list1={service.story.list1} 
+			list2={service.story.list2} 
+			list3={service.story.list3} 
+			cta={service.story.cta} 
+		/>
+		<ServiceDescription 
+			title={description?.title} 
+			highlight={description?.highlight} 
+			description={description?.description} 
+			features={description?.features} 
+			processTitle={description?.processTitle} 
+			processSteps={description?.processSteps} 
+		/>
+		<SocialProof 
+			title={socialProof.title}
+			highlight={socialProof.highlight}
+			testimonials={socialProof.testimonials}
+			stats={socialProof.stats}
+		/>
+	</>
     // <div className="min-h-screen bg-black text-white overflow-hidden">
     //   {/* Hero Section */}
     //   <section ref={heroRef} className="relative min-h-screen flex items-center justify-center overflow-hidden">

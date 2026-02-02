@@ -62,7 +62,7 @@ useGSAP(() => {
     gsap.fromTo(subtitle, { y: 0, opacity: 1 }, { scrollTrigger: scrollConfig, y: -80, opacity: 0 });
 
     actions.forEach((el, i) => {
-      gsap.fromTo(el, { y: 0, opacity: 1, scale: 1 }, { scrollTrigger: scrollConfig, y: 80, opacity: 0, scale: 0.85, delay: i * 0.1 });
+      gsap.fromTo(el, { y: 0, opacity: 1, scale: 1 }, { scrollTrigger: scrollConfig, y: 80, opacity: 0, scale: 0.85, delay: (i+1) * 0.5 });
     });
 
     certifs.forEach((el, i) => {
@@ -79,7 +79,7 @@ useGSAP(() => {
 
 
     return (
-                <section ref={heroRef} className="relative min-h-screen flex items-center justify-center overflow-hidden bg-black">
+        <section ref={heroRef} className="relative min-h-screen flex items-center justify-center overflow-hidden bg-black">
             {/* Overlay gradient */}
             <div className="absolute inset-0 bg-linear-to-br from-orange-900/20 via-black to-black" />
 
