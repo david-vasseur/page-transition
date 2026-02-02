@@ -22,7 +22,6 @@
     "resend": "^6.6.0",
     "zustand": "^5.0.9"
 
-    
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4",

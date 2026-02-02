@@ -2,10 +2,56 @@
 
 import { useGSAP } from '@gsap/react';
 import gsap from 'gsap';
+import { SplitText } from 'gsap/SplitText';
 import Image from 'next/image';
-import React, { useRef, useState } from 'react'
+import { useRef, useState } from 'react';
 
-function Story() {
+interface IListItem {
+    id: string | number;
+    text: string;
+}
+
+interface IStory {
+    image1: string;
+    altImage1: string;
+    image2: string;
+    altImage2: string;
+    image3: string;
+    altImage3: string;
+
+    header1_1: string;
+    header1_2: string;
+    header2_1: string;
+    header2_2: string;
+    header3_1: string;
+    header3_2: string;
+
+    list1: IListItem[];
+    list2: IListItem[];
+    list3: IListItem[];
+
+    cta: string;
+}
+
+
+function Story({
+    image1,
+    altImage1,
+    image2,
+    altImage2,
+    image3,
+    altImage3,
+    header1_1,
+    header1_2,
+    header2_1,
+    header2_2,
+    header3_1,
+    header3_2,
+    list1,
+    list2,
+    list3,
+    cta
+}: IStory) {
     const sectionRef = useRef<HTMLDivElement>(null);
     const ctaRef = useRef<HTMLDivElement>(null);
     const image1Ref = useRef<HTMLImageElement>(null);
@@ -204,19 +250,19 @@ function Story() {
 
 
 
-  useGSAP(() => {
+    useGSAP(() => {
 
-    gsap.fromTo(ctaRef.current,
-        { x: "-120%" },
-        { x: "120%", scrollTrigger: {
-            trigger: ctaRef.current,
-            start: "top 80%",
-            end: "top 20%",
-            scrub: 1
-        } }
-    );
+        gsap.fromTo(ctaRef.current,
+            { x: "-120%" },
+            { x: "120%", scrollTrigger: {
+                trigger: ctaRef.current,
+                start: "top 80%",
+                end: "top 20%",
+                scrub: 1
+            } }
+        );
 
-  })
+    })
 
     
 
@@ -228,8 +274,8 @@ function Story() {
                 <Image
                     ref={image1Ref}
                     fill
-                    src="/infestation-dark.png"
-                    alt="gg"
+                    src={image1}
+                    alt={altImage1}
                     className="z-3 object-cover"
                     style={{
                     maskImage: `linear-gradient(${i1_angle}deg, black 0%, black ${i1_test}%, transparent ${i1_test1}%, transparent ${i1_test2}%, black ${i1_test3}%, black 100%)`,
@@ -242,8 +288,8 @@ function Story() {
                 {/* Image2 */}
                 <Image
                     fill
-                    src="/close-up-pest.png"
-                    alt="gg"
+                    src={image2}
+                    alt={altImage2}
                     className="z-2 object-cover"
                     style={{
                     maskImage: `linear-gradient(${i2_angle}deg, black 0%, black ${i2_test}%, transparent ${i2_test1}%, transparent ${i2_test2}%, black ${i2_test3}%, black 100%)`,
@@ -256,8 +302,8 @@ function Story() {
                 {/* Image3 */}
                 <Image
                     fill
-                    src="/security-professional.png"
-                    alt="gg"
+                    src={image3}
+                    alt={altImage3}
                     className="z-1 object-cover"
                     style={{
                     maskImage: `linear-gradient(${i3_angle}deg, black 0%, black ${i3_test}%, transparent ${i3_test1}%, transparent ${i3_test2}%, black ${i3_test3}%, black 100%)`,
@@ -271,42 +317,42 @@ function Story() {
                 {/* PROBLÈME */}
                 <div className="content-title absolute text-center z-3">
                     <h2 className="content-h2 text-5xl mx-auto lg:text-7xl max-w-xl font-black text-white my-4">
-                        Contaminations <span className="text-orange-600">et germes</span>
+                        {header1_1} <span className="text-orange-600">{header1_2}</span>
                     </h2>
                     <ul className="content-list mt-4 mx-auto w-[80%] text-sm list-disc list-inside text-white">
-                        <li className="mt-5">Présence de bactéries, virus ou champignons sur vos surfaces</li>
-                        <li className="mt-5">Risque pour la santé des employés et clients</li>
-                        <li className="mt-5">Impact sur l’hygiène et l’image de l’entreprise</li>
+                        {list1.map(list => (
+                            <li key={list.id} className="mt-5">{list.text}</li>
+                        ))}
                     </ul>
                 </div>
 
                 {/* SOLUTION */}
                 <div className="content-title text-center absolute z-2">
                     <h2 className="content-h2 text-5xl mx-auto lg:text-7xl max-w-xl font-black text-white my-4">
-                        Désinfection <span className="text-orange-600">professionnelle</span>
+                        {header2_1} <span className="text-orange-600">{header2_2}</span>
                     </h2>
                     <ul className="content-list mt-4 mx-auto w-[80%] text-sm list-disc list-inside text-white">
-                        <li className="mt-5">Intervention rapide par des experts certifiés en hygiène</li>
-                        <li className="mt-5">Utilisation de produits et protocoles conformes aux normes</li>
-                        <li className="mt-5">Nettoyage et désinfection complète des locaux et surfaces</li>
+                        {list2.map(list => (
+                            <li key={list.id} className="mt-5">{list.text}</li>
+                        ))}
                     </ul>
                 </div>
 
                 {/* BÉNÉFICE */}
                 <div className="content-title text-center absolute z-1">
                     <h2 className="content-h2 text-5xl mx-auto lg:text-7xl max-w-xl font-black text-white my-4">
-                        Locaux propres <span className="text-orange-600">et sécurisés</span>
+                        {header3_1} <span className="text-orange-600">{header3_2}</span>
                     </h2>
                     <ul className="content-list mt-4 mx-auto w-[80%] text-sm list-disc list-inside text-white">
-                        <li className="mt-5">Environnement de travail sain pour vos collaborateurs</li>
-                        <li className="mt-5">Réduction des risques sanitaires et absence de contamination</li>
-                        <li className="mt-5">Confiance renforcée des clients et employés</li>
+                        {list3.map(list => (
+                            <li key={list.id} className="mt-5">{list.text}</li>
+                        ))}
                     </ul>
                 </div>
 
                 {/* CTA FINAL */}
                 <div className="content-title flex flex-col gap-10 items-center justify-center mt-10">
-                    <p className="max-w-2xs text-center text-xl font-extrabold">Une infestation n’attend pas. Appelez-nous dès maintenant.</p>
+                    <p className="max-w-2xs text-center text-xl font-extrabold">{cta}</p>
                     <a  
                         href="https://www.google.com/search?uds=AOm0WdE2fekQnsyfYEw8JPYozOKzEik-2elEKZuoMX0RuNnOO2GDIgxodzVnOQyNKeXlFnJ-YKUC7TE4kLm3vqIQWIc_K9GQmAyeD4qnUuL2lsL3durM3BCd536avOHSG36vM61mkI3D&q=G.V.S.3D%20Avis&si=AMgyJEtREmoPL4P1I5IDCfuA8gybfVI2d5Uj7QMwYCZHKDZ-E1JhB0J4OEHu0ExSh8WjvsFDX7W-B4bHUGXrldG4Knsut4hAo43-Re3diVTedAjKfiP_Q40r0ulfUf0zCEy5Boez_ebk&cs=1&hl=fr&sa=X&ved=0CCgQ_4MLahcKEwj4yqq4x_2OAxUAAAAAHQAAAAAQBg&biw=2552&bih=1314&dpr=1"
                         target='_blank'
