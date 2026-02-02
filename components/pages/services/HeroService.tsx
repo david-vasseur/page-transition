@@ -1,6 +1,9 @@
 "use client"
 
+import { useGSAP } from '@gsap/react';
+import gsap from 'gsap';
 import { ArrowRight } from 'lucide-react';
+import { useRef } from 'react';
 
 interface IHeroService {
     header1: string;
@@ -9,20 +12,141 @@ interface IHeroService {
 }
 
 function HeroService({ header1, header2, subTitle }: IHeroService) {
+
+    const heroRef = useRef<HTMLDivElement>(null);
+
+     useGSAP(() => {
+
+        const titles = gsap.utils.toArray<HTMLElement>(".hero-title span");
+        console.log(titles);
+        
+        const subtitle = heroRef.current?.querySelector(".hero-subtitle");
+        console.log(subtitle);
+        
+        const actions = gsap.utils.toArray<HTMLElement>(".hero-actions > *");
+        console.log(actions);
+        
+        const certifs = gsap.utils.toArray<HTMLElement>(".hero-certif");
+
+
+        const tl = gsap.timeline({ delay: 0.3 });
+
+        if (!subtitle || !actions || !certifs || !titles) return
+
+        // TITRES
+        titles.forEach((el, i) => {
+            tl.from(el, {
+                y: 100,
+                opacity: 0,
+                ease: "power4.out",
+                duration: 1,
+            }, i * 0.1);
+        });
+
+        // SOUS-TITRE
+        if (subtitle) {
+            tl.from(subtitle, {
+                opacity: 0,
+                y: 50,
+                duration: 1,
+                ease: "power3.out",
+            }, "-=0.5");
+        }
+
+        // BOUTONS
+        actions.forEach((el, i) => {
+            tl.from(el, {
+                opacity: 0,
+                y: 30,
+                scale: 0.9,
+                ease: "back.out(1.7)",
+                duration: 0.8,
+            }, i * 0.15 + 0.6);
+        });
+
+        // CERTIFICATIONS
+        certifs.forEach((el, i) => {
+            tl.from(el, {
+                opacity: 0,
+                y: 20,
+                duration: 0.6,
+                ease: "power2.out",
+            }, i * 0.15 + 1);
+        });
+        /* --------------------
+            SORTIE (scrollTrigger)
+        -------------------- */
+
+        const scrollConfig = {
+            trigger: heroRef.current,
+            start: "top top",
+            end: "bottom top",
+            scrub: 1,
+        };
+
+        gsap.set(titles, { opacity: 1, y: 0 })
+        gsap.set(subtitle, { opacity: 1, y: 0 })
+        gsap.set(actions, { opacity: 1, scale: 1, y: 0 })
+        gsap.set(certifs, { opacity: 1, y: 0 })
+
+        titles.forEach((el, i) => {
+            gsap.to(el, {
+                scrollTrigger: {
+                    trigger: heroRef.current,
+                    start: "top top",
+                    end: "bottom top",
+                    scrub: 1,
+                },
+                y: -120,
+                opacity: 0,
+                stagger: i * 0.1,
+            });
+            });
+
+            if (subtitle) {
+                gsap.to(subtitle, {
+                    scrollTrigger: scrollConfig,
+                    y: -60,
+                    opacity: 0,
+                });
+            }
+
+            actions.forEach((el, i) => {
+                gsap.to(el, {
+                    scrollTrigger: scrollConfig,
+                    y: 60,
+                    opacity: 0,
+                    scale: 0.85,
+                    delay: i * 0.1,
+                });
+            });
+
+            certifs.forEach((el, i) => {
+                gsap.to(el, {
+                    scrollTrigger: scrollConfig,
+                    y: 40,
+                    opacity: 0,
+                    stagger: i * 0.2,
+                });
+            });
+
+    }, []);
+
+
     return (
-        <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-black">
+                <section ref={heroRef} className="relative min-h-screen flex items-center justify-center overflow-hidden bg-black">
             {/* Overlay gradient */}
             <div className="absolute inset-0 bg-linear-to-br from-orange-900/20 via-black to-black" />
 
             {/* Animated grid background */}
             <div className="absolute inset-0 opacity-10">
                 <div
-                className="absolute inset-0"
-                style={{
-                    backgroundImage:
-                    'linear-gradient(rgba(249,115,22,0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(249,115,22,0.1) 1px, transparent 1px)',
-                    backgroundSize: '50px 50px',
-                }}
+                    className="absolute inset-0"
+                    style={{
+                        backgroundImage:
+                            'linear-gradient(rgba(249,115,22,0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(249,115,22,0.1) 1px, transparent 1px)',
+                        backgroundSize: '50px 50px',
+                    }}
                 />
             </div>
 
@@ -44,12 +168,11 @@ function HeroService({ header1, header2, subTitle }: IHeroService) {
                 <div className="hero-actions flex flex-col sm:flex-row gap-4">
                     <button
                         aria-label="Demande de devis"
-                        // onClick={() => openModal(<EstimateForm />)}
                         className="group bg-orange-600 hover:bg-orange-700 text-white px-8 py-4 rounded-full font-bold text-base 2xl:text-lg flex items-center justify-center"
                     >
                         Inspection gratuite
                         <div className="ml-2">
-                        <ArrowRight className="w-5 h-5" />
+                            <ArrowRight className="w-5 h-5" />
                         </div>
                     </button>
 
@@ -62,7 +185,7 @@ function HeroService({ header1, header2, subTitle }: IHeroService) {
                 </div>
 
                 {/* Certifications */}
-                <div className="mt-12 flex flex-col sm:flex-row text-left lg:items-center justify-center gap-4 sm:gap-8 text-sm sm:text-base text-gray-400">
+                <div className="hero-certif mt-12 flex flex-col sm:flex-row text-left lg:items-center justify-center gap-4 sm:gap-8 text-sm sm:text-base text-gray-400">
                     <div className="flex lg:items-center gap-2">
                         <span className="text-orange-500">✓</span> Certifié & Agréé
                     </div>
@@ -78,4 +201,4 @@ function HeroService({ header1, header2, subTitle }: IHeroService) {
     )
 }
 
-export default HeroService
+export default HeroService;
