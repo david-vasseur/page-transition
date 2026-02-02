@@ -42,7 +42,7 @@ function Transition() {
 
     return (
         <>
-            <div className="fixed hidden lg:grid h-svh w-svw grid-rows-2 z-15 pointer-events-none">
+            <div className="fixed hidden lg:grid h-lvh w-svw grid-rows-2 z-15 pointer-events-none">
                 <div className="grid grid-cols-6">
                     {[...Array(6)].map((_, i) => (
                         <div 
