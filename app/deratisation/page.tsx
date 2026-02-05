@@ -12,6 +12,7 @@ import Story from '@/components/pages/services/Story';
 import ServiceDescription from '@/components/pages/services/ServiceDescription';
 import SocialProof from '@/components/pages/services/SocialProof';
 import FaqCta from '@/components/pages/services/FaqCta';
+import Pricing from '@/components/pages/services/Pricing';
 
 
 export default function DératisationPage() {
@@ -162,6 +163,56 @@ return (
 			processTitle={description?.processTitle} 
 			processSteps={description?.processSteps} 
 		/>
+        <Pricing
+    sectionTitle="Tarifs"
+    sectionHighlight="transparents"
+    description="Nos prix varient selon la surface à traiter et le niveau d'infestation. Chaque intervention inclut un diagnostic complet et un suivi garanti."
+    
+    cards={[
+        {
+            id: 1,
+            title: "Particulier",
+            subtitle: "Maisons & Appartements",
+            priceRange: "150€ - 300€",
+            priceNote: "Selon surface et infestation",
+            badge: "Inspection offerte",
+            gradient: "from-orange-600 to-orange-700",
+            bgGradient: "from-orange-600/5 to-orange-700/5",
+            included: [
+                { id: 1, label: "Inspection gratuite et diagnostic", included: true },
+                { id: 2, label: "Déplacement inclus (30km)", included: true },
+                { id: 3, label: "Mise en place du traitement", included: true },
+                { id: 4, label: "2 visites de suivi (1 mois)", included: true },
+                { id: 5, label: "Garantie 3 mois", included: true },
+                { id: 6, label: "Contrat de maintenance", included: false },
+            ]
+        },
+        {
+            id: 2,
+            title: "Pro",
+            subtitle: "Commerces & Bureaux",
+            priceRange: "250€ - 500€",
+            priceNote: "Intervention & suivi complet",
+            badge: "Conformité HACCP",
+            gradient: "from-blue-600/80 to-cyan-600/80",
+            bgGradient: "from-blue-600/20 to-cyan-600/10",
+            isPopular: true,
+            included: [
+                { id: 1, label: "Inspection gratuite et diagnostic", included: true },
+                { id: 2, label: "Déplacement inclus (50km)", included: true },
+                { id: 3, label: "Mise en place du traitement", included: true },
+                { id: 4, label: "4 visites de suivi (3 mois)", included: true },
+                { id: 5, label: "Garantie 6 mois", included: true },
+                { id: 6, label: "Rapport de conformité", included: true },
+                { id: 7, label: "Contrat maintenance optionnel", included: true },
+            ]
+        },
+        
+    ]}
+    
+    ctaText="Besoin d'un devis personnalisé ? Contactez-nous :"
+    ctaPhone="06 58 94 20 67"
+/>
 		<SocialProof 
 			title={socialProof.title}
 			highlight={socialProof.highlight}

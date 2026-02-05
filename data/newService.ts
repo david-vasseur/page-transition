@@ -305,7 +305,6 @@ export const socialProofData: ISocialProof[] = [{
   stats: [
     { id: 1, value: "500+", label: "Interventions réalisées", suffix: "+" },
     { id: 2, value: "98%", label: "Clients satisfaits", suffix: "%" },
-    { id: 3, value: "10", label: "Années d'expérience" },
   ],
 }]
 
