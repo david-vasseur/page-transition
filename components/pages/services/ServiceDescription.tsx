@@ -360,45 +360,90 @@ function ServiceDescription({
             const steps = gsap.utils.toArray<HTMLElement>(".process-step-trigger");
             const images = gsap.utils.toArray<HTMLElement>(".process-image");
 
-            // Pin de la section gauche
+            const totalScroll = (steps.length - 1) * 900;
+
+            // Image 1 visible dès le départ
+            gsap.set(images[0], {
+                clipPath: "polygon(0 0, 100% 0, 100% 100%, 0% 100%)"
+            });
+
+            // Images suivantes cachées
+            images.slice(1).forEach(img => {
+                gsap.set(img, {
+                    clipPath: "polygon(0 0, 0 0, 0 100%, 0% 100%)"
+                });
+            });
+
+            // Cards état initial
+            gsap.set(steps, {
+                opacity: 0,
+                x: 0,
+                y: 40,
+            });
+
+            // Card 1 visible mais inactive
+            gsap.set(steps[0], {
+                opacity: 0.8,
+                y: 40,
+                x: 0,
+            });
+
+            // Pin image + colonne droite ensemble
             ScrollTrigger.create({
                 trigger: processContainerRef.current,
-                start: "top top+=100", // Commence un peu plus bas que le top
-                end: "bottom bottom",
-                pin: ".process-images-pin",
-                pinSpacing: false, // Important pour l'alignement
+                start: "top top+=100",
+                end: `+=${totalScroll}`,
+                pin: processContainerRef.current,
+                scrub: true,
+                pinSpacing: true,
             });
 
-            // Animation des images (Reveal Left to Right)
+            const tl = gsap.timeline({
+                scrollTrigger: {
+                    trigger: processContainerRef.current,
+                    start: "top top+=100",
+                    end: `+=${totalScroll}`,
+                    scrub: 1,
+                }
+            });
+
+            // 👉 Entrée de la première card au moment du pin
+            tl.fromTo(steps[0], 
+                { y: "50vh", opacity: 0 },
+                {
+                y: 0,
+                opacity: 1,
+                x: 15,
+                duration: 0.4,
+                ease: "power2.out"
+            }, 0);
+
             steps.forEach((step, i) => {
-                if (i === 0) return; // La première image est déjà visible
+                if (i === 0) return;
 
-                gsap.fromTo(images[i], 
-                    { clipPath: "polygon(0 0, 0 0, 0 100%, 0% 100%)" }, // Fermé à gauche
-                    {
-                        clipPath: "polygon(0 0, 100% 0, 100% 100%, 0% 100%)", // Ouvert
-                        ease: "none",
-                        scrollTrigger: {
-                            trigger: step,
-                            start: "top center", // Quand l'étape arrive au milieu
-                            end: "top center-=100",
-                            scrub: true, // Lié au scroll pour l'effet "wipe"
-                        }
-                    }
-                );
-            });
+                const prev = steps[i - 1];
+                const img = images[i];
 
-            // Animation simple d'apparition des textes (Steps)
-            steps.forEach((step) => {
-                 gsap.fromTo(step,
-                    { opacity: 0.3, x: 50 },
-                    { opacity: 1, x: 0, duration: 0.5, scrollTrigger: {
-                        trigger: step,
-                        start: "top 80%",
-                        end: "top 50%",
-                        toggleActions: "play reverse play reverse"
-                    }}
+                // Reveal image suivante
+                tl.to(img, {
+                    clipPath: "polygon(0 0, 100% 0, 100% 100%, 0% 100%)",
+                    duration: 1,
+                    ease: "none"
+                }, i);
+
+                // Nouvelle card arrive depuis très bas
+                tl.fromTo(step,
+                    { y: "50vh", opacity: 0, x: 0 },
+                    { y: 0, opacity: 1, x: -25, duration: 0.5, ease: "power2.out" },
+                    i + 0.1
                 );
+
+                // Ancienne card se désactive
+                tl.to(prev, {
+                    opacity: 0.6,
+                    x: 0,
+                    duration: 0.3,
+                }, i + 0.1);
             });
         });
 
@@ -483,7 +528,7 @@ function ServiceDescription({
                     </h3>
                     
                     {/* Container GRID pour Desktop */}
-                    <div ref={processContainerRef} className="flex flex-col lg:flex-row gap-12 lg:gap-20">
+                    <div ref={processContainerRef} className="flex flex-col items-center lg:flex-row gap-12 lg:gap-20">
                         
                         {/* COLONNE GAUCHE (Images Sticky) - Desktop Only */}
                         <div className="process-images-pin hidden lg:block w-1/2 h-[500px] sticky top-32 rounded-3xl overflow-hidden border border-gray-800 bg-gray-900 shadow-2xl">
@@ -515,7 +560,7 @@ function ServiceDescription({
                         </div>
 
                         {/* COLONNE DROITE (Scrollable Steps) */}
-                        <div className="w-full lg:w-1/2 flex flex-col gap-8 lg:gap-[40vh] pb-20"> 
+                        <div className="w-full lg:w-1/2 flex flex-col gap-8 pb-20"> 
                             {/* gap-[40vh] crée l'espace nécessaire pour scroller et déclencher les anims */}
                             
                             {processSteps.map((step, index) => (
@@ -526,7 +571,7 @@ function ServiceDescription({
                                     {/* Mobile Image (Visible uniquement sur mobile) */}
                                     <div className="lg:hidden w-full h-48 rounded-t-2xl overflow-hidden mb-0 relative">
                                         <img src={step.image} alt={step.title} className="w-full h-full object-cover" />
-                                        <div className="absolute inset-0 bg-gradient-to-t from-gray-900 to-transparent" />
+                                        <div className="absolute inset-0 bg-linear-to-t from-gray-900 to-transparent" />
                                     </div>
 
                                     {/* Carte Contenu */}
