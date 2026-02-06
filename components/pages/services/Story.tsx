@@ -234,19 +234,19 @@ function Story({
         tl.to(title[2], { opacity: 0, yPercent: -20, scale: 0.5, duration: 0.1 }, "<")
             .to(title[3], { opacity: 1, y: 0, duration: 0.1 }, "<+=0.1")
             .to(splits[3]?.chars || [], {
-            opacity: 1,
-            y: 0,
-            rotationX: 0,
-            stagger: 0.02,
-            ease: "back.out(1.7)",
-            duration: 0.1,
+                opacity: 1,
+                y: 0,
+                rotationX: 0,
+                stagger: 0.02,
+                ease: "back.out(1.7)",
+                duration: 0.1,
             }, "<")
             .to(lists[3], {
-            opacity: 1,
-            y: 0,
-            stagger: 0.1,
-            duration: 0.2,
-            ease: "power2.out",
+                opacity: 1,
+                y: 0,
+                stagger: 0.1,
+                duration: 0.2,
+                ease: "power2.out",
             }, "<+=0.2")
             .fromTo(glowRef.current,
                 { scale: 0, opacity: 0 },
@@ -259,7 +259,7 @@ function Story({
     
 
     return (
-        <section ref={sectionRef} className="h-lvh relative">
+        <section ref={sectionRef} className="h-lvh relative overflow-hidden">
             <div className="absolute inset-0 z-3">
                 <div className='absolute inset-0 z-5 bg-black/60' />
                 {/* Image1 */}

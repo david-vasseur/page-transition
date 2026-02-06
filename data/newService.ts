@@ -16,6 +16,7 @@ interface IServiceDescription {
         number: string;
         title: string;
         description: string;
+        image:string;
     }[];
 }
 
@@ -217,10 +218,10 @@ export const serviceDescriptions: IServiceDescription[] = [
     ],
     processTitle: "Notre processus de dératisation",
     processSteps: [
-      { id: 1, number: "01", title: "Diagnostic complet", description: "Inspection des lieux pour identifier les rongeurs et leurs points d’accès." },
-      { id: 2, number: "02", title: "Plan d’action", description: "Élaboration d’un plan personnalisé avec méthodes adaptées." },
-      { id: 3, number: "03", title: "Intervention ciblée", description: "Mise en place de pièges et traitements sécurisés." },
-      { id: 4, number: "04", title: "Contrôle post-traitement", description: "Vérification et conseils pour éviter toute réinfestation." },
+      { id: 1, number: "01", title: "Diagnostic complet", description: "Inspection des lieux pour identifier les rongeurs et leurs points d’accès.", image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=2015&auto=format&fit=crop" },
+      { id: 2, number: "02", title: "Plan d’action", description: "Élaboration d’un plan personnalisé avec méthodes adaptées.", image: "https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=2070&auto=format&fit=crop" },
+      { id: 3, number: "03", title: "Intervention ciblée", description: "Mise en place de pièges et traitements sécurisés.", image: "https://images.unsplash.com/photo-1519389950473-47ba0277781c?q=80&w=2070&auto=format&fit=crop" },
+      // { id: 4, number: "04", title: "Contrôle post-traitement", description: "Vérification et conseils pour éviter toute réinfestation." },
     ],
   },
   {
@@ -235,10 +236,10 @@ export const serviceDescriptions: IServiceDescription[] = [
     ],
     processTitle: "Notre processus de désinsectisation",
     processSteps: [
-      { id: 1, number: "01", title: "Inspection des lieux", description: "Identification des zones infestées et type d’insectes." },
-      { id: 2, number: "02", title: "Traitement adapté", description: "Application des produits et méthodes sécurisés." },
-      { id: 3, number: "03", title: "Prévention", description: "Recommandations pour éviter toute réinfestation." },
-      { id: 4, number: "04", title: "Contrôle final", description: "Vérification post-intervention et ajustements si nécessaire." },
+      { id: 1, number: "01", title: "Inspection des lieux", description: "Identification des zones infestées et type d’insectes.", image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=2015&auto=format&fit=crop" },
+      { id: 2, number: "02", title: "Traitement adapté", description: "Application des produits et méthodes sécurisés.", image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=2015&auto=format&fit=crop" },
+      { id: 3, number: "03", title: "Prévention", description: "Recommandations pour éviter toute réinfestation.", image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=2015&auto=format&fit=crop" },
+      { id: 4, number: "04", title: "Contrôle final", description: "Vérification post-intervention et ajustements si nécessaire.", image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=2015&auto=format&fit=crop" },
     ],
   },
   {
@@ -253,17 +254,17 @@ export const serviceDescriptions: IServiceDescription[] = [
     ],
     processTitle: "Notre processus de désinfection",
     processSteps: [
-      { id: 1, number: "01", title: "Analyse du site", description: "Évaluation des surfaces et risques sanitaires." },
-      { id: 2, number: "02", title: "Application des produits", description: "Désinfection ciblée avec produits certifiés." },
-      { id: 3, number: "03", title: "Contrôle qualité", description: "Vérification des zones traitées pour assurer l’efficacité." },
-      { id: 4, number: "04", title: "Conseils & prévention", description: "Recommandations pour maintenir un environnement sain." },
+      { id: 1, number: "01", title: "Analyse du site", description: "Évaluation des surfaces et risques sanitaires.", image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=2015&auto=format&fit=crop" },
+      { id: 2, number: "02", title: "Application des produits", description: "Désinfection ciblée avec produits certifiés.", image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=2015&auto=format&fit=crop" },
+      { id: 3, number: "03", title: "Contrôle qualité", description: "Vérification des zones traitées pour assurer l’efficacité.", image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=2015&auto=format&fit=crop" },
+      // { id: 4, number: "04", title: "Conseils & prévention", description: "Recommandations pour maintenir un environnement sain." },
     ],
   },
 ];
 
 export const socialProofData: ISocialProof[] = [{
-  title: "Nos clients parlent de nous",
-  highlight: "témoignages",
+  title: "La confiance se mérite",
+  highlight: "Chaque jour",
   testimonials: [
     {
       id: 1,
@@ -291,16 +292,7 @@ export const socialProofData: ISocialProof[] = [{
       text: "Très satisfait du service. Les explications étaient claires et le suivi après l'intervention parfait.",
       date: "2025-09-15",
       avatar: "/avatars/sophie.jpg",
-    },
-    {
-      id: 4,
-      name: "Thomas Leroy",
-      location: "Toulouse",
-      rating: 5,
-      text: "Équipe ponctuelle et efficace. Le résultat est excellent et durable. Je recommande !",
-      date: "2025-08-30",
-      avatar: "/avatars/thomas.jpg",
-    },
+    }
   ],
   stats: [
     { id: 1, value: "500+", label: "Interventions réalisées", suffix: "+" },
