@@ -54,6 +54,7 @@ function Story({
 }: IStory) {
     const sectionRef = useRef<HTMLDivElement>(null);
     const ctaRef = useRef<HTMLDivElement>(null);
+    const glowRef = useRef<HTMLDivElement>(null);
     const image1Ref = useRef<HTMLImageElement>(null);
 
 
@@ -228,6 +229,8 @@ function Story({
             }
         });
 
+        console.log(title[3]);
+        
         tl.to(title[2], { opacity: 0, yPercent: -20, scale: 0.5, duration: 0.1 }, "<")
             .to(title[3], { opacity: 1, y: 0, duration: 0.1 }, "<+=0.1")
             .to(splits[3]?.chars || [], {
@@ -244,26 +247,15 @@ function Story({
             stagger: 0.1,
             duration: 0.2,
             ease: "power2.out",
-            }, "<+=0.2");
+            }, "<+=0.2")
+            .fromTo(glowRef.current,
+                { scale: 0, opacity: 0 },
+                { scale: 2, opacity:1, duration: 0.5, ease: "back.out(1.7)"}, "<" )
+            .fromTo(ctaRef.current,
+                { x: "-120%" },
+                { x: "120%", duration: 0.5, ease: "back.out(1.7)"}, "<");
 
     }, []);
-
-
-
-    useGSAP(() => {
-
-        gsap.fromTo(ctaRef.current,
-            { x: "-120%" },
-            { x: "120%", scrollTrigger: {
-                trigger: ctaRef.current,
-                start: "top 80%",
-                end: "top 20%",
-                scrub: 1
-            } }
-        );
-
-    })
-
     
 
     return (
@@ -351,12 +343,13 @@ function Story({
                 </div>
 
                 {/* CTA FINAL */}
-                <div className="content-title flex flex-col gap-10 items-center justify-center mt-10">
-                    <p className="max-w-2xs text-center text-xl font-extrabold">{cta}</p>
+                <div className="content-title relative flex flex-col gap-10 items-center justify-center mt-10">
+                    <div ref={glowRef} className="absolute z-0 top-1/2 left-1/2 w-96 h-64 bg-orange-500/20 blur-3xl rounded-full -translate-x-1/2 -translate-y-1/2" />
+                    <p className="max-w-2xs z-1 text-center text-xl font-extrabold">{cta}</p>
                     <a  
                         href="https://www.google.com/search?uds=AOm0WdE2fekQnsyfYEw8JPYozOKzEik-2elEKZuoMX0RuNnOO2GDIgxodzVnOQyNKeXlFnJ-YKUC7TE4kLm3vqIQWIc_K9GQmAyeD4qnUuL2lsL3durM3BCd536avOHSG36vM61mkI3D&q=G.V.S.3D%20Avis&si=AMgyJEtREmoPL4P1I5IDCfuA8gybfVI2d5Uj7QMwYCZHKDZ-E1JhB0J4OEHu0ExSh8WjvsFDX7W-B4bHUGXrldG4Knsut4hAo43-Re3diVTedAjKfiP_Q40r0ulfUf0zCEy5Boez_ebk&cs=1&hl=fr&sa=X&ved=0CCgQ_4MLahcKEwj4yqq4x_2OAxUAAAAAHQAAAAAQBg&biw=2552&bih=1314&dpr=1"
                         target='_blank'
-                        className='relative text-2xl shrink-0 overflow-hidden bg-linear-to-br from-orange-500 to-red-600 text-white px-6 py-3 rounded-full font-semibold'
+                        className='relative z-1 text-2xl shrink-0 overflow-hidden bg-linear-to-br from-orange-500 to-red-600 text-white px-6 py-3 rounded-full font-semibold border border-black/80 shadow-2xl shadow-black/80'
                     >
                         Appellez nous
                         <div ref={ctaRef} className="absolute inset-0 bg-linear-to-r from-transparent via-white/50 to-transparent skew-x-12 -translate-x-100 will-change-transform" />

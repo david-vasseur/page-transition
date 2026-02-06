@@ -165,11 +165,11 @@ function SocialProof({ title, highlight, testimonials, stats }: ISocialProof) {
                     {stats.map((stat) => (
                         <div
                             key={stat.id}
-                            className="stat-card w-full h-auto aspect-square relative group"
+                            className="stat-card mx-auto max-w-2xs h-full relative group"
                         >
-                            <div className="bg-linear-to-br aspect-square from-gray-900 to-black border border-gray-800 rounded-2xl p-6 text-center hover:border-orange-600 transition-all duration-300">
+                            <div className="bg-linear-to-br max-w-2xs h-full items-center aspect-square from-gray-900 to-black border border-gray-800 rounded-2xl p-6 text-center hover:border-orange-600 transition-all duration-300">
                                 <div className="absolute inset-0 bg-linear-to-br from-orange-600/0 to-orange-600/0 group-hover:from-orange-600/5 group-hover:to-orange-600/10 rounded-2xl transition-all duration-300" />
-                                <div className="relative">
+                                <div className="relative h-full flex flex-col items-center justify-center">
                                     <div className="stat-value text-3xl sm:text-4xl lg:text-5xl font-black text-orange-600 mb-2">
                                         {stat.value}
                                     </div>

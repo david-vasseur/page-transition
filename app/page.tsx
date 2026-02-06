@@ -1,7 +1,6 @@
 import Services from "@/components/landing_page/Servcies";
 import Hero from "../components/landing_page/Hero";
 import IReview from "../type/review";
-import InterventionZone from "@/components/landing_page/MapSection";
 import SocialProof from "@/components/landing_page/Proof";
 import Testimonials from "@/components/landing_page/Testimonial";
 import Faq from "@/components/landing_page/Faq";
@@ -137,7 +136,6 @@ export default async function Home() {
 		<div className="min-h-screen">
 			<Hero />
 			<SocialProof />
-			{/* <Presentation /> */}
 			<Services />
 			<Testimonials reviews={testimonials} />
 			<Faq />
