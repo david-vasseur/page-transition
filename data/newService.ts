@@ -216,13 +216,30 @@ export const serviceDescriptions: IServiceDescription[] = [
       { id: 3, icon: "clock", title: "Disponibilité 7j/7", description: "Nous sommes disponibles tous les jours pour vos urgences rongeurs." },
       { id: 4, icon: "award", title: "Certifié & agréé", description: "Nos techniciens sont formés et agréés pour vos interventions." },
     ],
-    processTitle: "Notre processus de dératisation",
+    processTitle: "Notre intervention en 3 étapes",
     processSteps: [
-      { id: 1, number: "01", title: "Diagnostic complet", description: "Inspection des lieux pour identifier les rongeurs et leurs points d’accès.", image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=2015&auto=format&fit=crop" },
-      { id: 2, number: "02", title: "Plan d’action", description: "Élaboration d’un plan personnalisé avec méthodes adaptées.", image: "https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=2070&auto=format&fit=crop" },
-      { id: 3, number: "03", title: "Intervention ciblée", description: "Mise en place de pièges et traitements sécurisés.", image: "https://images.unsplash.com/photo-1519389950473-47ba0277781c?q=80&w=2070&auto=format&fit=crop" },
-      // { id: 4, number: "04", title: "Contrôle post-traitement", description: "Vérification et conseils pour éviter toute réinfestation." },
-    ],
+      { 
+        id: 1, 
+        number: "01", 
+        title: "Détection avancée", 
+        description: "Localisation précise des nuisibles grâce à des caméras thermiques et équipements de détection professionnels.", 
+        image: "/service/thermal.jpg" 
+      },
+      { 
+        id: 2, 
+        number: "02", 
+        title: "Matériel homologué", 
+        description: "Utilisation de pièges certifiés et de solutions efficaces, sûres pour les occupants et conformes aux normes.", 
+        image: "/service/trap.jpg" 
+      },
+      { 
+        id: 3, 
+        number: "03", 
+        title: "Certification d’État", 
+        description: "Interventions réalisées par des techniciens certifiés avec suivi et prévention contre toute récidive.", 
+        image: "/service/certif.webp" 
+      },
+    ]
   },
   {
     title: "Désinsectisation complète",

@@ -275,7 +275,7 @@ function SocialProof({
     title, 
     highlight, 
     description = "Découvrez pourquoi des dizaines de clients nous font confiance.",
-    imageUrl = "https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=2070&auto=format&fit=crop", // Image par défaut
+    imageUrl = "/service/confiance.png", // Image par défaut
     testimonials, 
     stats 
 }: ISocialProof) {
@@ -421,21 +421,21 @@ function SocialProof({
                         </p>
 
                         {/* STATS: Flex container (Solving the spacing issue) */}
-                        <div className="flex flex-wrap justify-center lg:justify-start gap-6 w-full">
+                        <div className="flex flex-wrap justify-center items-center lg:justify-start gap-6 w-full">
                             {stats.map((stat) => (
                                 <div
                                     key={stat.id}
                                     className="stat-card group relative min-w-35"
                                 >
-                                    <div className="relative overflow-hidden w-36 sm:w-40 md:w-44 aspect-square bg-gray-900/50 border border-gray-800 hover:border-orange-500/50 rounded-2xl p-5 transition-all duration-300">
+                                    <div className="relative flex items-center justify-center overflow-hidden w-36 sm:w-40 md:w-44 aspect-square bg-gray-900/50 border border-gray-800 hover:border-orange-500/50 rounded-2xl p-5 transition-all duration-300">
                                         <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-size-[24px_24px]" />
                                         <div className="absolute inset-0 bg-linear-to-br from-orange-500/0 to-orange-500/0 group-hover:from-orange-500/5 group-hover:to-orange-500/10 transition-all duration-500" />
                                         
                                         <div className="relative z-10">
-                                            <div className="stat-value text-3xl sm:text-4xl font-black text-white mb-1 tracking-tight">
+                                            <div className="stat-value text-3xl sm:text-4xl font-black text-white mb-1 tracking-tight text-center">
                                                 {stat.value}
                                             </div>
-                                            <div className="text-xs text-gray-500 font-medium uppercase tracking-wider flex items-center gap-1">
+                                            <div className="text-xs text-gray-500 font-medium uppercase tracking-wider flex items-center gap-1 text-center">
                                                 {stat.label}
                                             </div>
                                         </div>

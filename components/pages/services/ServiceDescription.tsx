@@ -440,7 +440,7 @@ function ServiceDescription({
 
                 // Ancienne card se désactive
                 tl.to(prev, {
-                    opacity: 0.6,
+                    opacity: 0.4,
                     x: 0,
                     duration: 0.3,
                 }, i + 0.1);
@@ -575,7 +575,7 @@ function ServiceDescription({
                                     </div>
 
                                     {/* Carte Contenu */}
-                                    <div className="relative bg-gray-900/50 backdrop-blur-sm border border-gray-800 lg:bg-transparent lg:border-l-2 lg:border-y-0 lg:border-r-0 lg:border-gray-800 lg:pl-8 lg:rounded-none rounded-b-2xl rounded-t-none lg:hover:border-orange-600 transition-all duration-300 p-6 sm:p-8">
+                                    <div className="relative bg-gray-900/50 backdrop-blur-sm border border-gray-800 lg:bg-transparent lg:border-l-2 lg:border-y-0 lg:border-r-0 lg:border-gray-800 lg:pl-8 lg:rounded-none rounded-b-2xl rounded-t-none lg:hover:border-orange-600 transition-all duration-300 p-6">
                                         
                                         {/* Numéro */}
                                         <div className="flex items-center gap-4 mb-4">
@@ -590,9 +590,9 @@ function ServiceDescription({
                                         </p>
 
                                         {/* Bouton/Lien factice pour ajouter du détail */}
-                                        <div className="mt-6 flex items-center text-orange-500 text-sm font-semibold cursor-pointer group-hover:text-orange-400 transition-colors">
+                                        {/* <div className="mt-6 flex items-center text-orange-500 text-sm font-semibold cursor-pointer group-hover:text-orange-400 transition-colors">
                                             En savoir plus <span className="ml-2 group-hover:translate-x-1 transition-transform">→</span>
-                                        </div>
+                                        </div> */}
                                     </div>
                                 </div>
                             ))}
