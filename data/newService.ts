@@ -130,34 +130,34 @@ export const services: IServicePage[] = [
       subTitle: "Éliminez les insectes nuisibles rapidement et efficacement."
     },
     story: {
-      image1: "/images/desinsectisation1.jpg",
+      image1: "/service/desinsectisation/story1.webp",
       altImage1: "Désinsectisation - Image 1",
-      image2: "/images/desinsectisation2.jpg",
+      image2: "/service/desinsectisation/story2.png",
       altImage2: "Désinsectisation - Image 2",
-      image3: "/images/desinsectisation3.jpg",
+      image3: "/service/desinsectisation/story3.png",
       altImage3: "Désinsectisation - Image 3",
 
-      header1_1: "Problème",
-      header1_2: "Insectes",
-      header2_1: "Solution",
-      header2_2: "Professionnelle",
-      header3_1: "Bénéfice",
-      header3_2: "Confort",
+      header1_1: "Vous avez un problème avec",
+      header1_2: "des insectes ?",
+      header2_1: "Nous avons la",
+      header2_2: "solution",
+      header3_1: "Retrouvez la paix",
+      header3_2: "et la sécurité",
 
       list1: [
-        { id: 1, text: "Infestation de fourmis, blattes ou moustiques" },
-        { id: 2, text: "Risques pour la santé et l'hygiène" },
-        { id: 3, text: "Difficulté à se débarrasser seul" }
+        { id: 1, text: "Infestation de fourmis, blattes ou moustiques ?" },
+        { id: 2, text: "Frelons, Frelons asiatiques, guepes ?" },
+        { id: 3, text: "chenilles processionaires, punaises de lit ?" }
       ],
       list2: [
-        { id: 1, text: "Traitements efficaces et ciblés" },
-        { id: 2, text: "Produits sécurisés pour humains et animaux" },
-        { id: 3, text: "Conseils de prévention" }
+        { id: 1, text: "Perche de 24 mètres pour atteindre les nids en hauteur" },
+        { id: 2, text: "Billes de paintball biocides pour sécuriser les interventions" },
+        { id: 3, text: "Intervention rapide et professionnelle pour neutraliser les nuisibles" }
       ],
       list3: [
-        { id: 1, text: "Habitat sain et protégé" },
-        { id: 2, text: "Moins de nuisances" },
-        { id: 3, text: "Interventions durables" }
+        { id: 1, text: "Neutralisation des nids sans risque pour vous et votre famille" },
+        { id: 2, text: "Maison et jardin protégés" },
+        { id: 3, text: "Tranquillité retrouvée et interventions durables" }
       ],
 
       cta: "Appelez-nous pour une désinsectisation rapide"

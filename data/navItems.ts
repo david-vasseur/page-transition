@@ -13,8 +13,7 @@ export const navItems: INavItems[] = [
   ];
 
 export const serviceItems: INavItems[] = [
-    { label: 'Dératisation', path: '/services/deratisation' },
-    { label: 'Désinsectisation', path: '/services/desinsectisation' },
-    { label: 'Désinfection', path: '/services/desinfection' },
-    { label: 'Autres', path: '/services/autre' },
+    { label: 'Dératisation', path: '/deratisation' },
+    { label: 'Désinsectisation', path: '/desinsectisation' },
+    { label: 'Désinfection', path: '/desinfection' }
 ]
