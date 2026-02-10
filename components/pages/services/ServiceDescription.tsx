@@ -233,6 +233,7 @@
 
 "use client"
 
+import SectionTitle from '@/components/ui/SectionTitle';
 import { useGSAP } from '@gsap/react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
@@ -477,6 +478,7 @@ function ServiceDescription({
                 
                 {/* --- HEADER SECTION --- */}
                 <div className="text-center mb-16 lg:mb-32">
+                    <SectionTitle title='Désinsectisation complète' span='sans danger' />
                     <h2 ref={titleRef} className="text-4xl sm:text-5xl lg:text-6xl whitespace-pre-line font-black text-white mb-6">
                         {title.split('').map((char, i) => (
                             <span key={i} className="desc-title-char inline-block">
