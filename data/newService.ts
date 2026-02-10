@@ -181,29 +181,32 @@ export const services: IServicePage[] = [
       image3: "/images/desinfection3.jpg",
       altImage3: "Désinfection - Image 3",
 
-      header1_1: "Problème",
-      header1_2: "Contamination",
-      header2_1: "Solution",
-      header2_2: "Professionnelle",
-      header3_1: "Bénéfice",
-      header3_2: "Santé",
+      header1_1: "Vous avez besoin d’une",
+  header1_2: "désinfection ?",
 
-      list1: [
-        { id: 1, text: "Présence de virus et bactéries" },
-        { id: 2, text: "Risques pour vos employés et clients" },
-        { id: 3, text: "Normes sanitaires strictes à respecter" }
-      ],
-      list2: [
-        { id: 1, text: "Désinfection complète des surfaces" },
-        { id: 2, text: "Produits certifiés et sécurisés" },
-        { id: 3, text: "Intervention rapide et efficace" }
-      ],
-      list3: [
-        { id: 1, text: "Environnement sain et sûr" },
-        { id: 2, text: "Confiance et sérénité" },
-        { id: 3, text: "Respect des normes sanitaires" }
-      ],
+  header2_1: "Nous avons la",
+  header2_2: "solution",
 
+  header3_1: "Un environnement",
+  header3_2: "propre et sain",
+
+  list1: [
+    { id: 1, text: "Locaux, logements ou véhicules contaminés ?" },
+    { id: 2, text: "Présence de bactéries, virus, moisissures ou mauvaises odeurs ?" },
+    { id: 3, text: "Besoin d’un assainissement après sinistre ou infestation ?" }
+  ],
+
+  list2: [
+    { id: 1, text: "Protocoles de désinfection certifiés et efficaces" },
+    { id: 2, text: "Produits professionnels respectueux des normes sanitaires" },
+    { id: 3, text: "Intervention rapide et adaptée à chaque environnement" }
+  ],
+
+  list3: [
+    { id: 1, text: "Élimination des bactéries, virus et agents pathogènes" },
+    { id: 2, text: "Espaces sains, sécurisés et sans odeurs" },
+    { id: 3, text: "Sérénité retrouvée pour occupants et professionnels" }
+  ],
       cta: "Planifiez votre désinfection dès aujourd'hui"
     }
   }
