@@ -97,27 +97,31 @@ export const services: IServicePage[] = [
         image3: "/thanks.webp",
         altImage3: "Dératisation - Image 3",
 
-        header1_1: "Problème",
-        header1_2: "Rongeurs",
-        header2_1: "Solution",
-        header2_2: "Expertise",
-        header3_1: "Bénéfice",
-        header3_2: "Sécurité",
+        header1_1: "Vous avez un problème avec",
+        header1_2: "des rongeurs ?",
+
+        header2_1: "Nous avons la",
+        header2_2: "solution",
+
+        header3_1: "Retrouvez un environnement",
+        header3_2: "sain et sécurisé",
 
         list1: [
-            { id: 1, text: "Infestation dans vos locaux" },
-            { id: 2, text: "Risques sanitaires et dommages matériels" },
-            { id: 3, text: "Propagation rapide" }
+          { id: 1, text: "Présence de rats ou de souris dans votre maison ou local ?" },
+          { id: 2, text: "Bruits, dégradations, câbles rongés, excréments ?" },
+          { id: 3, text: "Risques sanitaires pour votre famille ou vos clients ?" }
         ],
+
         list2: [
-            { id: 1, text: "Intervention rapide et ciblée" },
-            { id: 2, text: "Utilisation de produits certifiés" },
-            { id: 3, text: "Suivi et prévention" }
+          { id: 1, text: "Diagnostic précis et repérage des zones infestées" },
+          { id: 2, text: "Méthodes professionnelles adaptées à chaque situation" },
+          { id: 3, text: "Intervention rapide et discrète, conforme aux normes sanitaires" }
         ],
+
         list3: [
-            { id: 1, text: "Local sain et sécurisé" },
-            { id: 2, text: "Tranquillité d'esprit" },
-            { id: 3, text: "Protection durable contre les rongeurs" }
+          { id: 1, text: "Élimination durable des rongeurs" },
+          { id: 2, text: "Prévention des nouvelles infestations" },
+          { id: 3, text: "Tranquillité et sécurité retrouvées" }
         ],
 
         cta: "Contactez nos experts pour un devis gratuit"
