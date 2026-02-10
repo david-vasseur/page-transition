@@ -42,7 +42,7 @@ function SectionSubtitle({ title1, title2, span }: ISubtitle) {
     })
 
     return (
-        <h3 ref={titleRef} className="text-3xl lg:text-5xl font-black text-white text-center mb-4">
+        <h3 ref={titleRef} className="text-3xl lg:text-5xl font-black text-white text-center lg:text-left mb-4">
             {title1} <span className="italic text-orange-600">{span}</span> {title2}
         </h3>
     )
