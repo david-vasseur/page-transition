@@ -478,22 +478,8 @@ function ServiceDescription({
                 
                 {/* --- HEADER SECTION --- */}
                 <div className="text-center mb-16 lg:mb-32">
-                    <SectionTitle title='Désinsectisation complète' span='sans danger' />
-                    <h2 ref={titleRef} className="text-4xl sm:text-5xl lg:text-6xl whitespace-pre-line font-black text-white mb-6">
-                        {title.split('').map((char, i) => (
-                            <span key={i} className="desc-title-char inline-block">
-                                {char === ' ' ? '\u00A0' : char}
-                            </span>
-                        ))}
-                        {' '}
-                        <span className="text-orange-600 whitespace-nowrap">
-                            {highlight.split('').map((char, i) => (
-                                <span key={i} className="desc-title-char inline-block">
-                                    {char === ' ' ? '\u00A0' : char}
-                                </span>
-                            ))}
-                        </span>
-                    </h2>
+                    <SectionTitle title={title} span={highlight} />
+                    
                     <p ref={descRef} className="text-base sm:text-lg text-gray-300 max-w-3xl mx-auto leading-relaxed">
                         {description}
                     </p>
