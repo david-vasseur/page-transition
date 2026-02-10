@@ -23,7 +23,7 @@ function SectionTitle({ title, span }: ITitle) {
                 wordsClass: "split-word"
             })
 
-            const split = new SplitText(splitWords.chars, {
+            const split = new SplitText(splitWords.words, {
                 type: "chars",
                 charsClass: "split-char"
             });
