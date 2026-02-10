@@ -174,11 +174,11 @@ export const services: IServicePage[] = [
       subTitle: "Assurez un environnement sain et exempt de bactéries et virus."
     },
     story: {
-      image1: "/images/desinfection1.jpg",
+      image1: "/desinfection/story1.png",
       altImage1: "Désinfection - Image 1",
-      image2: "/images/desinfection2.jpg",
+      image2: "/desinfection/story2.png",
       altImage2: "Désinfection - Image 2",
-      image3: "/images/desinfection3.jpg",
+      image3: "/desinfection/story3.png",
       altImage3: "Désinfection - Image 3",
 
       header1_1: "Vous avez besoin d’une",
