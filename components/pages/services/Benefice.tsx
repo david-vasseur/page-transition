@@ -122,7 +122,7 @@ useGSAP(() => {
 					{/* Problem */}
 					<div className="absolute lg:relative min-h-[60vh] flex flex-col justify-center">
 						<div className="psb-title mb-8">
-						    <SectionTitle title='DES RONGEURS' span='CHEZ VOUS ?' />
+						    <SectionTitle title='DES RONGEURS' span='CHEZ VOUS ?' big/>
 						</div>
 						<div className="psb-text space-y-6">
                             <p className="text-xl text-gray-300 leading-relaxed">

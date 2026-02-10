@@ -106,7 +106,7 @@ const Testimonials = ({ reviews }: { reviews: IReview[] }) => {
                         transition={{ duration: 0.6 }}
                     >
                     
-                    <SectionTitle title="CE QUE NOS" span="CLIENTS DISENT" />
+                    <SectionTitle title="CE QUE NOS" span="CLIENTS DISENT" big/>
                     
                     <p className="text-gray-400 text-lg max-w-2xl mx-auto">
                         Avis authentiques de clients satisfaits qui nous ont fait confiance pour leurs besoins en lutte contre les nuisibles.

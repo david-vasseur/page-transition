@@ -64,7 +64,7 @@ function ProofHeader() {
 
     return (
         <div className="relative text-center mb-12 lg:mb-16 mx-auto">
-            <SectionTitle title="UN SAVOIR FAIRE" span="RECONNU" />
+            <SectionTitle title="UN SAVOIR FAIRE" span="RECONNU" big />
             <div className="flex flex-col lg:flex-row items-center justify-center gap-12 max-w-5xl mx-auto my-14">
 
                 {/* Colonne gauche : badges (map uniquement ici) */}

@@ -49,14 +49,14 @@ export default function SeoCatchTemplate({
 			{/* POINTS FORTS */}
 			<section className="px-6 py-16 max-w-6xl mx-auto text-center">
 				<ProofHeader />
-				<SectionTitle title="Pourquoi choisir notre service de" span={service} />
+				<SectionTitle title="Pourquoi choisir notre service de" span={service} big />
 				<SeoHightlight />
 			</section>
 
 			{/* HISTORIQUE / CONFIANCE */}
 			<section className="relative px-6 py-20 bg-zinc-950">
 				<div className="max-w-4xl mx-auto text-center">
-					<SectionTitle title='Une expertise locale reconnue à' span={city} />
+					<SectionTitle title='Une expertise locale reconnue à' span={city} big/>
 					<p className="text-gray-300 text-lg leading-relaxed">{history}</p>
 
 					<div className="mt-10 flex justify-center">
@@ -72,7 +72,7 @@ export default function SeoCatchTemplate({
 
 			{/* PREUVES EN IMAGE */}
 			<section className="px-6 py-20 max-w-6xl mx-auto text-center">
-				<SectionTitle title='Nos interventions' span='en images' />
+				<SectionTitle title='Nos interventions' span='en images' big/>
 
 				<div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
 				{proofImages.map((img, index) => (

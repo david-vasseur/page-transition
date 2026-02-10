@@ -8,9 +8,10 @@ import React, { useRef } from 'react';
 interface ITitle {
     title: string;
     span: string;
+    big: boolean;
 }
 
-function SectionTitle({ title, span }: ITitle) {
+function SectionTitle({ title, span, big=true }: ITitle) {
 
     const titleRef = useRef<HTMLHeadingElement>(null);
 
@@ -48,7 +49,7 @@ function SectionTitle({ title, span }: ITitle) {
     return (
         <h2 
             ref={titleRef}
-            className="text-5xl mx-auto lg:text-7xl max-w-xl font-black text-white my-4"
+            className={`${big ? "text-5xl lg:text-7xl" : "text-4xl lg:text-6xl"} mx-auto max-w-xl font-black text-white my-4`}
         >
             {title} <span className="text-orange-600">{span}</span>
         </h2>

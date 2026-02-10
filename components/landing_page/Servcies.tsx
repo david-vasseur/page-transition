@@ -162,7 +162,7 @@ const Services = () => {
                 {/* Header */}
                 <div className="text-center mb-20">
     
-                    <SectionTitle title="NOS" span="SERVICES" />
+                    <SectionTitle title="NOS" span="SERVICES" big />
 
                     <p className="text-gray-400 text-lg max-w-2xl mx-auto">
                         Des solutions professionnelles pour chaque type d'infestation. 

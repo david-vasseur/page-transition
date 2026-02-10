@@ -478,7 +478,7 @@ function ServiceDescription({
                 
                 {/* --- HEADER SECTION --- */}
                 <div className="text-center mb-16 lg:mb-32">
-                    <SectionTitle title={title} span={highlight} />
+                    <SectionTitle title={title} span={highlight} big={false} />
                     
                     <p ref={descRef} className="text-base sm:text-lg text-gray-300 max-w-3xl mx-auto leading-relaxed">
                         {description}
