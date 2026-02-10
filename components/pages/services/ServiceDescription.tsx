@@ -516,7 +516,7 @@ function ServiceDescription({
                     </h3>
                     
                     {/* Container GRID pour Desktop */}
-                    <div ref={processContainerRef} className="flex flex-col h-lvh items-center lg:flex-row gap-12 lg:gap-20">
+                    <div ref={processContainerRef} className="flex flex-col lg:h-lvh items-center lg:flex-row gap-12 lg:gap-20">
                         
                         {/* COLONNE GAUCHE (Images Sticky) - Desktop Only */}
                         <div className="process-images-pin hidden lg:block w-1/2 h-[500px] sticky top-32 rounded-3xl overflow-hidden border border-gray-800 bg-gray-900 shadow-2xl">
