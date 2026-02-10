@@ -17,8 +17,14 @@ function SectionTitle({ title, span }: ITitle) {
     useGSAP(() => {
 
         if (titleRef.current) {
-            const split = new SplitText(titleRef.current, {
-                type: "chars,words",
+
+            const splitWords = new SplitText(titleRef.current, {
+                type: "words",
+                wordsClass: "split-word"
+            })
+
+            const split = new SplitText(splitWords.chars, {
+                type: "chars",
                 charsClass: "split-char"
             });
 
