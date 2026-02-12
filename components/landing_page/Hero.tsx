@@ -109,7 +109,12 @@ const Hero = () => {
                         <div ref={actionRef} className="hero-actions flex flex-col sm:flex-row gap-4">
                             <button
                                 aria-label="Demande de devis"
-                                onClick={() => openModal(<EstimateForm />)}
+                                onClick={() => {
+                                    console.log('clicked');
+                                    
+                                    openModal(<EstimateForm />)
+                                
+                                }}
                                 className="group bg-orange-600 hover:bg-orange-700 text-white px-8 py-4 rounded-full font-bold text-base 2xl:text-lg flex items-center justify-center"
                             >
                                 Inspection gratuite
