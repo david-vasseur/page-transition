@@ -31,7 +31,7 @@ export const metadata = {
         description: 'Service de dératisation professionnel à Estezargues et ses environs. Élimination efficace et durable des rats, souris et autres rongeurs. Devis gratuit et intervention rapide.',
         images: ['https://gvs3d.fr/logo.webp'], 
     },
-    canonical: 'https://gvs3d.fr/services/deratisation',
+    canonical: 'https://gvs3d.fr/deratisation',
 };
 
 
@@ -42,7 +42,7 @@ export default function DératisationPage() {
         "@type": "Service",
         "name": "GVS3D - Dératisation",
         "description": "Service professionnel de dératisation pour l'élimination de rats, souris et rongeurs à Estezargues et dans le Gard.",
-        "url": "https://gvs3d.fr/services/deratisation", 
+        "url": "https://gvs3d.fr/deratisation", 
         "provider": {
             "@type": "LocalBusiness",
             "name": "GVS3D",

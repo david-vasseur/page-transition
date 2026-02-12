@@ -30,7 +30,7 @@ export const metadata = {
         description: 'Service de désinsectisation professionnel à Estezargues et ses environs. Élimination efficace et durable des cafards, punaises de lit, fourmis, guêpes et autres insectes. Devis gratuit et intervention rapide.',
         images: ['https://gvs3d.fr/logo.webp'], 
     },
-    canonical: 'https://gvs3d.fr/services/desinsectisation',
+    canonical: 'https://gvs3d.fr/desinsectisation',
 };
 
 export default function DesinsectisationPage() {
@@ -40,7 +40,7 @@ export default function DesinsectisationPage() {
         "@type": "Service",
         "name": "GVS3D - Désinsectisation",
         "description": "Service professionnel de désinsectisation pour l'élimination des insectes nuisibles à Estezargues et dans le Gard.",
-        "url": "https://gvs3d.fr/services/desinsectisation", 
+        "url": "https://gvs3d.fr/desinsectisation", 
         "provider": {
             "@type": "LocalBusiness",
             "name": "GVS3D",

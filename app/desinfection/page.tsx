@@ -7,31 +7,32 @@ import Story from "@/components/pages/services/Story";
 import { serviceDescriptions, services, socialProofData } from "@/data/newService";
 
 export const metadata = {
-    title: 'Désinsectisation Professionnelle - Élimination des Insectes | GVS3D',
-    description: 'Service de désinsectisation professionnel à Estezargues et ses environs. Élimination efficace et durable des cafards, punaises de lit, fourmis, guêpes et autres insectes. Devis gratuit et intervention rapide.',
-    keywords: 'désinsectisation, désinsectiseur, cafards, punaises de lit, fourmis, guêpes, frelons, insectes nuisibles, contrôle nuisibles, GVS3D, Estezargues, Occitanie, anti-nuisibles, traitement insectes',
+    title: 'Désinfection Professionnelle - Locaux & Logements | GVS3D',
+    description: 'Service de désinfection professionnel à Estezargues et ses environs. Élimination des virus, bactéries, moisissures et agents pathogènes. Intervention rapide, produits certifiés et certificat fourni.',
+    keywords: 'désinfection, désinfecteur, désinfection professionnelle, désinfection locaux, désinfection logement, bactéries, virus, moisissures, décontamination, hygiène, GVS3D, Estezargues, Occitanie, nettoyage extrême, logement insalubre',
     openGraph: {
-        title: 'Désinsectisation Professionnelle - Élimination des Insectes | GVS3D',
-        description: 'Service de désinsectisation professionnel à Estezargues et ses environs. Élimination efficace et durable des cafards, punaises de lit, fourmis, guêpes et autres insectes. Devis gratuit et intervention rapide.',
-        url: 'https://gvs3d.fr/logo.webp', 
+        title: 'Désinfection Professionnelle - Locaux & Logements | GVS3D',
+        description: 'Service de désinfection professionnel à Estezargues et ses environs. Élimination des virus, bactéries, moisissures et agents pathogènes. Intervention rapide, produits certifiés et certificat fourni.',
+        url: 'https://gvs3d.fr/services/desinfection',
         type: 'website',
         images: [
             {
                 url: 'https://gvs3d.fr/logo.webp',
                 width: 1200,
                 height: 630,
-                alt: 'Désinsectisation professionnelle GVS3D',
+                alt: 'Désinfection professionnelle GVS3D',
             },
         ],
     },
     twitter: {
         card: 'summary_large_image',
-        title: 'Désinsectisation Professionnelle - Élimination des Insectes | GVS3D',
-        description: 'Service de désinsectisation professionnel à Estezargues et ses environs. Élimination efficace et durable des cafards, punaises de lit, fourmis, guêpes et autres insectes. Devis gratuit et intervention rapide.',
-        images: ['https://gvs3d.fr/logo.webp'], 
+        title: 'Désinfection Professionnelle - Locaux & Logements | GVS3D',
+        description: 'Service de désinfection professionnel à Estezargues et ses environs. Élimination des virus, bactéries, moisissures et agents pathogènes. Intervention rapide, produits certifiés et certificat fourni.',
+        images: ['https://gvs3d.fr/logo.webp'],
     },
-    canonical: 'https://gvs3d.fr/services/desinsectisation',
+    canonical: 'https://gvs3d.fr/services/desinfection',
 };
+
     
 
 function page() {
@@ -39,18 +40,18 @@ function page() {
     const schemaData = {
         "@context": "https://schema.org",
         "@type": "Service",
-        "name": "GVS3D - Désinsectisation",
-        "description": "Service professionnel de désinsectisation pour l'élimination des insectes nuisibles à Estezargues et dans le Gard.",
-        "url": "https://gvs3d.fr/services/desinsectisation", 
+        "name": "GVS3D - Désinfection",
+        "description": "Service professionnel de désinfection pour l’élimination des virus, bactéries, moisissures et agents pathogènes à Estezargues et dans le Gard.",
+        "url": "https://gvs3d.fr/services/desinfection",
         "provider": {
             "@type": "LocalBusiness",
             "name": "GVS3D",
             "address": {
                 "@type": "PostalAddress",
-                "streetAddress": "Estezargues", 
+                "streetAddress": "Estezargues",
                 "addressLocality": "Estezargues",
                 "addressRegion": "Occitanie",
-                "postalCode": "30390", 
+                "postalCode": "30390",
                 "addressCountry": "FR"
             },
             "telephone": "06 58 94 20 67",
@@ -67,42 +68,30 @@ function page() {
             ],
             "geo": {
                 "@type": "GeoCoordinates",
-                "latitude": "43.9056", 
+                "latitude": "43.9056",
                 "longitude": "4.6194"
             },
-            "priceRange": "€€", 
+            "priceRange": "€€",
             "hasMap": "https://www.google.com/maps/place/30390+Estezargues",
             "image": "https://gvs3d.fr/logo.webp",
             "sameAs": [
-                "https://www.facebook.com/votrepageGVS3D", 
+                "https://www.facebook.com/votrepageGVS3D",
                 "https://www.linkedin.com/company/votrepageGVS3D"
             ]
         },
         "areaServed": [
-            {
-                "@type": "Place",
-                "name": "Estezargues"
-            },
-            {
-                "@type": "Place",
-                "name": "Gard"
-            },
-            {
-                "@type": "Place",
-                "name": "Nîmes" 
-            },
-            {
-                "@type": "Place",
-                "name": "Avignon" 
-            }
+            { "@type": "Place", "name": "Estezargues" },
+            { "@type": "Place", "name": "Gard" },
+            { "@type": "Place", "name": "Nîmes" },
+            { "@type": "Place", "name": "Avignon" }
         ],
-        "serviceType": "Désinsectisation",
+        "serviceType": "Désinfection",
         "makesOffer": {
             "@type": "Offer",
             "itemOffered": {
                 "@type": "Service",
-                "name": "Désinsectisation",
-                "description": "Élimination des cafards, punaises de lit, fourmis, guêpes et autres insectes nuisibles",
+                "name": "Désinfection",
+                "description": "Désinfection des logements, locaux professionnels, surfaces, air ambiant et zones contaminées",
                 "areaServed": [
                     { "@type": "Place", "name": "Estezargues" },
                     { "@type": "Place", "name": "Gard" }
@@ -111,14 +100,14 @@ function page() {
             "priceSpecification": {
                 "@type": "PriceSpecification",
                 "priceCurrency": "EUR",
-                "minPrice": 120,
-                "maxPrice": 600
+                "minPrice": 150,
+                "maxPrice": 900
             }
         },
         "aggregateRating": {
             "@type": "AggregateRating",
             "ratingValue": "5",
-            "reviewCount": "42"  
+            "reviewCount": "42"
         }
     };
 
@@ -166,44 +155,44 @@ function page() {
             <Pricing
                 sectionTitle="Tarifs"
                 sectionHighlight="transparents"
-                description="Nos prix varient selon le type d’insectes, la surface à traiter et le niveau d’infestation. Chaque intervention inclut un diagnostic complet et un suivi garanti."
+                description="Nos prestations de désinfection varient selon la surface, le niveau de contamination et le type d’intervention (préventive, curative ou après sinistre). Chaque intervention comprend un diagnostic complet et un protocole professionnel certifié."
                 
                 cards={[
                     {
                         id: 1,
                         title: "Particulier",
                         subtitle: "Maisons & Appartements",
-                        priceRange: "120€ - 350€",
-                        priceNote: "Selon type d’insectes et surface",
-                        badge: "Inspection offerte",
-                        gradient: "from-orange-600 to-orange-700",
-                        bgGradient: "from-orange-600/5 to-orange-700/5",
+                        priceRange: "150€ - 500€",
+                        priceNote: "Selon surface et niveau de contamination",
+                        badge: "Diagnostic inclus",
+                        gradient: "from-emerald-600 to-green-700",
+                        bgGradient: "from-emerald-600/5 to-green-700/5",
                         included: [
-                            { id: 1, label: "Inspection gratuite et diagnostic", included: true },
+                            { id: 1, label: "Diagnostic et évaluation des risques", included: true },
                             { id: 2, label: "Déplacement inclus (30km)", included: true },
-                            { id: 3, label: "Traitement ciblé et sécurisé", included: true },
-                            { id: 4, label: "2 visites de suivi (1 mois)", included: true },
-                            { id: 5, label: "Garantie 3 mois", included: true },
-                            { id: 6, label: "Contrat de maintenance", included: false },
+                            { id: 3, label: "Désinfection bactéricide & virucide certifiée", included: true },
+                            { id: 4, label: "Traitement des surfaces et zones sensibles", included: true },
+                            { id: 5, label: "Certificat d’intervention", included: true },
+                            { id: 6, label: "Contrat d’entretien préventif", included: false },
                         ]
                     },
                     {
                         id: 2,
                         title: "Pro",
-                        subtitle: "Commerces & Bureaux",
-                        priceRange: "250€ - 600€",
-                        priceNote: "Intervention & suivi complet",
-                        badge: "Conformité HACCP",
-                        gradient: "from-blue-600/80 to-cyan-600/80",
-                        bgGradient: "from-blue-600/20 to-cyan-600/10",
+                        subtitle: "Commerces, Bureaux & Locaux sensibles",
+                        priceRange: "300€ - 900€",
+                        priceNote: "Intervention complète & conformité sanitaire",
+                        badge: "Normes sanitaires respectées",
+                        gradient: "from-blue-600/80 to-teal-600/80",
+                        bgGradient: "from-blue-600/20 to-teal-600/10",
                         included: [
-                            { id: 1, label: "Inspection gratuite et diagnostic", included: true },
+                            { id: 1, label: "Audit sanitaire des locaux", included: true },
                             { id: 2, label: "Déplacement inclus (50km)", included: true },
-                            { id: 3, label: "Traitement insecticide professionnel", included: true },
-                            { id: 4, label: "4 visites de suivi (3 mois)", included: true },
-                            { id: 5, label: "Garantie 6 mois", included: true },
-                            { id: 6, label: "Rapport de conformité", included: true },
-                            { id: 7, label: "Contrat maintenance optionnel", included: true },
+                            { id: 3, label: "Désinfection professionnelle (normes EN 14476)", included: true },
+                            { id: 4, label: "Traitement air & surfaces (nébulisation possible)", included: true },
+                            { id: 5, label: "Certificat de conformité sanitaire", included: true },
+                            { id: 6, label: "Rapport d’intervention détaillé", included: true },
+                            { id: 7, label: "Contrat de désinfection préventive", included: true },
                         ]
                     },
                 ]}
@@ -211,12 +200,14 @@ function page() {
                 ctaText="Besoin d'un devis personnalisé ? Contactez-nous :"
                 ctaPhone="06 58 94 20 67"
             />
+
             <SocialProof 
                 title={socialProof.title}
                 highlight={socialProof.highlight}
                 testimonials={socialProof.testimonials}
                 stats={socialProof.stats}
             />
+
             <FaqCta
                 faqTitle="Questions"
                 faqHighlight="fréquentes"
@@ -224,39 +215,40 @@ function page() {
                 faqs={[
                     {
                         id: 1,
-                        question: 'Combien de temps faut-il pour éliminer complètement les insectes ?',
-                        answer: 'Selon le type d’insectes (cafards, punaises de lit, guêpes, etc.), l’élimination peut prendre de quelques jours à plusieurs semaines. Nous assurons un suivi régulier pour éviter toute réinfestation.'
+                        question: 'Quand faut-il réaliser une désinfection ?',
+                        answer: 'Une désinfection est recommandée après un sinistre (dégât des eaux, incendie), en cas de contamination bactérienne ou virale, après un logement insalubre ou dans un cadre préventif pour les locaux professionnels recevant du public.'
                     },
                     {
                         id: 2,
-                        question: 'Les produits utilisés sont-ils dangereux pour mes enfants ou mes animaux ?',
-                        answer: 'Non. Nous utilisons uniquement des produits certifiés et appliqués selon des protocoles stricts. Les zones traitées sont sécurisées et nous privilégions des solutions respectueuses de l’environnement quand c’est possible.'
+                        question: 'Quels produits utilisez-vous pour la désinfection ?',
+                        answer: 'Nous utilisons des produits certifiés bactéricides, virucides et fongicides conformes aux normes européennes (EN 14476, EN 1276). Ils sont appliqués selon des protocoles stricts garantissant efficacité et sécurité.'
                     },
                     {
                         id: 3,
-                        question: 'Quel est le coût d’une désinsectisation ?',
-                        answer: 'Le tarif dépend du type d’insectes, de la surface à traiter et du niveau d’infestation. Notre inspection gratuite permet d’établir un devis précis et sans engagement. En moyenne, comptez entre 120€ et 450€.'
+                        question: 'La désinfection est-elle dangereuse pour les occupants ?',
+                        answer: 'Non. Nous adaptons nos méthodes (pulvérisation, nébulisation, traitement manuel) et respectons des délais de réintégration sécurisés. Nous vous informons toujours des précautions à suivre.'
                     },
                     {
                         id: 4,
-                        question: 'Comment éviter une nouvelle infestation d’insectes ?',
-                        answer: 'Nous vous fournissons des conseils personnalisés : entretien des locaux, élimination des sources de nourriture, colmatage des fissures, hygiène renforcée. Nos garanties incluent des visites de contrôle.'
+                        question: 'Fournissez-vous un certificat après intervention ?',
+                        answer: 'Oui, chaque intervention peut être accompagnée d’un certificat de désinfection attestant du traitement réalisé, utile pour les assurances ou les professionnels soumis à des obligations sanitaires.'
                     },
                     {
                         id: 5,
-                        question: 'Intervenez-vous pour les professionnels (restaurants, hôtels, bureaux) ?',
-                        answer: 'Oui, nous accompagnons régulièrement les professionnels avec des traitements adaptés et des contrats de maintenance préventive pour garantir la conformité aux normes d’hygiène (HACCP).'
+                        question: 'Intervenez-vous en urgence ?',
+                        answer: 'Oui, nous pouvons intervenir rapidement sous 24h selon la situation, notamment après sinistre ou contamination nécessitant une action immédiate.'
                     }
                 ]}
                 
-                ctaTitle="Prêt à éliminer les insectes nuisibles ?"
-                ctaSubtitle="Contactez-nous dès maintenant pour une inspection gratuite et un devis personnalisé. Intervention rapide garantie sous 24h."
-                ctaButtonText="Inspection gratuite"
+                ctaTitle="Besoin d’une désinfection professionnelle ?"
+                ctaSubtitle="Contactez-nous dès maintenant pour un diagnostic rapide et une intervention certifiée. Service réactif et conforme aux normes sanitaires."
+                ctaButtonText="Demander une intervention"
                 ctaButtonLink="https://www.google.com/search?uds=AOm0WdE2fekQnsyfYEw8JPYozOKzEik-2elEKZuoMX0RuNnOO2GDIgxodzVnOQyNKeXlFnJ-YKUC7TE4kLm3vqIQWIc_K9GQmAyeD4qnUuL2lsL3durM3BCd536avOHSG36vM61mkI3D&q=G.V.S.3D%20Avis&si=AMgyJEtREmoPL4P1I5IDCfuA8gybfVI2d5Uj7QMwYCZHKDZ-E1JhB0J4OEHu0ExSh8WjvsFDX7W-B4bHUGXrldG4Knsut4hAo43-Re3diVTedAjKfiP_Q40r0ulfUf0zCEy5Boez_ebk&cs=1&hl=fr&sa=X&ved=0CCgQ_4MLahcKEwj4yqq4x_2OAxUAAAAAHQAAAAAQBg&biw=2552&bih=1314&dpr=1"
                 phone="06 58 94 20 67"
                 email="contact@gvs3d.fr"
                 address="Estezargues, Occitanie"
             />
+
             <script
                 type="application/ld+json"
                 dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaData) }}
