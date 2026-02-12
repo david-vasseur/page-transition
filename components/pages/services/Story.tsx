@@ -100,14 +100,19 @@ function Story({
         const h2s = title.map(block => block.querySelector(".content-h2") as HTMLElement);
         const lists = title.map(block => block.querySelectorAll(".content-list li"));
 
-        const splits = h2s.map(h2 =>
-            h2  
-            ? new SplitText(h2, {
-                type: "chars,words",
-                charsClass: "split-char",
-                })
-            : null
-        );
+        const splits = h2s.map(h2 => {
+            if (!h2) return null;
+
+            const splitWords = new SplitText(h2, {
+                type: "words",
+                wordsClass: "split-word"
+            });
+
+            return new SplitText(splitWords.words, {
+                type: "chars",
+                charsClass: "split-char"
+            });
+        });
 
         // États initiaux
         splits.forEach((split, index) => {

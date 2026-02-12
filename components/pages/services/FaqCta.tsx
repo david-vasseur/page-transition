@@ -167,7 +167,7 @@ function FaqCta({
     return (
         <section ref={sectionRef} className="relative py-20 lg:py-32 bg-black overflow-hidden">
             {/* Background gradient */}
-            <div className="absolute inset-0 bg-gradient-to-b from-black via-gray-950 to-black" />
+            <div className="absolute inset-0 bg-linear-to-b from-black via-gray-950 to-black" />
             
             <div className="relative z-10 max-w-5xl mx-auto px-6">
                 {/* FAQ Section */}
@@ -196,7 +196,7 @@ function FaqCta({
                                     key={faq.id}
                                     className="faq-item group"
                                 >
-                                    <div className="bg-gradient-to-r from-gray-900/80 to-black/80 border border-gray-800 rounded-2xl overflow-hidden hover:border-orange-600/50 transition-all duration-300">
+                                    <div className="bg-linear-to-r from-gray-900/80 to-black/80 border border-gray-800 rounded-2xl overflow-hidden hover:border-orange-600/50 transition-all duration-300">
                                         <button
                                             onClick={() => toggleFaq(faq.id)}
                                             className="w-full flex items-center justify-between p-6 text-left"
@@ -232,7 +232,7 @@ function FaqCta({
 
                 {/* CTA Section */}
                 <div ref={ctaRef} className="relative">
-                    <div className="bg-gradient-to-br from-orange-600/10 via-black to-orange-700/10 border-2 border-orange-600/30 rounded-3xl p-8 sm:p-12 lg:p-16 text-center overflow-hidden">
+                    <div className="bg-linear-to-br from-orange-600/10 via-black to-orange-700/10 border-2 border-orange-600/30 rounded-3xl p-8 sm:p-12 lg:p-16 text-center overflow-hidden">
                         {/* Decorative elements */}
                         <div className="absolute top-0 left-0 w-32 h-32 bg-orange-600/20 rounded-full blur-3xl" />
                         <div className="absolute bottom-0 right-0 w-32 h-32 bg-orange-600/20 rounded-full blur-3xl" />
@@ -255,10 +255,10 @@ function FaqCta({
                                 <a
                                     href={ctaButtonLink}
                                     target="_blank"
-                                    className="cta-button relative group bg-gradient-to-r from-orange-600 to-orange-700 text-white px-8 py-4 rounded-full font-bold text-base 2xl:text-lg flex items-center justify-center overflow-hidden"
+                                    className="cta-button relative group bg-linear-to-r from-orange-600 to-orange-700 text-white px-8 py-4 rounded-full font-bold text-base 2xl:text-lg flex items-center justify-center overflow-hidden"
                                 >
                                     <span className="relative z-10">{ctaButtonText}</span>
-                                    <div className="cta-shine absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent skew-x-12 -translate-x-full" />
+                                    <div className="cta-shine absolute inset-0 bg-linear-to-r from-transparent via-white/30 to-transparent skew-x-12 -translate-x-full" />
                                 </a>
                                 
                                 <a
