@@ -203,7 +203,7 @@ const Contact = () => {
                                     </div>
                                     <div className="flex-1">
                                         <h4 className="font-bold text-white group-hover:text-orange-500 transition-colors">Facebook</h4>
-                                        <p className="text-sm text-gray-400">Dératisation Pro Narbonne</p>
+                                        <p className="text-sm text-gray-400">Dératisation Pro</p>
                                     </div>
                                     <div className="text-orange-500 opacity-0 group-hover:opacity-100 transition-opacity">
                                         →
