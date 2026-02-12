@@ -1,397 +1,267 @@
-"use client"
+import FaqCta from "@/components/pages/services/FaqCta";
+import HeroService from "@/components/pages/services/HeroService";
+import Pricing from "@/components/pages/services/Pricing";
+import ServiceDescription from "@/components/pages/services/ServiceDescription";
+import SocialProof from "@/components/pages/services/SocialProof";
+import Story from "@/components/pages/services/Story";
+import { serviceDescriptions, services, socialProofData } from "@/data/newService";
 
-import { useGSAP } from '@gsap/react';
-import gsap from 'gsap';
-import { SplitText } from 'gsap/SplitText';
-import { ArrowRight } from 'lucide-react';
-import Image from 'next/image'
-import { useRef, useState } from 'react'
-
-function page() {
-
-
-    const sectionRef = useRef<HTMLDivElement>(null);
-    const ctaRef = useRef<HTMLDivElement>(null);
-    const image1Ref = useRef<HTMLImageElement>(null);
-
-
-    const [i1_test, setI1_test] = useState(50);
-    const [i1_test1, setI1_test1] = useState(50);
-    const [i1_test2, setI1_test2] = useState(50);
-    const [i1_test3, setI1_test3] = useState(50);
-    const [i1_angle, setI1_angle] = useState(90);
-
-    // Image2 states
-    const [i2_test, setI2_test] = useState(50);
-    const [i2_test1, setI2_test1] = useState(50);
-    const [i2_test2, setI2_test2] = useState(50);
-    const [i2_test3, setI2_test3] = useState(50);
-    const [i2_angle, setI2_angle] = useState(90);
-
-    // Image3 states
-    const [i3_test, setI3_test] = useState(50);
-    const [i3_test1, setI3_test1] = useState(50);
-    const [i3_test2, setI3_test2] = useState(50);
-    const [i3_test3, setI3_test3] = useState(50);
-    const [i3_angle, setI3_angle] = useState(90);
-
-    useGSAP(() => {
-        const tl = gsap.timeline({
-            scrollTrigger: {
-            trigger: sectionRef.current,
-            start: "top top",
-            end: "+=300%", 
-            scrub: 1,
-            pin: true,
-            pinSpacing: true,
+export const metadata = {
+    title: 'Désinsectisation Professionnelle - Élimination des Insectes | GVS3D',
+    description: 'Service de désinsectisation professionnel à Estezargues et ses environs. Élimination efficace et durable des cafards, punaises de lit, fourmis, guêpes et autres insectes. Devis gratuit et intervention rapide.',
+    keywords: 'désinsectisation, désinsectiseur, cafards, punaises de lit, fourmis, guêpes, frelons, insectes nuisibles, contrôle nuisibles, GVS3D, Estezargues, Occitanie, anti-nuisibles, traitement insectes',
+    openGraph: {
+        title: 'Désinsectisation Professionnelle - Élimination des Insectes | GVS3D',
+        description: 'Service de désinsectisation professionnel à Estezargues et ses environs. Élimination efficace et durable des cafards, punaises de lit, fourmis, guêpes et autres insectes. Devis gratuit et intervention rapide.',
+        url: 'https://gvs3d.fr/logo.webp', 
+        type: 'website',
+        images: [
+            {
+                url: 'https://gvs3d.fr/logo.webp',
+                width: 1200,
+                height: 630,
+                alt: 'Désinsectisation professionnelle GVS3D',
             },
-        });
-
-        const title = gsap.utils.toArray(".content-title") as HTMLElement[];
-        if (title.length > 2) {
-            gsap.set(title[1], { opacity: 0, y: 300 }); 
-            gsap.set(title[2], { opacity: 0, y: 300 }); 
-            gsap.set(title[3], { opacity: 0, y: 300 }); 
-        }
-
-        const h2s = title.map(block => block.querySelector(".content-h2") as HTMLElement);
-        const lists = title.map(block => block.querySelectorAll(".content-list li"));
-
-        const splits = h2s.map(h2 =>
-            h2  
-            ? new SplitText(h2, {
-                type: "chars,words",
-                charsClass: "split-char",
-                })
-            : null
-        );
-
-        // États initiaux
-        splits.forEach((split, index) => {
-            if (split) {
-            gsap.set(split.chars, { opacity: 0, y: 50, rotationX: -90 });
-            }
-        });
-        lists.forEach(list => {
-                gsap.set(list, { opacity: 0, y: 30 });
-        });
-
-        // ANimation premiere card
-
-        gsap.to(splits[0]?.chars || [], {
-            opacity: 1, y: 0, rotationX: 0,
-            stagger: 0.1,
-            ease: "back.out(1.7)",
-            duration: 1,
-            scrollTrigger: {
-                trigger: sectionRef.current,
-                start: "top 50%",
-                end: "top 10%",
-                scrub: 1
-            }
-        });
-
-        gsap.to(lists[0], {
-            opacity: 1, y: 0,
-            stagger: 0.1,
-            duration: 0.4,
-            ease: "power2.out",
-            scrollTrigger: {
-                trigger: sectionRef.current,
-                start: "top 30%",
-                end: "top 10%",
-                scrub: 1,
-            }
-        });
-
-
-        // 🔥 Étape 1 → Image 1
-        tl.to({}, {
-            duration: 1 / 3,
-            onUpdate: function () {
-            const p = this.progress();
-            const newTest = 50 - p * 50;
-            const newTest3 = 50 + p * 50;
-            setI1_test(newTest);
-            setI1_test1(newTest);
-            setI1_test2(newTest3);
-            setI1_test3(newTest3);
-            setI1_angle(90 + p * 30);
-            }
-        });
-
-        tl.to(title[0], { opacity: 0, yPercent: -20, scale: 0.5, duration: 0.1 }, "<")
-            .to(title[1], { opacity: 1, y: 0, duration: 0.1 }, "<+=0.1")
-            .to(splits[1]?.chars || [], {
-            opacity: 1,
-            y: 0,
-            rotationX: 0,
-            stagger: 0.02,
-            ease: "back.out(1.7)",
-            duration: 0.1,
-            }, "<")
-            .to(lists[1], {
-            opacity: 1,
-            y: 0,
-            stagger: 0.1,
-            duration: 0.2,
-            ease: "power2.out",
-            }, "<+=0.2");
-
-        // 🔥 Étape 2 → Image 2
-        tl.to({}, {
-            duration: 1 / 3,
-            onUpdate: function () {
-            const p = this.progress();
-            const newTest = 50 - p * 50;
-            const newTest3 = 50 + p * 50;
-            setI2_test(newTest);
-            setI2_test1(newTest);
-            setI2_test2(newTest3);
-            setI2_test3(newTest3);
-            setI2_angle(90 + p * 30);
-            }
-        });
-
-        tl.to(title[1], { opacity: 0, yPercent: -20, scale: 0.5, duration: 0.1 }, "<")
-            .to(title[2], { opacity: 1, y: 0, duration: 0.1 }, "<+=0.1")
-            .to(splits[2]?.chars || [], {
-            opacity: 1,
-            y: 0,
-            rotationX: 0,
-            stagger: 0.02,
-            ease: "back.out(1.7)",
-            duration: 0.1,
-            }, "<")
-            .to(lists[2], {
-            opacity: 1,
-            y: 0,
-            stagger: 0.1,
-            duration: 0.2,
-            ease: "power2.out",
-            }, "<+=0.2");
-
-        // 🔥 Étape 3 → Image 3
-        tl.to({}, {
-            duration: 1 / 3,
-            onUpdate: function () {
-            const p = this.progress();
-            const newTest = 50 - p * 50;
-            const newTest3 = 50 + p * 50;
-            setI3_test(newTest);
-            setI3_test1(newTest);
-            setI3_test2(newTest3);
-            setI3_test3(newTest3);
-            setI3_angle(90 + p * 30);
-            }
-        });
-
-        tl.to(title[2], { opacity: 0, yPercent: -20, scale: 0.5, duration: 0.1 }, "<")
-            .to(title[3], { opacity: 1, y: 0, duration: 0.1 }, "<+=0.1")
-            .to(splits[3]?.chars || [], {
-            opacity: 1,
-            y: 0,
-            rotationX: 0,
-            stagger: 0.02,
-            ease: "back.out(1.7)",
-            duration: 0.1,
-            }, "<")
-            .to(lists[3], {
-            opacity: 1,
-            y: 0,
-            stagger: 0.1,
-            duration: 0.2,
-            ease: "power2.out",
-            }, "<+=0.2");
-
-    }, []);
-
-
-
-  useGSAP(() => {
-
-    gsap.fromTo(ctaRef.current,
-        { x: "-120%" },
-        { x: "120%", scrollTrigger: {
-            trigger: ctaRef.current,
-            start: "top 80%",
-            end: "top 20%",
-            scrub: 1
-        } }
-    );
-
-  })
-
+        ],
+    },
+    twitter: {
+        card: 'summary_large_image',
+        title: 'Désinsectisation Professionnelle - Élimination des Insectes | GVS3D',
+        description: 'Service de désinsectisation professionnel à Estezargues et ses environs. Élimination efficace et durable des cafards, punaises de lit, fourmis, guêpes et autres insectes. Devis gratuit et intervention rapide.',
+        images: ['https://gvs3d.fr/logo.webp'], 
+    },
+    canonical: 'https://gvs3d.fr/services/desinsectisation',
+};
     
 
+function page() {
+    
+    const schemaData = {
+        "@context": "https://schema.org",
+        "@type": "Service",
+        "name": "GVS3D - Désinsectisation",
+        "description": "Service professionnel de désinsectisation pour l'élimination des insectes nuisibles à Estezargues et dans le Gard.",
+        "url": "https://gvs3d.fr/services/desinsectisation", 
+        "provider": {
+            "@type": "LocalBusiness",
+            "name": "GVS3D",
+            "address": {
+                "@type": "PostalAddress",
+                "streetAddress": "Estezargues", 
+                "addressLocality": "Estezargues",
+                "addressRegion": "Occitanie",
+                "postalCode": "30390", 
+                "addressCountry": "FR"
+            },
+            "telephone": "06 58 94 20 67",
+            "email": "g.v.s.3dpro@gmail.com",
+            "openingHoursSpecification": [
+                {
+                    "@type": "OpeningHoursSpecification",
+                    "dayOfWeek": [
+                        "Monday", "Tuesday", "Wednesday", "Thursday", "Friday"
+                    ],
+                    "opens": "08:00",
+                    "closes": "18:00"
+                }
+            ],
+            "geo": {
+                "@type": "GeoCoordinates",
+                "latitude": "43.9056", 
+                "longitude": "4.6194"
+            },
+            "priceRange": "€€", 
+            "hasMap": "https://www.google.com/maps/place/30390+Estezargues",
+            "image": "https://gvs3d.fr/logo.webp",
+            "sameAs": [
+                "https://www.facebook.com/votrepageGVS3D", 
+                "https://www.linkedin.com/company/votrepageGVS3D"
+            ]
+        },
+        "areaServed": [
+            {
+                "@type": "Place",
+                "name": "Estezargues"
+            },
+            {
+                "@type": "Place",
+                "name": "Gard"
+            },
+            {
+                "@type": "Place",
+                "name": "Nîmes" 
+            },
+            {
+                "@type": "Place",
+                "name": "Avignon" 
+            }
+        ],
+        "serviceType": "Désinsectisation",
+        "makesOffer": {
+            "@type": "Offer",
+            "itemOffered": {
+                "@type": "Service",
+                "name": "Désinsectisation",
+                "description": "Élimination des cafards, punaises de lit, fourmis, guêpes et autres insectes nuisibles",
+                "areaServed": [
+                    { "@type": "Place", "name": "Estezargues" },
+                    { "@type": "Place", "name": "Gard" }
+                ]
+            },
+            "priceSpecification": {
+                "@type": "PriceSpecification",
+                "priceCurrency": "EUR",
+                "minPrice": 120,
+                "maxPrice": 600
+            }
+        },
+        "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": "5",
+            "reviewCount": "42"  
+        }
+    };
+
+    const service = services.find(i => i.hero.header1 === "Désinfection");
+    
+    const description = serviceDescriptions.find(i => i.title === "Désinfection complète");
+    
+    const socialProof = socialProofData[0];
+
+    if (!service || !description || !socialProof) return null;
+
     return (
-        <div>
-            {/* Hero Section */}
-            <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-black">
-            {/* Overlay gradient */}
-            <div className="absolute inset-0 bg-linear-to-br from-orange-900/20 via-black to-black" />
-
-            {/* Animated grid background */}
-            <div className="absolute inset-0 opacity-10">
-                <div
-                className="absolute inset-0"
-                style={{
-                    backgroundImage:
-                    'linear-gradient(rgba(249,115,22,0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(249,115,22,0.1) 1px, transparent 1px)',
-                    backgroundSize: '50px 50px',
-                }}
-                />
-            </div>
-
-            {/* Hero Content */}
-            <div className="relative z-10 max-w-4xl mx-auto px-6 py-20 text-center flex flex-col items-center">
-
-                {/* Title */}
-                <h1 className="hero-title text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-black mb-6 leading-tight">
-                <span className="block text-white">ÉLIMINEZ LES</span>
-                <span className="block text-orange-600 italic -mt-2">GERMES & BACTÉRIES</span>
-                </h1>
-
-                {/* Subtitle */}
-                <p className="hero-subtitle text-base sm:text-lg md:text-xl text-gray-300 max-w-3xl mx-auto mb-10 font-light leading-relaxed">
-                Vos locaux sont exposés aux virus, bactéries ou champignons ?
-                </p>
-
-                {/* CTA Buttons */}
-                <div className="hero-actions flex flex-col sm:flex-row gap-4">
-                            <button
-                                aria-label="Demande de devis"
-                                // onClick={() => openModal(<EstimateForm />)}
-                                className="group bg-orange-600 hover:bg-orange-700 text-white px-8 py-4 rounded-full font-bold text-base 2xl:text-lg flex items-center justify-center"
-                            >
-                                Inspection gratuite
-                                <div className="ml-2">
-                                <ArrowRight className="w-5 h-5" />
-                                </div>
-                            </button>
-
-                            <a
-                                href="tel:+33658942067"
-                                className="border-2 border-white text-white hover:bg-white hover:text-black px-8 py-4 rounded-full font-bold text-base 2xl:text-lg text-center"
-                            >
-                                Appelez le 06 58 94 20 67
-                            </a>
-                        </div>
-
-                {/* Certifications */}
-                <div className="mt-12 flex flex-col sm:flex-row text-left lg:items-center justify-center gap-4 sm:gap-8 text-sm sm:text-base text-gray-400">
-                <div className="flex lg:items-center gap-2">
-                    <span className="text-orange-500">✓</span> Certifié & Agréé
-                </div>
-                <div className="flex lg:items-center gap-2">
-                    <span className="text-orange-500">✓</span> Garantie Résultats
-                </div>
-                <div className="flex lg:items-center gap-2">
-                    <span className="text-orange-500">✓</span> Éco-responsable
-                </div>
-                </div>
-            </div>
-            </section>
-
-            <section ref={sectionRef} className="h-lvh relative">
-                <div className="absolute inset-0 z-3">
-                    <div className='absolute inset-0 z-5 bg-black/60' />
-                    {/* Image1 */}
-                    <Image
-                        ref={image1Ref}
-                        fill
-                        src="/infestation-dark.png"
-                        alt="gg"
-                        className="z-3 object-cover"
-                        style={{
-                        maskImage: `linear-gradient(${i1_angle}deg, black 0%, black ${i1_test}%, transparent ${i1_test1}%, transparent ${i1_test2}%, black ${i1_test3}%, black 100%)`,
-                        WebkitMaskImage: `linear-gradient(${i1_angle}deg, black 0%, black ${i1_test}%, transparent ${i1_test1}%, transparent ${i1_test2}%, black ${i1_test3}%, black 100%)`,
-                        maskRepeat: "no-repeat",
-                        maskSize: "100% 100%",
-                        }}
-                    />
-
-                    {/* Image2 */}
-                    <Image
-                        fill
-                        src="/close-up-pest.png"
-                        alt="gg"
-                        className="z-2 object-cover"
-                        style={{
-                        maskImage: `linear-gradient(${i2_angle}deg, black 0%, black ${i2_test}%, transparent ${i2_test1}%, transparent ${i2_test2}%, black ${i2_test3}%, black 100%)`,
-                        WebkitMaskImage: `linear-gradient(${i2_angle}deg, black 0%, black ${i2_test}%, transparent ${i2_test1}%, transparent ${i2_test2}%, black ${i2_test3}%, black 100%)`,
-                        maskRepeat: "no-repeat",
-                        maskSize: "100% 100%",
-                        }}
-                    />
-
-                    {/* Image3 */}
-                    <Image
-                        fill
-                        src="/security-professional.png"
-                        alt="gg"
-                        className="z-1 object-cover"
-                        style={{
-                        maskImage: `linear-gradient(${i3_angle}deg, black 0%, black ${i3_test}%, transparent ${i3_test1}%, transparent ${i3_test2}%, black ${i3_test3}%, black 100%)`,
-                        WebkitMaskImage: `linear-gradient(${i3_angle}deg, black 0%, black ${i3_test}%, transparent ${i3_test1}%, transparent ${i3_test2}%, black ${i3_test3}%, black 100%)`,
-                        maskRepeat: "no-repeat",
-                        maskSize: "100% 100%",
-                        }}
-                    />
-                </div>
-                <div className="content absolute flex items-center justify-center text-4xl font-black inset-0 z-3 space-y-16">
-                    {/* PROBLÈME */}
-                    <div className="content-title absolute text-center z-3">
-                        <h2 className="content-h2 text-5xl mx-auto lg:text-7xl max-w-xl font-black text-white my-4">
-                            Contaminations <span className="text-orange-600">et germes</span>
-                        </h2>
-                        <ul className="content-list mt-4 mx-auto w-[80%] text-sm list-disc list-inside text-white">
-                            <li className="mt-5">Présence de bactéries, virus ou champignons sur vos surfaces</li>
-                            <li className="mt-5">Risque pour la santé des employés et clients</li>
-                            <li className="mt-5">Impact sur l’hygiène et l’image de l’entreprise</li>
-                        </ul>
-                    </div>
-
-                    {/* SOLUTION */}
-                    <div className="content-title text-center absolute z-2">
-                        <h2 className="content-h2 text-5xl mx-auto lg:text-7xl max-w-xl font-black text-white my-4">
-                            Désinfection <span className="text-orange-600 whitespace-nowrap">professionnelle</span>
-                        </h2>
-                        <ul className="content-list mt-4 mx-auto w-[80%] text-sm list-disc list-inside text-white">
-                            <li className="mt-5">Intervention rapide par des experts certifiés en hygiène</li>
-                            <li className="mt-5">Utilisation de produits et protocoles conformes aux normes</li>
-                            <li className="mt-5">Nettoyage et désinfection complète des locaux et surfaces</li>
-                        </ul>
-                    </div>
-
-                    {/* BÉNÉFICE */}
-                    <div className="content-title text-center absolute z-1">
-                        <h2 className="content-h2 text-5xl mx-auto lg:text-7xl max-w-xl font-black text-white my-4">
-                            Locaux propres <span className="text-orange-600">et sécurisés</span>
-                        </h2>
-                        <ul className="content-list mt-4 mx-auto w-[80%] text-sm list-disc list-inside text-white">
-                            <li className="mt-5">Environnement de travail sain pour vos collaborateurs</li>
-                            <li className="mt-5">Réduction des risques sanitaires et absence de contamination</li>
-                            <li className="mt-5">Confiance renforcée des clients et employés</li>
-                        </ul>
-                    </div>
-
-                    {/* CTA FINAL */}
-                    <div className="content-title flex flex-col gap-10 items-center justify-center mt-10">
-                        <p className="max-w-2xs text-center text-xl font-extrabold">Une infestation n’attend pas. Appelez-nous dès maintenant.</p>
-                        <a  
-                            href="https://www.google.com/search?uds=AOm0WdE2fekQnsyfYEw8JPYozOKzEik-2elEKZuoMX0RuNnOO2GDIgxodzVnOQyNKeXlFnJ-YKUC7TE4kLm3vqIQWIc_K9GQmAyeD4qnUuL2lsL3durM3BCd536avOHSG36vM61mkI3D&q=G.V.S.3D%20Avis&si=AMgyJEtREmoPL4P1I5IDCfuA8gybfVI2d5Uj7QMwYCZHKDZ-E1JhB0J4OEHu0ExSh8WjvsFDX7W-B4bHUGXrldG4Knsut4hAo43-Re3diVTedAjKfiP_Q40r0ulfUf0zCEy5Boez_ebk&cs=1&hl=fr&sa=X&ved=0CCgQ_4MLahcKEwj4yqq4x_2OAxUAAAAAHQAAAAAQBg&biw=2552&bih=1314&dpr=1"
-                            target='_blank'
-                            className='relative text-2xl shrink-0 overflow-hidden bg-linear-to-br from-orange-500 to-red-600 text-white px-6 py-3 rounded-full font-semibold'
-                        >
-                            Appellez nous
-                            <div ref={ctaRef} className="absolute inset-0 bg-linear-to-r from-transparent via-white/50 to-transparent skew-x-12 -translate-x-100 will-change-transform" />
-                        </a>
-                    </div>
-                </div>
-            </section>
-            <section className="h-svh bg-black/80 flex items-center justify-center text-5xl font-black">END</section>
-        </div>
+         <>
+            <HeroService 
+                header1={service.hero.header1} 
+                header2={service.hero.header2} 
+                subTitle={service.hero.subTitle} 
+            />
+            <Story 
+                image1={service.story.image1} 
+                image2={service.story.image2} 
+                image3={service.story.image3} 
+                altImage1={service.story.altImage1} 
+                altImage2={service.story.altImage2} 
+                altImage3={service.story.altImage3} 
+                header1_1={service.story.header1_1} 
+                header1_2={service.story.header1_2} 
+                header2_1={service.story.header2_1} 
+                header2_2={service.story.header2_2} 
+                header3_1={service.story.header3_1} 
+                header3_2={service.story.header3_2} 
+                list1={service.story.list1} 
+                list2={service.story.list2} 
+                list3={service.story.list3} 
+                cta={service.story.cta} 
+            />
+            <ServiceDescription 
+                title={description?.title} 
+                highlight={description?.highlight} 
+                description={description?.description} 
+                features={description?.features} 
+                processTitle={description?.processTitle} 
+                processSteps={description?.processSteps} 
+            />
+            <Pricing
+                sectionTitle="Tarifs"
+                sectionHighlight="transparents"
+                description="Nos prix varient selon le type d’insectes, la surface à traiter et le niveau d’infestation. Chaque intervention inclut un diagnostic complet et un suivi garanti."
+                
+                cards={[
+                    {
+                        id: 1,
+                        title: "Particulier",
+                        subtitle: "Maisons & Appartements",
+                        priceRange: "120€ - 350€",
+                        priceNote: "Selon type d’insectes et surface",
+                        badge: "Inspection offerte",
+                        gradient: "from-orange-600 to-orange-700",
+                        bgGradient: "from-orange-600/5 to-orange-700/5",
+                        included: [
+                            { id: 1, label: "Inspection gratuite et diagnostic", included: true },
+                            { id: 2, label: "Déplacement inclus (30km)", included: true },
+                            { id: 3, label: "Traitement ciblé et sécurisé", included: true },
+                            { id: 4, label: "2 visites de suivi (1 mois)", included: true },
+                            { id: 5, label: "Garantie 3 mois", included: true },
+                            { id: 6, label: "Contrat de maintenance", included: false },
+                        ]
+                    },
+                    {
+                        id: 2,
+                        title: "Pro",
+                        subtitle: "Commerces & Bureaux",
+                        priceRange: "250€ - 600€",
+                        priceNote: "Intervention & suivi complet",
+                        badge: "Conformité HACCP",
+                        gradient: "from-blue-600/80 to-cyan-600/80",
+                        bgGradient: "from-blue-600/20 to-cyan-600/10",
+                        included: [
+                            { id: 1, label: "Inspection gratuite et diagnostic", included: true },
+                            { id: 2, label: "Déplacement inclus (50km)", included: true },
+                            { id: 3, label: "Traitement insecticide professionnel", included: true },
+                            { id: 4, label: "4 visites de suivi (3 mois)", included: true },
+                            { id: 5, label: "Garantie 6 mois", included: true },
+                            { id: 6, label: "Rapport de conformité", included: true },
+                            { id: 7, label: "Contrat maintenance optionnel", included: true },
+                        ]
+                    },
+                ]}
+                
+                ctaText="Besoin d'un devis personnalisé ? Contactez-nous :"
+                ctaPhone="06 58 94 20 67"
+            />
+            <SocialProof 
+                title={socialProof.title}
+                highlight={socialProof.highlight}
+                testimonials={socialProof.testimonials}
+                stats={socialProof.stats}
+            />
+            <FaqCta
+                faqTitle="Questions"
+                faqHighlight="fréquentes"
+                
+                faqs={[
+                    {
+                        id: 1,
+                        question: 'Combien de temps faut-il pour éliminer complètement les insectes ?',
+                        answer: 'Selon le type d’insectes (cafards, punaises de lit, guêpes, etc.), l’élimination peut prendre de quelques jours à plusieurs semaines. Nous assurons un suivi régulier pour éviter toute réinfestation.'
+                    },
+                    {
+                        id: 2,
+                        question: 'Les produits utilisés sont-ils dangereux pour mes enfants ou mes animaux ?',
+                        answer: 'Non. Nous utilisons uniquement des produits certifiés et appliqués selon des protocoles stricts. Les zones traitées sont sécurisées et nous privilégions des solutions respectueuses de l’environnement quand c’est possible.'
+                    },
+                    {
+                        id: 3,
+                        question: 'Quel est le coût d’une désinsectisation ?',
+                        answer: 'Le tarif dépend du type d’insectes, de la surface à traiter et du niveau d’infestation. Notre inspection gratuite permet d’établir un devis précis et sans engagement. En moyenne, comptez entre 120€ et 450€.'
+                    },
+                    {
+                        id: 4,
+                        question: 'Comment éviter une nouvelle infestation d’insectes ?',
+                        answer: 'Nous vous fournissons des conseils personnalisés : entretien des locaux, élimination des sources de nourriture, colmatage des fissures, hygiène renforcée. Nos garanties incluent des visites de contrôle.'
+                    },
+                    {
+                        id: 5,
+                        question: 'Intervenez-vous pour les professionnels (restaurants, hôtels, bureaux) ?',
+                        answer: 'Oui, nous accompagnons régulièrement les professionnels avec des traitements adaptés et des contrats de maintenance préventive pour garantir la conformité aux normes d’hygiène (HACCP).'
+                    }
+                ]}
+                
+                ctaTitle="Prêt à éliminer les insectes nuisibles ?"
+                ctaSubtitle="Contactez-nous dès maintenant pour une inspection gratuite et un devis personnalisé. Intervention rapide garantie sous 24h."
+                ctaButtonText="Inspection gratuite"
+                ctaButtonLink="https://www.google.com/search?uds=AOm0WdE2fekQnsyfYEw8JPYozOKzEik-2elEKZuoMX0RuNnOO2GDIgxodzVnOQyNKeXlFnJ-YKUC7TE4kLm3vqIQWIc_K9GQmAyeD4qnUuL2lsL3durM3BCd536avOHSG36vM61mkI3D&q=G.V.S.3D%20Avis&si=AMgyJEtREmoPL4P1I5IDCfuA8gybfVI2d5Uj7QMwYCZHKDZ-E1JhB0J4OEHu0ExSh8WjvsFDX7W-B4bHUGXrldG4Knsut4hAo43-Re3diVTedAjKfiP_Q40r0ulfUf0zCEy5Boez_ebk&cs=1&hl=fr&sa=X&ved=0CCgQ_4MLahcKEwj4yqq4x_2OAxUAAAAAHQAAAAAQBg&biw=2552&bih=1314&dpr=1"
+                phone="06 58 94 20 67"
+                email="contact@gvs3d.fr"
+                address="Estezargues, Occitanie"
+            />
+            <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaData) }}
+            />
+        </>
     )
 }
 
