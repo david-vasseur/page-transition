@@ -3,6 +3,7 @@
 import { useGSAP } from '@gsap/react';
 import gsap from 'gsap';
 import { ArrowRight } from 'lucide-react';
+import Image from 'next/image';
 import { useRef } from 'react';
 
 interface IHeroService {
@@ -79,9 +80,10 @@ useGSAP(() => {
 
 
     return (
-        <section ref={heroRef} className="relative min-h-screen flex items-center justify-center overflow-hidden bg-black">
+        <section ref={heroRef} className="relative min-h-screen flex items-end justify-center overflow-hidden bg-black">
             {/* Overlay gradient */}
             <div className="absolute inset-0 bg-linear-to-br from-orange-900/20 via-black to-black" />
+            <div className="absolute w-[120%] origin-center border-4 border-orange-600/70 -translate-y-[115%] aspect-square bg-linear-to-tl from-orange-600/50 via-black/20 to-black z-10 rotate-45" />
 
             {/* Animated grid background */}
             <div className="absolute inset-0 opacity-10">
@@ -97,6 +99,7 @@ useGSAP(() => {
 
             {/* Hero Content */}
             <div className="relative z-10 max-w-4xl mx-auto px-6 py-20 text-center flex flex-col items-center">
+                <Image src={"/service/deratisation/hero_svg.svg"} alt='' width={150} height={150} />
 
                 {/* Title */}
                 <h1 className="hero-title text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-black mb-6 leading-tight">
@@ -130,15 +133,15 @@ useGSAP(() => {
                 </div>
 
                 {/* Certifications */}
-                <div className="hero-certif mt-12 flex flex-col sm:flex-row text-left lg:items-center justify-center gap-4 sm:gap-8 text-sm sm:text-base text-gray-400">
-                    <div className="flex lg:items-center gap-2">
-                        <span className="text-orange-500">✓</span> Certifié & Agréé
+                <div className="hero-certif mt-12 flex sm:flex-row text-left items-center justify-center gap-4 sm:gap-8 text-sm sm:text-base text-gray-400">
+                    <div className="flex items-center gap-2">
+                        <span className="text-orange-500 ml-6">✓</span> Certifié & Agréé
                     </div>
-                    <div className="flex lg:items-center gap-2">
-                        <span className="text-orange-500">✓</span> Garantie Résultats
+                    <div className="flex items-center gap-2">
+                        <span className="text-orange-500 ml-6">✓</span> Garantie Résultats
                     </div>
-                    <div className="flex lg:items-center gap-2">
-                        <span className="text-orange-500">✓</span> Éco-responsable
+                    <div className="flex items-center gap-2">
+                        <span className="text-orange-500 ml-6">✓</span> Éco-responsable
                     </div>
                 </div>
             </div>
