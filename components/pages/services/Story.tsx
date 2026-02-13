@@ -313,12 +313,12 @@ function Story({
             <div className="content absolute flex items-center justify-center text-4xl font-black inset-0 z-3 space-y-16">
                 {/* PROBLÈME */}
                 <div className="content-title absolute text-center z-3">
-                    <h2 className="content-h2 break-keep text-5xl mx-auto lg:text-7xl max-w-xl font-black text-white my-4">
+                    <h2 className="content-h2 break-keep text-5xl mx-auto lg:text-7xl lg:mb-30 max-w-xl font-black text-white my-4">
                         {header1_1} <span className="text-orange-600">{header1_2}</span>
                     </h2>
                     <ul className="content-list mt-4 mx-auto w-[80%] text-sm list-disc list-inside text-white">
                         {list1.map(list => (
-                            <li key={list.id} className="mt-5">{list.text}</li>
+                            <li key={list.id} className="mt-5 lg:text-xl">{list.text}</li>
                         ))}
                     </ul>
                 </div>
@@ -330,7 +330,7 @@ function Story({
                     </h2>
                     <ul className="content-list mt-4 mx-auto w-[80%] text-sm list-disc list-inside text-white">
                         {list2.map(list => (
-                            <li key={list.id} className="mt-5">{list.text}</li>
+                            <li key={list.id} className="mt-5 lg:text-xl">{list.text}</li>
                         ))}
                     </ul>
                 </div>
@@ -342,7 +342,7 @@ function Story({
                     </h2>
                     <ul className="content-list mt-4 mx-auto w-[80%] text-sm list-disc list-inside text-white">
                         {list3.map(list => (
-                            <li key={list.id} className="mt-5">{list.text}</li>
+                            <li key={list.id} className="mt-5 lg:text-xl">{list.text}</li>
                         ))}
                     </ul>
                 </div>

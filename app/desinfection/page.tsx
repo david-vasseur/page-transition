@@ -1,5 +1,5 @@
 import FaqCta from "@/components/pages/services/FaqCta";
-import HeroService from "@/components/pages/services/HeroService";
+import HeroService from '@/components/pages/services/HeroService';
 import Pricing from "@/components/pages/services/Pricing";
 import ServiceDescription from "@/components/pages/services/ServiceDescription";
 import SocialProof from "@/components/pages/services/SocialProof";
