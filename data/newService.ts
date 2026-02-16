@@ -174,7 +174,7 @@ export const services: IServicePage[] = [
       subTitle: "Assurez un environnement sain et exempt de bactéries et virus."
     },
     story: {
-      image1: "/service/desinfection/story1.png",
+      image1: "/service/desinfection/story1.jpg",
       altImage1: "Désinfection - Image 1",
       image2: "/service/desinfection/story2.png",
       altImage2: "Désinfection - Image 2",
@@ -293,12 +293,29 @@ export const serviceDescriptions: IServiceDescription[] = [
       { id: 3, icon: "clock", title: "Rapide & efficace", description: "Intervention rapide pour un lieu immédiatement désinfecté." },
       { id: 4, icon: "award", title: "Équipe formée", description: "Techniciens spécialisés et certifiés." },
     ],
-    processTitle: "Notre processus de désinfection",
+    processTitle: "Les points forts de notre processus de désinfection",
     processSteps: [
-      { id: 1, number: "01", title: "Analyse du site", description: "Évaluation des surfaces et risques sanitaires.", image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=2015&auto=format&fit=crop" },
-      { id: 2, number: "02", title: "Application des produits", description: "Désinfection ciblée avec produits certifiés.", image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=2015&auto=format&fit=crop" },
-      { id: 3, number: "03", title: "Contrôle qualité", description: "Vérification des zones traitées pour assurer l’efficacité.", image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=2015&auto=format&fit=crop" },
-      // { id: 4, number: "04", title: "Conseils & prévention", description: "Recommandations pour maintenir un environnement sain." },
+      { 
+        id: 1, 
+        number: "01", 
+        title: "Diagnostic sanitaire précis", 
+        description: "Analyse des zones à risque et identification des surfaces à traiter afin d’adapter le protocole de désinfection.", 
+        image: "/service/desinfection/+/pulverisation.jpg" 
+      },
+      { 
+        id: 2, 
+        number: "02", 
+        title: "Traitement par nébulisation professionnelle", 
+        description: "Application de produits désinfectants homologués par pulvérisation ou nébulisation pour une couverture complète des surfaces et volumes.", 
+        image: "/service/desinfection/+/nebuliseur.webp" 
+      },
+      { 
+        id: 3, 
+        number: "03", 
+        title: "Traçabilité & conformité", 
+        description: "Remise d’un rapport d’intervention et utilisation de produits conformes aux normes sanitaires en vigueur.", 
+        image: "/service/desinfection/+/certif.webp" 
+      },
     ],
   },
 ];

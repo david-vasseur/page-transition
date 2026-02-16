@@ -79,8 +79,10 @@ export const revalidate = 21600;
 
 export default async function Home() {
 
-	const response = await fetch(`https://maps.googleapis.com/maps/api/place/details/json?place_id=${process.env.PLACE_ID}&fields=reviews&language=fr&key=${process.env.GOOGLE_API_KEY}`);
+	const response = await fetch(`https://maps.googleapis.com/maps/api/place/details/json?place_id=ChIJPRXGwsjulqgRWwNSrgAGW40&fields=reviews&language=fr&key=AIzaSyDYv1DyFBajDMo3UWBYvBpOXxn-LPH6hME`);
 	const data: PlaceDetailsResponse = await response.json();
+	console.log(data);
+	
 	const testimonials: IReview[] = [
 		{
 			author_name: "Sarah Johnson",
