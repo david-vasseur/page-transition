@@ -79,9 +79,11 @@ export const revalidate = 21600;
 
 export default async function Home() {
 
-	const response = await fetch("https://gvs3d.fr/api/reviews");
-	const data: PlaceDetailsResponse = await response.json();
-	console.log(data);
+	
+
+	// const response = await fetch("https://gvs3d.fr/api/reviews");
+	// const data: PlaceDetailsResponse = await response.json();
+	// console.log(data);
 	
 	const testimonials: IReview[] = [
 		{
@@ -139,7 +141,7 @@ export default async function Home() {
 			<Hero />
 			<SocialProof />
 			<Services />
-			<Testimonials reviews={testimonials} />
+			<Testimonials />
 			<Faq />
 			<script
 				type="application/ld+json"

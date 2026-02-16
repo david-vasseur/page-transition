@@ -9,10 +9,19 @@ import { useGSAP } from '@gsap/react';
 import gsap from 'gsap';
 import Forward from '../ui/Forward';
 
-const Testimonials = ({ reviews }: { reviews: IReview[] }) => {
+const Testimonials = () => {
 	const [currentSlide, setCurrentSlide] = useState(0);
     const linkRef = useRef<HTMLAnchorElement>(null);
     const glowRef = useRef<HTMLDivElement>(null);
+
+    const [reviews, setReviews] = useState<IReview[] | []>([]);
+
+    useEffect(() => {
+        fetch("/api/reviews")
+        .then((res) => res.json())
+        .then((data) => setReviews(data.result?.reviews || []))
+        .catch(console.error);
+    }, []);
 
     useGSAP(() => {
 
