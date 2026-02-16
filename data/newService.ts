@@ -230,21 +230,21 @@ export const serviceDescriptions: IServiceDescription[] = [
         number: "01", 
         title: "Détection avancée", 
         description: "Localisation précise des nuisibles grâce à des caméras thermiques et équipements de détection professionnels.", 
-        image: "/service/thermal.jpg" 
+        image: "/service/+/thermal.jpg" 
       },
       { 
         id: 2, 
         number: "02", 
         title: "Matériel homologué", 
         description: "Utilisation de pièges certifiés et de solutions efficaces, sûres pour les occupants et conformes aux normes.", 
-        image: "/service/trap.jpg" 
+        image: "/service/+/trap.jpg" 
       },
       { 
         id: 3, 
         number: "03", 
         title: "Certification d’État", 
         description: "Interventions réalisées par des techniciens certifiés avec suivi et prévention contre toute récidive.", 
-        image: "/service/certif.webp" 
+        image: "/service/+/certif.webp" 
       },
     ]
   },
@@ -258,12 +258,29 @@ export const serviceDescriptions: IServiceDescription[] = [
       { id: 3, icon: "clock", title: "Intervention rapide", description: "Nos experts interviennent dans les plus brefs délais." },
       { id: 4, icon: "award", title: "Suivi personnalisé", description: "Plan de prévention et suivi après intervention." },
     ],
-    processTitle: "Notre processus de désinsectisation",
-    processSteps: [
-      { id: 1, number: "01", title: "Inspection des lieux", description: "Identification des zones infestées et type d’insectes.", image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=2015&auto=format&fit=crop" },
-      { id: 2, number: "02", title: "Traitement adapté", description: "Application des produits et méthodes sécurisés.", image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=2015&auto=format&fit=crop" },
-      { id: 3, number: "03", title: "Prévention", description: "Recommandations pour éviter toute réinfestation.", image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=2015&auto=format&fit=crop" },
-      { id: 4, number: "04", title: "Contrôle final", description: "Vérification post-intervention et ajustements si nécessaire.", image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=2015&auto=format&fit=crop" },
+        processTitle: "Les points fort de notre processus de désinsectisation",
+        processSteps: [
+      { 
+        id: 1, 
+        number: "01", 
+        title: "Intervention en hauteur", 
+        description: "Utilisation de perches professionnelles permettant de traiter efficacement les zones très hautes et difficiles d’accès en toute sécurité.", 
+        image: "/service/desinsectisation/+/perche.jpg" 
+      },
+      { 
+        id: 2, 
+        number: "02", 
+        title: "Équipement de dernière génération", 
+        description: "Emploi de lanceurs type paintball avec insecticide, offrant une portée précise pour atteindre des zones auparavant inaccessibles.", 
+        image: "/service/desinsectisation/+/paintball.jpg" 
+      },
+      { 
+        id: 3, 
+        number: "03", 
+        title: "Certifications d’État", 
+        description: "Interventions réalisées par des professionnels certifiés, disposant des agréments et certifications officielles garantissant sécurité et conformité.", 
+        image: "/service/desinsectisation/+/certif.webp" 
+      },
     ],
   },
   {
