@@ -170,7 +170,7 @@ const Testimonials = () => {
                                 animate={{ opacity: 1 }}
                                 transition={{ delay: 0.4, duration: 0.5 }}
                                 >
-                                {[...Array(reviews[currentSlide].rating)].map((_, i) => (
+                                {reviews.length > 0 && [...Array(reviews[currentSlide].rating)].map((_, i) => (
                                     <motion.div
                                     key={i}
                                     initial={{ opacity: 0, scale: 0 }}
@@ -189,28 +189,31 @@ const Testimonials = () => {
                                     animate={{ opacity: 1, y: 0 }}
                                     transition={{ delay: 0.6, duration: 0.6 }}
                                 >
-                                    {reviews[currentSlide].text}
+                                    {reviews.length > 0 && reviews[currentSlide].text}
                                 </motion.blockquote>
 
                                 {/* Client Info */}
-                                <motion.div 
-                                className="flex items-center justify-center space-x-4"
-                                initial={{ opacity: 0, y: 30 }}
-                                animate={{ opacity: 1, y: 0 }}
-                                transition={{ delay: 0.8, duration: 0.5 }}
-                                >
-                                <motion.img 
-                                    src={reviews[currentSlide].profile_photo_url} 
-                                    alt={reviews[currentSlide].author_name}
-                                    className="w-16 h-16 rounded-full object-cover border-2 border-orange-500"
-                                    whileHover={{ scale: 1.1 }}
-                                />
-                                <div className="text-center">
-                                    <p className="text-white font-semibold text-lg">{reviews[currentSlide].author_name}</p>
-                                    {/* <p className="text-gray-300">{testimonials[currentSlide].role}</p>
-                                    <p className="text-orange-500 text-sm">{testimonials[currentSlide].location}</p> */}
-                                </div>
-                                </motion.div>
+                                {reviews.length > 0 && (
+                                    <motion.div 
+                                    className="flex items-center justify-center space-x-4"
+                                    initial={{ opacity: 0, y: 30 }}
+                                    animate={{ opacity: 1, y: 0 }}
+                                    transition={{ delay: 0.8, duration: 0.5 }}
+                                    >
+                                        <motion.img 
+                                            src={reviews[currentSlide].profile_photo_url} 
+                                            alt={reviews[currentSlide].author_name}
+                                            className="w-16 h-16 rounded-full object-cover border-2 border-orange-500"
+                                            whileHover={{ scale: 1.1 }}
+                                        />
+                                        <div className="text-center">
+                                            <p className="text-white font-semibold text-lg">{reviews[currentSlide].author_name}</p>
+                                            {/* <p className="text-gray-300">{testimonials[currentSlide].role}</p>
+                                            <p className="text-orange-500 text-sm">{testimonials[currentSlide].location}</p> */}
+                                        </div>
+                                    </motion.div>
+                                )}
+                                
                             </div>
                         </motion.div>
                         </AnimatePresence>
@@ -238,7 +241,7 @@ const Testimonials = () => {
 
                     {/* Dots Indicator */}
                     <div className="flex justify-center mt-8 space-x-2">
-                    {reviews.map((_, index) => (
+                    {reviews.length > 0 && reviews.map((_, index) => (
                         <motion.button
                         aria-label='Aller directement sur un avis'
                         key={index}
