@@ -9,6 +9,7 @@ import { useGSAP } from '@gsap/react';
 import gsap from 'gsap';
 import Forward from '../ui/Forward';
 import { reviews as Rev } from '@/data/reviews';
+import Image from 'next/image';
 
 const Testimonials = () => {
 	const [currentSlide, setCurrentSlide] = useState(0);
@@ -194,16 +195,17 @@ const Testimonials = () => {
                                     animate={{ opacity: 1, y: 0 }}
                                     transition={{ delay: 0.8, duration: 0.5 }}
                                     >
-                                        <motion.img 
-                                            src={reviews[currentSlide].profile_photo_url} 
-                                            alt={reviews[currentSlide].author_name}
-                                            className="w-16 h-16 rounded-full object-cover border-2 border-orange-500"
-                                            whileHover={{ scale: 1.1 }}
-                                        />
+                                        <motion.div>
+                                            <Image 
+                                                src={reviews[currentSlide].profile_photo_url} 
+                                                alt={reviews[currentSlide].author_name} 
+                                                width={64} 
+                                                height={64} 
+                                                className="rounded-full border-2 border-orange-500"
+                                            />
+                                        </motion.div>
                                         <div className="text-center">
                                             <p className="text-white font-semibold text-lg">{reviews[currentSlide].author_name}</p>
-                                            {/* <p className="text-gray-300">{testimonials[currentSlide].role}</p>
-                                            <p className="text-orange-500 text-sm">{testimonials[currentSlide].location}</p> */}
                                         </div>
                                     </motion.div>
                                 )}
