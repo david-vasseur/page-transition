@@ -230,21 +230,21 @@ export const serviceDescriptions: IServiceDescription[] = [
         number: "01", 
         title: "Détection avancée", 
         description: "Localisation précise des nuisibles grâce à des caméras thermiques et équipements de détection professionnels.", 
-        image: "/service/+/thermal.jpg" 
+        image: "/service/deratisation/+/thermal.jpg" 
       },
       { 
         id: 2, 
         number: "02", 
         title: "Matériel homologué", 
         description: "Utilisation de pièges certifiés et de solutions efficaces, sûres pour les occupants et conformes aux normes.", 
-        image: "/service/+/trap.jpg" 
+        image: "/service/deratisation/+/trap.jpg" 
       },
       { 
         id: 3, 
         number: "03", 
         title: "Certification d’État", 
         description: "Interventions réalisées par des techniciens certifiés avec suivi et prévention contre toute récidive.", 
-        image: "/service/+/certif.webp" 
+        image: "/service/deratisation/+/certif.webp" 
       },
     ]
   },
