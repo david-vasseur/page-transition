@@ -5,6 +5,7 @@ import ServiceDescription from "@/components/pages/services/ServiceDescription";
 import SocialProof from "@/components/pages/services/SocialProof";
 import Story from "@/components/pages/services/Story";
 import { serviceDescriptions, services, socialProofData } from "@/data/newService";
+import { disinfectionReviews } from "@/data/reviews";
 
 export const metadata = {
     title: 'Désinfection Professionnelle - Locaux & Logements | GVS3D',
@@ -13,7 +14,7 @@ export const metadata = {
     openGraph: {
         title: 'Désinfection Professionnelle - Locaux & Logements | GVS3D',
         description: 'Service de désinfection professionnel à Estezargues et ses environs. Élimination des virus, bactéries, moisissures et agents pathogènes. Intervention rapide, produits certifiés et certificat fourni.',
-        url: 'https://gvs3d.fr/services/desinfection',
+        url: 'https://gvs3d.fr/desinfection',
         type: 'website',
         images: [
             {
@@ -30,7 +31,7 @@ export const metadata = {
         description: 'Service de désinfection professionnel à Estezargues et ses environs. Élimination des virus, bactéries, moisissures et agents pathogènes. Intervention rapide, produits certifiés et certificat fourni.',
         images: ['https://gvs3d.fr/logo.webp'],
     },
-    canonical: 'https://gvs3d.fr/services/desinfection',
+    canonical: 'https://gvs3d.fr/desinfection',
 };
 
     
@@ -42,7 +43,7 @@ function page() {
         "@type": "Service",
         "name": "GVS3D - Désinfection",
         "description": "Service professionnel de désinfection pour l’élimination des virus, bactéries, moisissures et agents pathogènes à Estezargues et dans le Gard.",
-        "url": "https://gvs3d.fr/services/desinfection",
+        "url": "https://gvs3d.fr/desinfection",
         "provider": {
             "@type": "LocalBusiness",
             "name": "GVS3D",
@@ -204,7 +205,7 @@ function page() {
             <SocialProof 
                 title={socialProof.title}
                 highlight={socialProof.highlight}
-                testimonials={socialProof.testimonials}
+                testimonials={disinfectionReviews}
                 stats={socialProof.stats}
             />
 
