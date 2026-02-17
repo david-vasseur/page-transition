@@ -17,7 +17,7 @@ import {
 import Image from "next/image";
 import { SplitText } from "gsap/SplitText";
 import { useMobileStore } from "@/lib/stores/mobileStore";
-import StorySection from "@/components/features/SectionPourquoi";
+import StorySection from "@/components/pages/pourquoi/SectionPourquoi";
 
 gsap.registerPlugin(SplitText);
 
