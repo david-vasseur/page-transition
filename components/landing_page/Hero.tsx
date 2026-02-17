@@ -62,7 +62,7 @@ const Hero = () => {
         >
             {!isMobile && (
                  <div className="absolute w-[120%] lg:w-full border border-orange-600/50 origin-center -translate-y-[115%] lg:-translate-y-[20%] lg:translate-x-[70%] aspect-square bg-linear-to-tl from-5% via-20% to-50% from-orange-600/50 via-black/80 to-black z-10 rotate-45 lg:rotate-135 shadow-[25px_25px_50px_1px_rgb(0,0,0,0.25)] shadow-red-700/50 overflow-hidden" >
-                    <Image src={"/profil.webp"} width={600} height={600} alt="" className="absolute right-0 bottom-0 z-5 opacity-90 2xl:scale-120 -rotate-135" />
+                    {/* <Image src={"/profil.webp"} width={600} height={600} alt="" className="absolute right-0 bottom-0 z-5 opacity-90 2xl:scale-120 -rotate-135" /> */}
                 </div>
             )}
            
