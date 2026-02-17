@@ -16,7 +16,7 @@ const Testimonials = () => {
     const linkRef = useRef<HTMLAnchorElement>(null);
     const glowRef = useRef<HTMLDivElement>(null);
 
-    const reviews = Rev
+    const reviews: IReview[] = Rev
 
     useGSAP(() => {
 
@@ -125,93 +125,93 @@ const Testimonials = () => {
                     viewport={{ once: true }}
                     transition={{ delay: 0.3, duration: 0.6 }}
                     >
-                    <div className="overflow-hidden rounded-2xl relative h-[500px]">
+                    <div className="overflow-hidden rounded-2xl relative h-125">
                         <AnimatePresence initial={false} custom={direction}>
-                        <motion.div
-                            key={currentSlide}
-                            custom={direction}
-                            variants={slideVariants}
-                            initial="enter"
-                            animate="center"
-                            exit="exit"
-                            transition={{
-                            x: { type: "spring", stiffness: 300, damping: 30 },
-                            opacity: { duration: 0.2 },
-                            scale: { duration: 0.4 }
-                            }}
-                            className="absolute inset-0"
-                        >
-                            <div className="bg-gradient-to-br from-gray-900 to-gray-800 p-8 lg:p-12 border border-gray-700 h-full flex flex-col rounded-2xl justify-center">
-                                {/* Quote Icon */}
-                                <motion.div 
-                                className="flex justify-center mb-6"
-                                initial={{ scale: 0, rotate: -180 }}
-                                animate={{ scale: 1, rotate: 0 }}
-                                transition={{ delay: 0.2, duration: 0.5, type: "spring" }}
-                                >
-                                <motion.div 
-                                    className="w-16 h-16 bg-orange-600/20 rounded-full flex items-center justify-center"
-                                    whileHover={{ scale: 1.1, rotate: 360 }}
-                                    transition={{ duration: 0.3 }}
-                                >
-                                    <Quote className="w-8 h-8 text-orange-500" />
-                                </motion.div>
-                                </motion.div>
-
-                                {/* Rating */}
-                                <motion.div 
-                                className="flex justify-center mb-6"
-                                initial={{ opacity: 0 }}
-                                animate={{ opacity: 1 }}
-                                transition={{ delay: 0.4, duration: 0.5 }}
-                                >
-                                {reviews.length > 0 && [...Array(reviews[currentSlide].rating)].map((_, i) => (
-                                    <motion.div
-                                    key={i}
-                                    initial={{ opacity: 0, scale: 0 }}
-                                    animate={{ opacity: 1, scale: 1 }}
-                                    transition={{ delay: 0.5 + i * 0.1, duration: 0.3 }}
-                                    >
-                                    <Star className="w-6 h-6 text-orange-500 fill-current" />
-                                    </motion.div>
-                                ))}
-                                </motion.div>
-
-                                {/* Testimonial Text */}
-                                <motion.blockquote 
-                                    className="text-sm lg:text-2xl px-8 text-white text-center mb-8 font-light line-clamp-10 lg:line-clamp-none"
-                                    initial={{ opacity: 0, y: 20 }}
-                                    animate={{ opacity: 1, y: 0 }}
-                                    transition={{ delay: 0.6, duration: 0.6 }}
-                                >
-                                    {reviews.length > 0 && reviews[currentSlide].text}
-                                </motion.blockquote>
-
-                                {/* Client Info */}
-                                {reviews.length > 0 && (
+                            <motion.div
+                                key={currentSlide}
+                                custom={direction}
+                                variants={slideVariants}
+                                initial="enter"
+                                animate="center"
+                                exit="exit"
+                                transition={{
+                                x: { type: "spring", stiffness: 300, damping: 30 },
+                                opacity: { duration: 0.2 },
+                                scale: { duration: 0.4 }
+                                }}
+                                className="absolute inset-0"
+                            >
+                                <div className="bg-linear-to-br from-gray-900 to-gray-800 p-8 lg:p-12 border border-gray-700 h-full flex flex-col rounded-2xl justify-center">
+                                    {/* Quote Icon */}
                                     <motion.div 
-                                    className="flex items-center justify-center space-x-4"
-                                    initial={{ opacity: 0, y: 30 }}
-                                    animate={{ opacity: 1, y: 0 }}
-                                    transition={{ delay: 0.8, duration: 0.5 }}
+                                    className="flex justify-center mb-6"
+                                    initial={{ scale: 0, rotate: -180 }}
+                                    animate={{ scale: 1, rotate: 0 }}
+                                    transition={{ delay: 0.2, duration: 0.5, type: "spring" }}
                                     >
-                                        <motion.div>
-                                            <Image 
-                                                src={reviews[currentSlide].profile_photo_url} 
-                                                alt={reviews[currentSlide].author_name} 
-                                                width={64} 
-                                                height={64} 
-                                                className="rounded-full border-2 border-orange-500"
-                                            />
-                                        </motion.div>
-                                        <div className="text-center">
-                                            <p className="text-white font-semibold text-lg">{reviews[currentSlide].author_name}</p>
-                                        </div>
+                                    <motion.div 
+                                        className="w-16 h-16 bg-orange-600/20 rounded-full flex items-center justify-center"
+                                        whileHover={{ scale: 1.1, rotate: 360 }}
+                                        transition={{ duration: 0.3 }}
+                                    >
+                                        <Quote className="w-8 h-8 text-orange-500" />
                                     </motion.div>
-                                )}
-                                
-                            </div>
-                        </motion.div>
+                                    </motion.div>
+
+                                    {/* Rating */}
+                                    <motion.div 
+                                    className="flex justify-center mb-6"
+                                    initial={{ opacity: 0 }}
+                                    animate={{ opacity: 1 }}
+                                    transition={{ delay: 0.4, duration: 0.5 }}
+                                    >
+                                    {reviews.length > 0 && [...Array(reviews[currentSlide].rating)].map((_, i) => (
+                                        <motion.div
+                                        key={i}
+                                        initial={{ opacity: 0, scale: 0 }}
+                                        animate={{ opacity: 1, scale: 1 }}
+                                        transition={{ delay: 0.5 + i * 0.1, duration: 0.3 }}
+                                        >
+                                        <Star className="w-6 h-6 text-orange-500 fill-current" />
+                                        </motion.div>
+                                    ))}
+                                    </motion.div>
+
+                                    {/* Testimonial Text */}
+                                    <motion.blockquote 
+                                        className="text-sm lg:text-2xl px-8 text-white text-center mb-8 font-light line-clamp-10 lg:line-clamp-none"
+                                        initial={{ opacity: 0, y: 20 }}
+                                        animate={{ opacity: 1, y: 0 }}
+                                        transition={{ delay: 0.6, duration: 0.6 }}
+                                    >
+                                        {reviews.length > 0 && reviews[currentSlide].text}
+                                    </motion.blockquote>
+
+                                    {/* Client Info */}
+                                    {reviews.length > 0 && (
+                                        <motion.div 
+                                        className="flex items-center justify-center space-x-4"
+                                        initial={{ opacity: 0, y: 30 }}
+                                        animate={{ opacity: 1, y: 0 }}
+                                        transition={{ delay: 0.8, duration: 0.5 }}
+                                        >
+                                            <motion.div>
+                                                <Image 
+                                                    src={reviews[currentSlide].profile_photo_url} 
+                                                    alt={reviews[currentSlide].author_name} 
+                                                    width={64} 
+                                                    height={64} 
+                                                    className="rounded-full border-2 border-orange-500"
+                                                />
+                                            </motion.div>
+                                            <div className="text-center">
+                                                <p className="text-white font-semibold text-lg">{reviews[currentSlide].author_name}</p>
+                                            </div>
+                                        </motion.div>
+                                    )}
+                                    
+                                </div>
+                            </motion.div>
                         </AnimatePresence>
                     </div>
 

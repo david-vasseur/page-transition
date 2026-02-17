@@ -79,21 +79,21 @@ function Social() {
             <div ref={socialGridRef} className="lg:max-w-2xl grid grid-cols-3 gap-6 lg:gap-8 mx-auto">
                 {[{
                     name: "Facebook",
-                    url: "https://facebook.com",
+                    url: "https://www.facebook.com/people/GVS-3D/100082197788579/",
                     icon: FaFacebook,
                     color: "text-[#1877F2]",      // Bleu Facebook officiel
                     hoverColor: "#FF6A00" // Orange (ton thème)
                     },
                     {
                     name: "Instagram",
-                    url: "https://instagram.com",
+                    url: "https://instagram.com/g.v.s_3d",
                     icon: FaInstagram,
                     color: "text-[#E1306C]",      // Rose Instagram
                     hoverColor: "#F77737" // Orange chaud
                     },
                     {
                     name: "TikTok",
-                    url: "https://tiktok.com",
+                    url: "https://www.tiktok.com/@g.v.s.3d",
                     icon: FaTiktok,
                     color: "#010101",     // Noir TikTok
                     hoverColor: "#69C9D0" // Cyan TikTok

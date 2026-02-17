@@ -58,50 +58,6 @@ const Services = () => {
             ease: "power1.inOut",
         });
 
-        // Effet de brillance sur les cartes
-        // const cards = document.querySelectorAll(".service-card");
-        // cards.forEach((card) => {
-        //     const shine = card.querySelector(".shine-effect");
-            
-        //     card.addEventListener("mouseenter", () => {
-        //         gsap.to(card, { 
-        //             y: -10,
-        //             duration: 0.4, 
-        //             ease: "power2.out" 
-        //         });
-        //         gsap.to(shine, {
-        //             x: "100%",
-        //             duration: 0.6,
-        //             ease: "power2.inOut"
-        //         });
-        //     });
-            
-        //     card.addEventListener("mouseleave", () => {
-        //         gsap.to(card, { 
-        //             y: 0,
-        //             duration: 0.4, 
-        //             ease: "power2.out" 
-        //         });
-        //         gsap.to(shine, {
-        //             x: "-100%",
-        //             duration: 0
-        //         });
-        //     });
-        // });
-
-        // Animation des icônes au hover
-        // const icons = document.querySelectorAll(".service-icon");
-        // icons.forEach((icon) => {
-        //     icon.parentElement && icon.parentElement.addEventListener("mouseenter", () => {
-        //         gsap.to(icon, {
-        //             rotate: 360,
-        //             scale: 1.1,
-        //             duration: 0.6,
-        //             ease: "back.out(1.7)"
-        //         });
-        //     });
-        // });
-
     }, { scope: root });
 
     const services = [

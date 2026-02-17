@@ -173,7 +173,7 @@ const Contact = () => {
                             </p>
                             <div className="space-y-4">
                                 <a
-                                    href="https://www.tiktok.com"
+                                    href="https://www.tiktok.com/@g.v.s.3d"
                                     target="_blank"
                                     rel="noopener noreferrer"
                                     className="social-item flex items-center bg-black/50 border-2 border-zinc-700 hover:border-orange-500 rounded-xl p-4 transition-all group"
@@ -193,7 +193,7 @@ const Contact = () => {
                                 </a>
 
                                 <a
-                                    href="https://www.facebook.com"
+                                    href="https://www.facebook.com/people/GVS-3D/100082197788579/"
                                     target="_blank"
                                     rel="noopener noreferrer"
                                     className="social-item flex items-center bg-black/50 border-2 border-zinc-700 hover:border-orange-500 rounded-xl p-4 transition-all group"
@@ -211,7 +211,7 @@ const Contact = () => {
                                 </a>
 
                                 <a
-                                    href="https://www.youtube.com"
+                                    href="https://instagram.com/g.v.s_3d"
                                     target="_blank"
                                     rel="noopener noreferrer"
                                     className="social-item flex items-center bg-black/50 border-2 border-zinc-700 hover:border-orange-500 rounded-xl p-4 transition-all group"

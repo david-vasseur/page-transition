@@ -99,35 +99,35 @@ function Faq() {
         <section ref={sectionRef} className="relative bg-black text-white text-center py-20 mb-64">
             <SectionTitle title='UNE DERNIERE' span='QESTION ?' big/>
             <FaqElement 
-            icon={FaShieldAlt} 
-            label="Est-ce dangereux pour mes enfants ou mes animaux ?" 
+                icon={FaShieldAlt} 
+                label="Est-ce dangereux pour mes enfants ou mes animaux ?" 
             />
             <FaqElement 
-            label="Non. Nous utilisons uniquement des solutions professionnelles sécurisées, placées dans des dispositifs protégés, inaccessibles aux enfants et aux animaux. Votre sécurité est notre priorité absolue." 
-            />
-
-            <FaqElement 
-            icon={FaCheckCircle} 
-            label="Est-ce que le problème peut vraiment être éliminé définitivement ?" 
-            />
-            <FaqElement 
-            label="Oui. Nous traitons la cause du problème (points d’entrée, nids, habitudes) pour empêcher toute réinfestation durablement." 
+                label="Non. Nous utilisons uniquement des solutions professionnelles sécurisées, placées dans des dispositifs protégés, inaccessibles aux enfants et aux animaux. Votre sécurité est notre priorité absolue." 
             />
 
             <FaqElement 
-            icon={FaClock} 
-            label="En combien de temps pouvez-vous intervenir ?" 
+                icon={FaCheckCircle} 
+                label="Est-ce que le problème peut vraiment être éliminé définitivement ?" 
             />
             <FaqElement 
-            label="Nous intervenons généralement sous 24 à 48 heures, avec des solutions d’urgence en cas d’infestation critique." 
+                label="Oui. Nous traitons la cause du problème (points d’entrée, nids, habitudes) pour empêcher toute réinfestation durablement." 
             />
 
             <FaqElement 
-            icon={FaEuroSign} 
-            label="Combien ça coûte ? Y a-t-il des frais cachés ?" 
+                icon={FaClock} 
+                label="En combien de temps pouvez-vous intervenir ?" 
             />
             <FaqElement 
-            label="Nos tarifs sont clairs et sans surprise. Un diagnostic est réalisé avant toute intervention pour vous proposer un devis précis et adapté." 
+                label="Nous intervenons généralement sous 24 à 48 heures, avec des solutions d’urgence en cas d’infestation critique." 
+            />
+
+            <FaqElement 
+                icon={FaEuroSign} 
+                label="Combien ça coûte ? Y a-t-il des frais cachés ?" 
+            />
+            <FaqElement 
+                label="Nos tarifs sont clairs et sans surprise. Un diagnostic est réalisé avant toute intervention pour vous proposer un devis précis et adapté." 
             />
            
             <div className="faq-cta flex flex-col gap-10 items-center justify-center mt-10">
