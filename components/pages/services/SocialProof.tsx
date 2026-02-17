@@ -4,6 +4,7 @@ import IReview from '@/type/review';
 import { useGSAP } from '@gsap/react';
 import gsap from 'gsap';
 import { Star, Quote, ArrowUpRight } from 'lucide-react';
+import Image from 'next/image';
 import { useRef } from 'react';
 
 interface IStat {
@@ -286,10 +287,12 @@ function SocialProof({
 
                                 <div className="flex items-center gap-4 pt-6 border-t border-gray-900 mt-auto">
                                     {review.profile_photo_url ? (
-                                        <img
+                                        <Image
+                                            width={40}
+                                            height={40}
                                             src={review.profile_photo_url}
                                             alt={review.author_name}
-                                            className="w-10 h-10 rounded-full object-cover"
+                                            className="rounded-full object-cover"
                                         />
                                     ) : (
                                         <div className="w-10 h-10 bg-linear-to-br from-gray-800 to-gray-700 rounded-full flex items-center justify-center text-white font-bold text-sm">
