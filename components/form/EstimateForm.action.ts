@@ -12,8 +12,7 @@ export async function sendEmail(value: IEstimate) {
 			from: "contact@gvs3d.fr",  
 			to: "p5y4@laposte.net",
 			subject: "Demande de Devis",
-			// react: MyEmail(value)
-			html: "<p>Test simple</p>"
+			react: MyEmail(value)
 		});
 		return { success: true, message: `Merci.</br> Votre demande a bien été prise en compte.</br> Nous faisons le nécéssaire pour vous recontacter dans les plus bref délais.` }
 	} catch (error) {
