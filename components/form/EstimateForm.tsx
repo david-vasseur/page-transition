@@ -166,11 +166,10 @@ export const EstimateForm = () => {
                                 className="w-full rounded-md border border-gray-700 bg-transparent py-2 px-3 text-gray-500 placeholder-gray-500 focus:border-orange-500 focus:outline-none transition"
                             >
                                 <option value="">Choisissez votre service</option>
-                                <option value="Rats">Lutte contre les rats</option>
-                                <option value="Guepes/Frelons">Lutte contre les guêpes et frelons</option>
-                                <option value="Chenilles/insectes">Lutte contre les chenilles/insectes</option>
-                                <option value="Oiseaux">Lutte contre les oiseaux</option>
-                                <option value="Rongeurs">Lutte contre les rongeurs</option>
+                                <option value="deratisation">Dératisation: Lutte contre les rongeurs</option>
+                                <option value="desinsectisation">Désinsectisation: Lutte contre les nuisibles</option>
+                                <option value="desinfection">Desinfection: Nettoyage en profondeur</option>
+                                <option value="autre">Autre</option>
                             </select>
                         {state.meta.errors.length > 0 && state.meta.isTouched ? (
                             <p 
@@ -192,7 +191,7 @@ export const EstimateForm = () => {
                         viewport={{ once: true }}
                         transition={{ delay: 1.1, duration: 0.4 }}
                     >
-                        <label className="sr-only">Votre message</label>
+                        <label className="sr-only">Precisez votre demande</label>
                         <textarea
                         aria-invalid={
                                 state.meta.errors.length > 0 && state.meta.isTouched

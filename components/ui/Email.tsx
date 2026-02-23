@@ -16,8 +16,8 @@ function MyEmail(value: IEstimate) {
                 <div style={{ marginBottom: '16px', fontSize: '16px' }}>
                     <strong>Coordonnées:</strong>
                     <ul style={{ paddingLeft: '20px', marginTop: '8px' }}>
-                        <li>Name: {value.name}</li>
-                        <li>Phone: {value.phoneNumber}</li>
+                        <li>Nom: {value.name}</li>
+                        <li>Téléphone: {value.phoneNumber}</li>
                         <li>Email: {value.email}</li>
                     </ul>
                 </div>
