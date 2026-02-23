@@ -12,12 +12,12 @@ function MyEmail(value: IEstimate) {
 
             {value.whatsapp && value.phoneNumber && (
                 <a
-                href={`https://wa.me/33${value.phoneNumber.replace(/^0/, '')}`}
-                target="_blank"
-                rel="noopener noreferrer"
-                style={{ display: 'inline-block', padding: '12px 24px', backgroundColor: 'orange', color: 'black', fontWeight: 'bold', borderRadius: 8 }}
+                    href={`https://wa.me/33${value.phoneNumber.replace(/^0/, '')}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    style={{ display: 'inline-block', padding: '12px 24px', backgroundColor: 'orange', color: 'black', fontWeight: 'bold', borderRadius: 8 }}
                 >
-                Cliquez ici pour discuter sur WhatsApp
+                    Cliquez ici pour discuter sur WhatsApp
                 </a>
             )}
         </div>
