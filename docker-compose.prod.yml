@@ -5,6 +5,8 @@ services:
       dockerfile: Dockerfile.prod
     container_name: nextjs-app
     restart: unless-stopped
+    env_file:
+      - .env
     environment:
       NODE_ENV: production
     ports:

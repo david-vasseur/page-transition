@@ -31,81 +31,81 @@ export default function PourquoiNousPage() {
 
         const heroTitle = document.querySelector('.hero-title');
         if (heroTitle) {
-        const split = new SplitText(heroTitle, { type: 'chars, words' });
-        gsap.from(split.chars, {
-            opacity: 0,
-            y: 50,
-            rotateX: -90,
-            stagger: 0.02,
-            duration: 1,
-            ease: 'back.out(1.7)',
-        });
+			const split = new SplitText(heroTitle, { type: 'chars, words' });
+			gsap.from(split.chars, {
+				opacity: 0,
+				y: 50,
+				rotateX: -90,
+				stagger: 0.02,
+				duration: 1,
+				ease: 'back.out(1.7)',
+			});
         }
 
         gsap.from('.hero-subtitle', {
-        opacity: 0,
-        y: 30,
-        duration: 1,
-        delay: 0.5,
+			opacity: 0,
+			y: 30,
+			duration: 1,
+			delay: 0.5,
         });
 
         gsap.from('.hero-cta', {
-        opacity: 0,
-        y: 30,
-        duration: 0.8,
-        delay: 0.8,
-        stagger: 0.2,
+			opacity: 0,
+			y: 30,
+			duration: 0.8,
+			delay: 0.8,
+			stagger: 0.2,
         });
 
         const scrollIndicator = document.querySelector('.scroll-indicator');
         if (scrollIndicator) {
-        gsap.to(scrollIndicator, {
-            y: 10,
-            duration: 1,
-            repeat: -1,
-            yoyo: true,
-            ease: 'power1.inOut',
-        });
+			gsap.to(scrollIndicator, {
+				y: 10,
+				duration: 1,
+				repeat: -1,
+				yoyo: true,
+				ease: 'power1.inOut',
+			});
         }
 
         gsap.utils.toArray('.story-image').forEach((image: any) => {
-        gsap.from(image, {
-            scrollTrigger: {
-            trigger: image,
-            start: 'top 80%',
-            },
-            x: -100,
-            opacity: 0,
-            duration: 1,
-            ease: 'power3.out',
-        });
+			gsap.from(image, {
+				scrollTrigger: {
+				trigger: image,
+				start: 'top 80%',
+				},
+				x: -100,
+				opacity: 0,
+				duration: 1,
+				ease: 'power3.out',
+			});
         });
 
         gsap.utils.toArray('.story-text').forEach((text: any) => {
-        gsap.from(text, {
-            scrollTrigger: {
-            trigger: text,
-            start: 'top 80%',
-            },
-            y: 50,
-            opacity: 0,
-            duration: 1,
-            ease: 'power3.out',
-        });
+			gsap.from(text, {
+				scrollTrigger: {
+				trigger: text,
+				start: 'top 80%',
+				},
+				y: 50,
+				opacity: 0,
+				duration: 1,
+				ease: 'power3.out',
+			});
         });
 
         gsap.utils.toArray('.force-card').forEach((card: any, index: number) => {
-        gsap.from(card, {
-            scrollTrigger: {
-            trigger: card,
-            start: 'top 85%',
-            },
-            y: 60,
-            opacity: 0,
-            duration: 0.8,
-            delay: index * 0.15,
-            ease: 'power3.out',
-        });
+			gsap.from(card, {
+				scrollTrigger: {
+				trigger: card,
+				start: 'top 85%',
+				},
+				y: 60,
+				opacity: 0,
+				duration: 0.8,
+				delay: index * 0.15,
+				ease: 'power3.out',
+			});
         });
 
         const counters = document.querySelectorAll('.counter-number');
