@@ -1,387 +1,563 @@
-"use client";
+'use client';
 
-import { useRef } from "react";
-import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { useGSAP } from "@gsap/react";
+import { useEffect, useRef } from 'react';
+import Image from 'next/image';
+import { gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { SplitText } from 'gsap/SplitText';
+import { useGSAP } from '@gsap/react';
 import {
-  Shield,
-  Zap,
-  Bug,
-  CheckCircle,
-  Flame,
-  Target,
-  ArrowRight,
-  Users,
-} from "lucide-react";
-import Image from "next/image";
-import { SplitText } from "gsap/SplitText";
-import { useMobileStore } from "@/lib/stores/mobileStore";
-import StorySection from "@/components/pages/pourquoi/SectionPourquoi";
-
-gsap.registerPlugin(SplitText);
-
-export default function PourquoiNous() {
-	const root = useRef<HTMLDivElement | null>(null);
-	const h2Ref = useRef<HTMLHeadingElement | null>(null);
-	const h3Ref = useRef<HTMLHeadingElement | null>(null);
-	const h3PlusRef = useRef<HTMLHeadingElement | null>(null);
-	const imageRef = useRef(null);
-	const imageContainerRef = useRef(null);
-	const { isMobile } = useMobileStore();
-
-	const storyData = [
-		{
-			tag: "Constat initial",
-			title: "Le problème",
-			titleHighlight: "n’attend jamais",
-			description: "Rats, souris, cafards... chaque minute perdue aggrave la situation.",
-			features: [
-			{ label: "Urgence", text: "Propagation éclair" },
-			{ label: "Risques", text: "Dégâts matériels lourds" }
-			],
-			imageSrc: "/close-up-pest.png",
-			imageAlt: "Infestation",
-			floatingTitle: "Alerte rapide",
-			floatingSub: "Réponse sous 2h",
-			isReversed: false
-		},
-		{
-			tag: "Notre méthode",
-			title: "Une approche",
-			titleHighlight: "chirurgicale",
-			description: "Pas de bricolage. Chaque geste est réfléchi et ciblé.",
-			features: [
-			{ label: "Diagnostic", text: "Identification de la source" },
-			{ label: "Traitements", text: "Certifiés et maîtrisés" }
-			],
-			imageSrc: "/precision-method.png",
-			imageAlt: "Expertise",
-			floatingTitle: "Zéro défaut",
-			floatingSub: "Précision millimétrée",
-			isReversed: true // Inversion ici !
-		},
-		{
-			tag: "Engagement absolu",
-			title: "Une responsabilité",
-			titleHighlight: "totale",
-			description: "Nous intervenons comme si c’était chez nous. Votre sérénité est notre seule métrique.",
-			features: [
-				{ label: "Professionnels & Collectivités", text: "Standards industriels appliqués partout" },
-				{ label: "Résultats mesurables", text: "Transparence totale sur nos actions" }
-			],
-			imageSrc: "/security-professional.png",
-			imageAlt: "Professionnel garantissant la sécurité",
-			floatingTitle: "Zone sous contrôle",
-			floatingSub: "Protocole 100% actif",
-			isReversed: false
-		}
-	];
-
-	// useGSAP(() => {
+    ArrowRight,
+    Shield,
+    Zap,
+    Users,
+    BadgeCheck,
+    MousePointer,
+    Award,
+    Briefcase,
+    GraduationCap,
+    Lock,
+    CheckCircle
+} from 'lucide-react';
+import HeroService from '@/components/pages/services/HeroService';
 
 
-	// 	/* HERO */
-	// 	gsap.from(".hero-line", {
-	// 		y: 40,
-	// 		opacity: 0,
-	// 		stagger: 0.15,
-	// 		duration: 0.8,
-	// 		ease: "power3.out",
-	// 	});
+export default function PourquoiNousPage() {
 
-	// 	/* STORY PIN */
-	// 	gsap.utils.toArray<HTMLElement>(".story-panel").forEach((panel) => {
-	// 		ScrollTrigger.create({
-	// 			trigger: panel,
-	// 			start: "top top",
-	// 			pin: true,
-	// 			pinSpacing: false,
-	// 			scrub: 1,
-	// 		});
+    const containerRef = useRef<HTMLDivElement>(null);
 
-	// 		gsap.from(panel.querySelectorAll(".story-item"), {
-	// 			opacity: 0,
-	// 			y: 60,
-	// 			stagger: 0.2,
-	// 			duration: 1,
-	// 			ease: "power3.out",
-	// 			scrollTrigger: {
-	// 				trigger: panel,
-	// 				start: "top center",
-	// 			},
-	// 		});
-	// 	});
+    useGSAP(() => {
+        if (typeof window === 'undefined') return;
 
+        const heroTitle = document.querySelector('.hero-title');
+        if (heroTitle) {
+        const split = new SplitText(heroTitle, { type: 'chars, words' });
+        gsap.from(split.chars, {
+            opacity: 0,
+            y: 50,
+            rotateX: -90,
+            stagger: 0.02,
+            duration: 1,
+            ease: 'back.out(1.7)',
+        });
+        }
 
-	// 	// if (!h2Ref.current && !h3Ref.current) return
+        gsap.from('.hero-subtitle', {
+        opacity: 0,
+        y: 30,
+        duration: 1,
+        delay: 0.5,
+        });
 
-	// 	// const h2split = new SplitText(h2Ref.current, { type: "words, chars" });
-	// 	// const h3split = new SplitText(h3Ref.current, { type: "words, chars" });
+        gsap.from('.hero-cta', {
+        opacity: 0,
+        y: 30,
+        duration: 0.8,
+        delay: 0.8,
+        stagger: 0.2,
+        });
 
-	// 	// gsap.set(h2split.words, { display: "inline-block" });
-	// 	// gsap.set(h3split.words, { display: "inline-block" });
+        const scrollIndicator = document.querySelector('.scroll-indicator');
+        if (scrollIndicator) {
+        gsap.to(scrollIndicator, {
+            y: 10,
+            duration: 1,
+            repeat: -1,
+            yoyo: true,
+            ease: 'power1.inOut',
+        });
+        }
 
-	// 	// gsap.fromTo(
-	// 	// 	h2split.chars,
-	// 	// 	{ yPercent: 50, opacity: 0 },
-	// 	// 	{
-	// 	// 		yPercent: 0,
-	// 	// 		opacity: 1,
-	// 	// 		stagger: 0.01,
-	// 	// 		ease: "power4.out",
-	// 	// 		scrollTrigger: {
-	// 	// 		trigger: ".story-text-anim-1",
-	// 	// 		start: "top 80%",
-	// 	// 		scrub: 1
-	// 	// 		}
-	// 	// 	}
-	// 	// )
+        gsap.utils.toArray('.story-image').forEach((image: any) => {
+        gsap.from(image, {
+            scrollTrigger: {
+            trigger: image,
+            start: 'top 80%',
+            },
+            x: -100,
+            opacity: 0,
+            duration: 1,
+            ease: 'power3.out',
+        });
+        });
 
-	// 	// gsap.fromTo(
-	// 	// 	h3split.chars,
-	// 	// 	{ xPercent: 50, opacity: 0 },
-	// 	// 	{
-	// 	// 		xPercent: 0,
-	// 	// 		opacity: 1,
-	// 	// 		stagger: 0.02,
-	// 	// 		ease: "power4.out",
-	// 	// 		scrollTrigger: {
-	// 	// 		trigger: ".story-text-anim-1",
-	// 	// 		start: "top 70%",
-	// 	// 		scrub: 1
-	// 	// 		}
-	// 	// 	}
-	// 	// )
+        gsap.utils.toArray('.story-text').forEach((text: any) => {
+        gsap.from(text, {
+            scrollTrigger: {
+            trigger: text,
+            start: 'top 80%',
+            },
+            y: 50,
+            opacity: 0,
+            duration: 1,
+            ease: 'power3.out',
+        });
+        });
 
-	// 	// gsap.fromTo(
-	// 	// 	h3PlusRef.current,
-	// 	// 	{ scaleX: 0, opacity: 0 },
-	// 	// 	{
-	// 	// 		scaleX: 1,
-	// 	// 		opacity: 1,
-	// 	// 		stagger: 0.04,
-	// 	// 		ease: "power4.out",
-	// 	// 		scrollTrigger: {
-	// 	// 		trigger: ".story-text-anim-1",
-	// 	// 		start: "top 60%",
-	// 	// 		scrub: 1
-	// 	// 		}
-	// 	// 	}
-	// 	// )
+        gsap.utils.toArray('.force-card').forEach((card: any, index: number) => {
+        gsap.from(card, {
+            scrollTrigger: {
+            trigger: card,
+            start: 'top 85%',
+            },
+            y: 60,
+            opacity: 0,
+            duration: 0.8,
+            delay: index * 0.15,
+            ease: 'power3.out',
+        });
+        });
 
-	// 	// gsap.fromTo(imageRef.current, 
-	// 	// 	{ 
-	// 	// 		yPercent: 10, 
-	// 	// 		scale: 1.4    
-	// 	// 	}, 
-	// 	// 	{
-	// 	// 		yPercent: -10,  
-	// 	// 		scale: 1.4,      
-	// 	// 		ease: "none",
-	// 	// 		scrollTrigger: {
-	// 	// 		trigger: ".story-panel",
-	// 	// 		start: "top bottom",
-	// 	// 		end: "+=200% top",
-	// 	// 		scrub: true
-	// 	// 		}
-	// 	// 	}
-	// 	// );
+        const counters = document.querySelectorAll('.counter-number');
+        counters.forEach((counter: any) => {
+        const target = parseInt(counter.getAttribute('data-target'));
+        const obj = { value: 0 };
 
-	// 	// gsap.fromTo(imageContainerRef.current, 
-	// 	// 	{ 
-	// 	// 		yPercent: 25, 
-	// 	// 	}, 
-	// 	// 	{
-	// 	// 		yPercent: -25,    
-	// 	// 		ease: "none",
-	// 	// 		scrollTrigger: {
-	// 	// 		trigger: ".story-panel",
-	// 	// 		start: "top bottom",
-	// 	// 		end: "+=200% top",
-	// 	// 		scrub: true
-	// 	// 		}
-	// 	// 	}
-	// 	// );
+        gsap.to(obj, {
+            scrollTrigger: {
+            trigger: counter,
+            start: 'top 80%',
+            },
+            value: target,
+            duration: 2,
+            ease: 'power2.out',
+            onUpdate: () => {
+            counter.textContent = Math.round(obj.value);
+            },
+        });
+        });
 
-	// 	// const tl = gsap.timeline({
-	// 	// 	scrollTrigger: {
-	// 	// 		trigger: ".panel-1",
-	// 	// 		start: "top bottom",
-	// 	// 		end: "bottom top",  
-	// 	// 		scrub: 1,
-				
-	// 	// 	}
-	// 	// });
+        gsap.utils.toArray('.cert-logo').forEach((logo: any, index: number) => {
+        gsap.from(logo, {
+            scrollTrigger: {
+            trigger: logo,
+            start: 'top 85%',
+            },
+            scale: 0.8,
+            opacity: 0,
+            duration: 0.6,
+            delay: index * 0.1,
+            ease: 'back.out(1.7)',
+        });
+        });
 
-	// 	// tl.fromTo(".panel-1-text", 
-	// 	// 	{ opacity: 0, xPercent: 200 }, 
-	// 	// 	{ opacity: 1, xPercent: 0, duration: 1 } 
-	// 	// )
-	// 	// .to(".panel-1-text", 
-	// 	// 	{ opacity: 0, scale: 1.4, xPercent: -25, duration: 1 }, 
-	// 	// 	"+=0.5"
-	// 	// );
+        gsap.utils.toArray('.prestation-card').forEach((card: any, index: number) => {
+        gsap.from(card, {
+            scrollTrigger: {
+            trigger: card,
+            start: 'top 85%',
+            },
+            y: 50,
+            opacity: 0,
+            duration: 0.7,
+            delay: (index % 3) * 0.1,
+            ease: 'power3.out',
+        });
+        });
 
-	// 	// gsap.to(".panel-1", 
-	// 	// 	{ 
-	// 	// 		opacity: 0, 
-	// 	// 		scrollTrigger: {
-	// 	// 			trigger: ".panel-1",
-	// 	// 			start: "top top",
-	// 	// 			scrub: 1
-	// 	// 		}
-	// 	// 	}
-	// 	// )
+        const valuesTitles = document.querySelectorAll('.value-title');
+        valuesTitles.forEach((title: any) => {
+        const split = new SplitText(title, { type: 'chars' });
+        gsap.from(split.chars, {
+            scrollTrigger: {
+            trigger: title,
+            start: 'top 80%',
+            },
+            opacity: 0,
+            y: 20,
+            stagger: 0.03,
+            duration: 0.6,
+        });
+        });
 
-	// 	// gsap.to(".panel-hero", 
-	// 	// 	{ 
-	// 	// 		opacity: 0, 
-	// 	// 		scale: 1.5,
-	// 	// 		scrollTrigger: {
-	// 	// 			trigger: ".panel-1",
-	// 	// 			start: "top bottom",
-	// 	// 			end:"top top",
-	// 	// 			scrub: 1
-	// 	// 		}
-	// 	// 	}
-	// 	// )
+        gsap.utils.toArray('.value-line').forEach((line: any) => {
+        gsap.from(line, {
+            scrollTrigger: {
+            trigger: line,
+            start: 'top 85%',
+            },
+            scaleX: 0,
+            duration: 0.8,
+            ease: 'power3.inOut',
+        });
+        });
 
-	// }, { scope: root });
+        gsap.from('.recruitment-content', {
+        scrollTrigger: {
+            trigger: '.recruitment-content',
+            start: 'top 80%',
+        },
+        scale: 0.95,
+        opacity: 0,
+        duration: 1,
+        ease: 'power3.out',
+        });
 
-	return (
-		<section
-		ref={root}
-		className="relative bg-black text-white overflow-hidden"
-		>
-			{/* BACKGROUND */}
-			<div className="absolute inset-0 bg-linear-to-br from-orange-900/20 via-black to-black" />
-			<div className="absolute top-0 right-0 w-1/2 h-1/2 bg-orange-600/10 blur-3xl rounded-full" />
-			<div className="absolute bottom-0 left-0 w-1/2 h-1/2 bg-orange-400/5 blur-3xl rounded-full" />
+        gsap.from('.final-cta-content', {
+        scrollTrigger: {
+            trigger: '.final-cta-content',
+            start: 'top 80%',
+        },
+        scale: 0.98,
+        opacity: 0,
+        duration: 1,
+        ease: 'power3.out',
+        });
 
-			{/* HERO */}
-			<div className="story-panel panel-hero relative z-0 min-h-screen flex flex-col justify-center items-center text-center px-6">
-				<span className="hero-line inline-flex items-center bg-orange-600/20 border border-orange-600/30 rounded-full px-6 py-3 mb-6">
-					<Zap className="w-5 h-5 mr-2 text-orange-500" />
-					L’exigence du résultat
-				</span>
+    }, { scope: containerRef });
 
-				<h1 className="text-5xl md:text-7xl font-black mb-6">
-					<span className="hero-line block">POURQUOI</span>
-					<span className="hero-line text-orange-600 relative inline-block">
-						NOUS CHOISIR
-						<span className="absolute -bottom-2 left-0 h-1 w-full bg-linear-to-r from-orange-600 to-orange-400" />
-					</span>
-				</h1>
+    return (
+        <div ref={containerRef} className="bg-[#0B0B0B] text-white overflow-hidden">
 
-				<p className="hero-line text-xl text-gray-300 max-w-2xl">
-					Parce qu’un nuisible n’est jamais un simple problème.
-					C’est une urgence, une menace, une perte de contrôle.
-				</p>
-			</div>
+            <HeroService header1="Pourquoi" header2="nous faire confiance ?" subTitle="Un interlocuteur unique, une expertise reconnue et un engagement total sur chaque intervention." />
 
-		
-			{storyData.map((story, i) => (
-				<StorySection key={i} {...story} />
-			))}
+            {/* STORYTELLING SECTION */}
+            <section className="py-24 px-4">
+                <div className="container mx-auto max-w-7xl">
+                    <div className="grid md:grid-cols-2 gap-12 items-center">
+                        <div className="story-image relative h-100 md:h-150 rounded-2xl overflow-hidden">
+                            <Image
+                            src="/pourquoi/gv.webp"
+                            alt="Expertise terrain"
+                            fill
+                            className="object-cover"
+                            />
+                        </div>
 
+                        <div className="story-text">
+                            <h2 className="text-4xl md:text-6xl font-black mb-6 text-[#FF6A00]">
+                            Une expertise forgée sur le terrain
+                            </h2>
 
-			{/* PROOFS - THE TRUST HUB */}
-			<section className="proofs relative bg-[#050505] py-32 px-6 overflow-hidden">
-				{/* Effet de grille en arrière-plan pour le côté "Tech" */}
-				<div className="absolute inset-0 opacity-[0.03] pointer-events-none" 
-					style={{ backgroundImage: `linear-gradient(#fff 1px, transparent 1px), linear-gradient(90deg, #fff 1px, transparent 1px)`, backgroundSize: '40px 40px' }} />
+                            <div className="space-y-4 text-gray-300 text-lg leading-relaxed">
+                            <p>
+                                Avec plus de <span className="text-white font-bold">6 ans d'expérience</span> dans la lutte contre les nuisibles et l’élimination des nids d’hyménoptères, j’ai développé une expertise concrète, acquise directement sur le terrain.
+                            </p>
 
-				<div className="max-w-7xl mx-auto relative z-10">
-					
-					{/* Header de section avec ligne de progression */}
-					<div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
-					<div className="max-w-2xl">
-						<h2 className="text-orange-500 font-mono text-sm tracking-widest uppercase mb-4">Indicateurs de Performance</h2>
-						<h3 className="text-5xl md:text-6xl font-black text-white leading-tight">
-						L'excellence n'est pas <br />
-						<span className="text-gray-500 italic">une option.</span>
-						</h3>
-					</div>
-					<div className="hidden md:block h-px grow bg-linear-to-r from-transparent via-orange-500/30 to-transparent mx-12 mb-4"></div>
-					</div>
+                            <p>
+                                Avant de me lancer en indépendant, j’ai exercé au sein de <span className="text-white font-bold">grandes entreprises nationales du secteur</span>, où j’ai appris les méthodes les plus rigoureuses et les standards d’intervention les plus exigeants.
+                            </p>
 
-					{/* Layout Bento Grid */}
-					<div className="grid grid-cols-1 md:grid-cols-12 gap-6">
-					
-					{/* Carte 1 : Rapidité (Large) */}
-					<div className="proof-card md:col-span-8 bg-zinc-900/40 border border-white/5 p-10 rounded-[2.5rem] flex flex-col md:flex-row gap-8 items-center group hover:bg-zinc-900/60 transition-all duration-500">
-						<div className="w-32 h-32 rounded-3xl bg-orange-600/10 flex items-center justify-center text-orange-500 group-hover:scale-110 transition-transform duration-500">
-						<Flame size={48} strokeWidth={1.5} />
-						</div>
-						<div className="flex-1 text-center md:text-left">
-						<div className="flex items-baseline justify-center md:justify-start gap-2 mb-2">
-							<span className="text-6xl font-black text-white counter" data-target="2">0</span>
-							<span className="text-3xl font-bold text-orange-500">H</span>
-						</div>
-						<h4 className="text-xl font-bold text-white mb-2 uppercase tracking-tight">Intervention éclair</h4>
-						<p className="text-gray-400 max-w-sm">Priorité absolue aux urgences 24/7. Notre réactivité est votre première ligne de défense.</p>
-						</div>
-					</div>
+                            <p>
+                                Cette expérience m’a permis d’intervenir dans des contextes variés : habitations individuelles, immeubles collectifs, sites professionnels et environnements sensibles.
+                            </p>
 
-					{/* Carte 2 : Preuve Sociale Publique (Large ou Carrée selon votre choix) */}
-						<div className="proof-card md:col-span-4 bg-zinc-900/40 border border-white/5 p-10 rounded-[2.5rem] relative overflow-hidden group">
-						<div className="relative z-10 h-full flex flex-col">
-							<div className="flex items-center gap-3 mb-6">
-							<div className="bg-orange-500/20 p-2 rounded-lg">
-								<Users className="text-orange-500 w-6 h-6" />
-							</div>
-							<span className="text-white font-bold uppercase tracking-widest text-xs">Confiance Publique</span>
-							</div>
+                            <p className="text-white font-semibold text-xl pt-4">
+                                Aujourd’hui, j’interviens personnellement sur chaque mission avec une exigence simple : efficacité, sécurité et travail soigné.
+                            </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
 
-							<h4 className="text-2xl font-bold text-white mb-4">
-							Ils nous font <br /> confiance.
-							</h4>
+            {/* NOTRE FORCE SECTION */}
+            <section className="py-24 px-4 bg-black/50">
+                <div className="container mx-auto max-w-7xl">
+                <h2 className="text-4xl md:text-6xl font-black text-center mb-16 text-white">
+                    Ce qui fait <span className="text-[#FF6A00]">notre force</span>
+                </h2>
 
-							{/* Zone des communes avec défilement ou grille élégante */}
-							<div className="relative mt-6 w-full overflow-hidden mask-[linear-gradient(to_right,transparent,white_20%,white_80%,transparent)]">
-							<div className="flex gap-8 animate-marquee whitespace-nowrap">
-								{/* Doubler la liste pour le défilement infini */}
-								{["Mairie de Bordeaux ", "Ville de Lyon ", "Commune de Biarritz ", "Agglo de Nantes ", "Mairie de Cannes "].map((ville, i) => (
-								<span key={i} className="text-xl font-black text-white/20 uppercase italic tracking-tighter">
-									{ville}  —
-								</span>
-								))}
-							</div>
-							</div>
-						</div>
+                <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                    <ForceCard
+                    icon={<Shield className="w-12 h-12" />}
+                    title="Méthodes alternatives et écoresponsables"
+                    description="Nous privilégions des solutions respectueuses de l'environnement sans compromis sur l'efficacité."
+                    />
 
-				{/* Filigrane discret en arrière-plan */}
-				<Shield className="absolute -bottom-10 -right-10 w-40 h-40 text-white/2 -rotate-12" />
-				</div>
+                    <ForceCard
+                    icon={<Zap className="w-12 h-12" />}
+                    title="Réactivité régional"
+                    description="Intervention rapide partout dans le Gard, le Vaucluse, et les Bouches du Rhone."
+                    />
 
-					{/* Carte 3 : Expertise (Verticale) */}
-					<div className="proof-card md:col-span-4 bg-zinc-900/40 border border-white/5 p-10 rounded-[2.5rem] flex flex-col justify-between hover:border-orange-500/30 transition-colors">
-						<Bug className="text-orange-500 w-10 h-10" />
-						<div className="mt-12">
-						<h4 className="text-2xl font-bold text-white mb-4">Expertise <br/>Terrain</h4>
-						<p className="text-gray-400">Pas de théorie. Des centaines d'heures de pratique réelle pour maîtriser chaque scénario.</p>
-						</div>
-					</div>
+                    <ForceCard
+                    icon={<Users className="w-12 h-12" />}
+                    title="Un interlocuteur unique"
+                    description="Du premier contact à l'intervention finale, vous êtes accompagné par le même expert."
+                    />
 
-					{/* Carte 4 : Le Call to Action Final (Ultra Premium) */}
-					<div className="proof-card md:col-span-8 bg-linear-to-br from-zinc-900 to-black border border-white/5 p-10 rounded-[2.5rem] flex flex-col md:flex-row items-center justify-between gap-8 relative overflow-hidden group">
-						<div className="absolute top-0 right-0 w-64 h-64 bg-orange-600/10 blur-[80px] -mr-32 -mt-32 rounded-full" />
-						
-						<div className="relative z-10">
-						<h4 className="text-3xl font-bold text-white mb-2">Prêt à sécuriser vos actifs ?</h4>
-						<p className="text-gray-400">Discutons de votre projet en moins de 15 minutes.</p>
-						</div>
+                    <ForceCard
+                    icon={<BadgeCheck className="w-12 h-12" />}
+                    title="Tarification transparente"
+                    description="Devis détaillé et forfaitisé sans surprise. Vous savez exactement ce que vous payez."
+                    />
+                </div>
+                </div>
+            </section>
 
-						<button className="relative z-10 bg-white text-black px-8 py-5 rounded-2xl font-black flex items-center gap-3 hover:bg-orange-500 hover:text-white transition-all duration-300 group/btn">
-						LANCER L'INTERVENTION
-						<ArrowRight className="group-hover/btn:translate-x-2 transition-transform" />
-						</button>
-					</div>
+            {/* RÉSEAU NATIONAL SECTION */}
+            <section className="py-24 px-4 relative">
+                <div className="absolute inset-0 opacity-5">
+                    <Image
+                    src="/logo.webp"
+                    alt="France map"
+                    fill
+                    className="object-cover"
+                    />
+                </div>
 
-					</div>
-				</div>
-			</section>
-		</section>
-	);
-}
+                <div className="container mx-auto max-w-7xl relative z-10">
+                    <h2 className="text-4xl md:text-6xl font-black text-center mb-16 text-white">
+                        Une expertise <span className="text-[#FF6A00]">indépendante et reconnue</span>
+                    </h2>
+
+                    <div className="grid md:grid-cols-3 gap-8 mb-16">
+                        <StatCard number={5} label="Années d'expérience" suffix="+" />
+                        <StatCard number={500} label="Interventions réalisées" suffix="+" />
+                        <StatCard number={100} label="Clients satisfaits" suffix="%" />
+                    </div>
+
+                    <div className="grid md:grid-cols-2 gap-12 items-center">
+                        <div className="space-y-6 text-gray-300 text-lg">
+                            <p className="text-xl leading-relaxed">
+                            Professionnel <span className="text-white font-bold">indépendant et expérimenté</span>, j’interviens avec rigueur et réactivité auprès de mes clients.
+                            </p>
+
+                            <p className="leading-relaxed">
+                            Je travaille en collaboration avec des <span className="text-[#FF6A00] font-semibold">partenaires de confiance</span> qui me sollicitent régulièrement pour mon expertise et la qualité de mes prestations.
+                            </p>
+
+                            <div className="flex flex-wrap gap-4 pt-4">
+                                <Badge text="Expert indépendant" />
+                                <Badge text="Partenaires de confiance" />
+                                <Badge text="Service 7j/7" />
+                                <Badge text="Disponibilité rapide" />
+                            </div>
+                        </div>
+
+                        <div className="relative h-100 rounded-2xl overflow-hidden">
+                            <Image
+                                src="/thanks.webp"
+                                alt="Intervention professionnelle"
+                                fill
+                                className="object-cover"
+                            />
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            {/* CERTIFICATIONS & PARTENARIATS */}
+            <section className="py-24 px-4 bg-black/30">
+                <div className="container mx-auto max-w-7xl">
+                <h2 className="text-4xl md:text-6xl font-black text-center mb-16 text-white">
+                    Certifications & <span className="text-[#FF6A00]">Partenariats</span>
+                </h2>
+
+                <div className="grid md:grid-cols-2 lg:grid-cols-5 gap-8 items-center">
+                    <CertCard title="Agrément biocide" icon={<Award className="w-16 h-16" />} />
+                    <CertCard title="Membre Chambre Syndicale 3D" icon={<Shield className="w-16 h-16" />} />
+                    <CertCard title="Certification poseur Écopiège®" icon={<BadgeCheck className="w-16 h-16" />} />
+                    <CertCard title="Réseau Plus que Pro" icon={<Users className="w-16 h-16" />} />
+                    <CertCard title="Partenaire Digrain" icon={<Briefcase className="w-16 h-16" />} />
+                </div>
+
+                <p className="text-center text-gray-400 mt-12 text-lg">
+                    Des certifications reconnues qui garantissent la qualité et la fiabilité de nos interventions
+                </p>
+                </div>
+            </section>
+
+            {/* PRESTATIONS SECTION */}
+            <section className="py-24 px-4">
+                <div className="container mx-auto max-w-7xl">
+                <h2 className="text-4xl md:text-6xl font-black text-center mb-16 text-white">
+                    Nos <span className="text-[#FF6A00]">prestations</span>
+                </h2>
+
+                <div className="space-y-16">
+                    <PrestationCategory
+                    title="DÉRATISATION"
+                    items={[
+                        { name: 'Rats', image: '/pourquoi/rat.webp' },
+                        { name: 'Souris', image: '/pourquoi/souris.webp' },
+                        { name: 'Ragondins', image: '/pourquoi/ragondin.webp' },
+                    ]}
+                    />
+
+                    <PrestationCategory
+                    title="DÉSINSECTISATION"
+                    items={[
+                        { name: 'Guêpes', image: '/pourquoi/guepe.webp' },
+                        { name: 'Frelons Européens', image: '/pourquoi/europeen.webp' },
+                        { name: 'Frelons asiatiques', image: '/pourquoi/asiatique.webp' },
+                        { name: 'Chenilles processinnaires', image: '/pourquoi/chenille.webp' },
+                        { name: 'Punaises de lit', image: '/pourquoi/punaise.webp' },
+                        { name: 'Fourmis', image: '/pourquoi/fourmis.webp' }
+                    ]}
+                    />
+
+                    <PrestationCategory
+                    title="AUTRES PRESTATIONS"
+                    items={[
+                        { name: 'Désinfection', image: '/pourquoi/desinfection.webp' },
+                        { name: 'Dépigeonnage', image: '/pourquoi/depigeonnage.webp' },
+                        { name: 'Taupes', image: '/pourquoi/taupes.webp' }
+                    ]}
+                    />
+                </div>
+                </div>
+            </section>
+
+            {/* VALEURS SECTION */}
+            <section className="py-24 px-4 relative overflow-hidden">
+                <div className="absolute inset-0 bg-linear-to-br from-[#FF6A00]/20 via-[#0B0B0B] to-[#0B0B0B]"></div>
+
+                <div className="container mx-auto max-w-7xl relative z-10">
+                <h2 className="text-4xl md:text-6xl font-black text-center mb-16 text-white">
+                    Nos <span className="text-[#FF6A00]">valeurs</span>
+                </h2>
+
+                <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                    <ValueCard
+                    icon={<Users className="w-12 h-12" />}
+                    title="Accompagnement"
+                    description="Un suivi personnalisé de A à Z pour chaque intervention."
+                    />
+
+                    <ValueCard
+                    icon={<GraduationCap className="w-12 h-12" />}
+                    title="Formation continue"
+                    description="Nos équipes sont constamment formées aux dernières techniques."
+                    />
+
+                    <ValueCard
+                    icon={<Lock className="w-12 h-12" />}
+                    title="Discrétion"
+                    description="Interventions discrètes et professionnelles garanties."
+                    />
+
+                    <ValueCard
+                    icon={<CheckCircle className="w-12 h-12" />}
+                    title="Certification & excellence"
+                    description="Des standards de qualité élevés pour chaque mission."
+                    />
+                </div>
+                </div>
+            </section>
+
+            {/* FINAL CTA SECTION */}
+            <section className="py-32 px-4 bg-black">
+                <div className="final-cta-content container mx-auto max-w-5xl text-center">
+                <h2 className="text-5xl md:text-7xl lg:text-8xl font-black mb-12 text-white leading-tight">
+                    Besoin d'une intervention <span className="text-[#FF6A00]">rapide</span> ?
+                </h2>
+
+                <button className="group bg-[#FF6A00] hover:bg-[#FF7A10] text-white px-16 py-6 rounded-xl font-black text-2xl transition-all duration-300 flex items-center gap-4 mx-auto hover:scale-110 hover:shadow-[0_0_50px_rgba(255,106,0,0.7)] mb-8">
+                    Demander mon devis gratuit
+                    <ArrowRight size={32} className="group-hover:translate-x-2 transition-transform" />
+                </button>
+
+                <p className="text-gray-400 text-lg flex flex-wrap justify-center gap-6 items-center">
+                    <span className="flex items-center gap-2">
+                    <CheckCircle className="text-[#FF6A00]" />
+                    Intervention rapide
+                    </span>
+                    <span className="flex items-center gap-2">
+                    <CheckCircle className="text-[#FF6A00]" />
+                    Devis gratuit
+                    </span>
+                    <span className="flex items-center gap-2">
+                    <CheckCircle className="text-[#FF6A00]" />
+                    Transparence totale
+                    </span>
+                </p>
+                </div>
+            </section>
+
+            </div>
+        );
+    }
+
+    function ForceCard({ icon, title, description }: { icon: React.ReactNode; title: string; description: string }) {
+        return (
+            <div className="force-card group bg-linear-to-br from-gray-900 to-black border border-gray-800 rounded-2xl p-8 hover:border-[#FF6A00] transition-all duration-300 hover:shadow-[0_0_30px_rgba(255,106,0,0.3)] cursor-pointer">
+            <div className="text-[#FF6A00] mb-4 group-hover:scale-110 transition-transform duration-300">
+                {icon}
+            </div>
+            <h3 className="text-xl font-bold mb-3 text-white">{title}</h3>
+            <p className="text-gray-400 leading-relaxed">{description}</p>
+            </div>
+        );
+    }
+
+    function StatCard({ number, label, suffix }: { number: number; label: string; suffix: string }) {
+        return (
+            <div className="text-center">
+            <div className="text-6xl md:text-7xl font-black text-[#FF6A00] mb-4">
+                <span className="counter-number" data-target={number}>0</span>{suffix}
+            </div>
+            <p className="text-xl text-gray-300 font-semibold">{label}</p>
+            </div>
+        );
+    }
+
+    function Badge({ text }: { text: string }) {
+        return (
+            <span className="inline-flex items-center gap-2 bg-[#FF6A00]/10 border border-[#FF6A00]/30 text-[#FF6A00] px-4 py-2 rounded-full text-sm font-semibold">
+            <CheckCircle size={16} />
+            {text}
+            </span>
+        );
+    }
+
+    function CertCard({ title, icon }: { title: string; icon: React.ReactNode }) {
+        return (
+            <div className="cert-logo group text-center p-6 rounded-xl border border-gray-800 hover:border-[#FF6A00] transition-all duration-300 hover:bg-[#FF6A00]/5">
+            <div className="text-gray-500 group-hover:text-[#FF6A00] transition-colors duration-300 mb-4 mx-auto w-fit">
+                {icon}
+            </div>
+            <p className="text-sm font-semibold text-gray-400 group-hover:text-white transition-colors duration-300">
+                {title}
+            </p>
+            </div>
+        );
+    }
+
+    function PrestationCategory({ title, items }: { title: string; items: { name: string; image: string }[] }) {
+        return (
+            <div>
+            <h3 className="text-3xl font-black text-[#FF6A00] mb-8 border-l-4 border-[#FF6A00] pl-4">
+                {title}
+            </h3>
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                {items.map((item, index) => (
+                <div
+                    key={index}
+                    className="prestation-card group relative h-64 rounded-xl overflow-hidden cursor-pointer"
+                >
+                    <Image
+                    src={item.image}
+                    alt={item.name}
+                    fill
+                    className="object-cover transition-transform duration-500 group-hover:scale-110"
+                    />
+                    <div className="absolute inset-0 bg-linear-to-t from-black via-black/50 to-transparent opacity-70 group-hover:opacity-90 transition-opacity duration-300"></div>
+
+                    <div className="absolute inset-0 flex flex-col justify-end p-6">
+                    <h4 className="text-2xl font-bold text-white mb-2">{item.name}</h4>
+                    <button className="bg-[#FF6A00] text-white px-4 py-2 rounded-lg font-semibold text-sm w-fit opacity-0 group-hover:opacity-100 transform translate-y-4 group-hover:translate-y-0 transition-all duration-300 flex items-center gap-2">
+                        Intervention rapide
+                        <ArrowRight size={16} />
+                    </button>
+                    </div>
+                </div>
+                ))}
+            </div>
+            </div>
+        );
+    }
+
+    function ValueCard({ icon, title, description }: { icon: React.ReactNode; title: string; description: string }) {
+        return (
+            <div className="text-center">
+            <div className="text-[#FF6A00] mb-4 mx-auto w-fit">
+                {icon}
+            </div>
+            <h3 className="value-title text-2xl font-black mb-4 text-white">{title}</h3>
+            <div className="value-line w-20 h-1 bg-[#FF6A00] mx-auto mb-4"></div>
+            <p className="text-gray-400 leading-relaxed">{description}</p>
+            </div>
+        );
+    }
