@@ -5,10 +5,10 @@ import IEstimate from "@/type/estimate"
 function MyEmail(value: IEstimate) {
     return (
         <>
-            <div style={{ backgroundColor: 'black', color: 'orange', padding: '24px', borderRadius: '8px' }}>
+            <div style={{ backgroundColor: 'black', color: 'zinc', padding: '24px', borderRadius: '8px' }}>
                 <h1>Bonjour !</h1>
                 <h2>
-                    <span className="text-blue-600 font-black">{value.name}</span> a fait une demande de devis pour {value.service}</h2>
+                    <span style={{ color: '#2563EB', fontWeight: '900' }}>{value.name}</span> a fait une demande de devis pour <span style={{ color: '#2563EB', fontWeight: '900' }}>{value.service}</span></h2>
                 <p>Message: " {value.message} "</p>
 
                 {value.whatsapp && value.phoneNumber && (
