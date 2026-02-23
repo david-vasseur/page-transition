@@ -5,11 +5,22 @@ import IEstimate from "@/type/estimate"
 function MyEmail(value: IEstimate) {
     return (
         <>
-            <div style={{ backgroundColor: 'black', color: 'zinc', padding: '24px', borderRadius: '8px' }}>
+            <div style={{ backgroundColor: 'black', color: 'white', padding: '24px', borderRadius: '8px' }}>
                 <h1>Bonjour !</h1>
                 <h2>
-                    <span style={{ color: '#2563EB', fontWeight: '900' }}>{value.name}</span> a fait une demande de devis pour <span style={{ color: '#2563EB', fontWeight: '900' }}>{value.service}</span></h2>
-                <p>Message: " {value.message} "</p>
+                    <span style={{ color: '#2563EB', fontWeight: '900' }}>{value.name}</span> a fait une demande de devis pour <span style={{ color: '#2563EB', fontWeight: '800' }}>{value.service}</span></h2>
+                <p style={{ marginBottom: '16px', fontSize: '16px' }}>
+                    <strong>Message:</strong> "{value.message}"
+                </p>
+
+                <div style={{ marginBottom: '16px', fontSize: '16px' }}>
+                    <strong>Coordonnées:</strong>
+                    <ul style={{ paddingLeft: '20px', marginTop: '8px' }}>
+                        <li>Name: {value.name}</li>
+                        <li>Phone: {value.phoneNumber}</li>
+                        <li>Email: {value.email}</li>
+                    </ul>
+                </div>
 
                 {value.whatsapp && value.phoneNumber && (
                     <a
@@ -19,7 +30,7 @@ function MyEmail(value: IEstimate) {
                         style={{
                             display: 'inline-block',
                             padding: '12px 24px',
-                            backgroundColor: 'orange',
+                            backgroundColor: '#ea580c',
                             color: 'black',
                             fontWeight: 'bold',
                             borderRadius: '8px',
