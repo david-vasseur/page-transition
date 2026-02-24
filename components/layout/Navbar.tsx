@@ -196,6 +196,7 @@ const Navbar = () => {
 														key={i.path}
 														href={i.path}
 														className="block text-white ml-4 hover:text-orange-500 transition-colors py-2"
+														onClick={ () => {setIsServiceOpen(!isServiceOpen); setIsMenuOpen(!isMenuOpen)}}
 													>
 														{i.label}
 													</TransitionLink>
