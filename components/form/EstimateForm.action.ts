@@ -10,7 +10,7 @@ export async function sendEmail(value: IEstimate) {
 	try {
 		const data = await resend.emails.send({
 			from: "contact@gvs3d.fr",  
-			to: "p5y4@laposte.net",
+			to: "g.v.s.3dpro@gmail.com",
 			subject: "Demande de Devis",
 			react: MyEmail(value)
 		});
