@@ -7,6 +7,7 @@ import TransitionLink from '../ui/transitionLink';
 import { serviceItems } from '@/data/navItems';
 import { useModalStore } from '@/lib/stores/modalStore';
 import Logo from '../ui/Logo';
+import { EstimateForm } from '../form/EstimateForm';
 
 const Navbar = () => {
 	const [isMenuOpen, setIsMenuOpen] = useState(false); 
@@ -121,7 +122,7 @@ const Navbar = () => {
 								whileHover={{ scale: 1.05, boxShadow: "0 10px 25px rgba(255, 102, 0, 0.3)" }}
 								whileTap={{ scale: 0.95 }}
 								transition={{ type: "spring", stiffness: 300 }}
-								// onClick={() => openModal(<EstimateForm />)}
+								onClick={() => openModal(<EstimateForm />)}
 							>
 								Devis Gratuit
 							</motion.button>
@@ -216,7 +217,7 @@ const Navbar = () => {
 									className="bg-orange-600 hover:bg-orange-700 text-white px-6 py-3 rounded-full font-semibold w-full cursor-pointer"
 									whileHover={{ scale: 1.02 }}
 									whileTap={{ scale: 0.98 }}
-									// onClick={() => openModal(<EstimateForm />)}
+									onClick={() => openModal(<EstimateForm />)}
 								>
 									Devis Gratuit
 								</motion.button>

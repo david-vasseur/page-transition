@@ -18,7 +18,7 @@ function MyEmail(value: IEstimate) {
                     <ul style={{ paddingLeft: '20px', marginTop: '8px' }}>
                         <li>Nom: {value.name}</li>
                         <li>Téléphone: {value.phoneNumber}</li>
-                        <li>Email: {value.email}</li>
+                        <li>Email: {value.email?.toLowerCase()}</li>
                     </ul>
                 </div>
 

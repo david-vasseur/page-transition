@@ -6,6 +6,7 @@ import { Send } from "lucide-react";
 import { sendEmail } from "./EstimateForm.action";
 import { useModalStore } from "@/lib/stores/modalStore";
 import { EstimateSchema, IEstimate } from '@/schema/estimateSchema';
+import { toast } from 'sonner';
 
 export const EstimateForm = () => {
 
@@ -24,20 +25,15 @@ export const EstimateForm = () => {
             onChange: EstimateSchema,
         },
         onSubmit: async ({ value }) => {
-            console.log(value);
             
             const response = await sendEmail(value);
             
             if (response.success) {
-                openModal(<p
-                    className="text-center"
-                    dangerouslySetInnerHTML={{ __html: response.message }}
-                />)
+                toast.success("Message envoyé", {
+                    description: "Nous vous recontacterons rapidement.",
+                })
             } else {
-                openModal(<p
-                    className="text-center"
-                    dangerouslySetInnerHTML={{ __html: response.message }}
-                />)
+                toast.error("Une erreur s’est produite.")
             }
         },
     })
@@ -102,7 +98,7 @@ export const EstimateForm = () => {
                             placeholder="Email"
                             value={state.value}
                             onBlur={handleBlur}
-                            onChange={(e) => handleChange(e.target.value)}
+                            onChange={(e) => handleChange(e.target.value.toLowerCase())}
                         />
                         {state.meta.errors.length > 0 && state.meta.isTouched ? (
                             <p 
