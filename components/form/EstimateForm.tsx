@@ -10,8 +10,6 @@ import { toast } from 'sonner';
 
 export const EstimateForm = () => {
 
-    const { openModal } = useModalStore();
-
     const form = useForm({
         defaultValues: {
             name: "",
@@ -32,6 +30,7 @@ export const EstimateForm = () => {
                 toast.success("Message envoyé", {
                     description: "Nous vous recontacterons rapidement.",
                 })
+                form.reset();
             } else {
                 toast.error("Une erreur s’est produite.")
             }
