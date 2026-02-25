@@ -154,7 +154,7 @@ const Footer = () => {
 					<h3 className="text-orange-500 font-semibold mb-3">Informations légales</h3>
 				</motion.div>
 				<div className="flex gap-5 text-gray-300 underline">
-					<motion.a href='/CGV'>CGV</motion.a>
+					<motion.a href='/cgv'>CGV</motion.a>
 					<motion.a href='/politique-de-confidentialite'>politique de confidentialité</motion.a>
 				</div>					
 				</motion.div>

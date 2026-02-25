@@ -9,7 +9,7 @@ export const metadata = {
     openGraph: {
         title: "FAQ - Questions fréquentes sur nos services d'extermination",
         description: "Découvrez les réponses aux questions les plus fréquentes concernant nos services d’extermination à Estezargues et dans le Gard/Vaucluse.",
-        url: "https://www.gvs3d.fr/FAQ",
+        url: "https://www.gvs3d.fr/faq",
         siteName: "GVS3D",
         locale: "fr_FR",
         type: "website",
