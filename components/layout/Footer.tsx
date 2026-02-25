@@ -180,7 +180,7 @@ const Footer = () => {
 				viewport={{ once: true }}
 				transition={{ delay: 1.4, duration: 0.5 }}
 			>
-				© 2025 David Vasseur. Tous droits réservés.
+				© 2026 DVWEB Agency. Tous droits réservés.
 			</motion.div>
 			</div>
 		</motion.footer>
