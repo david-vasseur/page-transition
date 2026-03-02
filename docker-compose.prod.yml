@@ -3,11 +3,16 @@ services:
     build:
       context: .
       dockerfile: Dockerfile.prod
-    container_name: nextjs-app
+    container_name: gvs3d
     restart: unless-stopped
     env_file:
       - .env
     environment:
       NODE_ENV: production
-    ports:
-      - "127.0.0.1:4000:4000"
+    networks:
+      - nginx-network
+
+networks:
+  nginx-network:
+    external: true
+    
