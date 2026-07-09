@@ -10,11 +10,11 @@ import { ratReviews } from "@/data/reviews";
 export const metadata = {
 
     title: 'Dératisation Professionnelle - Élimination de Rongeurs | GVS3D',
-    description: 'Service de dératisation professionnel à Estezargues et ses environs. Élimination efficace et durable des rats, souris et autres rongeurs. Devis gratuit et intervention rapide.',
-    keywords: 'dératisation, dératiseur, rats, souris, rongeurs, élimination rongeurs, contrôle nuisibles, GVS3D, Estezargues, Occitanie, anti-nuisibles, pièges rongeurs, produits dératisation',
+    description: 'Service de dératisation professionnel à Manduel et ses environs. Élimination efficace et durable des rats, souris et autres rongeurs. Devis gratuit et intervention rapide.',
+    keywords: 'dératisation, dératiseur, rats, souris, rongeurs, élimination rongeurs, contrôle nuisibles, GVS3D, Manduel, Occitanie, anti-nuisibles, pièges rongeurs, produits dératisation',
     openGraph: {
         title: 'Dératisation Professionnelle - Élimination de Rongeurs | GVS3D',
-        description: 'Service de dératisation professionnel à Estezargues et ses environs. Élimination efficace et durable des rats, souris et autres rongeurs. Devis gratuit et intervention rapide.',
+        description: 'Service de dératisation professionnel à Manduel et ses environs. Élimination efficace et durable des rats, souris et autres rongeurs. Devis gratuit et intervention rapide.',
         url: 'https://gvs3d.fr/logo.webp', 
         type: 'website',
         images: [
@@ -29,7 +29,7 @@ export const metadata = {
     twitter: {
         card: 'summary_large_image',
         title: 'Dératisation Professionnelle - Élimination de Rongeurs | GVS3D',
-        description: 'Service de dératisation professionnel à Estezargues et ses environs. Élimination efficace et durable des rats, souris et autres rongeurs. Devis gratuit et intervention rapide.',
+        description: 'Service de dératisation professionnel à Manduel et ses environs. Élimination efficace et durable des rats, souris et autres rongeurs. Devis gratuit et intervention rapide.',
         images: ['https://gvs3d.fr/logo.webp'], 
     },
     canonical: 'https://gvs3d.fr/deratisation',
@@ -42,17 +42,17 @@ export default function DératisationPage() {
         "@context": "https://schema.org",
         "@type": "Service",
         "name": "GVS3D - Dératisation",
-        "description": "Service professionnel de dératisation pour l'élimination de rats, souris et rongeurs à Estezargues et dans le Gard.",
+        "description": "Service professionnel de dératisation pour l'élimination de rats, souris et rongeurs à Manduel et dans le Gard.",
         "url": "https://gvs3d.fr/deratisation", 
         "provider": {
             "@type": "LocalBusiness",
             "name": "GVS3D",
             "address": {
                 "@type": "PostalAddress",
-                "streetAddress": "Estezargues", 
-                "addressLocality": "Estezargues",
+                "streetAddress": "41 Rue du Roitelet", 
+                "addressLocality": "Manduel",
                 "addressRegion": "Occitanie",
-                "postalCode": "30390", 
+                "postalCode": "30129", 
                 "addressCountry": "FR"
             },
             "telephone": "06 58 94 20 67",
@@ -69,13 +69,14 @@ export default function DératisationPage() {
             ],
             "geo": {
                 "@type": "GeoCoordinates",
-                "latitude": "43.9056", 
-                "longitude": "4.6194"
+                "latitude": "43.81366",
+                "longitude": "4.47284"
             },
             "priceRange": "€€", 
-            "hasMap": "https://www.google.com/maps/place/30390+Estezargues",
+            "hasMap": "https://www.google.com/maps/place/41+Rue+du+Roitelet,+30129+Manduel",
             "image": "https://gvs3d.fr/logo.webp",
             "sameAs": [
+                /* TODO => mettre les vrais pages */
                 "https://www.facebook.com/votrepageGVS3D", 
                 "https://www.linkedin.com/company/votrepageGVS3D"
             ]
@@ -83,7 +84,7 @@ export default function DératisationPage() {
         "areaServed": [
             {
                 "@type": "Place",
-                "name": "Estezargues"
+                "name": "Manduel"
             },
             {
                 "@type": "Place",
@@ -106,8 +107,10 @@ export default function DératisationPage() {
                 "name": "Dératisation",
                 "description": "Élimination de rats, souris, et autres rongeurs",
                 "areaServed": [
-                    { "@type": "Place", "name": "Estezargues" },
-                    { "@type": "Place", "name": "Gard" }
+                    { "@type": "Place", "name": "Manduel" },
+                    { "@type": "Place", "name": "Nîmes" },
+                    { "@type": "Place", "name": "Gard" },
+                    { "@type": "Place", "name": "Avignon" }
                 ]
             },
             "priceSpecification": {
@@ -256,7 +259,7 @@ export default function DératisationPage() {
                 ctaButtonLink="https://www.google.com/search?uds=AOm0WdE2fekQnsyfYEw8JPYozOKzEik-2elEKZuoMX0RuNnOO2GDIgxodzVnOQyNKeXlFnJ-YKUC7TE4kLm3vqIQWIc_K9GQmAyeD4qnUuL2lsL3durM3BCd536avOHSG36vM61mkI3D&q=G.V.S.3D%20Avis&si=AMgyJEtREmoPL4P1I5IDCfuA8gybfVI2d5Uj7QMwYCZHKDZ-E1JhB0J4OEHu0ExSh8WjvsFDX7W-B4bHUGXrldG4Knsut4hAo43-Re3diVTedAjKfiP_Q40r0ulfUf0zCEy5Boez_ebk&cs=1&hl=fr&sa=X&ved=0CCgQ_4MLahcKEwj4yqq4x_2OAxUAAAAAHQAAAAAQBg&biw=2552&bih=1314&dpr=1"
                 phone="06 58 94 20 67"
                 email="g.v.s.3dpro@gmail.com"
-                address="Estezargues, Occitanie"
+                address="Manduel, Occitanie"
             />
              <script
                 type="application/ld+json"

@@ -9,12 +9,12 @@ import { insectReviews } from "@/data/reviews";
 
 export const metadata = {
     title: 'Désinsectisation Professionnelle - Élimination des Insectes | GVS3D',
-    description: 'Service de désinsectisation professionnel à Estezargues et ses environs. Élimination efficace et durable des cafards, punaises de lit, fourmis, guêpes et autres insectes. Devis gratuit et intervention rapide.',
-    keywords: 'désinsectisation, désinsectiseur, cafards, punaises de lit, fourmis, guêpes, frelons, insectes nuisibles, contrôle nuisibles, GVS3D, Estezargues, Occitanie, anti-nuisibles, traitement insectes',
+    description: 'Service de désinsectisation professionnel à Manduel et ses environs. Élimination efficace et durable des cafards, punaises de lit, fourmis, guêpes et autres insectes. Devis gratuit et intervention rapide.',
+    keywords: 'désinsectisation, désinsectiseur, cafards, punaises de lit, fourmis, guêpes, frelons, insectes nuisibles, contrôle nuisibles, GVS3D, Manduel, Beaucaire, Nîmes, Gard, Occitanie, anti-nuisibles, traitement insectes',
     openGraph: {
         title: 'Désinsectisation Professionnelle - Élimination des Insectes | GVS3D',
-        description: 'Service de désinsectisation professionnel à Estezargues et ses environs. Élimination efficace et durable des cafards, punaises de lit, fourmis, guêpes et autres insectes. Devis gratuit et intervention rapide.',
-        url: 'https://gvs3d.fr/logo.webp', 
+        description: 'Service de désinsectisation professionnel à Manduel et ses environs. Élimination efficace et durable des cafards, punaises de lit, fourmis, guêpes et autres insectes. Devis gratuit et intervention rapide.',
+        url: 'https://gvs3d.fr/desinsectisation',
         type: 'website',
         images: [
             {
@@ -28,8 +28,8 @@ export const metadata = {
     twitter: {
         card: 'summary_large_image',
         title: 'Désinsectisation Professionnelle - Élimination des Insectes | GVS3D',
-        description: 'Service de désinsectisation professionnel à Estezargues et ses environs. Élimination efficace et durable des cafards, punaises de lit, fourmis, guêpes et autres insectes. Devis gratuit et intervention rapide.',
-        images: ['https://gvs3d.fr/logo.webp'], 
+        description: 'Service de désinsectisation professionnel à Manduel et ses environs. Élimination efficace et durable des cafards, punaises de lit, fourmis, guêpes et autres insectes. Devis gratuit et intervention rapide.',
+        images: ['https://gvs3d.fr/logo.webp'],
     },
     canonical: 'https://gvs3d.fr/desinsectisation',
 };
@@ -40,17 +40,17 @@ export default function DesinsectisationPage() {
         "@context": "https://schema.org",
         "@type": "Service",
         "name": "GVS3D - Désinsectisation",
-        "description": "Service professionnel de désinsectisation pour l'élimination des insectes nuisibles à Estezargues et dans le Gard.",
-        "url": "https://gvs3d.fr/desinsectisation", 
+        "description": "Service professionnel de désinsectisation pour l'élimination des insectes nuisibles à Manduel et dans le Gard.",
+        "url": "https://gvs3d.fr/desinsectisation",
         "provider": {
             "@type": "LocalBusiness",
             "name": "GVS3D",
             "address": {
                 "@type": "PostalAddress",
-                "streetAddress": "Estezargues", 
-                "addressLocality": "Estezargues",
+                "streetAddress": "41 Rue du Roitelet",
+                "addressLocality": "Manduel",
                 "addressRegion": "Occitanie",
-                "postalCode": "30390", 
+                "postalCode": "30129",
                 "addressCountry": "FR"
             },
             "telephone": "06 58 94 20 67",
@@ -59,42 +59,36 @@ export default function DesinsectisationPage() {
                 {
                     "@type": "OpeningHoursSpecification",
                     "dayOfWeek": [
-                        "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"
+                        "Monday",
+                        "Tuesday",
+                        "Wednesday",
+                        "Thursday",
+                        "Friday"
                     ],
                     "opens": "08:00",
-                    "closes": "20:00"
+                    "closes": "18:00"
                 }
             ],
             "geo": {
                 "@type": "GeoCoordinates",
-                "latitude": "43.9056", 
-                "longitude": "4.6194"
+                "latitude": "43.81366",
+                "longitude": "4.47284"
             },
-            "priceRange": "€€", 
-            "hasMap": "https://www.google.com/maps/place/30390+Estezargues",
+            "priceRange": "€€",
+            "hasMap": "https://www.google.com/maps/place/41+Rue+du+Roitelet,+30129+Manduel",
             "image": "https://gvs3d.fr/logo.webp",
             "sameAs": [
-                "https://www.facebook.com/votrepageGVS3D", 
+                /* TODO Changer les pages */
+                "https://www.facebook.com/votrepageGVS3D",
                 "https://www.linkedin.com/company/votrepageGVS3D"
             ]
         },
         "areaServed": [
-            {
-                "@type": "Place",
-                "name": "Estezargues"
-            },
-            {
-                "@type": "Place",
-                "name": "Gard"
-            },
-            {
-                "@type": "Place",
-                "name": "Nîmes" 
-            },
-            {
-                "@type": "Place",
-                "name": "Avignon" 
-            }
+            { "@type": "Place", "name": "Manduel" },
+            { "@type": "Place", "name": "Nîmes" },
+            { "@type": "Place", "name": "Beaucaire" },
+            { "@type": "Place", "name": "Avignon" },
+            { "@type": "Place", "name": "Gard" }
         ],
         "serviceType": "Désinsectisation",
         "makesOffer": {
@@ -104,7 +98,10 @@ export default function DesinsectisationPage() {
                 "name": "Désinsectisation",
                 "description": "Élimination des cafards, punaises de lit, fourmis, guêpes et autres insectes nuisibles",
                 "areaServed": [
-                    { "@type": "Place", "name": "Estezargues" },
+                    { "@type": "Place", "name": "Manduel" },
+                    { "@type": "Place", "name": "Nîmes" },
+                    { "@type": "Place", "name": "Beaucaire" },
+                    { "@type": "Place", "name": "Avignon" },
                     { "@type": "Place", "name": "Gard" }
                 ]
             },
@@ -118,7 +115,7 @@ export default function DesinsectisationPage() {
         "aggregateRating": {
             "@type": "AggregateRating",
             "ratingValue": "5",
-            "reviewCount": "73"  
+            "reviewCount": "73"
         }
     };
 
@@ -228,27 +225,27 @@ export default function DesinsectisationPage() {
                     {
                         id: 1,
                         question: 'Combien de temps faut-il pour éliminer complètement les insectes ?',
-                        answer: 'Selon le type d’insectes (cafards, punaises de lit, guêpes, etc.), l’élimination peut prendre de quelques jours à plusieurs semaines. Nous assurons un suivi régulier pour éviter toute réinfestation.'
+                        answer: 'La durée dépend du type d’insectes (cafards, punaises de lit, guêpes, fourmis...) et du niveau d’infestation. En général, une ou plusieurs interventions suffisent. Nous assurons un suivi afin de garantir une élimination durable lors de nos interventions à Manduel, Nîmes, Beaucaire et dans tout le Gard.'
                     },
                     {
                         id: 2,
                         question: 'Les produits utilisés sont-ils dangereux pour mes enfants ou mes animaux ?',
-                        answer: 'Non. Nous utilisons uniquement des produits certifiés et appliqués selon des protocoles stricts. Les zones traitées sont sécurisées et nous privilégions des solutions respectueuses de l’environnement quand c’est possible.'
+                        answer: 'Non. Nous utilisons uniquement des produits homologués et appliqués selon des protocoles stricts. Les zones traitées sont sécurisées et nous privilégions des solutions efficaces tout en limitant l’impact sur votre environnement. Nous vous expliquons également les précautions à respecter après chaque intervention.'
                     },
                     {
                         id: 3,
                         question: 'Quel est le coût d’une désinsectisation ?',
-                        answer: 'Le tarif dépend du type d’insectes, de la surface à traiter et du niveau d’infestation. Notre inspection gratuite permet d’établir un devis précis et sans engagement. En moyenne, comptez entre 120€ et 450€.'
+                        answer: 'Le tarif dépend du type d’insectes, de la surface à traiter et du niveau d’infestation. Nous proposons un diagnostic et un devis gratuits pour toute intervention à Manduel, Nîmes, Beaucaire, Avignon et dans le Gard. En moyenne, comptez entre 120 € et 450 € selon la prestation.'
                     },
                     {
                         id: 4,
                         question: 'Comment éviter une nouvelle infestation d’insectes ?',
-                        answer: 'Nous vous fournissons des conseils personnalisés : entretien des locaux, élimination des sources de nourriture, colmatage des fissures, hygiène renforcée. Nos garanties incluent des visites de contrôle.'
+                        answer: 'À l’issue de notre intervention, nous vous donnons des conseils personnalisés : suppression des sources de nourriture, colmatage des points d’entrée, entretien des locaux et bonnes pratiques d’hygiène. Ces recommandations permettent de limiter durablement les risques de réinfestation.'
                     },
                     {
                         id: 5,
                         question: 'Intervenez-vous pour les professionnels (restaurants, hôtels, bureaux) ?',
-                        answer: 'Oui, nous accompagnons régulièrement les professionnels avec des traitements adaptés et des contrats de maintenance préventive pour garantir la conformité aux normes d’hygiène (HACCP).'
+                        answer: 'Oui. Nous intervenons auprès des restaurants, hôtels, commerces, bureaux, collectivités et syndics à Manduel, Nîmes, Beaucaire, Avignon et dans l’ensemble du Gard. Nos prestations peuvent inclure des contrats de maintenance préventive afin de répondre aux exigences des normes d’hygiène, notamment HACCP.'
                     }
                 ]}
                 
@@ -258,7 +255,7 @@ export default function DesinsectisationPage() {
                 ctaButtonLink="https://www.google.com/search?uds=AOm0WdE2fekQnsyfYEw8JPYozOKzEik-2elEKZuoMX0RuNnOO2GDIgxodzVnOQyNKeXlFnJ-YKUC7TE4kLm3vqIQWIc_K9GQmAyeD4qnUuL2lsL3durM3BCd536avOHSG36vM61mkI3D&q=G.V.S.3D%20Avis&si=AMgyJEtREmoPL4P1I5IDCfuA8gybfVI2d5Uj7QMwYCZHKDZ-E1JhB0J4OEHu0ExSh8WjvsFDX7W-B4bHUGXrldG4Knsut4hAo43-Re3diVTedAjKfiP_Q40r0ulfUf0zCEy5Boez_ebk&cs=1&hl=fr&sa=X&ved=0CCgQ_4MLahcKEwj4yqq4x_2OAxUAAAAAHQAAAAAQBg&biw=2552&bih=1314&dpr=1"
                 phone="06 58 94 20 67"
                 email="g.v.s.3dpro@gmail.com"
-                address="Estezargues, Occitanie"
+                address="Manduel, Occitanie"
             />
             <script
                 type="application/ld+json"

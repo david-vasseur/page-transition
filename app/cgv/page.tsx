@@ -34,7 +34,7 @@ export default function CGVPage() {
           <p>
             Coordonnées :
             <br />
-            📍 7, rue de la Fontaine – 30390 Estezargues
+            📍 41, rue du roitelet – 30129 Manduel
             <br />
             📞 06 58 94 20 67
             <br />

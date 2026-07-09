@@ -14,11 +14,11 @@ interface PlaceDetailsResponse {
 
 export const metadata = {
 	metadataBase: new URL("https://www.gvs3d.fr"),
-    title: "GVS3D - Extermination et désinfection à Estezargues, Gard et Vaucluse",
-    description: "GVS3D propose des services professionnels de dératisation, désinsectisation et désinfection à Estezargues et alentours. Rapidité, expertise et satisfaction garantie.",
+    title: "GVS3D - Extermination et désinfection à Manduel, Gard et Vaucluse",
+    description: "GVS3D propose des services professionnels de dératisation, désinsectisation et désinfection à Manduel et alentours. Rapidité, expertise et satisfaction garantie.",
     openGraph: {
-        title: "GVS3D - Services d'extermination à Estezargues",
-        description: "Découvrez nos services de dératisation, désinsectisation et désinfection à Estezargues, Gard et Vaucluse. Expertise, rapidité et solutions efficaces pour tous vos problèmes de nuisibles.",
+        title: "GVS3D - Services d'extermination à Manduel",
+        description: "Découvrez nos services de dératisation, désinsectisation et désinfection à Manduel, Gard et Vaucluse. Expertise, rapidité et solutions efficaces pour tous vos problèmes de nuisibles.",
         url: "https://www.gvs3d.fr",
         siteName: "GVS3D",
         locale: "fr_FR",
@@ -28,13 +28,13 @@ export const metadata = {
                 url: "https://www.gvs3d.fr/new_logo.webp",
                 width: 1200,
                 height: 630,
-                alt: "GVS3D - Services d'extermination à Estezargues",
+                alt: "GVS3D - Services d'extermination à Manduel",
             },
         ],
     },
     twitter: {
         card: "summary_large_image",
-        title: "GVS3D - Extermination et désinfection à Estezargues",
+        title: "GVS3D - Extermination et désinfection à Manduel",
         description: "GVS3D vous accompagne pour la dératisation, désinsectisation et désinfection dans le Gard et le Vaucluse. Expertise et satisfaction garanties.",
         images: ["https://www.gvs3d.fr/new_logo.webp"],
     },
@@ -57,10 +57,10 @@ const organizationJsonLd = {
 	],
 	"address": {
 		"@type": "PostalAddress",
-		"streetAddress": "7 rue de la fontaine",
-		"addressLocality": "Estezargues",
+		"streetAddress": "41 rue du roitelet",
+		"addressLocality": "Manduel",
 		"addressRegion": "Gard",
-		"postalCode": "30390",
+		"postalCode": "30129",
 		"addressCountry": "FR"
 	},
 	"contactPoint": [

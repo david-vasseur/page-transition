@@ -47,37 +47,108 @@ export const servicesPages = [
             metaImage: "/logo.webp",
             canonical: "https://www.gvs3d.fr/services/desinsectisation",
             jsonLd: {
-            "@context": "https://schema.org",
-            "@type": "Service",
-            "serviceType": "Désinsectisation",
-            "provider": {
-                "@type": "LocalBusiness",
-                "name": "GVS3D - Dératisation & désinsectisation",
-                "image": "https://www.gvs3d.fr/logo.webp",
-                "logo": "https://www.gvs3d.fr/logo.webp",
-                "url": "https://www.gvs3d.fr",
-                "telephone": "+33 6 58 94 20 67",
-                "email": "g.v.s.3dpro@gmail.com",
-                "address": {
-                "@type": "PostalAddress",
-                "streetAddress": "7, rue de la fontaine",
-                "addressLocality": "ESTEZARGUES",
-                "postalCode": "30390",
-                "addressCountry": "FR"
+                "@context": "https://schema.org",
+                "@type": "Service",
+                "serviceType": "Désinsectisation",
+
+                "provider": {
+                    "@type": [
+                        "LocalBusiness",
+                        "PestControlService"
+                    ],
+                    "name": "GVS3D - Dératisation & désinsectisation",
+                    "image": "https://www.gvs3d.fr/logo.webp",
+                    "logo": "https://www.gvs3d.fr/logo.webp",
+                    "url": "https://www.gvs3d.fr",
+                    "telephone": "+33658942067",
+                    "email": "g.v.s.3dpro@gmail.com",
+
+                    "address": {
+                        "@type": "PostalAddress",
+                        "streetAddress": "41 rue du Roitelet",
+                        "addressLocality": "Manduel",
+                        "postalCode": "30129",
+                        "addressRegion": "Occitanie",
+                        "addressCountry": "FR"
+                    },
+
+                    "geo": {
+                        "@type": "GeoCoordinates",
+                        "latitude": "43.8189",
+                        "longitude": "4.4717"
+                    },
+
+                    "areaServed": [
+                        {
+                            "@type": "City",
+                            "name": "Manduel"
+                        },
+                        {
+                            "@type": "City",
+                            "name": "Nîmes"
+                        },
+                        {
+                            "@type": "City",
+                            "name": "Beaucaire"
+                        },
+                        {
+                            "@type": "City",
+                            "name": "Avignon"
+                        },
+                        {
+                            "@type": "AdministrativeArea",
+                            "name": "Gard"
+                        },
+                        {
+                            "@type": "AdministrativeArea",
+                            "name": "Vaucluse"
+                        }
+                    ],
+
+                    "openingHoursSpecification": [
+                        {
+                            "@type": "OpeningHoursSpecification",
+                            "dayOfWeek": [
+                                "Monday",
+                                "Tuesday",
+                                "Wednesday",
+                                "Thursday",
+                                "Friday"
+                            ],
+                            "opens": "08:00",
+                            "closes": "18:00"
+                        }
+                    ]
                 },
+
                 "areaServed": [
-                { "@type": "Place", "name": "Gard" },
-                { "@type": "Place", "name": "Hérault" },
-                { "@type": "Place", "name": "Bouches-du-Rhône" }
+                    {
+                        "@type": "City",
+                        "name": "Manduel"
+                    },
+                    {
+                        "@type": "City",
+                        "name": "Nîmes"
+                    },
+                    {
+                        "@type": "City",
+                        "name": "Beaucaire"
+                    },
+                    {
+                        "@type": "City",
+                        "name": "Avignon"
+                    },
+                    {
+                        "@type": "AdministrativeArea",
+                        "name": "Gard"
+                    },
+                    {
+                        "@type": "AdministrativeArea",
+                        "name": "Vaucluse"
+                    }
                 ],
-                "openingHours": "Mo-Su 00:00-23:59"
-            },
-            "areaServed": [
-                { "@type": "Place", "name": "Gard" },
-                { "@type": "Place", "name": "Hérault" },
-                { "@type": "Place", "name": "Bouches-du-Rhône" }
-            ],
-            "description": "GVS3D, entreprise spécialisée en désinsectisation. Intervention rapide et efficace dans le Gard, l’Hérault et les Bouches-du-Rhône. Experts contre cafards, punaises de lit, frelons, fourmis et autres nuisibles."
+
+                "description": "GVS3D est spécialisée en désinsectisation dans le Gard et le Vaucluse. Intervention contre les cafards, punaises de lit, fourmis, guêpes, frelons et autres insectes nuisibles à Manduel, Nîmes, Beaucaire et Avignon."
             }
         }
     },
@@ -133,32 +204,108 @@ export const servicesPages = [
             metaImage: "/logo.webp",
             canonical: "https://www.gvs3d.fr/services/deratisation",
             jsonLd: {
-            "@context": "https://schema.org",
-            "@type": "Service",
-            "serviceType": "Dératisation",
-            "provider": {
-                "@type": "LocalBusiness",
-                "name": "GVS3D - Dératisation & désinsectisation",
-                "image": "https://www.gvs3d.fr/logo.webp",
-                "logo": "https://www.gvs3d.fr/logo.webp",
-                "url": "https://www.gvs3d.fr",
-                "telephone": "+33 6 58 94 20 67",
-                "email": "g.v.s.3dpro@gmail.com",
-                "address": {
-                "@type": "PostalAddress",
-                "streetAddress": "7, rue de la fontaine",
-                "addressLocality": "ESTEZARGUES",
-                "postalCode": "30390",
-                "addressCountry": "FR"
+                "@context": "https://schema.org",
+                "@type": "Service",
+                "serviceType": "Dératisation",
+
+                "provider": {
+                    "@type": [
+                        "LocalBusiness",
+                        "PestControlService"
+                    ],
+                    "name": "GVS3D - Dératisation & désinsectisation",
+                    "image": "https://www.gvs3d.fr/logo.webp",
+                    "logo": "https://www.gvs3d.fr/logo.webp",
+                    "url": "https://www.gvs3d.fr",
+                    "telephone": "+33658942067",
+                    "email": "g.v.s.3dpro@gmail.com",
+
+                    "address": {
+                        "@type": "PostalAddress",
+                        "streetAddress": "41 rue du Roitelet",
+                        "addressLocality": "Manduel",
+                        "postalCode": "30129",
+                        "addressRegion": "Occitanie",
+                        "addressCountry": "FR"
+                    },
+
+                    "geo": {
+                        "@type": "GeoCoordinates",
+                        "latitude": "43.8189",
+                        "longitude": "4.4717"
+                    },
+
+                    "areaServed": [
+                        {
+                            "@type": "City",
+                            "name": "Manduel"
+                        },
+                        {
+                            "@type": "City",
+                            "name": "Nîmes"
+                        },
+                        {
+                            "@type": "City",
+                            "name": "Beaucaire"
+                        },
+                        {
+                            "@type": "City",
+                            "name": "Avignon"
+                        },
+                        {
+                            "@type": "AdministrativeArea",
+                            "name": "Gard"
+                        },
+                        {
+                            "@type": "AdministrativeArea",
+                            "name": "Vaucluse"
+                        }
+                    ],
+
+                    "openingHoursSpecification": [
+                        {
+                            "@type": "OpeningHoursSpecification",
+                            "dayOfWeek": [
+                                "Monday",
+                                "Tuesday",
+                                "Wednesday",
+                                "Thursday",
+                                "Friday"
+                            ],
+                            "opens": "08:00",
+                            "closes": "18:00"
+                        }
+                    ]
                 },
+
                 "areaServed": [
-                { "@type": "Place", "name": "Gard" },
-                { "@type": "Place", "name": "Hérault" },
-                { "@type": "Place", "name": "Bouches-du-Rhône" }
+                    {
+                        "@type": "City",
+                        "name": "Manduel"
+                    },
+                    {
+                        "@type": "City",
+                        "name": "Nîmes"
+                    },
+                    {
+                        "@type": "City",
+                        "name": "Beaucaire"
+                    },
+                    {
+                        "@type": "City",
+                        "name": "Avignon"
+                    },
+                    {
+                        "@type": "AdministrativeArea",
+                        "name": "Gard"
+                    },
+                    {
+                        "@type": "AdministrativeArea",
+                        "name": "Vaucluse"
+                    }
                 ],
-                "openingHours": "Mo-Su 00:00-23:59"
-            },
-            "description": "Service de dératisation professionnelle. GVS3D élimine rats, souris et rongeurs nuisibles. Intervention rapide 24/7 dans le Gard, Hérault et Bouches-du-Rhône."
+
+                "description": "GVS3D propose un service de dératisation professionnelle à Manduel, Nîmes, Beaucaire, Avignon et dans les départements du Gard et du Vaucluse. Intervention contre les rats, souris et autres rongeurs nuisibles avec des solutions adaptées aux particuliers et professionnels."
             }
         }
     },
@@ -214,32 +361,108 @@ export const servicesPages = [
             metaImage: "/logo.webp",
             canonical: "https://www.gvs3d.fr/services/desinfection",
             jsonLd: {
-            "@context": "https://schema.org",
-            "@type": "Service",
-            "serviceType": "Désinfection",
-            "provider": {
-                "@type": "LocalBusiness",
-                "name": "GVS3D - Dératisation & désinsectisation",
-                "image": "https://www.gvs3d.fr/logo.webp",
-                "logo": "https://www.gvs3d.fr/logo.webp",
-                "url": "https://www.gvs3d.fr",
-                "telephone": "+33 6 58 94 20 67",
-                "email": "g.v.s.3dpro@gmail.com",
-                "address": {
-                "@type": "PostalAddress",
-                "streetAddress": "7, rue de la fontaine",
-                "addressLocality": "ESTEZARGUES",
-                "postalCode": "30390",
-                "addressCountry": "FR"
+                "@context": "https://schema.org",
+                "@type": "Service",
+                "serviceType": "Désinfection",
+
+                "provider": {
+                    "@type": [
+                        "LocalBusiness",
+                        "PestControlService"
+                    ],
+                    "name": "GVS3D - Dératisation, désinsectisation & désinfection",
+                    "image": "https://www.gvs3d.fr/logo.webp",
+                    "logo": "https://www.gvs3d.fr/logo.webp",
+                    "url": "https://www.gvs3d.fr",
+                    "telephone": "+33658942067",
+                    "email": "g.v.s.3dpro@gmail.com",
+
+                    "address": {
+                        "@type": "PostalAddress",
+                        "streetAddress": "41 rue du Roitelet",
+                        "addressLocality": "Manduel",
+                        "postalCode": "30129",
+                        "addressRegion": "Occitanie",
+                        "addressCountry": "FR"
+                    },
+
+                    "geo": {
+                        "@type": "GeoCoordinates",
+                        "latitude": "43.8189",
+                        "longitude": "4.4717"
+                    },
+
+                    "areaServed": [
+                        {
+                            "@type": "City",
+                            "name": "Manduel"
+                        },
+                        {
+                            "@type": "City",
+                            "name": "Nîmes"
+                        },
+                        {
+                            "@type": "City",
+                            "name": "Beaucaire"
+                        },
+                        {
+                            "@type": "City",
+                            "name": "Avignon"
+                        },
+                        {
+                            "@type": "AdministrativeArea",
+                            "name": "Gard"
+                        },
+                        {
+                            "@type": "AdministrativeArea",
+                            "name": "Vaucluse"
+                        }
+                    ],
+
+                    "openingHoursSpecification": [
+                        {
+                            "@type": "OpeningHoursSpecification",
+                            "dayOfWeek": [
+                                "Monday",
+                                "Tuesday",
+                                "Wednesday",
+                                "Thursday",
+                                "Friday"
+                            ],
+                            "opens": "08:00",
+                            "closes": "18:00"
+                        }
+                    ]
                 },
+
                 "areaServed": [
-                { "@type": "Place", "name": "Gard" },
-                { "@type": "Place", "name": "Hérault" },
-                { "@type": "Place", "name": "Bouches-du-Rhône" }
+                    {
+                        "@type": "City",
+                        "name": "Manduel"
+                    },
+                    {
+                        "@type": "City",
+                        "name": "Nîmes"
+                    },
+                    {
+                        "@type": "City",
+                        "name": "Beaucaire"
+                    },
+                    {
+                        "@type": "City",
+                        "name": "Avignon"
+                    },
+                    {
+                        "@type": "AdministrativeArea",
+                        "name": "Gard"
+                    },
+                    {
+                        "@type": "AdministrativeArea",
+                        "name": "Vaucluse"
+                    }
                 ],
-                "openingHours": "Mo-Su 00:00-23:59"
-            },
-            "description": "Service de désinfection professionnelle. GVS3D intervient 24/7 pour assainir et sécuriser vos espaces dans le Gard, Hérault et Bouches-du-Rhône."
+
+                "description": "GVS3D propose des prestations de désinfection professionnelle à Manduel, Nîmes, Beaucaire, Avignon et dans le Gard et le Vaucluse. Nos interventions permettent d'assainir les locaux après une infestation, une contamination ou un besoin spécifique d'hygiène."
             }
         }
     },
@@ -295,32 +518,108 @@ export const servicesPages = [
             metaImage: "/logo.webp",
             canonical: "https://www.gvs3d.fr/services/autre",
             jsonLd: {
-            "@context": "https://schema.org",
-            "@type": "Service",
-            "serviceType": "Autres prestations de lutte antiparasitaire",
-            "provider": {
-                "@type": "LocalBusiness",
-                "name": "GVS3D - Dératisation & désinsectisation",
-                "image": "https://www.gvs3d.fr/logo.webp",
-                "logo": "https://www.gvs3d.fr/logo.webp",
-                "url": "https://www.gvs3d.fr",
-                "telephone": "+33 6 58 94 20 67",
-                "email": "g.v.s.3dpro@gmail.com",
-                "address": {
-                "@type": "PostalAddress",
-                "streetAddress": "7, rue de la fontaine",
-                "addressLocality": "ESTEZARGUES",
-                "postalCode": "30390",
-                "addressCountry": "FR"
+                "@context": "https://schema.org",
+                "@type": "Service",
+                "serviceType": "Solutions complémentaires de lutte antiparasitaire",
+
+                "provider": {
+                    "@type": [
+                        "LocalBusiness",
+                        "PestControlService"
+                    ],
+                    "name": "GVS3D - Dératisation, désinsectisation & désinfection",
+                    "image": "https://www.gvs3d.fr/logo.webp",
+                    "logo": "https://www.gvs3d.fr/logo.webp",
+                    "url": "https://www.gvs3d.fr",
+                    "telephone": "+33658942067",
+                    "email": "g.v.s.3dpro@gmail.com",
+
+                    "address": {
+                        "@type": "PostalAddress",
+                        "streetAddress": "41 rue du Roitelet",
+                        "addressLocality": "Manduel",
+                        "postalCode": "30129",
+                        "addressRegion": "Occitanie",
+                        "addressCountry": "FR"
+                    },
+
+                    "geo": {
+                        "@type": "GeoCoordinates",
+                        "latitude": "43.8189",
+                        "longitude": "4.4717"
+                    },
+
+                    "areaServed": [
+                        {
+                            "@type": "City",
+                            "name": "Manduel"
+                        },
+                        {
+                            "@type": "City",
+                            "name": "Nîmes"
+                        },
+                        {
+                            "@type": "City",
+                            "name": "Beaucaire"
+                        },
+                        {
+                            "@type": "City",
+                            "name": "Avignon"
+                        },
+                        {
+                            "@type": "AdministrativeArea",
+                            "name": "Gard"
+                        },
+                        {
+                            "@type": "AdministrativeArea",
+                            "name": "Vaucluse"
+                        }
+                    ],
+
+                    "openingHoursSpecification": [
+                        {
+                            "@type": "OpeningHoursSpecification",
+                            "dayOfWeek": [
+                                "Monday",
+                                "Tuesday",
+                                "Wednesday",
+                                "Thursday",
+                                "Friday"
+                            ],
+                            "opens": "08:00",
+                            "closes": "18:00"
+                        }
+                    ]
                 },
+
                 "areaServed": [
-                { "@type": "Place", "name": "Gard" },
-                { "@type": "Place", "name": "Hérault" },
-                { "@type": "Place", "name": "Bouches-du-Rhône" }
+                    {
+                        "@type": "City",
+                        "name": "Manduel"
+                    },
+                    {
+                        "@type": "City",
+                        "name": "Nîmes"
+                    },
+                    {
+                        "@type": "City",
+                        "name": "Beaucaire"
+                    },
+                    {
+                        "@type": "City",
+                        "name": "Avignon"
+                    },
+                    {
+                        "@type": "AdministrativeArea",
+                        "name": "Gard"
+                    },
+                    {
+                        "@type": "AdministrativeArea",
+                        "name": "Vaucluse"
+                    }
                 ],
-                "openingHours": "Mo-Su 00:00-23:59"
-            },
-            "description": "Prestations complémentaires proposées par GVS3D : prévention, suivi et interventions ciblées dans le Gard, Hérault et Bouches-du-Rhône."
+
+                "description": "GVS3D propose des solutions complémentaires de lutte antiparasitaire : prévention, surveillance des nuisibles, accompagnement personnalisé et interventions ciblées pour les particuliers et professionnels dans le Gard et le Vaucluse."
             }
         }
     }

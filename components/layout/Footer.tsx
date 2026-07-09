@@ -41,7 +41,7 @@ const Footer = () => {
 						{[
 						{ icon: Phone, text: '06 58 94 20 67' },
 						{ icon: Mail, text: 'g.v.s.3dpro@gmail.com' },
-						{ icon: MapPin, text: '7, rue de la fontaine 30390 ESTEZARGUES' },
+						{ icon: MapPin, text: '41, rue du Roitelet 30129 MANDUEL' },
 						{ icon: Clock, text: 'Service d\'urgence 24h/24 et 7j/7' }
 						].map((contact, index) => (
 						<motion.div 

@@ -1,5 +1,7 @@
 "use client"
 
+import { EstimateForm } from '@/components/form/EstimateForm';
+import { useModalStore } from '@/lib/stores/modalStore';
 import { useGSAP } from '@gsap/react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
@@ -44,6 +46,8 @@ function FaqCta({
     const ctaTitleRef = useRef<HTMLHeadingElement>(null);
     const ctaRef = useRef<HTMLDivElement>(null);
     const [openFaq, setOpenFaq] = useState<string | number | null>(null);
+
+    const { openModal } = useModalStore();
 
     useGSAP(() => {
         const faqTitleChars = gsap.utils.toArray<HTMLElement>(".faq-title-char");
@@ -252,14 +256,13 @@ function FaqCta({
 
                             {/* CTA Buttons */}
                             <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8 lg:mb-12">
-                                <a
-                                    href={ctaButtonLink}
-                                    target="_blank"
-                                    className="cta-button relative group bg-linear-to-r from-orange-600 to-orange-700 text-white px-8 py-4 rounded-full font-bold text-base 2xl:text-lg flex items-center justify-center overflow-hidden"
+                                <div
+                                    onClick={() => openModal(<EstimateForm />)}
+                                    className="cta-button cursor-pointer relative group bg-linear-to-r from-orange-600 to-orange-700 text-white px-8 py-4 rounded-full font-bold text-base 2xl:text-lg flex items-center justify-center overflow-hidden"
                                 >
                                     <span className="relative z-10">{ctaButtonText}</span>
                                     <div className="cta-shine absolute inset-0 bg-linear-to-r from-transparent via-white/30 to-transparent skew-x-12 -translate-x-full" />
-                                </a>
+                                </div>
                                 
                                 <a
                                     href={`tel:${phone.replace(/\s/g, '')}`}

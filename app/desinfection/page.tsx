@@ -9,11 +9,11 @@ import { disinfectionReviews } from "@/data/reviews";
 
 export const metadata = {
     title: 'Désinfection Professionnelle - Locaux & Logements | GVS3D',
-    description: 'Service de désinfection professionnel à Estezargues et ses environs. Élimination des virus, bactéries, moisissures et agents pathogènes. Intervention rapide, produits certifiés et certificat fourni.',
-    keywords: 'désinfection, désinfecteur, désinfection professionnelle, désinfection locaux, désinfection logement, bactéries, virus, moisissures, décontamination, hygiène, GVS3D, Estezargues, Occitanie, nettoyage extrême, logement insalubre',
+    description: 'Service de désinfection professionnel à Manduel et ses environs. Élimination des virus, bactéries, moisissures et agents pathogènes. Intervention rapide, produits certifiés et certificat fourni.',
+    keywords: 'désinfection, désinfecteur, désinfection professionnelle, désinfection locaux, désinfection logement, bactéries, virus, moisissures, décontamination, hygiène, GVS3D, Manduel, Occitanie, nettoyage extrême, logement insalubre',
     openGraph: {
         title: 'Désinfection Professionnelle - Locaux & Logements | GVS3D',
-        description: 'Service de désinfection professionnel à Estezargues et ses environs. Élimination des virus, bactéries, moisissures et agents pathogènes. Intervention rapide, produits certifiés et certificat fourni.',
+        description: 'Service de désinfection professionnel à Manduel et ses environs. Élimination des virus, bactéries, moisissures et agents pathogènes. Intervention rapide, produits certifiés et certificat fourni.',
         url: 'https://gvs3d.fr/desinfection',
         type: 'website',
         images: [
@@ -28,7 +28,7 @@ export const metadata = {
     twitter: {
         card: 'summary_large_image',
         title: 'Désinfection Professionnelle - Locaux & Logements | GVS3D',
-        description: 'Service de désinfection professionnel à Estezargues et ses environs. Élimination des virus, bactéries, moisissures et agents pathogènes. Intervention rapide, produits certifiés et certificat fourni.',
+        description: 'Service de désinfection professionnel à Manduel et ses environs. Élimination des virus, bactéries, moisissures et agents pathogènes. Intervention rapide, produits certifiés et certificat fourni.',
         images: ['https://gvs3d.fr/logo.webp'],
     },
     canonical: 'https://gvs3d.fr/desinfection',
@@ -42,17 +42,17 @@ function page() {
         "@context": "https://schema.org",
         "@type": "Service",
         "name": "GVS3D - Désinfection",
-        "description": "Service professionnel de désinfection pour l’élimination des virus, bactéries, moisissures et agents pathogènes à Estezargues et dans le Gard.",
+        "description": "Service professionnel de désinfection pour l’élimination des virus, bactéries, moisissures et agents pathogènes à Manduel et dans le Gard.",
         "url": "https://gvs3d.fr/desinfection",
         "provider": {
             "@type": "LocalBusiness",
             "name": "GVS3D",
             "address": {
                 "@type": "PostalAddress",
-                "streetAddress": "Estezargues",
-                "addressLocality": "Estezargues",
+                "streetAddress": "41 Rue du Roitelet",
+                "addressLocality": "Manduel",
                 "addressRegion": "Occitanie",
-                "postalCode": "30390",
+                "postalCode": "30129",
                 "addressCountry": "FR"
             },
             "telephone": "06 58 94 20 67",
@@ -69,22 +69,24 @@ function page() {
             ],
             "geo": {
                 "@type": "GeoCoordinates",
-                "latitude": "43.9056",
-                "longitude": "4.6194"
+                "latitude": "43.81366",
+                "longitude": "4.47284"
             },
             "priceRange": "€€",
-            "hasMap": "https://www.google.com/maps/place/30390+Estezargues",
+            "hasMap": "https://www.google.com/maps/place/41+Rue+du+Roitelet,+30129+Manduel",
             "image": "https://gvs3d.fr/logo.webp",
             "sameAs": [
+                /*TODO Changer les pages*/
                 "https://www.facebook.com/votrepageGVS3D",
                 "https://www.linkedin.com/company/votrepageGVS3D"
             ]
         },
         "areaServed": [
-            { "@type": "Place", "name": "Estezargues" },
-            { "@type": "Place", "name": "Gard" },
+            { "@type": "Place", "name": "Manduel" },
             { "@type": "Place", "name": "Nîmes" },
-            { "@type": "Place", "name": "Avignon" }
+            { "@type": "Place", "name": "Beaucaire" },
+            { "@type": "Place", "name": "Avignon" },
+            { "@type": "Place", "name": "Gard" }
         ],
         "serviceType": "Désinfection",
         "makesOffer": {
@@ -94,7 +96,10 @@ function page() {
                 "name": "Désinfection",
                 "description": "Désinfection des logements, locaux professionnels, surfaces, air ambiant et zones contaminées",
                 "areaServed": [
-                    { "@type": "Place", "name": "Estezargues" },
+                    { "@type": "Place", "name": "Manduel" },
+                    { "@type": "Place", "name": "Nîmes" },
+                    { "@type": "Place", "name": "Beaucaire" },
+                    { "@type": "Place", "name": "Avignon" },
                     { "@type": "Place", "name": "Gard" }
                 ]
             },
@@ -247,7 +252,7 @@ function page() {
                 ctaButtonLink="https://www.google.com/search?uds=AOm0WdE2fekQnsyfYEw8JPYozOKzEik-2elEKZuoMX0RuNnOO2GDIgxodzVnOQyNKeXlFnJ-YKUC7TE4kLm3vqIQWIc_K9GQmAyeD4qnUuL2lsL3durM3BCd536avOHSG36vM61mkI3D&q=G.V.S.3D%20Avis&si=AMgyJEtREmoPL4P1I5IDCfuA8gybfVI2d5Uj7QMwYCZHKDZ-E1JhB0J4OEHu0ExSh8WjvsFDX7W-B4bHUGXrldG4Knsut4hAo43-Re3diVTedAjKfiP_Q40r0ulfUf0zCEy5Boez_ebk&cs=1&hl=fr&sa=X&ved=0CCgQ_4MLahcKEwj4yqq4x_2OAxUAAAAAHQAAAAAQBg&biw=2552&bih=1314&dpr=1"
                 phone="06 58 94 20 67"
                 email="g.v.s.3dpro@gmail.com"
-                address="Estezargues, Occitanie"
+                address="Manduel, Occitanie"
             />
 
             <script

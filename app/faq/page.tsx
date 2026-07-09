@@ -4,35 +4,38 @@ import { faq } from '@/data/faq';
 import { Zap } from 'lucide-react';
 
 export const metadata = {
-    title: "FAQ - Questions fréquentes sur nos services d'extermination à Estezargues",
-    description: "Trouvez toutes les réponses aux questions les plus fréquentes sur nos services de dératisation, désinsectisation et désinfection à Estezargues et alentours.",
+    title: "FAQ nuisibles à Manduel (Gard) | Dératisation, Désinsectisation GVS3D",
+    description:
+        "Retrouvez les réponses aux questions fréquentes sur la dératisation, la désinsectisation et la désinfection à Manduel, dans le Gard et les communes voisines. Tarifs, interventions, délais et conseils GVS3D.",
     openGraph: {
-        title: "FAQ - Questions fréquentes sur nos services d'extermination",
-        description: "Découvrez les réponses aux questions les plus fréquentes concernant nos services d’extermination à Estezargues et dans le Gard/Vaucluse.",
+        title: "FAQ GVS3D - Tout savoir sur la lutte contre les nuisibles dans le Gard",
+        description:
+            "Découvrez les réponses aux questions fréquentes concernant nos interventions contre les rats, souris, insectes et autres nuisibles à Manduel et alentours.",
         url: "https://www.gvs3d.fr/faq",
         siteName: "GVS3D",
         locale: "fr_FR",
         type: "website",
         images: [
-        {
-            url: "https://www.gvs3d.fr/new_logo.webp",
-            width: 1200,
-            height: 630,
-            alt: "FAQ services d'extermination à Estezargues",
-        },
+            {
+                url: "https://www.gvs3d.fr/new_logo.webp",
+                width: 1200,
+                height: 630,
+                alt: "FAQ GVS3D - dératisation et désinsectisation à Manduel",
+            },
         ],
     },
     twitter: {
         card: "summary_large_image",
-        title: "FAQ - Questions fréquentes sur nos services d'extermination",
-        description: "Trouvez toutes les réponses aux questions les plus fréquentes sur nos services de dératisation, désinsectisation et désinfection à Estezargues et alentours.",
+        title: "FAQ GVS3D - Questions fréquentes sur les nuisibles",
+        description:
+            "Toutes les réponses sur nos services de dératisation, désinsectisation et désinfection à Manduel, dans le Gard et le Vaucluse.",
         images: ["https://www.gvs3d.fr/new_logo.webp"],
     },
     robots: {
         index: true,
         follow: true,
     },
-}
+};
 
 const generateFAQJsonLd = (faqArray: { question: string; answer: string }[]) => {
   return {
@@ -64,16 +67,26 @@ async function page() {
             <div className="min-h-screen relative z-10 flex flex-col justify-center items-center text-center mb-16">
                 <div className="contact-badge inline-flex items-center bg-orange-600/20 border border-orange-600/30 rounded-full px-6 py-3 mb-6">
                     <Zap className="w-5 h-5 mr-2 text-orange-500" />
-                    <span className="text-orange-500 font-bold">Toutes les réponses au même endroit</span>
+                    <span className="text-orange-500 font-bold">Questions fréquentes sur les nuisibles</span>
                 </div>
                 
-                <h1 className="contact-title text-5xl md:text-7xl font-black mb-6">
+                {/* <h1 className="contact-title text-5xl md:text-7xl font-black mb-6">
                     <span className="block">FOIRE AUX</span>
                     <span className="text-orange-600 relative inline-block">
                         QUESTIONS
                         <span className="absolute -bottom-2 left-0 h-1 w-full bg-linear-to-r from-orange-600 to-orange-400" />
                     </span>
+                </h1> */}
+
+                {/* TEST H1 */}
+                <h1 className="contact-title text-5xl md:text-7xl font-black mb-6">
+                    <span className="block">FAQ</span>
+                    <span className="text-orange-600 relative inline-block">
+                        LUTTE CONTRE LES NUISIBLES
+                        <span className="absolute -bottom-2 left-0 h-1 w-full bg-linear-to-r from-orange-600 to-orange-400" />
+                    </span>
                 </h1>
+
 
                 <p className="contact-subtitle text-xl text-gray-300 max-w-2xl mx-auto">
                     Retrouvez ici les réponses aux questions les plus fréquentes concernant nos services, nos interventions et nos tarifs.
