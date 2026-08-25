@@ -1,5 +1,6 @@
 "use client"
 
+import { trackPhoneClick } from "@/actions/trackPhone.action";
 import { EstimateForm } from "@/components/form/EstimateForm";
 import { useModalStore } from "@/lib/stores/modalStore";
 import { useGSAP } from "@gsap/react";
@@ -89,6 +90,7 @@ function ContactPage() {
                             </p>
                             <a
                                 href="tel:+33658942067"
+                                onClick={() => trackPhoneClick()}
                                 className="block bg-white text-orange-600 text-center font-black text-2xl py-4 rounded-xl hover:bg-gray-100 transition-colors"
                             >
                                 📞 06 58 94 20 67

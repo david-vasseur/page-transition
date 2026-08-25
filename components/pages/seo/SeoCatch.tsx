@@ -12,6 +12,7 @@ import { ArrowRight } from 'lucide-react'
 import TransitionLink from '../../ui/transitionLink'
 import SeoHeader from './SeoHeader'
 import SeoHightlight from './SeoHightlight'
+import { trackPhoneClick } from '@/actions/trackPhone.action'
 
 interface SeoCatchTemplateProps {
 	city: string
@@ -102,6 +103,7 @@ export default function SeoCatchTemplate({
 
 				<a
 					href="tel:+33658942067"
+					onClick={() => trackPhoneClick()}
 					className="mt-10 inline-flex items-center gap-3 bg-black px-10 py-5 rounded-full text-xl font-bold shadow-2xl hover:scale-105 transition"
 				>
 				📞 Appelez-nous maintenant

@@ -8,6 +8,7 @@ import { SplitText } from "gsap/SplitText";
 import SectionTitle from "../ui/SectionTitle";
 import ServiceCard from "../ui/ServiceCard";
 import { useMobileStore } from "@/lib/stores/mobileStore";
+import { trackPhoneClick } from "@/actions/trackPhone.action";
 
 gsap.registerPlugin(useGSAP);
 
@@ -177,6 +178,7 @@ const Services = () => {
                             <div className="flex flex-col gap-2">
                                 <a
                                     href="tel:+33658942067"
+                                    onClick={() => trackPhoneClick()}
                                     className="shrink-0 bg-white text-orange-600 hover:bg-gray-100 text-center font-black text-2xl md:text-3xl px-8 py-6 rounded-2xl transition-all shadow-2xl hover:scale-105"
                                 >
                                     {isMobile ? "06 58 94 20 67" : "📞 06 58 94 20 67"}

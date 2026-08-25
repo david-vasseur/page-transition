@@ -4,7 +4,6 @@ import { motion } from 'framer-motion';
 import { useForm } from "@tanstack/react-form"
 import { Send } from "lucide-react";
 import { sendEmail } from "./EstimateForm.action";
-import { useModalStore } from "@/lib/stores/modalStore";
 import { EstimateSchema, IEstimate } from '@/schema/estimateSchema';
 import { toast } from 'sonner';
 
@@ -15,6 +14,8 @@ export const EstimateForm = () => {
             name: "",
             email: "",
             phoneNumber: "",
+            address: "",
+            postalCode: "",
             service: "",
             message: "",
             whatsapp: false
@@ -137,6 +138,58 @@ export const EstimateForm = () => {
                             </p>
                         ) : null
                         }
+                    </motion.div>
+                )}
+            </form.Field>
+
+            <form.Field name="address">
+                {({ state, handleBlur, handleChange }) => (
+                    <motion.div
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ delay: 0.7 + 4 * 0.1, duration: 0.4 }}
+                    >
+                        <label className="sr-only">Votre adresse</label>
+                        <input 
+                            aria-invalid={state.meta.errors.length > 0 && state.meta.isTouched}
+                            className="w-full rounded-md border border-gray-700 bg-transparent py-2 px-3 text-white placeholder-gray-500 focus:border-orange-500 focus:outline-none transition"
+                            placeholder="Adresse (optionnel)"
+                            value={state.value}
+                            onBlur={handleBlur}
+                            onChange={(e) => handleChange(e.target.value)}
+                        />
+                        {state.meta.errors.length > 0 && state.meta.isTouched ? (
+                            <p className="text-red-500 font-semibold text-xs">
+                                {state.meta.errors[0]?.message}
+                            </p>
+                        ) : null}
+                    </motion.div>
+                )}
+            </form.Field>
+
+            <form.Field name="postalCode">
+                {({ state, handleBlur, handleChange }) => (
+                    <motion.div
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ delay: 0.7 + 5 * 0.1, duration: 0.4 }}
+                    >
+                        <label className="sr-only">Code postal</label>
+                        <input 
+                            aria-invalid={state.meta.errors.length > 0 && state.meta.isTouched}
+                            className="w-full rounded-md border border-gray-700 bg-transparent py-2 px-3 text-white placeholder-gray-500 focus:border-orange-500 focus:outline-none transition"
+                            placeholder="Code postal (optionnel)"
+                            value={state.value}
+                            onBlur={handleBlur}
+                            onChange={(e) => handleChange(e.target.value)}
+                        />
+                        {state.meta.errors.length > 0 && state.meta.isTouched ? (
+                            <p className="text-red-500 font-semibold text-xs">
+                                {state.meta.errors[0]?.message}
+                            </p>
+                        ) : null}
                     </motion.div>
                 )}
             </form.Field>

@@ -8,6 +8,7 @@ import { useModalStore } from "@/lib/stores/modalStore";
 import { useMobileStore } from "@/lib/stores/mobileStore";
 import Image from "next/image";
 import { EstimateForm } from "../form/EstimateForm";
+import { trackPhoneClick } from "@/actions/trackPhone.action";
 
 gsap.registerPlugin(useGSAP);
 
@@ -131,6 +132,7 @@ const Hero = () => {
 
                             <a
                                 href="tel:+33658942067"
+                                onClick={() => trackPhoneClick()}
                                 className="border-2 border-white text-white hover:bg-white hover:text-black px-8 py-4 rounded-full font-bold text-base 2xl:text-lg text-center"
                             >
                                 Appelez le 06 58 94 20 67

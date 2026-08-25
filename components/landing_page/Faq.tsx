@@ -8,6 +8,7 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import FaqElement from '../ui/FaqElement';
 import { FaBug, FaClock, FaEuroSign } from 'react-icons/fa6';
 import { FaCheckCircle, FaShieldAlt } from 'react-icons/fa';
+import { trackPhoneClick } from '@/actions/trackPhone.action';
 
 function Faq() {
 
@@ -133,8 +134,8 @@ function Faq() {
             <div className="faq-cta flex flex-col gap-10 items-center justify-center mt-10">
                 <p className="max-w-2xs text-xl font-extrabold">Une infestation n’attend pas. Appelez-nous dès maintenant.</p>
                 <a  
-                    href="https://www.google.com/search?uds=AOm0WdE2fekQnsyfYEw8JPYozOKzEik-2elEKZuoMX0RuNnOO2GDIgxodzVnOQyNKeXlFnJ-YKUC7TE4kLm3vqIQWIc_K9GQmAyeD4qnUuL2lsL3durM3BCd536avOHSG36vM61mkI3D&q=G.V.S.3D%20Avis&si=AMgyJEtREmoPL4P1I5IDCfuA8gybfVI2d5Uj7QMwYCZHKDZ-E1JhB0J4OEHu0ExSh8WjvsFDX7W-B4bHUGXrldG4Knsut4hAo43-Re3diVTedAjKfiP_Q40r0ulfUf0zCEy5Boez_ebk&cs=1&hl=fr&sa=X&ved=0CCgQ_4MLahcKEwj4yqq4x_2OAxUAAAAAHQAAAAAQBg&biw=2552&bih=1314&dpr=1"
-                    target='_blank'
+                    href="tel:+33658942067"
+                    onClick={() => trackPhoneClick()}target='_blank'
                     className='relative text-2xl shrink-0 overflow-hidden bg-linear-to-br from-orange-600 to-red-600 text-white px-6 py-3 rounded-full font-semibold'
                 >
                     Appellez nous

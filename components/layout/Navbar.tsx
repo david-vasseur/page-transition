@@ -8,6 +8,7 @@ import { serviceItems } from '@/data/navItems';
 import { useModalStore } from '@/lib/stores/modalStore';
 import Logo from '../ui/Logo';
 import { EstimateForm } from '../form/EstimateForm';
+import { trackPhoneClick } from '@/actions/trackPhone.action';
 
 const Navbar = () => {
 	const [isMenuOpen, setIsMenuOpen] = useState(false); 
@@ -209,7 +210,7 @@ const Navbar = () => {
 								))}
 
 								{/* Contact rapide dans le menu mobile */}
-								<a className="flex items-center space-x-2 pt-4 border-t border-gray-800" href="tel:+33658942067">
+								<a className="flex items-center space-x-2 pt-4 border-t border-gray-800" href="tel:+33658942067" onClick={() => trackPhoneClick()}>
 									<Phone className="w-4 h-4 text-orange-500" />
 									<span className="text-white">06 58 94 20 67</span>
 								</a>

@@ -1,5 +1,4 @@
-import IEstimate from "@/type/estimate"
-
+import { IEstimate } from "@/schema/estimateSchema";
 
 
 function MyEmail(value: IEstimate) {
@@ -19,6 +18,12 @@ function MyEmail(value: IEstimate) {
                         <li>Nom: {value.name}</li>
                         <li>Téléphone: {value.phoneNumber}</li>
                         <li>Email: {value.email?.toLowerCase()}</li>
+                        {value.address && (
+                            <li>Adresse: {value.address}</li>
+                        )}
+                        {value.postalCode && (
+                            <li>Code postal: {value.postalCode}</li>
+                        )}
                     </ul>
                 </div>
 
