@@ -90,7 +90,13 @@ function ContactPage() {
                             </p>
                             <a
                                 href="tel:+33658942067"
-                                onClick={() => trackPhoneClick()}
+                                onClick={() => {
+                                    if (navigator.sendBeacon) {
+                                        navigator.sendBeacon("/api/track-phone");
+                                    } else {
+                                        fetch("/api/track-phone", { method: "POST", keepalive: true });
+                                    }
+                                }}
                                 className="block bg-white text-orange-600 text-center font-black text-2xl py-4 rounded-xl hover:bg-gray-100 transition-colors"
                             >
                                 📞 06 58 94 20 67

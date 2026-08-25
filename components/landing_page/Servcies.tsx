@@ -178,7 +178,13 @@ const Services = () => {
                             <div className="flex flex-col gap-2">
                                 <a
                                     href="tel:+33658942067"
-                                    onClick={() => trackPhoneClick()}
+                                    onClick={() => {
+                                        if (navigator.sendBeacon) {
+                                            navigator.sendBeacon("/api/track-phone");
+                                        } else {
+                                            fetch("/api/track-phone", { method: "POST", keepalive: true });
+                                        }
+                                    }}
                                     className="shrink-0 bg-white text-orange-600 hover:bg-gray-100 text-center font-black text-2xl md:text-3xl px-8 py-6 rounded-2xl transition-all shadow-2xl hover:scale-105"
                                 >
                                     {isMobile ? "06 58 94 20 67" : "📞 06 58 94 20 67"}

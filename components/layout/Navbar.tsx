@@ -210,7 +210,17 @@ const Navbar = () => {
 								))}
 
 								{/* Contact rapide dans le menu mobile */}
-								<a className="flex items-center space-x-2 pt-4 border-t border-gray-800" href="tel:+33658942067" onClick={() => trackPhoneClick()}>
+								<a 
+									className="flex items-center space-x-2 pt-4 border-t border-gray-800" 
+									href="tel:+33658942067" 
+									onClick={() => {
+										if (navigator.sendBeacon) {
+											navigator.sendBeacon("/api/track-phone");
+										} else {
+											fetch("/api/track-phone", { method: "POST", keepalive: true });
+										}
+									}}
+								>
 									<Phone className="w-4 h-4 text-orange-500" />
 									<span className="text-white">06 58 94 20 67</span>
 								</a>

@@ -103,7 +103,13 @@ export default function SeoCatchTemplate({
 
 				<a
 					href="tel:+33658942067"
-					onClick={() => trackPhoneClick()}
+					onClick={() => {
+						if (navigator.sendBeacon) {
+							navigator.sendBeacon("/api/track-phone");
+						} else {
+							fetch("/api/track-phone", { method: "POST", keepalive: true });
+						}
+					}}
 					className="mt-10 inline-flex items-center gap-3 bg-black px-10 py-5 rounded-full text-xl font-bold shadow-2xl hover:scale-105 transition"
 				>
 				📞 Appelez-nous maintenant

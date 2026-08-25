@@ -135,7 +135,13 @@ function Faq() {
                 <p className="max-w-2xs text-xl font-extrabold">Une infestation n’attend pas. Appelez-nous dès maintenant.</p>
                 <a  
                     href="tel:+33658942067"
-                    onClick={() => trackPhoneClick()}target='_blank'
+                    onClick={() => {
+                        if (navigator.sendBeacon) {
+                            navigator.sendBeacon("/api/track-phone");
+                        } else {
+                            fetch("/api/track-phone", { method: "POST", keepalive: true });
+                        }
+                    }}
                     className='relative text-2xl shrink-0 overflow-hidden bg-linear-to-br from-orange-600 to-red-600 text-white px-6 py-3 rounded-full font-semibold'
                 >
                     Appellez nous

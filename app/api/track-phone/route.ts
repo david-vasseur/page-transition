@@ -1,34 +1,35 @@
-"use server";
-
+import { NextResponse } from "next/server";
 import { Resend } from "resend";
 import { headers } from "next/headers";
 
 const resend = new Resend(process.env.RESEND_API_KEY!);
 
-export async function trackPhoneClick() {
+export async function POST() {
     try {
         const headersList = await headers();
         
-        // 1. Récupération de l'adresse IP du visiteur
+        // 1. Détection automatique Mobile vs Desktop via le User-Agent
+        const userAgent = headersList.get("user-agent") || "";
+        const isMobile = /android|iphone|ipad|ipod|mobile/i.test(userAgent);
+        const deviceType = isMobile ? "MOBILE" : "DESKTOP";
+        
+        // 2. Récupération des infos réseau / géo
         const forwardedFor = headersList.get("x-forwarded-for");
         const clientIp = forwardedFor ? forwardedFor.split(",")[0] : headersList.get("x-real-ip") || "Inconnue";
-
-        // 2. Récupération de la localisation (si hébergé sur Vercel, ces headers sont automatiques)
         const city = headersList.get("x-vercel-ip-city") ? decodeURIComponent(headersList.get("x-vercel-ip-city")!) : "Ville non détectée";
         const region = headersList.get("x-vercel-ip-region") || "";
         const country = headersList.get("x-vercel-ip-country") || "FR";
 
-        // Note : Si tu es hébergé sur un VPS classique (Nginx), tu peux coupler l'IP à une API gratuite (comme ipapi.co) si besoin, mais Vercel le fait tout seul.
-
+        // 3. Envoi de l'e-mail avec le sujet dynamique
         await resend.emails.send({
             from: "contact@gvs3d.fr",  
             to: "p5y4@icloud.com",
-            subject: "📞 Alerte : CTA DESKTOP d'appel !",
+            subject: `📞 Alerte : CTA ${deviceType} d'appel !`,
             html: `
                 <div style="background-color: black; color: white; padding: 24px; border-radius: 8px; font-family: sans-serif;">
-                    <h1 style="color: #ea580c;">Coup de fil en vue !</h1>
+                    <h1 style="color: #ea580c;">Coup de fil en vue (${deviceType}) !</h1>
                     <p style="font-size: 16px;">
-                        Un visiteur vient de <strong>cliquer sur ton numéro de téléphone</strong> (06 58 94 20 67) depuis le site web.
+                        Un visiteur vient de <strong>cliquer sur ton numéro de téléphone</strong> (06 58 94 20 67) depuis un appareil <strong>${deviceType.toLowerCase()}</strong>.
                     </p>
                     
                     <div style="background-color: #111; padding: 12px; border-radius: 6px; margin: 16px 0; font-size: 14px;">
@@ -45,9 +46,10 @@ export async function trackPhoneClick() {
                 </div>
             `
         });
-        return { success: true };
+
+        return NextResponse.json({ success: true });
     } catch (error) {
         console.error("Erreur tracking téléphone:", error);
-        return { success: false };
+        return NextResponse.json({ success: false }, { status: 500 });
     }
 }

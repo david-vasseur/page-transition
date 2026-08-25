@@ -354,7 +354,13 @@ function Story({
                     <p className="max-w-2xs z-1 text-center text-xl font-extrabold">{cta}</p>
                     <a  
                         href="tel:+33658942067"
-                        onClick={() => trackPhoneClick()}target='_blank'
+                        onClick={() => {
+                            if (navigator.sendBeacon) {
+                                navigator.sendBeacon("/api/track-phone");
+                            } else {
+                                fetch("/api/track-phone", { method: "POST", keepalive: true });
+                            }
+                        }}
                         className='relative z-1 text-2xl shrink-0 overflow-hidden bg-linear-to-br from-orange-500 to-red-600 text-white px-6 py-3 rounded-full font-semibold border border-black/80 shadow-2xl shadow-black/80'
                     >
                         Appellez nous

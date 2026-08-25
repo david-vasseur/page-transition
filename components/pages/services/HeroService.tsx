@@ -136,7 +136,13 @@ function HeroService({ header1, header2, subTitle }: IHeroService) {
 
                         <a
                             href="tel:+33658942067"
-                            onClick={() => trackPhoneClick()}
+                            onClick={() => {
+                                if (navigator.sendBeacon) {
+                                    navigator.sendBeacon("/api/track-phone");
+                                } else {
+                                    fetch("/api/track-phone", { method: "POST", keepalive: true });
+                                }
+                            }}
                             className="border-2 border-white text-white hover:bg-white hover:text-black px-8 py-4 rounded-full font-bold text-base 2xl:text-lg text-center transition-all duration-400"
                         >
                             Appelez le 06 58 94 20 67
