@@ -16,6 +16,7 @@ export const EstimateForm = () => {
             phoneNumber: "",
             address: "",
             postalCode: "",
+            city: "",
             service: "",
             message: "",
             whatsapp: false
@@ -181,6 +182,32 @@ export const EstimateForm = () => {
                             aria-invalid={state.meta.errors.length > 0 && state.meta.isTouched}
                             className="w-full rounded-md border border-gray-700 bg-transparent py-2 px-3 text-white placeholder-gray-500 focus:border-orange-500 focus:outline-none transition"
                             placeholder="Code postal (optionnel)"
+                            value={state.value}
+                            onBlur={handleBlur}
+                            onChange={(e) => handleChange(e.target.value)}
+                        />
+                        {state.meta.errors.length > 0 && state.meta.isTouched ? (
+                            <p className="text-red-500 font-semibold text-xs">
+                                {state.meta.errors[0]?.message}
+                            </p>
+                        ) : null}
+                    </motion.div>
+                )}
+            </form.Field>
+
+            <form.Field name="city">
+                {({ state, handleBlur, handleChange }) => (
+                    <motion.div
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ delay: 0.7 + 6 * 0.1, duration: 0.4 }}
+                    >
+                        <label className="sr-only">Ville</label>
+                        <input 
+                            aria-invalid={state.meta.errors.length > 0 && state.meta.isTouched}
+                            className="w-full rounded-md border border-gray-700 bg-transparent py-2 px-3 text-white placeholder-gray-500 focus:border-orange-500 focus:outline-none transition"
+                            placeholder="Ville (optionnel)"
                             value={state.value}
                             onBlur={handleBlur}
                             onChange={(e) => handleChange(e.target.value)}
