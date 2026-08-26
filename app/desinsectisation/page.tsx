@@ -119,12 +119,10 @@ export default function DesinsectisationPage() {
         }
     };
 
-    console.log(services);
     
     const service = services.find(i => i.hero.header1 === "Désinsectisation");
     
     const description = serviceDescriptions.find(i => i.title === "Désinsectisation complète");
-    console.log(socialProofData);
     
     const socialProof = socialProofData[0];
 
@@ -174,7 +172,7 @@ export default function DesinsectisationPage() {
                         title: "Particulier",
                         subtitle: "Maisons & Appartements",
                         priceRange: "120€ - 350€",
-                        priceNote: "Selon type d’insectes et surface",
+                        priceNote: "Selon type d’insectes, surface et accessibilité",
                         badge: "Inspection offerte",
                         gradient: "from-orange-600 to-orange-700",
                         bgGradient: "from-orange-600/5 to-orange-700/5",

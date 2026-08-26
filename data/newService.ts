@@ -154,9 +154,18 @@ export const services: IServicePage[] = [
         { id: 3, text: "chenilles processionaires, punaises de lit ?" }
       ],
       list2: [
-        { id: 1, text: "Perche de 24 mètres pour atteindre les nids en hauteur" },
-        { id: 2, text: "Billes de paintball biocides pour sécuriser les interventions" },
-        { id: 3, text: "Intervention rapide et professionnelle pour neutraliser les nuisibles" }
+          {
+              id: 1,
+              text: "Perche pour atteindre les nids jusqu’à 20 mètres de hauteur",
+          },
+          {
+              id: 2,
+              text: "Billes de paintball biocides pour des tirs jusqu’à 40 mètres",
+          },
+          {
+              id: 3,
+              text: "Intervention rapide et professionnelle pour neutraliser les nuisibles",
+          },
       ],
       list3: [
         { id: 1, text: "Neutralisation des nids sans risque pour vous et votre famille" },
@@ -259,29 +268,34 @@ export const serviceDescriptions: IServiceDescription[] = [
       { id: 4, icon: "award", title: "Suivi personnalisé", description: "Plan de prévention et suivi après intervention." },
     ],
         processTitle: "Les points fort de notre processus de désinsectisation",
-        processSteps: [
-      { 
-        id: 1, 
-        number: "01", 
-        title: "Intervention en hauteur", 
-        description: "Utilisation de perches professionnelles permettant de traiter efficacement les zones très hautes et difficiles d’accès en toute sécurité.", 
-        image: "/service/desinsectisation/+/perche.jpg" 
-      },
-      { 
-        id: 2, 
-        number: "02", 
-        title: "Équipement de dernière génération", 
-        description: "Emploi de lanceurs type paintball avec insecticide, offrant une portée précise pour atteindre des zones auparavant inaccessibles.", 
-        image: "/service/desinsectisation/+/paintball.jpg" 
-      },
-      { 
-        id: 3, 
-        number: "03", 
-        title: "Certifications d’État", 
-        description: "Interventions réalisées par des professionnels certifiés, disposant des agréments et certifications officielles garantissant sécurité et conformité.", 
-        image: "/service/desinsectisation/+/certif.webp" 
-      },
-    ],
+       processSteps: [
+    {
+        id: 1,
+        number: "01",
+        title: "Intervention en hauteur",
+        description:
+            "Utilisation de perches professionnelles permettant de traiter efficacement les zones très hautes, jusqu’à 20 mètres de hauteur, y compris les zones difficiles d’accès.",
+        image: "/service/desinsectisation/+/perche.jpg",
+    },
+
+    {
+        id: 2,
+        number: "02",
+        title: "Équipement de dernière génération",
+        description:
+            "Emploi de lanceurs de type paintball avec insecticide, offrant une portée précise jusqu’à 40 mètres pour atteindre des zones auparavant inaccessibles.",
+        image: "/service/desinsectisation/+/paintball.jpg",
+    },
+
+    {
+        id: 3,
+        number: "03",
+        title: "Certifications d’État",
+        description:
+            "Interventions réalisées par des professionnels certifiés, disposant des agréments et certifications officielles garantissant sécurité et conformité.",
+        image: "/service/desinsectisation/+/certif.webp",
+    },
+],
   },
   {
     title: "Désinfection complète",

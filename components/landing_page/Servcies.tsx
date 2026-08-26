@@ -98,9 +98,9 @@ const Services = () => {
             icon: Droplet,
             description: "Désinfection complète et assainissement des espaces",
             features: [
+                "Dépigeonnage",
                 "Virus, bactéries, champignons",
                 "Traitement post-infestation",
-                "Normes hospitalières",
                 "Certificat de désinfection"
             ],
             gradient: "from-blue-600 to-cyan-600",

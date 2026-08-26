@@ -142,7 +142,7 @@ function ContactPage() {
                                     <div>
                                         <h4 className="font-bold mb-1">Zone d'intervention</h4>
                                         <p className="text-gray-400">
-                                            Remoulins et sa région<br />
+                                            Manduel et sa région<br />
                                             Rayon de 50km
                                         </p>
                                     </div>

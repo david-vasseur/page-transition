@@ -177,7 +177,7 @@ export default function DératisationPage() {
                         title: "Particulier",
                         subtitle: "Maisons & Appartements",
                         priceRange: "150€ - 300€",
-                        priceNote: "Selon surface et infestation",
+                        priceNote: "Selon surface, infestation et accessibilité",
                         badge: "Inspection offerte",
                         gradient: "from-orange-600 to-orange-700",
                         bgGradient: "from-orange-600/5 to-orange-700/5",

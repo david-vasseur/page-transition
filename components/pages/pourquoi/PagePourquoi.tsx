@@ -350,7 +350,7 @@ export default function PourquoiNousPage() {
                     <CertCard title="Membre Chambre Syndicale 3D" icon={<Shield className="w-16 h-16" />} />
                     <CertCard title="Certification poseur Écopiège®" icon={<BadgeCheck className="w-16 h-16" />} />
                     <CertCard title="Réseau Plus que Pro" icon={<Users className="w-16 h-16" />} />
-                    <CertCard title="Partenaire Digrain" icon={<Briefcase className="w-16 h-16" />} />
+                    {/* <CertCard title="Partenaire Digrain" icon={<Briefcase className="w-16 h-16" />} /> */}                
                 </div>
 
                 <p className="text-center text-gray-400 mt-12 text-lg">

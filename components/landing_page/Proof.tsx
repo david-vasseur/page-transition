@@ -19,7 +19,7 @@ const partners = [
     { name: "Garons", alt: "Blason de la ville de Garons", image: "/garons.png", href: "/desinsectisation-garons" },
     { name: "Bellegarde", alt: "Blason de la ville de Bellegarde", image: "/bellegarde.png", href: "/desinsectisation-bellegarde" },
     { name: "Ledenon", alt: "Blason de la ville de Ledenon", image: "/ledenon.png", href: "deratisation-a-ledenon" },
-    { name: "St Anastasie", alt: "Blason de la ville de St Anastasie", image: "/stanastasie.png", href: "/desinsectisation-a-st-anastasie" },
+    { name: "Manduel", alt: "Blason de la ville de Manduel", image: "/manduel.webp", href: "/deratisation-a-manduel" },
     { name: "St Bonnet du Gard", alt: "Blason de la ville de St Bonnet du Gard", image: "/stbonnet.svg", href: "/deratisation-st-bonnet-du-gard" },
     { name: "VINCI", alt: "Logo de l'entrprise VINCI", image: "/vinci.png", href: "#" },
     { name: "SNCF", alt: "Logo de l'entrprise SNCF", image: "/sncf.png", href: "#" },

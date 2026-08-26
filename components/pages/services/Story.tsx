@@ -235,7 +235,6 @@ function Story({
             }
         });
 
-        console.log(title[3]);
         
         tl.to(title[2], { opacity: 0, yPercent: -20, scale: 0.5, duration: 0.1 }, "<")
             .to(title[3], { opacity: 1, y: 0, duration: 0.1 }, "<+=0.1")
