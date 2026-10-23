@@ -1,18 +1,11 @@
 "use client"
 
-import { useGSAP } from '@gsap/react'
-import gsap from 'gsap'
-import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import Image from 'next/image'
 import { useRef } from 'react'
-import Link from 'next/link'
 import SectionTitle from '../../ui/SectionTitle'
 import ProofHeader from '../../features/ProofHeader'
-import { ArrowRight } from 'lucide-react'
-import TransitionLink from '../../ui/transitionLink'
 import SeoHeader from './SeoHeader'
 import SeoHightlight from './SeoHightlight'
-import { trackPhoneClick } from '@/actions/trackPhone.action'
 
 interface SeoCatchTemplateProps {
 	city: string

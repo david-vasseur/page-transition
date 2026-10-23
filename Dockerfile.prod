@@ -1,24 +1,25 @@
 # ==========================================
 # Stage 1 : builder
 # ==========================================
-FROM node:25.2.1-bookworm-slim AS builder
+FROM node:24-bookworm AS builder
 
 WORKDIR /app
 
-# Installer toutes les dépendances (y compris devDependencies pour le build)
+# Bride mémoire pour empêcher le crash du VPS pendant la compilation
+ENV NODE_OPTIONS="--max-old-space-size=1024"
+
+# Installer toutes les dépendances
 COPY package*.json ./
 RUN npm ci
 
-# Copier tout le projet 
+# Copier tout le projet et builder
 COPY . .
-
-# Build NextJS
 RUN npm run build
 
 # ==========================================
 # Stage 2 : runner
 # ==========================================
-FROM node:25.2.1-bookworm-slim
+FROM node:24-bookworm-slim
 
 WORKDIR /app
 
@@ -26,22 +27,19 @@ ENV NODE_ENV=production
 ENV NODE_OPTIONS="--max-old-space-size=512"
 ENV NEXT_TELEMETRY_DISABLED=1
 
-# Installer uniquement les dépendances de production
-COPY package*.json ./
-RUN npm ci --omit=dev
-
-# Récupérer uniquement les artéfacts du build
-COPY --from=builder /app/.next ./.next
-COPY --from=builder /app/public ./public
-
-# Mode rootless (création propre de l'utilisateur)
+# 1. Création de l'utilisateur rootless EN PREMIER
 RUN groupadd -g 1002 nodejs && \
     useradd -u 1002 -g nodejs -s /bin/sh gvs3d
 
-# Donner la propriété des fichiers à l'utilisateur non-root
-RUN chown -R gvs3d:nodejs /app
+# 2. Dépendances de production avec attribution directe des droits
+COPY --chown=gvs3d:nodejs package*.json ./
+RUN npm ci --omit=dev
 
-# Basculer sur l'utilisateur sécurisé
+# 3. Récupération des artéfacts avec droits directs (zéro couche dupliquée)
+COPY --chown=gvs3d:nodejs --from=builder /app/.next ./.next
+COPY --chown=gvs3d:nodejs --from=builder /app/public ./public
+
+# 4. Basculer sur l'utilisateur non-privilégié
 USER gvs3d
 
 EXPOSE 4002
