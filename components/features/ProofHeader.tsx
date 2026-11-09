@@ -81,7 +81,7 @@ function ProofHeader() {
                             icon: FaBuilding,
                             label: "Années",
                             label2: "D'experience",
-                            title: "3+",
+                            title: "5+",
                         },
                         {
                             icon: FaBug,

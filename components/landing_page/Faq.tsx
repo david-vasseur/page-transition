@@ -98,7 +98,7 @@ function Faq() {
 
     return (
         <section ref={sectionRef} className="relative bg-black text-white text-center py-20 mb-64">
-            <SectionTitle title='UNE DERNIERE' span='QESTION ?' big/>
+            <SectionTitle title='UNE DERNIERE' span='QUESTION ?' big/>
             <FaqElement 
                 icon={FaShieldAlt} 
                 label="Est-ce dangereux pour mes enfants ou mes animaux ?" 
