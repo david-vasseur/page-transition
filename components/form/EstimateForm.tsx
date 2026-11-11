@@ -6,8 +6,11 @@ import { Send } from "lucide-react";
 import { sendEmail } from "./EstimateForm.action";
 import { EstimateSchema, IEstimate } from '@/schema/estimateSchema';
 import { toast } from 'sonner';
+import { useModalStore } from '@/lib/stores/modalStore';
 
 export const EstimateForm = () => {
+
+    const { closeModal } = useModalStore();
 
     const form = useForm({
         defaultValues: {
@@ -33,6 +36,7 @@ export const EstimateForm = () => {
                     description: "Nous vous recontacterons rapidement.",
                 })
                 form.reset();
+                closeModal();
             } else {
                 toast.error(response.message || "Une erreur s’est produite.")
             }
