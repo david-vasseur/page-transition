@@ -17,15 +17,15 @@ export const EstimateForm = () => {
             address: "",
             postalCode: "",
             city: "",
-            service: "",
+            service: "" as IEstimate["service"],
             message: "",
-            whatsapp: false
+            whatsapp: false,
+            honeypot: ""
         } as IEstimate,
         validators: {
             onChange: EstimateSchema,
         },
         onSubmit: async ({ value }) => {
-            
             const response = await sendEmail(value);
             
             if (response.success) {
@@ -34,11 +34,10 @@ export const EstimateForm = () => {
                 })
                 form.reset();
             } else {
-                toast.error("Une erreur s’est produite.")
+                toast.error(response.message || "Une erreur s’est produite.")
             }
         },
     })
-
 
     return (
         <form 
@@ -48,9 +47,25 @@ export const EstimateForm = () => {
                 form.handleSubmit()
             }}
         >
+            {/* Champ Honeypot invisible pour les humains, piège les robots */}
+            <form.Field name="honeypot">
+                {({ state, handleChange }) => (
+                    <div className="sr-only" aria-hidden="true">
+                        <label htmlFor="honeypot">Ne pas remplir ce champ</label>
+                        <input
+                            id="honeypot"
+                            name="honeypot"
+                            type="text"
+                            tabIndex={-1}
+                            autoComplete="off"
+                            value={state.value || ""}
+                            onChange={(e) => handleChange(e.target.value)}
+                        />
+                    </div>
+                )}
+            </form.Field>
             
-            <form.Field
-                name="name">
+            <form.Field name="name">
                 {({ state, handleBlur, handleChange }) => (
                     <motion.div
                         initial={{ opacity: 0, y: 20 }}
@@ -70,19 +85,15 @@ export const EstimateForm = () => {
                             onChange={(e) => handleChange(e.target.value)}
                         />
                         {state.meta.errors.length > 0 && state.meta.isTouched ? (
-                            <p 
-                                className="text-red-500 font-semibold text-xs">
-                                    {state.meta.errors[0]?.message}
+                            <p className="text-red-500 font-semibold text-xs">
+                                {state.meta.errors[0]?.message}
                             </p>
-                        ) : null
-                        }
+                        ) : null}
                     </motion.div>
-                    
                 )}
             </form.Field>
 
-            <form.Field
-                name="email">
+            <form.Field name="email">
                 {({ state, handleBlur, handleChange }) => (
                     <motion.div
                         initial={{ opacity: 0, y: 20 }}
@@ -102,18 +113,15 @@ export const EstimateForm = () => {
                             onChange={(e) => handleChange(e.target.value.toLowerCase())}
                         />
                         {state.meta.errors.length > 0 && state.meta.isTouched ? (
-                            <p 
-                                className="text-red-500 font-semibold text-xs">
-                                    {state.meta.errors[0]?.message}
+                            <p className="text-red-500 font-semibold text-xs">
+                                {state.meta.errors[0]?.message}
                             </p>
-                        ) : null
-                        }
+                        ) : null}
                     </motion.div>
                 )}
             </form.Field>
 
-            <form.Field
-                name="phoneNumber">
+            <form.Field name="phoneNumber">
                 {({ state, handleBlur, handleChange }) => (
                     <motion.div
                         initial={{ opacity: 0, y: 20 }}
@@ -133,12 +141,10 @@ export const EstimateForm = () => {
                             onChange={(e) => handleChange(e.target.value)}
                         />
                         {state.meta.errors.length > 0 && state.meta.isTouched ? (
-                            <p 
-                                className="text-red-500 font-semibold text-xs">
-                                    {state.meta.errors[0]?.message}
+                            <p className="text-red-500 font-semibold text-xs">
+                                {state.meta.errors[0]?.message}
                             </p>
-                        ) : null
-                        }
+                        ) : null}
                     </motion.div>
                 )}
             </form.Field>
@@ -221,8 +227,7 @@ export const EstimateForm = () => {
                 )}
             </form.Field>
 
-            <form.Field
-                name="service">
+            <form.Field name="service">
                 {({ state, handleBlur, handleChange }) => (
                     <motion.div
                         initial={{ opacity: 0, y: 20 }}
@@ -231,34 +236,31 @@ export const EstimateForm = () => {
                         transition={{ delay: 1, duration: 0.4 }}
                     >
                         <label className="sr-only">Service désiré</label>
-                            <select
-                                aria-invalid={
-                                    state.meta.errors.length > 0 && state.meta.isTouched
-                                }
-                                value={state.value}
-                                onBlur={handleBlur}
-                                onChange={(e) => handleChange(e.target.value)}
-                                className="w-full rounded-md border border-gray-700 bg-transparent py-2 px-3 text-gray-500 placeholder-gray-500 focus:border-orange-500 focus:outline-none transition"
-                            >
-                                <option value="">Choisissez votre service</option>
-                                <option value="deratisation">Dératisation: Lutte contre les rongeurs</option>
-                                <option value="desinsectisation">Désinsectisation: Lutte contre les nuisibles</option>
-                                <option value="desinfection">Desinfection: Nettoyage en profondeur</option>
-                                <option value="autre">Autre</option>
-                            </select>
+                        <select
+                            aria-invalid={
+                                state.meta.errors.length > 0 && state.meta.isTouched
+                            }
+                            value={state.value}
+                            onBlur={handleBlur}
+                            onChange={(e) => handleChange(e.target.value as IEstimate["service"])}
+                            className="w-full rounded-md border border-gray-700 bg-transparent py-2 px-3 text-gray-500 placeholder-gray-500 focus:border-orange-500 focus:outline-none transition"
+                        >
+                            <option value="">Choisissez votre service</option>
+                            <option value="deratisation">Dératisation: Lutte contre les rongeurs</option>
+                            <option value="desinsectisation">Désinsectisation: Lutte contre les nuisibles</option>
+                            <option value="desinfection">Desinfection: Nettoyage en profondeur</option>
+                            <option value="autre">Autre</option>
+                        </select>
                         {state.meta.errors.length > 0 && state.meta.isTouched ? (
-                            <p 
-                                className="text-red-500 font-semibold text-xs">
-                                    {state.meta.errors[0]?.message}
+                            <p className="text-red-500 font-semibold text-xs">
+                                {state.meta.errors[0]?.message}
                             </p>
-                        ) : null
-                        }
+                        ) : null}
                     </motion.div>
                 )}
             </form.Field>
             
-            <form.Field
-                name="message">
+            <form.Field name="message">
                 {({ state, handleBlur, handleChange }) => (
                     <motion.div
                         initial={{ opacity: 0, y: 20 }}
@@ -266,53 +268,48 @@ export const EstimateForm = () => {
                         viewport={{ once: true }}
                         transition={{ delay: 1.1, duration: 0.4 }}
                     >
-                        <label className="sr-only">Precisez votre demande</label>
+                        <label className="sr-only">Précisez votre demande</label>
                         <textarea
-                        aria-invalid={
+                            aria-invalid={
                                 state.meta.errors.length > 0 && state.meta.isTouched
                             }
-                        rows={4} 
-                        value={state.value}
-                        onBlur={handleBlur}
-                        placeholder="Message"
-                        onChange={(e) => handleChange(e.target.value)}
-                        className="w-full rounded-md border border-gray-700 bg-transparent py-2 px-3 text-white placeholder-gray-500 focus:border-orange-500 focus:outline-none transition"
+                            rows={4} 
+                            value={state.value}
+                            onBlur={handleBlur}
+                            placeholder="Message"
+                            onChange={(e) => handleChange(e.target.value)}
+                            className="w-full rounded-md border border-gray-700 bg-transparent py-2 px-3 text-white placeholder-gray-500 focus:border-orange-500 focus:outline-none transition"
                         ></textarea>
                         {state.meta.errors.length > 0 && state.meta.isTouched ? (
-                            <p 
-                                className="text-red-500 font-semibold text-xs">
-                                    {state.meta.errors[0]?.message}
+                            <p className="text-red-500 font-semibold text-xs">
+                                {state.meta.errors[0]?.message}
                             </p>
-                        ) : null
-                        }
+                        ) : null}
                     </motion.div>
                 )}
             </form.Field>     
 
-            <form.Field
-                name="whatsapp"
-            >
-            {({ state, handleBlur, handleChange }) => (
-                <motion.div
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ delay: 1.2, duration: 0.4 }}
-                >
-                    <input
-                        type="checkbox"
-                        aria-invalid={
+            <form.Field name="whatsapp">
+                {({ state, handleBlur, handleChange }) => (
+                    <motion.div
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ delay: 1.2, duration: 0.4 }}
+                    >
+                        <input
+                            type="checkbox"
+                            aria-invalid={
                                 state.meta.errors.length > 0 && state.meta.isTouched
                             }
-                        className="border border-gray-700 bg-transparent py-2 px-3 mr-2 text-white placeholder-gray-500 focus:border-orange-500 focus:outline-none transition"
-                        placeholder="Votre Email"
-                        checked={state.value}
-                        onBlur={handleBlur}
-                        onChange={(e) => handleChange(e.target.checked)}
-                    />
-                    <label className="text-gray-500">Avez vous Whatsapp?</label>
-                </motion.div>
-            )}
+                            className="border border-gray-700 bg-transparent py-2 px-3 mr-2 text-white placeholder-gray-500 focus:border-orange-500 focus:outline-none transition"
+                            checked={state.value}
+                            onBlur={handleBlur}
+                            onChange={(e) => handleChange(e.target.checked)}
+                        />
+                        <label className="text-gray-500">Avez-vous WhatsApp ?</label>
+                    </motion.div>
+                )}
             </form.Field>       
 
             <form.Subscribe 
@@ -323,21 +320,18 @@ export const EstimateForm = () => {
                         type="submit" 
                         disabled={!canSubmit || isSubmitting}
                         className="inline-flex items-center justify-center space-x-2 rounded-md bg-orange-600 px-6 py-3 font-semibold text-black hover:bg-orange-700 transition cursor-pointer"
-					    whileHover={{ scale: 1.05 }}
-					    whileTap={{ scale: 0.95 }}    
+                        whileHover={{ scale: 1.05 }}
+                        whileTap={{ scale: 0.95 }}    
                     >
-                    {isSubmitting ? "..." : (
-                        <span className="flex items-center">
-                            <Send className="mr-2" />
-                            Envoyer
-                        </span>
-                    )}
-                </motion.button>
+                        {isSubmitting ? "..." : (
+                            <span className="flex items-center">
+                                <Send className="mr-2" />
+                                Envoyer
+                            </span>
+                        )}
+                    </motion.button>
                 )}            
-            >    
-            </form.Subscribe>
+            />
         </form>
     )
-
 }
-

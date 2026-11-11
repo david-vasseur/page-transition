@@ -1,7 +1,10 @@
 import { IEstimate } from "@/schema/estimateSchema";
 
 function MyEmail(value: IEstimate) {
-    const cleanPhone = value.phoneNumber ? value.phoneNumber.replace(/[\s.-]/g, "").replace(/^(\+33|0)/, "") : "";
+    // Nettoie le numéro en ne gardant que les chiffres pour éviter toute injection dans le lien wa.me
+    const cleanPhone = value.phoneNumber
+        ? value.phoneNumber.replace(/\D/g, "").replace(/^(33|0)/, "")
+        : "";
 
     return (
         <>
@@ -11,7 +14,7 @@ function MyEmail(value: IEstimate) {
                     <strong style={{ color: '#2563EB', fontWeight: '900' }}>{value.name}</strong> a fait une demande de devis pour <strong style={{ color: '#2563EB', fontWeight: '800' }}>{value.service}</strong>
                 </h2>
                 
-                <p style={{ margin: '20px 0', fontSize: '16px', lineHeight: '1.5' }}>
+                <p style={{ margin: '20px 0', fontSize: '16px', lineHeight: '1.5', whiteSpace: 'pre-wrap' }}>
                     <strong>Message :</strong> <em>"{value.message}"</em>
                 </p>
 
@@ -54,7 +57,7 @@ function MyEmail(value: IEstimate) {
 
             <div style={{ marginTop: '20px', textAlign: 'center' }}>
                 <img
-                    src="https://gvs3d.fr/logo.wepb"
+                    src="https://gvs3d.fr/logo.webp"
                     width={200}
                     alt="Logo GVS3D"
                     style={{ display: 'block', margin: '0 auto', maxWidth: '100%', height: 'auto' }}
